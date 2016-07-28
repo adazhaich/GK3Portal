@@ -47,10 +47,17 @@ $(document).ready(function(){
 
 		var map;
 		if(typeMap != 'pop'){
+
 			map = L.map(getElement("#mapId").val()).setView([x, y], 13);
+		  console.log("typeMap is not a popUp")
 		}else{
 			//console.log('test');
 			map = L.map('map').setView([x, y], 13);
+			console.log("typeMap is a popUp")
+			console.log("Height:"+window.innerHeight + " Width:"+ window.innerWidth)
+			document.getElementById("map").style.height = window.innerHeight + "px";
+			document.getElementById("map").style.width = window.innerWidth+ "px";
+			map.invalidateSize();
 		}
 		
 		L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiaHpsdmFqIiwiYSI6ImNpajBlYjIyaTAwOGF1Mm00aW51ZzUyc28ifQ.psjgi9x-0WjaRrsRTnig7g', {
@@ -69,7 +76,7 @@ $(document).ready(function(){
 				y = parseFloat(d.y.replace(/["']/g, ""));
 
 				L.marker([x, y]).addTo(map)
-				.bindPopup("<br />Cell Id:" + d.cell_id);
+				.bindPopup("<br />Cell ID:" + d.cell);
 			}
 		});
 		var popup = L.popup();

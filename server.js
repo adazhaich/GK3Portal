@@ -1,5 +1,8 @@
+// set up ======================================================================
+//========This file will be the glue for our entire application.
 
 var express  = require('express');
+var app      = express();
 var https = require('https');
 var http = require('http');
 var httpProxy = require('http-proxy');
@@ -15,7 +18,7 @@ var morgan       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
-var app      = express();
+
 var logger 		 = require("./app/logger");
 var config	= require("./app/config");
 
@@ -64,7 +67,7 @@ app.use(express.static(__dirname + '/public')); // set the static files location
 app.set('public', __dirname + '/public'); //defining absolute path of views folder
 //app.use('/reports', express.static(__dirname + '/public')); // all reports will access static files from location /public/*
 //app.use('/drilldown',express.static(__dirname + '/public'));
-//console.log("checkAuthentication:",(config.httpConfig.checkAuthentication ));
+
 
 
 // context root?

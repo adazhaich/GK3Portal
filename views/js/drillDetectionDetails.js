@@ -70,7 +70,7 @@ function popSub(data) {
 }
 
 function popMap(cellId, imsi, msisdn) {
-    var url = clientHTTPConfig.appContextRoot + '/map?cellId=' + cellId + '&imsi=' + imsi + '&msisdn=' + msisdn;
+    var url = clientHTTPConfig.appContextRoot + '/map?cellId=' + cellId;
     window.open(
         url,
         '_blank',
