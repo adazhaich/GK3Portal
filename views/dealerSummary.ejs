@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script src='/test/views/js/dealerSummary.js' type='text/javascript'></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div id="page" class="container-fluid panel-group" style="margin-top: 20px; margin-left: 5px;">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" href="#dsfilter_collapse"><i class="fa fa-angle-double-down"></i>Filter</a>
+						</h4>
+					</div>
+					<div id="dsfilter_collapse" class="panel-collapse collapse">
+						<div class="panel-body">
+							<form class="form-inline">
+								<div class="row" style="margin-left:0;">
+									<div class="form-group col-md-4">
+										<label for="dealerName" class="col-sm-4">Dealer Name: </label> 
+										<div class="input-group col-sm-6">
+											<input type="text" class="form-control" id="dealerName" value="">
+										</div>
+									</div>
+									<div class="form-group col-md-4">
+									&nbsp;
+									</div>
+									<div class="form-group col-md-1">
+										
+									</div>
+									<div class="form-group col-md-3">
+										<!--button class="btn btn-primary btn-sm" id="advanced">Advanced</button-->
+									</div>
+								</div>
+								<div class="row" style="margin-left:0;">
+									<div class="form-group col-md-4">
+										<label for="start" class="col-sm-4">Start: </label>
+										<div class="input-group input-group-sm col-sm-6 date" data-provide="datepicker" data-date-format="yyyy-mm-dd">
+										    <input type="text" id="start" class="form-control datepicker " value="">
+										    <div class="input-group-addon">
+										        <span class="glyphicon glyphicon-th"></span>
+										    </div>
+										</div> 
+									</div>
+									<div class="form-group col-md-4">
+										<label for="end" class="col-sm-6">End Hour: </label>
+										<div class="input-group input-group-sm col-sm-6 date" data-provide="datepicker" data-date-format="yyyy-mm-dd">
+										    <input type="text" id="end" class="form-control datepicker " value="">
+										    <div class="input-group-addon">
+										        <span class="glyphicon glyphicon-th"></span>
+										    </div>
+										</div> 
+									</div>
+									<div class="form-group col-md-1">
+										&nbsp;
+									</div>
+									<div class="form-group col-md-3">
+										<input type="button" value="Go" class="btn btn-primary btn-sm" id="refresh">													
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" href="#dstable_collapse"><i class="fa fa-angle-double-down"></i>Dealer
+								Summary Report</a>
+						</h4>
+						<ul class="list-inline panel-actions">
+							<li>
+								<a href="#" data-table="dealersummary-datatable" id="panel-fullscreen" role="button" title="Toggle fullscreen"  onclick="panleFull(this)"><i class="glyphicon glyphicon-resize-full"></i></a>
+							</li>
+						</ul>
+					</div>
+					<div id="dstable_collapse" class="panel-collapse collapse in">
+						<div class="panel-body">
+									<table class="table table-striped cell-border" width="100%"
+										id="dealersummary-datatable">
+										<thead>
+											<tr>
+												<th>Dealerid</th>
+												<th>Insert Time</th> <!--  per Niranjan -->
+												<th>Dealer Name</th>	
+												<th>Insert Date Epoch</th>
+												<th>Detections</th>
+											</tr>
+										</thead>
+									</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

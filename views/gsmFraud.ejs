@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src='/test/views/js/gsmFraud.js' type='text/javascript'></script>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div id="page" class="container-fluid panel-group" style="margin-top: 20px; margin-left: 5px;">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" href="#gsm_filter_collapse"><i class="fa fa-angle-double-down"></i>Filter</a>
+						</h4>
+					</div>
+
+					<div id="gsm_filter_collapse" class="panel-collapse collapse">
+						<div class="panel-body">
+							
+								<div class="row" style="margin-left:0;">
+									<div class="form-group col-md-3">
+										<form class="form-inline">
+										<label for="name" class="col-sm-2">Day:</label>
+										<div class="input-group input-group-sm col-sm-6 date" data-provide="datepicker" data-date-format="yyyy-mm-dd">
+										    <input type="text" id="day" class="form-control datepicker " >
+										    <div class="input-group-addon">
+										        <span class="glyphicon glyphicon-th"></span>
+										    </div>
+										</div>
+										</form>
+									</div>
+									<div class="form-group col-md-3"  style="white-space:nowrap">
+ 									</div>
+									<div class="form-group col-md-3">
+										<input type="button" class="btn btn-primary btn-sm" id="refresh" value="GO">
+									</div>
+								</div>
+						</div>
+					</div>
+
+
+				</div>
+				
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" href="#gsm_table_collapse"><i class="fa fa-angle-double-down"></i>GSM Fraud Report</a>
+						</h4>
+						<ul class="list-inline panel-actions">
+							<li>
+								<a href="#" id="panel-fullscreen" data-table="gsmfraud-datatable" role="button" title="Toggle fullscreen" onclick="panleFull(this)"><i class="glyphicon glyphicon-resize-full"></i></a>
+							</li>
+						</ul>
+					</div>
+					<div id="gsm_table_collapse" class="panel-collapse collapse in">
+						<div class="panel-body">
+									<table class="table table-striped cell-border" style="width:100%;"
+										id="gsmfraud-datatable">
+										<thead>
+											<tr>
+												<th>Traffic Date</th>
+ 												<th>Detection Pct</th>	
+												<th>Detection Count</th>
+												<th>Insert time</th>									
+												<th>Calling country</th>
+												<th>Calling service</th>
+												<th>Call count</th>
+											</tr>
+										</thead>
+									</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

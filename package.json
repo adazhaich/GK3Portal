@@ -1,0 +1,29 @@
+{
+  "name": "gk3_portal",
+  "version": "1.0.0",
+  "description": "GK3 Portal Source Code",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "dateformat": "^1.0.12",
+    "ejs": "^2.5.1",
+    "express": "https://registry.npmjs.org/express/-/express-4.14.0.tgz",
+    "express-session": "^1.14.0",
+    "http-proxy": "^1.14.0",
+    "morgan": "^1.7.0",
+    "mysql": "^2.11.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "request": "^2.74.0",
+    "winston": "^2.2.0"
+  }
+}

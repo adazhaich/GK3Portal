@@ -1,0 +1,67 @@
+<script src='/test/views/js/gk3global.js' type='text/javascript'></script>
+<script src='/test/views/js/header.js' type='text/javascript'></script>
+
+
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a href="http://http://www.mobiusws.com/"><img src="/test/views/images/logo.png"></img></a>
+		</div>
+		<div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="/test" id="headerHome">Home</a></li>
+				<li class="dropdown"><a class="dropdown-toggle" 
+					data-toggle="dropdown" href="#">Settings<span class="caret"></span></a>
+					<ul class="dropdown-menu" id="menu">
+						<% if (req.isAuthenticated()) { 
+								if(req.user.role_id.indexOf(1) >= 0 ) {//1 means System Administrator
+						%>
+							<li><a href="/test/signup" id="signupId"><i class="fa fa-user"></i>&nbsp;Users</a></li>
+							<li><a onclick='registerComposeButtonEvent(this)' data-addtab="setrole" url="/test/setrole" id="setRoleId">Role</a></li>
+							<li><a onclick='registerComposeButtonEvent(this)' data-addtab="setmenu" url="/test/setmenu" id="setMenuId">Menu</a></li>
+	`					<% } %>
+							<li><a onclick='registerComposeButtonEvent(this)' data-addtab="setpassword" url="/test/setpassword" id="setPasswordId">Password</a></li>
+							<li><a onclick='registerComposeButtonEvent(this)' data-addtab="setpreferences" url="/test/setpreferences" id="setPreferencesId">Preferences</a></li>
+						<% }%>
+													        								
+					</ul>
+				</li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<% if (!req.isAuthenticated()) { %>
+					<li><a data-addtab="login" url="/login"><span	class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			    <% }
+			    else {%>
+			    <input type="hidden" id="login_user" value="<%=req.user.id %>" >
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#">Welcome <%=req.user.username %>!<span class="caret"></span></a>
+						<ul class="dropdown-menu" id="menu">
+							<li><a data-addtab="prof" url="/test/profile" id="profileId">Profile</a></li>
+							<li><a href="/test/logout" id="headerLogoutId">Logout</a></li>
+						</ul>
+					</li>				    
+			   <%} 			    
+		    %>					
+				
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active"><a id="txt">Current Time:</a></li>
+			</ul><!--
+            <ul class="navbar-right">
+			<marquee behavior="scroll" bgcolor="yellow" loop="-1" width="75%">
+				<i>
+					<font color="blue">
+						 Today's date is :
+						<strong>
+							<span id="date"></span>
+						</strong>
+					</font>
+				</i>
+			</marquee>
+            </ul>-->
+		</div>
+
+		<div id="fraud_menu"></div>
+	</div>
+</nav>
+

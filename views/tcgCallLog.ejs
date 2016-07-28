@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script src='/test/views/js/tcgCallLog.js' type='text/javascript'></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div id="page" class="container-fluid panel-group" style="margin-top: 20px; margin-left: 5px;">
+			<div class="panel-group">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" href="#tclfilter_collapse"><i class="fa fa-angle-double-down"></i>Filter</a>
+						</h4>
+					</div>
+					<div id="tclfilter_collapse" class="panel-collapse collapse">
+						<div class="panel-body">
+							<form class="form-inline">
+								<div class="row" style="margin-left:0;">
+									<div class="form-group col-md-6">
+										<label for="source" class="col-sm-3">Source: </label> 
+										<input type="text" class="form-control" id="source"></input>
+									</div>
+									<div class="form-group col-md-2">
+										&nbsp;
+									</div>
+									<div class="form-group col-md-4">
+										&nbsp;
+									</div>
+								</div>
+								<div class="row" style="margin-left:0;">
+									<div class="form-group col-md-6">
+										<label for="start" class="col-sm-3">Call Date: </label> 
+										<div class="input-group input-group-sm date" data-provide="datepicker" data-date-format="yyyy-mm-dd">
+											<input type="text" id="start" class="form-control datepicker " value="">
+											<div class="input-group-addon">
+												<span class="glyphicon glyphicon-th"></span>
+											</div>
+											 </div> 
+											 <label>~</label>
+										   	<div class="input-group input-group-sm date" data-provide="datepicker" data-date-format="yyyy-mm-dd">
+											    <input type="text" id="end" class="form-control datepicker " value="">
+											    <div class="input-group-addon">
+											        <span class="glyphicon glyphicon-th"></span>
+											    </div>
+											 </div> 
+									</div>
+									<div class="form-group col-md-3">
+										&nbsp;
+									</div>
+									<div class="form-group col-md-3">
+										<input type="button" value="Go" class="btn btn-primary btn-sm" id="go">													
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a role="button" data-toggle="collapse" href="#tcltable_collapse"><i class="fa fa-angle-double-down"></i>Tcg Call
+								 Log</a>
+						</h4>
+						<ul class="list-inline panel-actions">
+							<li><a href="#" id="panel-fullscreen" data-table="tcgCallLog-datatable" role="button"
+								title="Toggle fullscreen" onclick="panleFull(this)"> <i
+									class="glyphicon glyphicon-resize-full"></i>
+							</a></li>
+						</ul>
+					</div>
+					<div id="tcltable_collapse" class="panel-collapse collapse in">
+						<div class="panel-body">
+									<table class="table table-striped cell-border" style="width:100%;"
+										id="tcgCallLog-datatable">
+										<thead>
+											<tr>
+												<th>id</th>
+												<th>S_MSISDN</th>
+												<th>O_MSISDN</th>
+												<th>S_IMSI</th>	
+												<th>S_IMEI</th>
+												<th>S_SUBID</th>									
+												<th>Duration</th>
+												<th>Detection</th>
+												<th>Type</th>
+												<th>Source File Name</th>
+												<th>Country Of Origin</th>
+												<th>Source</th>	
+												<th>Dial Prefix</th>
+												<th>Insert Time</th>
+												<th>Source Operator</th>
+												<th>Call Date</th>
+											</tr>
+										</thead>
+									</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

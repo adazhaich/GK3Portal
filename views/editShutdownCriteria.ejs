@@ -1,0 +1,656 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script src='/test/views/js/shutdownCriteria.js' type='text/javascript'></script>
+
+</head>
+<body>
+	<div class="container-fluid">
+		<div id="page" class="container-fluid panel-group" style="margin-top: 20px; margin-left: 5px;">
+	
+
+			<form id="esd_form" method="post">	
+				<div id="param_div">
+					<div class="row" style="margin-left:0;">
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1"></div>
+						<div class="form-group col-md-2">
+							<label for="criteriano" class="label-control">Criteria No: <font color="red">*</font></label> 
+						</div>
+						
+						<div class="form-group col-md-6">
+							<input class="form-control" id="criteriano" required="required">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Max 10 characters!</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1"></div>
+						<div class="form-group col-md-2">
+							<label for="path" class="label-control">PATH: <font color="red">*</font></label> 
+						</div>
+						
+						<div class="form-group col-md-6">
+							<input class="form-control" id="path" required="required">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: report/a</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="tacck"></div>
+						<div class="form-group col-md-2">
+							<label for="tac" class="label-control">TAC: </label> 
+						</div>
+						
+						<div class="form-group col-md-6">
+							<input class="form-control" id="tac">
+						</div>
+						
+						<div class="form-group col-md-3">
+							<label class="label-control">Example: 12345678,23456789</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="lacck"></div>
+						<div class="form-group col-md-2">
+							<label for="lac" class="label-control">LAC: </label> 
+						</div>
+						
+						<div class="form-group col-md-6">
+							<input class="form-control" id="lac">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 12345,23456</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="cellidck"></div>
+						<div class="form-group col-md-2">
+							<label for="cellid" class="label-control">CELL ID: </label> 
+						</div>
+						
+						<div class="form-group col-md-6">
+							<input class="form-control" id="cellid">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 12345,23456</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="callsoutck"></div>
+						<div class="form-group col-md-2">
+							<label for="callsout" class="label-control">CALLS OUT: </label> 
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="callsoutad" id="callsoutad_1" value="less" checked> &lt;=
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="callsoutad" id="callsoutad_2" value="equal"> =
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="callsoutad" id="callsoutad_3" value="more"> &gt;=
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<input class="form-control" id="callsout">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 10</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="callsinck"></div>
+						<div class="form-group col-md-2">
+							<label for="callsin" class="label-control">CALLS IN: </label> 
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="callsinad" id="callsinad_1" value="less" checked> &lt;=
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="callsinad" id="callsinad_2" value="euqal"> =
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="callsinad" id="callsinad_3" value="more"> &gt;=
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<input class="form-control" id="callsin">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 3</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="smsoutck"></div>
+						<div class="form-group col-md-2">
+							<label for="smsout" class="label-control">SMS OUT: </label> 
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="smsoutad" id="smsoutad_1" value="less" checked> &lt;=
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="smsoutad" id="smsoutad_2" value="equal"> =
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="smsoutad" id="smsoutad_3" value="more"> &gt;=
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<input class="form-control" id="smsout">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 5</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="intloutck"></div>
+						<div class="form-group col-md-2">
+							<label for="intlout" class="label-control">INTL OUT: </label> 
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="intloutad" id="intloutad_1" value="less" checked> &lt;=
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="intloutad" id="intloutad_2" value="equal"> =
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="intloutad" id="intloutad_3" value="more"> &gt;=
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<input class="form-control" id="intlout">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 5</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="domtoutck"></div>
+						<div class="form-group col-md-2">
+							<label for="domtout" class="label-control">DOMESTIC OUT: </label> 
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="domtoutad" id="domtoutad_1" value="less" checked> &lt;=
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="domtoutad" id="domtoutad_2" value="equal"> =
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="domtoutad" id="domtoutad_3" value="more"> &gt;=
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<input class="form-control" id="domtout">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 5</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="cellck"></div>
+						<div class="form-group col-md-2">
+							<label for="cell" class="label-control">CELL NUM: </label> 
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="cellad" id="cellad_1" value="less" checked> &lt;=
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="cellad" id="cellad_2" value="equal"> =
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="cellad" id="cellad_3" value="more"> &gt;=
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<input class="form-control" id="cell">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 5</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="ratiock"></div>
+						<div class="form-group col-md-2">
+							<label for="ratio" class="label-control">RATIO: </label> 
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="ratioad" id="ratioad_1" value="less" checked> &lt;=
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="ratioad" id="ratioad_2" value="equal"> =
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="ratioad" id="ratioad_3" value="more"> &gt;=
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<input class="form-control" id="ratio">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 0.95</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="vendorck"></div>
+						<div class="form-group col-md-2">
+							<label for="vendor" class="label-control">VENDOR: </label> 
+						</div>
+						
+						<div class="form-group col-md-6">
+							<input class="form-control" id="vendor">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: Wavecom,Sierra</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="modelck"></div>
+						<div class="form-group col-md-2">
+							<label for="model" class="label-control">MODEL: </label> 
+						</div>
+						
+						<div class="form-group col-md-6">
+							<input class="form-control" id="model">
+						</div>
+						
+						<div class="form-group col-md-3">
+							<label class="label-control">Example: Wireless CPU Q24CL002,WS6318</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="avgoutdurck"></div>
+						<div class="form-group col-md-2">
+							<label for="avgoutdur" class="label-control">AVG OUT DURATION: </label> 
+						</div>
+						
+						<div class="form-group col-md-3">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="avgoutdurad" id="avgoutdurad_1" value="less" checked> &lt;=
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="avgoutdurad" id="avgoutdurad_2" value="equal"> =
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="avgoutdurad" id="avgoutdurad_3" value="more"> &gt;=
+								</label>
+							</div>
+						</div>
+						
+						<div class="form-group col-md-3">
+							<input class="form-control" id="avgoutdur">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 20</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="avginminck"></div>
+						<div class="form-group col-md-2">
+							<label for="avginmin" class="label-control">AVG IN MIN: </label> 
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="avginminad" id="avginminad_1" value="less" checked> &lt;=
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="avginminad" id="avginminad_2" value="equal"> =
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="avginminad" id="avginminad_3" value="more"> &gt;=
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<input class="form-control" id="avginmin">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 5</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="ignorvendorck"></div>
+						<div class="form-group col-md-2">
+							<label for="ignorvendor" class="label-control">IGNOR VENDOR: </label> 
+						</div>
+						
+						<div class="form-group col-md-6">
+							<input class="form-control" id="ignorvendor">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: Apple,Samsung</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="smsisdnck"></div>
+						<div class="form-group col-md-2">
+							<label for="smsisdn" class="label-control">S_MSISDN: </label> 
+						</div>
+						
+						<div class="form-group col-md-6">
+							<input class="form-control" id="smsisdn">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 12345</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="laccick"></div>
+						<div class="form-group col-md-2">
+							<label for="lacci" class="label-control">LAC CI: </label> 
+						</div>
+						
+						<div class="form-group col-md-6">
+							<input class="form-control" id="lacci">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 10001-20001,10002-20002</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="burstingck"></div>
+						<div class="form-group col-md-2">
+							<label for="bursting" class="label-control">BURSTING: </label> 
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="burstingad" id="burstingad_1" value="less" checked> &lt;=
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="burstingad" id="burstingad_2" value="equal"> =
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="burstingad" id="burstingad_3" value="more"> &gt;=
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<input class="form-control" id="bursting">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 0.5</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="illodd24ck"></div>
+						<div class="form-group col-md-2">
+							<label for="illodd24" class="label-control">ILLEGAL OODS 24HRS: </label> 
+						</div>
+						<div class="form-group col-md-3">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="illodd24ad" id="illodd24ad_1" value="less" checked> &lt;=
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="illodd24ad" id="illodd24ad_2" value="equal"> =
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="illodd24ad" id="illodd24ad_3" value="more"> &gt;=
+								</label>
+							</div>
+						</div>
+						<div class="form-group col-md-3">
+							<input class="form-control" id="illodd24">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 0.5</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="iscnicck"></div>
+						<div class="form-group col-md-2">
+							<label for="iscnic" class="label-control">Include Shutdown CNIC: </label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="avgindurck"></div>
+						<div class="form-group col-md-2">
+							<label for="avgindur" class="label-control">AVG IN DURATION: </label> 
+						</div>
+						
+						<div class="form-group col-md-3">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="avgindurad" id="avgindurad_1" value="less" checked> &lt;=
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="avgindurad" id="avgindurad_2" value="euqal"> =
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="avgindurad" id="avgindurad_3" value="more"> &gt;=
+								</label>
+							</div>
+						</div>
+						
+						<div class="form-group col-md-3">
+							<input class="form-control" id="avgindur">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 20</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1" align="right"><input type="checkbox" id="smsinck"></div>
+						<div class="form-group col-md-2">
+							<label for="smsin" class="label-control">SMS IN: </label> 
+						</div>
+						
+						<div class="form-group col-md-3">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="smsinad" id="smsinad_1" value="less" checked> &lt;=
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="smsinad" id="smsinad_2" value="euqal"> =
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="smsinad" id="smsinad_3" value="more"> &gt;=
+								</label>
+							</div>
+						</div>
+						
+						<div class="form-group col-md-3">
+							<input class="form-control" id="smsin">
+						</div>
+						
+						<div class="form-group col-md-2">
+							<label class="label-control">Example: 5</label> 
+						</div>
+					</div>
+					
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1"></div>
+						<div class="form-group col-md-2">
+							<label for="reportname" class="label-control">Report Name: <font color="red">*</font></label> 
+						</div>
+						
+						<div class="form-group col-md-5">
+							<input class="form-control" id="reportname" required="required">
+						</div>
+						
+						<div class="form-group col-md-4">
+							<label class="label-control">Example: SbGSM_yyyyMMddhh00_MobiusNRT.txt</label> 
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1"></div>
+						<div class="form-group col-md-2">
+							<label for="prodmode" class="label-control">PRODUCTION MODE: </label> 
+						</div>
+						
+						<div class="form-group col-md-4">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="prodmodead" id="prodmodead_1" value="0" checked>Staging
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="prodmodead" id="prodmodead_2" value="1">Production
+								</label>
+								
+							</div>
+						</div>
+						<div class="form-group col-md-2">
+							<label for="prodfilepath" class="label-control">Production File Path: </label> 
+						</div>
+						<div class="form-group col-md-2">
+							<input class="form-control" id="prodfilepath" disabled="disabled">
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1"></div>
+						<div class="form-group col-md-2">
+							<label for="source" class="label-control">REPORT SOURCE: </label> 
+						</div>
+						
+						<div class="form-group col-md-8">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="sourcead" id="sourcead_1" value="0" checked>hourly_fraud_summary_report
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="sourcead" id="sourcead_2" value="1">hourly_suspect
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="sourcead" id="sourcead_3" value="2">calls_nodup
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1"></div>
+						<div class="form-group col-md-2">
+							<label for="profix" class="label-control">REMOVE PREFIX NUM: </label> 
+						</div>
+						
+						<div class="form-group col-md-8">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="prefixad" id="prefixad_1" value="0" checked>Not Remove
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="prefixad" id="prefixad_2" value="1">Remove Country Code
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1"></div>
+						<div class="form-group col-md-2">
+							<label for="dup" class="label-control">REMOVE DUPLICATE: </label> 
+						</div>
+						
+						<div class="form-group col-md-8">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="dupad" id="dupad_1" value="1" >Yes
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="dupad" id="dupad_2" value="0" checked>Not Remove
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1"></div>
+						<div class="form-group col-md-2">
+							<label for="offpeak" class="label-control">USE OFFPEAK TIME: </label> 
+						</div>
+						
+						<div class="form-group col-md-8">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="offpeakad" id="offpeakad_1" value="1" >Yes
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="offpeakad" id="offpeakad_2" value="0" checked>Not Remove
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="row" style="margin-left:0;">
+						<div class="form-group col-md-1"></div>
+						<div class="form-group col-md-2">
+							<label for="shortcalls" class="label-control">INCLUDE_SHORT_CALLS: </label> 
+						</div>
+						
+						<div class="form-group col-md-8">
+							<div class="form-inline">
+								<label class="radio-inline">
+								  <input type="radio" name="shortcallsad" id="shortcallsad_1" value="0" checked>exclude short calls
+								</label>
+								<label class="radio-inline">
+								  <input type="radio" name="shortcallsad" id="shortcallsad_2" value="1" >include short calls
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="row" style="margin-left:0;">
+				<div class="form-group col-md-4"></div>
+				<div class="form-group col-md-1">
+					<input type="button" value="Save" id="save"/>
+				</div>
+				<div class="form-group col-md-1">
+					<input type="reset" value="Reset" id="reset"/>
+				</div>
+				<div class="form-group col-md-1">
+					<input type="button" value="Cancel" id="cancel"/>
+				</div>
+				<div class="form-group col-md-4"></div>
+			</div>
+			
+			</form>	
+			
+			
+		</div>
+	</div>
+</body>
+</html>
+

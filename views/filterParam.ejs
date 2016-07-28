@@ -1,0 +1,886 @@
+<script src='/test/views/js/filterParam.js' type='text/javascript'></script>
+
+<div class="panel-collapse collapse" id=adv_collapse>
+        <div class="row" style="margin-left:0;margin-top:5px;">
+        <div class="form-group col-md-3">
+        <div class="form-inline">
+        <label for="filterId" class="col-sm-5 label-control">Filter Value: </label>
+<div class="col-sm-5">
+        <select class="form-control" id="filterId">
+        </select>
+        </div>
+        </div>
+        </div>
+        <div class="form-group col-md-4">
+        <div class="form-inline">
+        <input type="button" value="Show" class="form-control btn btn-primary btn-sm" id="show" disabled="disabled" >
+
+        <input type="button" value="Save"
+class="form-control btn btn-primary btn-sm" id="save" disabled="disabled">
+
+        <input type="button" value="Delete"
+class="form-control btn btn-primary btn-sm" id="delete" disabled="disabled">
+
+        <input type="button" value="Empty Filter"
+class="form-control btn btn-primary btn-sm" id="empty" >
+        </div>
+        </div>
+        </div>
+
+        <form id=adv_form method="get">
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label for="filterName" class="label-control">Filter Name: </label>
+</div>
+
+<div class="form-group col-md-2">
+        <input class="form-control" id=filterName value="" placeholder="FilterName" pattern="[a-zA-Z0-9]{3,20}" title="Must 3 characters">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label for="filterSql" class="label-control">FilterSql: </label>
+</div>
+
+<div class="form-group col-md-2">
+        <input class="form-control" id=filterSql value="">
+        </div>
+
+        </div>
+        <% if(report == 'hf' ) {%>
+        <div id="hf_div" style="display:none;">
+        <div class="row" style="margin-left:0;">
+        </div>
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label class="label-control">Illegal Odds</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="illodds" id="illodds_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="illodds" id="illodds_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="input-append col-md-1">
+        <input id="illodds" class="span2 col-xs-10" placeholder="5" value="" pattern="^100|[1-9]\d|\d|0+$" title="must range 0-100">
+        <span class="add-on">%</span>
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Illegal Odds Ad</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="illoddsad" id="illoddsad_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="illoddsad" id="illoddsad_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="illoddsad" class="span2 col-xs-10" placeholder="5" value="" pattern="^100|[1-9]\d|\d|0+$" title="must range 0-100">
+        <span class="add-on">%</span>
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Illegal Odds 7 Ad </label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="illodds7ad" id="illodds7ad_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="illodds7ad" id="illodds7ad_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="illodds7ad" class="span2 col-xs-10" placeholder="5" value="" pattern="^100|[1-9]\d|\d|0+$" title="must range 0-100">
+        <span class="add-on">%</span>
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Calls out</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="numout" id="numout_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="numout" id="numout_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="numout" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+        </div>
+
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label class="label-control">B Count</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="numoutad" id="numoutad_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="numoutad" id="numoutad_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="numoutad" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Num Out Adjuested</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="numdistb" id="numdistb_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="numdistb" id="numdistb_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="numdistb" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Ratio</label>
+        </div>
+
+        <div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="ratio" id="ratio_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="ratio" id="ratio_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="ratio" class="form-control" placeholder="0.5" pattern="1|0|0.\d{1,2}" title="must range 0-1">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Num Out Adjuested Ratio</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="ratio2" id="ratio2_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="ratio2" id="ratio2_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="ratio2" class="form-control" placeholder="0.3" pattern="1|0|0.\d{1,2}" title="must range 0-1">
+        </div>
+        </div>
+
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label class="label-control">SMS Out</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="smsout" id="smsout_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="smsout" id="smsout_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="smsout" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">SMS Out IG</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="smsoutig" id="smsoutig_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="smsoutig" id="smsoutig_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="smsoutig" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">SMS In</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="smsin" id="smsin_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="smsin" id="smsin_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="smsin" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Calls In</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="numin" id="numin_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="numin" id="numin_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="numin" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+        </div>
+
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label class="label-control">Avg Dur</label>
+</div>
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="avgdur" id="avgdur_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="avgdur" id="avgdur_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="avgdur" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Bursting</label>
+        </div>
+
+        <div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="bursting" id="bursting_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="bursting" id="bursting_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="bursting" class="form-control" placeholder="0.5" pattern="" title="must range 0-1">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Cells</label>
+        </div>
+
+        <div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="cells" id="cells_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="cells" id="cells_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="cells" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Off Peak</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="offpeak" id="offpeak_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="offpeak" id="offpeak_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="offpeak" class="form-control" placeholder="0.5" pattern="1|0|0.\d{1,2}" title="must range 0-1">
+        </div>
+        </div>
+
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label class="label-control">Seconds</label>
+        </div>
+
+        <div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="sumoutdur" id="sumoutdur_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="sumoutdur" id="sumoutdur_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="sumoutdur" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Units</label>
+        </div>
+
+        <div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="sumoutunit" id="sumoutunit_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="sumoutunit" id="sumoutunit_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="sumoutunit" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Possible Loss</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="sumoutloss" id="sumoutloss_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="sumoutloss" id="sumoutloss_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="sumoutloss" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Avg In Dur</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="avgindur" id="avgindur_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="avgindur" id="avgindur_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="avgindur" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+        </div>
+
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label class="label-control">In Seconds</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="sumindur" id="sumindur_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="sumindur" id="sumindur_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="sumindur" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">In Units</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="suminunit" id="suminunit_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="suminunit" id="suminunit_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="suminunit" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Domestic Out</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="domout" id="domout_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="domout" id="domout_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="domout" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">INTL Out</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="intlout" id="intlout_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="intlout" id="intlout_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="intlout" class="form-control" placeholder="5" pattern="^[1-9]\d*|0+$" title="must not less than 0">
+        </div>
+        </div>
+
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label for="vendor" class="label-control">Vendor: </label>
+</div>
+<div class="form-group col-md-2">
+        <input class="form-control" id="vendor" value="" pattern="[^']">
+        </div>
+        <div class="form-group col-md-1">
+        <label for="model" class="label-control">Model: </label>
+</div>
+<div class="form-group col-md-2">
+        <input class="form-control" id="model" value="" pattern="[^']">
+        </div>
+        <div class="form-group col-md-1">
+        <label for="cellid" class="label-control">Cell ID: </label>
+</div>
+<div class="form-group col-md-2">
+        <input class="form-control" id="cellid" value="" pattern="[^']">
+        </div>
+        <div class="form-group col-md-1">
+        <label for="lac" class="label-control">LAC: </label>
+</div>
+<div class="form-group col-md-2">
+        <input class="form-control" id="lac" value="" pattern="[^']">
+        </div>
+        </div>
+
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label for="vendor" class="label-control">Trunk In </label>
+</div>
+<div class="form-group col-md-2">
+        <input class="form-control" id="trunkin" value="" pattern="[^']">
+        </div>
+        <div class="form-group col-md-1">
+        <label for="model" class="label-control">Trunk Out</label>
+</div>
+<div class="form-group col-md-2">
+        <input class="form-control" id="trunkout" value="" pattern="[^']">
+        </div>
+        <div class="form-group col-md-1">
+        <label for="cellid" class="label-control">S_IMSI </label>
+        </div>
+        <div class="form-group col-md-2">
+        <input class="form-control" id="simsi" value="" pattern="[^']">
+        </div>
+        <div class="form-group col-md-1">
+        <label for="lac" class="label-control">S_MSISDN </label>
+        </div>
+        <div class="form-group col-md-2">
+        <input class="form-control" id="smsisdn" value="" pattern="[^']">
+        </div>
+        <div class="form-group col-md-1">
+        <label for="lac" class="label-control">S_IMEI </label>
+        </div>
+        <div class="form-group col-md-2">
+        <input class="form-control" id="simei" value="" pattern="[^']">
+        </div>
+        </div>
+        </div>
+        <% } else if(report == 'hbn') { %>
+        <div id="hbn_div" style="display:none;">
+        <div class="row" style="margin-left:0;">
+        </div>
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label class="label-control">A MSISDN:</label>
+</div>
+<div class="form-group col-md-2">
+        <input id="amsisdn" class="form-control" value="" pattern="^\d+$">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">B MSISDN:</label>
+</div>
+<div class="form-group col-md-2">
+        <input id="bmsisdn" class="form-control" value="" pattern="^\d+$">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Duration:</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="duration" id="duration_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="duration" id="duration_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+        <div class="form-group col-md-1">
+        <input id="duration" class="form-control" value="" pattern="^\d+$">
+        </div>
+
+        </div>
+
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label class="label-control">Cell ID:</label>
+</div>
+<div class="form-group col-md-2">
+        <input id="cellid" class="form-control" pattern="[^']">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">LAC:</label>
+</div>
+<div class="form-group col-md-2">
+        <input id="lac" class="form-control" pattern="[^']">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">IMEI:</label>
+</div>
+
+<div class="form-group col-md-2">
+        <input id="imei" class="form-control" pattern="[^']">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Source:</label>
+</div>
+
+<div class="form-group col-md-2">
+        <input id="hbnsource" class="form-control" pattern="[^']">
+        </div>
+        </div>
+        </div>
+        <% } else if(report == 'dd') { %>
+        <div id="dd_div" style="display:none;">
+        <div class="row" style="margin-left:0;">
+        </div>
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label class="label-control">Source:</label>
+</div>
+<div class="form-group col-md-2">
+        <input id="ddsource" class="form-control" pattern="[^']">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">First:</label>
+</div>
+<div class="form-group col-md-2">
+        <input id="first" class="form-control" pattern="\d+">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Operator:</label>
+</div>
+<div class="form-group col-md-2">
+        <input id="operator" class="form-control" pattern="\d+">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Corp:</label>
+</div>
+<div class="form-group col-md-2">
+        <input id="corp" class="form-control" pattern="\d+">
+        </div>
+
+        </div>
+
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label class="label-control">MSISDN:</label>
+</div>
+<div class="form-group col-md-2">
+        <input id="msisdn" class="form-control" pattern="[^']">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">IMSI:</label>
+</div>
+<div class="form-group col-md-2">
+        <input id="imsi" class="form-control" pattern="[^']">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Cell ID:</label>
+</div>
+
+<div class="form-group col-md-2">
+        <input id="ddcellid" class="form-control" pattern="[^']">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">LAC:</label>
+</div>
+
+<div class="form-group col-md-2">
+        <input id="ddlac" class="form-control" pattern="[^']">
+        </div>
+        </div>
+
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label class="label-control">Vendor:</label>
+</div>
+<div class="form-group col-md-2">
+        <input id="vendor" class="form-control" pattern="[^']">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Model:</label>
+</div>
+<div class="form-group col-md-2">
+        <input id="model" class="form-control" pattern="[^']">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Sub ID:</label>
+</div>
+
+<div class="form-group col-md-2">
+        <input id="subid" class="form-control" pattern="[^']">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Dealer ID:</label>
+</div>
+
+<div class="form-group col-md-2">
+        <input id="dealerid" class="form-control" pattern="[^']">
+        </div>
+        </div>
+
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-1">
+        <label class="label-control">Calls:</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="calls" id="calls_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="calls" id="calls_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="calls" class="form-control" pattern="[^']">
+        </div>
+
+        <div class="form-group col-md-1">
+        <label class="label-control">MOU:</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="mou" id="mou_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="mou" id="mou_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="mou" class="form-control" pattern="[^']">
+        </div>
+
+        <div class="form-group col-md-3">
+        <div class="form-inline">
+        <label class="label-control">H/M:  </label>
+<label class="label-control"></label>
+        <label class="radio-inline">
+        <input type="radio" name="hm" id="hm_1" value="true"> true
+        </label>
+        <label class="radio-inline">
+        <input type="radio" name="hm" id="hm_2" value="false" checked> false
+</label>
+</div>
+</div>
+
+<div class="form-group col-md-1">
+        <label class="label-control">Last TopUp Amount:</label>
+</div>
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="amount" id="amount_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="amount" id="amount_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+        <div class="form-group col-md-1">
+        <input id="amount" class="form-control" value="" pattern="\d+">
+        </div>
+
+        </div>
+
+        <div class="row" style="margin-left:0;">
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Remaining Balance:</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="rembalance" id="rembalance_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="rembalance" id="rembalance_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+        <div class="form-group col-md-1">
+        <input id="rembalance" class="form-control" value="" pattern="\d+">
+        </div>
+
+
+        <div class="form-group col-md-1">
+        <label class="label-control">Data Usage:</label>
+</div>
+
+<div class="form-group col-md-1">
+        <div class="form-inline">
+        <label class="radio-inline">
+        <input type="radio" name="datausg" id="datausg_1" value="1" checked> &gt;=
+</label>
+<label class="radio-inline">
+        <input type="radio" name="datausg" id="datausg_2" value="2"> &lt;=
+        </label>
+        </div>
+        </div>
+
+        <div class="form-group col-md-1">
+        <input id="datausg" class="form-control" pattern="[^']">
+        </div>
+
+        </div>
+        </div>
+        <% } %>
+        <div class="row" style="margin-left:0;margin-top:5px;">
+        <div class="form-group col-md-3">
+        <label for="totalNum" class="label-control">Total Number of Cases In Report: </label>
+</div>
+<div class="form-group col-md-4">
+        <input class="form-control" id="totalNum" value="">
+        </div>
+        </div>
+
+        <div class="row" style="margin-left:0;">
+        <div class="form-group col-md-3">
+        <label for="filterNum" class="label-control">Total Number of Cases In asigned filter: </label>
+</div>
+<div class="form-group col-md-4">
+        <input class="form-control" id="filterNum" value="">
+        </div>
+        </div>
+        </form>
+        </div>
+

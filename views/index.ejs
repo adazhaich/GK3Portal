@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<% include ./partials/head %>
+
+
+</head>
+<body>
+<script src='/test/views/js/index.js' type='text/javascript'></script>
+<script src='/test/views/js/gk3global.js' type='text/javascript'></script>
+<div class="container">
+	<header>
+		<% include ./partials/header %>
+
+	</header>
+
+	<main>
+		<div class="jumbotron text-center">
+			<h1><span class="fa fa-lock"></span> Mobius Portal</h1>
+			<p></p>
+			<% if (!req.isAuthenticated()) { %>
+
+            <a href="" id="initialLogin" class="btn btn-default"><span class="fa fa-user"></span> Login</a>
+			<% } else {  %>
+			<script type="text/javascript">
+				$(function(){
+					window.location.href = clientHTTPConfig.appContextRoot+'/reports/indextab';
+				})
+			</script>
+			<%}  %>
+		</div>
+	</main>
+
+	<footer>
+		<% include ./partials/footer %>
+	</footer>
+</div>
+</body>
+</html>
