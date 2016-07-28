@@ -1,0 +1,5 @@
+2016-07-28T16:49:17.071Z - debug: util.js:checkAuthentication= true
+2016-07-28T16:49:17.221Z - debug: default_illegal_odds= 0.7
+2016-07-28T16:49:17.221Z - debug: default_illegal_odds= 0.7
+2016-07-28T16:49:17.221Z - debug: serviceUrl= http://10.212.2.143:8080
+2016-07-28T16:49:17.231Z - debug: The magic happens on http port 8580
