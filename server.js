@@ -55,37 +55,64 @@ require('./app/passport')(passport, gk3_accounts_pool, logger); // pass passport
 
 
 // set up our express application
-app.use(morgan('dev')); // log every request to the console
+//app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs'); // set up ejs for templating
 app.set('views', __dirname + '/views'); //defining absolute path of views folder
-app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
+//app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
 
-app.set('public', __dirname + '/public'); //defining absolute path of views folder
+//app.set('public', __dirname + '/public'); //defining absolute path of views folder
 //app.use('/reports', express.static(__dirname + '/public')); // all reports will access static files from location /public/*
 //app.use('/drilldown',express.static(__dirname + '/public'));
 
 
+// request was for a static asset, for which authentication is not necessary
+ app.use(express.static(__dirname + '/views/css'));
+ app.use(express.static(__dirname + '/views/images'));
+ app.use(express.static(__dirname + '/views/stylesheets'));
+ app.use(express.static(__dirname + '/views/js'));
+ app.use('/reports',express.static(__dirname + '/views/css')); // all reports will access static files
+ app.use('/reports',express.static(__dirname + '/views/images')); // all reports will access static files
+ app.use('/reports',express.static(__dirname + '/views/stylesheets')); // all reports will access static files
+ app.use('/drilldown',express.static(__dirname + '/views/css')); // all reports will access static files
+ app.use('/drilldown',express.static(__dirname + '/views/images')); // all reports will access static files
+ app.use('/drilldown',express.static(__dirname + '/views/stylesheets')); // all reports will access static files
 
 // context root?
 //console.log("contextRoot:",contextRoot );
 //logger.debug("contextRoot:",contextRoot );
-
-
+/*
+There are two broad ways of implementing sessions in Express – using cookies
+and using a session store at the backend. Both of them add a new object in the request object named session, which contains the session variables.*/
 // required for passport
-app.use(session({ 
+/*app.use(session({
 	secret: 'ilovescotchscotchyscotchscotch', 
     name: 'btcg_cookie_name',
-    cookie: {maxAge: 30*60*1000},
+    rolling: true,  //forces a cookie set on every response and resets the expiration date.
+   // cookie: {
+     //   maxAge:  1 * 60 * 1000
+   // }, //1 minute
+    //activeDuration: 5 * 60 * 1000, //allows users to lengthen their session by interacting with the site. If the session is 28 minutes old and the user sends another request, activeDuration will extend the session’s life for however long you define. In this case, 5 minutes.
     path: '/',
-//	    store: sessionStore, // connect-mongo session store
-    proxy: true,
-    resave: true,
-    saveUninitialized: true
-		})); // session secret
+    //proxy: true,
+    //resave: true, //forces session to be saved even when unmodified...
+    //saveUninitialized: true
+		})); // session secret*/
+
+//http://stackoverflow.com/questions/14464873/expressjs-session-expiring-despite-activity
+app.use(session({
+    secret: 'a secret',
+    name: 'portal_cookie',
+    cookie: { maxAge:  .25 * 60  * 60 * 1000},
+        path: '/',
+        httpOnly: true,
+        secure: false,
+
+    rolling: true
+}));
 
 
 
@@ -98,7 +125,7 @@ app.use(flash()); // use connect-flash for flash messages stored in session
 require('./app/routes/appMapper')(app, passport, config, gk3_accounts_pool); // load our routes for data access
 
 
-// launch ======================================================================
+// START THE SERVER=============================================================
 
 // Create an HTTP service.
 http.createServer(app).listen(port);
@@ -114,10 +141,6 @@ if (config.httpConfig.ssl){
 	https.createServer(options, app).listen(sslPort);
 	console.log('The magic happens on http sslPort ' + sslPort);
 }
-
 else {
-   //console.log("SSL Config",+config.httpConfig.ssl);
-
-    logger.debug("The magic happens on http port " + port);
-
+   logger.debug("The magic happens on http port " + port);
 }

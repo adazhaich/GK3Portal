@@ -13,7 +13,7 @@
 				<li class="dropdown"><a class="dropdown-toggle" 
 					data-toggle="dropdown" href="#">Settings<span class="caret"></span></a>
 					<ul class="dropdown-menu" id="menu">
-						<% if (req.isAuthenticated()) { 
+						<% if (req.isAuthenticated()) {
 								if(req.user.role_id.indexOf(1) >= 0 ) {//1 means System Administrator
 						%>
 							<li><a href="/test/signup" id="signupId"><i class="fa fa-user"></i>&nbsp;Users</a></li>
@@ -44,8 +44,13 @@
 		    %>					
 				
 			</ul>
+
 			<ul class="nav navbar-nav navbar-right">
-				<li class="active"><a id="txt">Current Time:</a></li>
+				<li class="active"><a id="cookieInfo"></a></li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active"><a id="currentTime">Current Time:</a></li>
 			</ul><!--
             <ul class="navbar-right">
 			<marquee behavior="scroll" bgcolor="yellow" loop="-1" width="75%">

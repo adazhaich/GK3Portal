@@ -14,38 +14,41 @@ $(document).ready(function() {
 
 	    filterSql = getElement("#filterSql").val()  === undefined ? "" : getElement("#filterSql").val();
 	    var latestTime;
-	    Zoomerang.config({
+
+
+
+	Zoomerang.config({
 		    maxHeight: 400,
 		    maxWidth: 800
 		}).listen('.zoom');
+
+
+
 	    DETECTION = {
-			/*this function should have a new signature like filter(startTime, endTime, souce, filterSql)
-			 *
-			 * where startTime/endTime is the day + hour format against the detection_details table's call_time column
-			 *
-			 * */
 			filter: function (start, end, filterSql) {
 				var url = clientHTTPConfig.appContextRoot + "/dataaccess/detectiondetails";
 				var condition = "";
+                condition = concatParamOther(condition, "action", "=", "filter");
      			var startTime, endTime;
 				if (start != undefined && start != "") {
-
-					//todo: time zone:
 					startTime = moment(start).format("YYYYMMDDHH");
-//	    				startTime = moment(start + "  +0000", "YYYY-MM-DD HH Z").unix();		 
-					condition = concatParam(condition, "call_date_hour", ">=", "'" + startTime + "'");
+					//condition = concatParam(condition, "call_date_hour", ">=", "'" + startTime + "'");
+                    condition = concatParamOther(condition, "startTime", "=", +startTime);
 				}
 				if (end != undefined && end != "") {
 					endTime = moment(end).format("YYYYMMDDHH");
-					condition = concatParam(condition, "call_date_hour", "<=", "'" + endTime + "'");
+					//condition = concatParam(condition, "call_date_hour", "<=", "'" + endTime + "'");
+                    condition = concatParamOther(condition, "endTime", "=", +endTime);
 				}
-			/*	if (filterSql != "") {
+					/*	if (filterSql != "") {
                  if (condition == "")
                  condition += filterSql.replace(" and", "");
                  else condition += filterSql;
                  }*/
-				//url += "?condition=" + condition;
-                url += "?action=first_detection&type=TCG&traffic_date=20160626"
+
+
+                //url += "?action=first_detection&type=TCG&traffic_date=20160626"
+                url += "?" + condition;
 
 
 				//console.log("filter url=", url);

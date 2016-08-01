@@ -29,7 +29,7 @@ $(document).ready(function(){
             var today = new Date();
             document.getElementById('txt').innerHTML= today;*/
 
-            document.getElementById('txt').innerHTML =
+            document.getElementById('currentTime').innerHTML =
                 h + ":" + m + ":" + s + "   GMT ";
             var t = setTimeout(startTime, 500);
         }
@@ -67,5 +67,57 @@ $(document).ready(function(){
     }
 
     //checkServiceStatus();
+
+/*
+    function listCookies() {
+        var theCookies = document.cookie.split(';');
+        var aString = '';
+        for (var i = 1 ; i <= theCookies.length; i++) {
+            aString += i + ' ' + theCookies[i-1] + "\n";
+        alert(document.cookie.toJSON());
+        }
+        return aString;
+    }
+
+
+    var cookieInfo=listCookies();
+    document.getElementById('cookieInfo').innerHTML=cookieInfo;
+*/
+
+// Set timeout variables.
+    var timoutWarning = 840000; // Display warning in 14 Mins.
+    var timoutNow = 6000; // Warning has been shown, give the user 1 minute to interact
+    var logoutUrl = 'logout.php'; // URL to logout page.
+
+    var warningTimer;
+    var timeoutTimer;
+
+// Start warning timer.
+    function StartWarningTimer() {
+        warningTimer = setTimeout("IdleWarning()", timoutWarning);
+    }
+
+// Reset timers.
+    function ResetTimeOutTimer() {
+        clearTimeout(timeoutTimer);
+        StartWarningTimer();
+        $("#timeout").dialog('close');
+    }
+
+// Show idle timeout warning dialog.
+    function IdleWarning() {
+        clearTimeout(warningTimer);
+        timeoutTimer = setTimeout("IdleTimeout()", timoutNow);
+        $("#timeout").dialog({
+            modal: true
+        });
+        // Add code in the #timeout element to call ResetTimeOutTimer() if
+        // the "Stay Logged In" button is clicked
+    }
+
+// Logout the user.
+    function IdleTimeout() {
+        window.location = logoutUrl;
+    }
 
 });

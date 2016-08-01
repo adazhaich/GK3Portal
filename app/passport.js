@@ -8,58 +8,76 @@ var bcrypt = require('bcrypt-nodejs');
 var gk3_accounts_db = require('./database');
 var connection = mysql.createConnection(gk3_accounts_db.connection);
 
-/* ===============USE THIS TO TEST DB CONNECTION DURING SERVER START UP FOR NEW DEPLOYMENTS==================================
-connection.connect(function(err){
-		 if(!err) {
-		     //console.log("Database is connected ... \n\n");
-		     //logger.debug("Using Database:", gk3_accounts_db.database);
-		     connection.query('USE ' + gk3_accounts_db.database);
-		     //console.log("Login database:", gk3_accounts_db.database);
-			 logger.debug("SUCCESS Connecting to GK3 Accounts Login Database", gk3_accounts_db.database);
-
-		 } else {
-		     logger.debug("ERROR connecting to GK3 Accounts Login database: \n\n",gk3_accounts_db.database);
-		 }
-});
- ===============USE THIS TO TEST DB CONNECTION DURING SERVER START UP FOR NEW DEPLOYMENTS================================== */
 
 
 // load the auth variables
 //var configAuth = require('./auth'); // use this one for testing
 
+/*
+ // =========================================================================
+ // passport session setup ==================================================
+ // required for persistent login sessions
+
+passport.serializeUser(function(user, done) {
+	done(null, user.id);
+	             |
+});              |
+                 |
+                 |____________________> saved to session req.session.passport.user = {id:'..'}
+	|
+	passport.deserializeUser(function(id, done) {
+		________________|
+		|
+		User.findById(id, function(err, user) {
+			done(err, user);
+			|______________>user object attaches to the request as req.user
+
+		});
+	});
+====================================================================================================*/
+
+
+
 module.exports = function(passport, pool, logger) {
 
-    // =========================================================================
-    // passport session setup ==================================================
-    // =========================================================================
-    // required for persistent login sessions
-    // passport needs ability to serialize and unserialize users out of session
+	/*//The key of user object you provide in second argument of the done in serialize function is saved in session and is used to retrieve the whole object via deserialize function.
+	 The key of user object you provide in second argument of the done in serialize function is saved in session and is used to retrieve the whole object via deserialize function.
 
-    // used to serialize the user for the session
+	 Serialize function determine what data from the user object should be stored in the session. The result of the serializeUser method is attached to the session as req.session.passport.user = {}
+	 here for instance it would be(as we provide id as key) req.session.passport.user = {id:'xyz'}*/
+
     passport.serializeUser(function(user, done) {
     	logger.debug("passport.serializeUser:user:", user);
         done(null, user.id);
     });
 
-    // used to deserialize the user
+
+
+/*	In deserialize function you provide in first argument of deserialize function that same key of user object that was given to done function in
+	serialize call. So your whole object is retrieved with help of that key. That key here is id(key can be any key of the user object ie name,email etc).
+	In deserialize function that key is matched with in memory array / database or any data resource.
+	The fetched object is attached to request object as req.user*/
    passport.deserializeUser(function(id, done) {
-    	logger.debug("passport.deserializeUser:id:", id);
-    	pool.getConnection(function (err, connection){
+    	//logger.debug("passport.deserializeUser:id: ", id);
+
+	   	pool.getConnection(function (err, connection){
 	   		 if(err) {
 	   		     return;
-
 	   		 }
 	   		     connection.query('USE ' + gk3_accounts_db.database);
 	   	        connection.query("select a.id,a.username,a.password,group_concat(role_id) role_id " +
 					"from (select * from users where id=?) a left join (select * from user_roles where DELETED_BY_USER_ID is null) " +
 					"b on a.id=b.user_id group by a.id ",[id], function(err, rows){
 					connection.release();
+
 	   	            if (err)
 	   	                return done(err);
 	   	            if (!rows.length || rows.length == 0) {
 
 	   	                return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
 	   	            }
+					logger.debug("passport.deserializeUser SUCCESS for USER ", rows[0]);
+
 	   	            done(err, rows[0]);
 	   	        });
 
@@ -96,13 +114,12 @@ module.exports = function(passport, pool, logger) {
 	                return done(err);
 	            if (!rows.length) {
 	                return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
+	                 //return done (err);
 	            }
-	            //console.log('password:', password, 'rows[0].password:', rows[0].password, 'role id:', rows[0].role_id);
-	            // if the user is found but the password is wrong
 	            if (!bcrypt.compareSync(password, rows[0].password))
 	                return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
-	
-	            // all is well, return successful user
+
+				logger.debug("passport.login-login SUCCESS for user:", rows[0]);
 	            return done(null, rows[0]);
 	        });
         });
@@ -180,3 +197,18 @@ First you must understand what serialize and deserialize are meant for.
 checks if the session is still valid for a user, and if(!err) done(null,user) is true, keeps the user in the session,
 	where else done(err,null) removes it from the session, redirecting you to whatever your app.get('/auth/:provider/callback')
 sends the user to after checking if the session is timed out or not. This should clarify things for your second question.*/
+
+/* ===============USE THIS TO TEST DB CONNECTION DURING SERVER START UP FOR NEW DEPLOYMENTS==================================
+ connection.connect(function(err){
+ if(!err) {
+ //console.log("Database is connected ... \n\n");
+ //logger.debug("Using Database:", gk3_accounts_db.database);
+ connection.query('USE ' + gk3_accounts_db.database);
+ //console.log("Login database:", gk3_accounts_db.database);
+ logger.debug("SUCCESS Connecting to GK3 Accounts Login Database", gk3_accounts_db.database);
+
+ } else {
+ logger.debug("ERROR connecting to GK3 Accounts Login database: \n\n",gk3_accounts_db.database);
+ }
+ });
+ ===============USE THIS TO TEST DB CONNECTION DURING SERVER START UP FOR NEW DEPLOYMENTS================================== */

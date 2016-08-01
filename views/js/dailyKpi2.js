@@ -2,6 +2,15 @@ $(document).ready(function () {
 
     //console.log('Invoking dailyKpi2.js');
 
+/*    var dailyKPIFilters={
+        'startDate' : new Date(),
+        'endDate' : new Date(),
+        'oneDay'  : 1,
+        'oneWeek'  : 7,
+        'oneMonth'  :30
+    }
+    */
+
     //set Start Day
     dailyKPIFilters.startDate.setDate(dailyKPIFilters.startDate.getDate() - dailyKPIFilters.oneMonth);
 
@@ -18,18 +27,11 @@ $(document).ready(function () {
 
     });
     var reportType = getElement("#reportType").val();
-    //console.log(" reportType:" + reportType);
-    // Set values
-    //$("#"+reportType+"start").val(yesterday());
-    //$("#"+reportType+"end").val(today());
 
     $("#" + reportType + "start").val(getFormattedDate(dailyKPIFilters.startDate));
     $("#" + reportType + "end").val(getFormattedDate(dailyKPIFilters.endDate));
 
-    //$("#"+reportType+"end").val(getFormattedDate(new Date()));
-    //var d = new Date();
-    // d.setDate(d.getDate()-1);
-    // $("#"+reportType+"start").val(getFormattedDate(d));
+
 
     var start = $("#" + reportType + "start").val() === undefined ? "" : $("#" + reportType + "start").val();
     end = $("#" + reportType + "start").val() === undefined ? "" : $("#" + reportType + "end").val();

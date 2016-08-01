@@ -12,7 +12,7 @@ var express = require('express');
 var router = express.Router();
 
 
-var request = require("request");
+var request = require('request');
 var dateFormat = require('dateformat');
 var fs = require('fs');
 var bcrypt = require('bcrypt-nodejs');
@@ -46,7 +46,7 @@ module.exports = function (app, passport, config, connection) {
     router.use(function (req, res, next) {
         // log each request to the console
         //logger.debug("Client Request Mapper ::::  Req Method:",req.method, "Req URL:", req.url);
-        // continue doing what we were doing and go to the route
+        req.session.touch();
         next();
 
     });
@@ -59,6 +59,17 @@ module.exports = function (app, passport, config, connection) {
             res.redirect(appContextRoot);
         } else {
             logger.debug("(router.get('/')-Landing Page URL:", req.protocol + '://' + req.get('host') + req.originalUrl);
+
+            for (var i = 0; i < req.cookies.length; i++) {
+                key = req.cookies[i];
+                val = JSONCookie(obj[key]);
+                logger.debug("Cookies :::: KEY:" + key+ "Value::"+val);
+
+               /* if (val) {
+                    obj[key] = val;
+                }*/
+            }
+
             res.render('index.ejs', {
                 req: req
             });
@@ -73,6 +84,16 @@ module.exports = function (app, passport, config, connection) {
             res.redirect(appContextRoot);
         } else {
             logger.debug("(router.get('/')-Landing Page URL:", req.protocol + '://' + req.get('host') + req.originalUrl);
+/*
+            for (var i = 0; i < req.cookies.length; i++) {
+                key = req.cookies[i];
+                val = JSONCookie(obj[key]);
+                logger.debug("Cookies :::: KEY:" + key+ "Value::"+val);
+
+                /!* if (val) {
+                 obj[key] = val;
+                 }*!/
+            }*/
             res.render('index.ejs', {
                 req: req
             });
@@ -365,11 +386,12 @@ module.exports = function (app, passport, config, connection) {
 
     // process the login form
     router.post('/login', passport.authenticate('local-login', {
-        ////console.log("Inside login-passport.authentication");
+
         successRedirect: appContextRoot + '/reports/indextab', // redirect to the dashboard section
-        failureRedirect: appContextRoot + '/login', // redirect back to the login page if there is an error
+        failureRedirect: appContextRoot + '/signup', // redirect back to the login page if there is an error
         failureFlash: true // allow flash messages
     }), function (req, res) {
+        console.log("USER ENTERED CREDENTIALS AND READY TO LOG IN ");
         logger.debug("(Success Redirect", req.protocol + '://' + req.get('host') + req.originalUrl);
     });
 
@@ -421,8 +443,8 @@ module.exports = function (app, passport, config, connection) {
 
 
     router.get('/views/*', function (req, res) {
-        ////console.log("ROUTING files in public folder");
-        ////console.log("Request URL", req.url);
+        console.log("ROUTING files in public folder");
+        console.log("Request URL", req.url);
         res.sendFile(path.join(__dirname + '/../../' + req.url));
     });
 
@@ -590,11 +612,18 @@ module.exports = function (app, passport, config, connection) {
         var action = req.param('action');
         var type = req.param('type');
         var traffic_date = req.param('traffic_date');
+        var startTime = req.param('startTime');
+        var endTime = req.param('endTime');
 
+        url = serviceUrl + "/detectiondetails";
 
-
-         url = serviceUrl + "/detectiondetails";
-        url += "?action=" + action + "&type=" + type + "&traffic_date=" + traffic_date + "&limit=-1";
+        if (action != undefined && action == "first_detection") {
+            url += "?action=" + action + "&type=" + type + "&traffic_date=" + traffic_date + "&limit=-1";
+        }
+        else   if (action != undefined && action == "filter")
+        {
+            url += "?action=" + action + "&startTime=" + startTime +  "&endTime=" + endTime +  "&limit=-1";
+        }
 
         logger.debug("detectiondetails url=" + url);
         //url = encodeURI(url);
@@ -702,8 +731,8 @@ module.exports = function (app, passport, config, connection) {
     router.get('/dataaccess/dailykpi2', utils.isLoggedIn, function (req, res) {
         logger.debug('BEGIN /dataaccess/dailykpi2:');
         logger.debug('Report Requested DATE TIMESTAMP :::', dateFormat(Date.now(), "dddd, mmmm dS, yyyy, h:MM:ss TT"));
-//    url += "?reportType=" + reportType + "&start=" + start + "&end=" + end;
-//Drill Detection Details URL= /test/dataaccess/detectiondetails?action=first_detection&type=TCG&traffic_date=20160626
+        //  url += "?reportType=" + reportType + "&start=" + start + "&end=" + end
+         // Drill Detection Details URL= /test/dataaccess/detectiondetails?action=first_detection&type=TCG&traffic_date=20160626
         //  /test/dataaccess/dailykpi2?reportType=onnet&start=2016-06-26&end=2016-07-26
         var reportType = req.query.reportType;
         var start = req.query.start;
@@ -2206,7 +2235,7 @@ module.exports = function (app, passport, config, connection) {
         else if (reportType == "hbn_div") reportType = 2;//Hot BNumber
         else if (reportType == "dd_div") reportType = 3;//Detection Details
 
-        var sql = "SELECT filter_id ,filter_name  FROM fraud_605_3.filter_param where report_type='" + reportType + "' and user_id='" + userId + "' and valid=1 ";
+        var sql = "SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='" + reportType + "' and user_id='" + userId + "' and valid=1 ";
         logger.debug('query filteridList sql:', sql);
 
         connection.getConnection(function (err, connection) {
@@ -2236,7 +2265,7 @@ module.exports = function (app, passport, config, connection) {
         var filterId = req.query.filterId;
 
         logger.debug("request.parameter.filterId:", filterId);
-        var sql = "select * from fraud_605_3.filter_param where filter_id='" + filterId + "'";
+        var sql = "select * from gk3_accounts.filter_param where filter_id='" + filterId + "'";
         connection.getConnection(function (err, connection) {
             if (err) {
                 //console.log("Error connecting database ... \n\n", err);
@@ -2277,7 +2306,7 @@ module.exports = function (app, passport, config, connection) {
         logger.debug("request.parameter.filterName:", filterName);
         logger.debug("request.parameter.filterDetail:", filterDetail);
         var inupfg = 0;
-        var sql = "select count(*) cn from fraud_605_3.filter_param where filter_name='" + filterName + "' and user_id='" + userId + "' and filter_type='" + filterType + "' and report_type='" + reportType + "' and valid=1";
+        var sql = "select count(*) cn from gk3_accounts.filter_param where filter_name='" + filterName + "' and user_id='" + userId + "' and filter_type='" + filterType + "' and report_type='" + reportType + "' and valid=1";
         logger.info("is exists sql:", sql);
         connection.getConnection(function (err, connection) {
             if (err) {
@@ -2298,9 +2327,9 @@ module.exports = function (app, passport, config, connection) {
                     }
 
                     if (inupfg == 0)
-                        sql2 = "insert into fraud_605_3.filter_param(user_id,filter_type,report_type,filter_name,filter_detail,valid,insert_time,update_time) values('" + userId + "','1','" + reportType + "','" + filterName + "','" + filterDetail + "','1',now(),now())";
+                        sql2 = "insert into gk3_accounts.filter_param(user_id,filter_type,report_type,filter_name,filter_detail,valid,insert_time,update_time) values('" + userId + "','1','" + reportType + "','" + filterName + "','" + filterDetail + "','1',now(),now())";
                     else
-                        sql2 = "update fraud_605_3.filter_param set user_id='" + userId + "',filter_type='" + filterType + "',report_type='" + reportType + "',filter_detail='" + filterDetail + "',update_time=now() where filter_name='" + filterName + "' ";
+                        sql2 = "update gk3_accounts.filter_param set user_id='" + userId + "',filter_type='" + filterType + "',report_type='" + reportType + "',filter_detail='" + filterDetail + "',update_time=now() where filter_name='" + filterName + "' ";
                     logger.info("insert or update sql:", sql2);
                     connection.query(sql2, function (err, rows, fields) {
                         if (!err) {
@@ -2330,7 +2359,7 @@ module.exports = function (app, passport, config, connection) {
         var filterId = req.query.filterId;
 
         logger.debug("request.parameter.filterId:", filterId);
-        var sql = "update fraud_605_3.filter_param set valid = 0, update_time=now() where filter_id='" + filterId + "'";
+        var sql = "update gk3_accounts.filter_param set valid = 0, update_time=now() where filter_id='" + filterId + "'";
 
         connection.getConnection(function (err, connection) {
             if (err) {
