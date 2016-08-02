@@ -4,22 +4,40 @@ $(document).ready(function(){
 	var type = $('#type').val();
 	var data = $('#data').val();
 
+	/*
+	 // if(type == "A_MSISDN"){
+	 //    condition = concatParam(condition, "msisdn", "=",  data);
+
+	 var condition = "";
+	 condition = concatParamOther(condition, "action", "=", "drillHotBNumber");
+	 //Data Access Success from http://10.212.2.143:8080/hotbnumber?limit=-1
+	 if(day != '')
+	 condition = concatParam(condition, "call_date", "=", "'" + moment(day).format("YYYYMMDD") + "'");
+
+	 // var url = clientHTTPConfig.appContextRoot+'/drilldown/callsnodup?data='+data+'&day='+date+'&hour='+hour+'&type='+type;*/
+
 	function filter (data,type){
 		var url = clientHTTPConfig.appContextRoot+"/dataaccess/hotbnumber";
 		var condition = "";
+
+		condition = concatParamOther(condition, "action", "=", "drillHotBNumber");
+
 		if(type=="A_MSISDN"){
-			condition = concatParam(condition, "a_msisdn", "=", data);
+			condition = concatParamOther(condition, "type", "=", "A_MSISDN");
+			condition = concatParamOther(condition, "data", "=", +data);
 		}else if(type=="B_MSISDN"){
-			condition = concatParam(condition, "b_msisdn", "=", data);
+			condition = concatParamOther(condition, "type", "=", "B_MSISDN");
+			condition = concatParamOther(condition, "data", "=", +data);
 		}else if(type=="CELL"){
-			condition = concatParam(condition, "cell_id", "=", data);
+			condition = concatParamOther(condition, "type", "=", "CELL");
+			condition = concatParamOther(condition, "data", "=", +data);
 		}
-		url += "?condition="+condition;
-		
-	    //console.log( "filter url=", url );
+
+			//url += "?condition="+condition;
+			url += "?" + condition;
+
 	    $('#ajax_loader').show();
-	//	url += "?day="+day + "&hour="+hour + "&start="+start + "&end="+end + "&illegalOdds="+illegalOdds;
-	//    //console.log( "url=", url );
+
 		queue()
 		    .defer(d3.json, url)
 		    .await(makeGraphs);
@@ -157,7 +175,25 @@ function makeGraphs(error, apiData) {
 		$("#hotbnumber-datatable").dataTable().fnClearTable();
 		dc.renderAll();
 	}
-	
+
+	dataSet.forEach(function (d) {
+		if (d.call_time) {
+			//Phoenix: call_time is already time
+			d.call_time = moment(d.call_time, "YYYY-MM-DD HH:mm:ss");
+		}
+		if (d.insert_time) {
+			d.insert_time = moment(d.insert_time, "YYYY-MM-DD HH:mm:ss");  // "2016-07-13 15:17:38.46",
+
+		}
+
+		if (d.update_time) {
+			d.update_time = moment(d.update_time, "YYYY-MM-DD HH:mm:ss");  // "2016-07-13 15:17:38.46",
+
+		}
+
+	});
+
+
 	var ndx = crossfilter(dataSet);
 	var callTimeDimension = ndx.dimension(function(d) { return d.call_time; });
 	var datatable = $("#hotbnumber-datatable").dataTable({
@@ -180,9 +216,6 @@ function makeGraphs(error, apiData) {
             "aoColumns": [
              { "mData": "call_date", "sDefaultContent": "",
             	 "mRender" : function(data, type, row) {
-					// data is bigint
-//					return transferUnixTime(data);
-            		 //call_date now is 20160227 -- use Moment.js library
             		 var day = moment(data, "YYYYMMDD");
             		 return day.format("YYYY-MM-DD");
 				}
@@ -191,11 +224,12 @@ function makeGraphs(error, apiData) {
              }
             ,{ "mData": "b_msisdn", "sDefaultContent": "" 
             }
-            ,{ "mData": "call_time", "sDefaultContent": "",
-            	 "mRender" : function(data, type, row) {
-						// data is bigint
-						return transferUnixTime(data);
+            ,{ "mData": "call_time",
+					"sDefaultContent": "",
+            	 "mRender" : function(data, type, row) {	return data.format("YYYY-MM-DD HH:mm:ss");
 					}
+
+
             }
             ,{ "mData": "duration", "sDefaultContent": ""}          
             ,{ "mData": "cell_id", "sDefaultContent": "",
@@ -208,14 +242,12 @@ function makeGraphs(error, apiData) {
             ,{ "mData": "source", "sDefaultContent": ""}
             ,{ "mData": "insert_time", "sDefaultContent": "",
             	 "mRender" : function(data, type, row) {
-						// data is bigint
-						return transferUnixTime(data);
+					return data.format("YYYY-MM-DD HH:mm:ss");
 					}
             }            
             ,{ "mData": "update_time", "sDefaultContent": "",
             	 "mRender" : function(data, type, row) {
-						// data is bigint
-						return transferUnixTime(data);
+					 return data.format("YYYY-MM-DD HH:mm:ss");
 					}
             }
         ],    

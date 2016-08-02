@@ -31,7 +31,7 @@ $(document).ready(function () {
             url += "?" + condition;
         }//type=TOTAL or GKP or GKC or TCG
 
-//    $('#ajax_loader').show();
+    //  $('#ajax_loader').show();
         queue()
             .defer(d3.json, url).await(loadData);
     }
@@ -90,9 +90,7 @@ function loadData(error, apiData) {
             d.call_time = new Date(d.call_time);
         }
         if (d.insert_time) {
-            //d.insert_time = new Date(d.insert_time);
             d.insert_time = moment(d.insert_time, "YYYY-MM-DD HH:mm:ss");  // "2016-07-13 15:17:38.46",
-            //d.insert_time_str = d.insert_time;
 
         }
     });

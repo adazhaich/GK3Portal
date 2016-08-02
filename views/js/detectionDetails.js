@@ -37,12 +37,10 @@ $(document).ready(function() {
      			var startTime, endTime;
 				if (start != undefined && start != "") {
 					startTime = moment(start).format("YYYYMMDDHH");
-					//condition = concatParam(condition, "call_date_hour", ">=", "'" + startTime + "'");
                     condition = concatParamOther(condition, "startTime", "=", +startTime);
 				}
 				if (end != undefined && end != "") {
 					endTime = moment(end).format("YYYYMMDDHH");
-					//condition = concatParam(condition, "call_date_hour", "<=", "'" + endTime + "'");
                     condition = concatParamOther(condition, "endTime", "=", +endTime);
 				}
 					/*	if (filterSql != "") {

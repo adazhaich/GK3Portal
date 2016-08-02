@@ -21,22 +21,31 @@ $(document).ready(function(){
     		 filter : function(day, start, end, source,filterSql){
     			var url = clientHTTPConfig.appContextRoot+"/dataaccess/hotbnumber";
     			var condition = "";
+                 condition = concatParamOther(condition, "action", "=", "filter");
 				 //Data Access Success from http://10.212.2.143:8080/hotbnumber?limit=-1
     			if(day != '')
     				condition = concatParam(condition, "call_date", "=", "'" + moment(day).format("YYYYMMDD") + "'");
-    			if(start != '')
-    				condition = concatParam(condition, "call_date", ">=", "'" + moment(start).format("YYYYMMDD") + "'");
-    			if(end != '')
-    				condition = concatParam(condition, "call_date", "<=", "'" + moment(end).format("YYYYMMDD") + "'");
-    			
-    			if (filterSql != ""){
-    				if(condition == "")
-    					condition += filterSql.replace(" and", "");
-    				else condition += filterSql;
-    			}
-    			url += "?condition="+condition;
-    			
-    		    //console.log( "filter url=", url );
+
+                 if (start != undefined && start != "") {
+                     startDate = moment(start).format("YYYYMMDD");
+                     condition = concatParamOther(condition, "startDate", "=", +startDate);
+                 }
+                 if (end != undefined && end != "") {
+                     endDate = moment(end).format("YYYYMMDD");
+                 condition = concatParamOther(condition, "endDate", "=", +endDate);
+             }
+
+            if (filterSql != ""){
+        if(condition == "")
+            condition += filterSql.replace(" and", "");
+        else condition += filterSql;
+    }
+        //url += "?condition="+condition;
+         url += "?" + condition;
+
+
+
+                 //console.log( "filter url=", url );
     		    $('#ajax_loader').show();
     			queue().defer(d3.json, url).await(this.makeGraphs);
     		},
@@ -83,6 +92,7 @@ $(document).ready(function(){
     		             ,{ "mData": "a_msisdn", "sDefaultContent": "",
     		            	 "mRender":function(data,type,row){
     		             		return "<a href='javascript:void(0);' onclick=\"HOTPOP.popHot(" + data+ ",'A_MSISDN');\" class='colLnk'>" + data + '</a>';
+                                // return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popWnd(" + data + "," + row.insert_time + ",'MSISDN');\" class='colLnk'>" + data + '</a>';
     		             	}
     		             }
     		            ,{ "mData": "b_msisdn", "sDefaultContent": "" ,
@@ -180,6 +190,7 @@ $(document).ready(function(){
 HOTPOP = {
 	popHot : function(data,type){
 		var url = clientHTTPConfig.appContextRoot + '/drilldown/hotbnumber?data='+data+'&type='+type;
+
 		window.open(url ,'_blank','height=700, width=1000, top=0, left=150, toolbar=no,menubar=yes, scrollbars=yes, resizable=no,location=no,status=no');
 	}	
 }

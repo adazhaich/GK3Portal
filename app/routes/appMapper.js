@@ -982,28 +982,41 @@ module.exports = function (app, passport, config, connection) {
     });
 
     router.get('/dataaccess/hotbnumber', utils.isLoggedIn, function (req, res) {
-        logger.debug('router.get:/dataaccess/hotbnumber:', dateFormat(Date
-            .now(), "dddd, mmmm dS, yyyy, h:MM:ss TT"));
+        logger.debug('router.get:/dataaccess/hotbnumber:', dateFormat(Date.now(), "dddd, mmmm dS, yyyy, h:MM:ss TT"));
 
-        var condition = req.query.condition;
+        var condition = "";
+        var url;
 
-        logger.debug("HOTBNUMBER ::request.parameter.condition:", condition);
+        var action = req.param('action');
+        var startTime = req.param('startDate');
+        var endTime = req.param('endDate');
+        var type = req.param('type');
+        var data = req.param('data');
 
         var url = serviceUrl + "/hotbnumber";
-        if (condition != "") url += "?where=" + condition + "&limit=-1";
 
-        else url += "?limit=-1";
+        if (action != undefined && action == "filter")
+        {
+            url += "?action=" + action + "&startDate=" + startTime +  "&endDate=" + endTime +  "&limit=-1";
+        }
+
+        else if (action != undefined && action == "drillHotBNumber")
+        {
+            url += "?action=" + action + "&type=" + type +  "&data=" + data +  "&limit=-1";
+        }
+
+
         logger.debug("HOTBNUMBER ::Service URL", url);
-        logger.debug("url=" + url);
-        url = encodeURI(url);
-        logger.debug("hotbnumber url=", url);
+        //url = encodeURI(url);
+        //logger.debug("HOTBNUMBER Encoded URL=", url);
 
-        logger.debug("start time=", dateFormat(Date.now(),
-            "dddd, mmmm dS, yyyy, h:MM:ss TT"));
+        logger.debug("start time=", dateFormat(Date.now(), "dddd, mmmm dS, yyyy, h:MM:ss TT"));
 
-        //			request through REST/JSON API once available
+
+
+
+        //request through REST/JSON API once available
         request({
-//			url : "http://10.212.2.53:8080/corpratorSummary",
             url: url,
             json: true
         }, function (error, response, body) {
