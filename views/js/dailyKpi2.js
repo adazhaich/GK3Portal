@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-    //console.log('Invoking dailyKpi2.js');
-
 /*    var dailyKPIFilters={
         'startDate' : new Date(),
         'endDate' : new Date(),
@@ -10,13 +8,6 @@ $(document).ready(function () {
         'oneMonth'  :30
     }
     */
-
-    //set Start Day
-    dailyKPIFilters.startDate.setDate(dailyKPIFilters.startDate.getDate() - dailyKPIFilters.oneMonth);
-
-    var datatable;
-
-
     $(window).resize(function () {
         //console.log("resizing");
         dc.renderAll("dailyKpi2" + reportType);
@@ -24,61 +15,25 @@ $(document).ready(function () {
 
     $("#graph_collapse_button").click(function () {
         // DAILYKPI2.filter(start, end);
-
     });
+
+
     var reportType = getElement("#reportType").val();
 
-    $("#" + reportType + "start").val(getFormattedDate(dailyKPIFilters.startDate));
-    $("#" + reportType + "end").val(getFormattedDate(dailyKPIFilters.endDate));
-
-
-
-    var start = $("#" + reportType + "start").val() === undefined ? "" : $("#" + reportType + "start").val();
-    end = $("#" + reportType + "start").val() === undefined ? "" : $("#" + reportType + "end").val();
-
-    //console.log("On Page Load", "start date", start, "End Date", end);
-    function today() {
-        return new Date();
-    }
-
-    function tomorrow() {
-        return today().getTime() + 24 * 60 * 60 * 1000;
-    }
-
-    function yesterday() {
-        return today().getTime() - 24 * 60 * 60 * 1000;
-    }
-
-
-// Get formatted date YYYY-MM-DD
-    function getFormattedDate(date) {
-        return date.getFullYear()
-            + "-"
-            + ("0" + (date.getMonth() + 1)).slice(-2)
-            + "-"
-            + ("0" + date.getDate()).slice(-2);
-    }
-
-    function dateValidate(start, end) {
-        if (start > end) {
-            alert("End date should be greater than Start Date ");
-            return false;
-        }
-        else {
-            return true;
-        }
-
-    }
+    //set default date range wqhen user clicks on the report tab
+    var startDate = new Date();
+    startDate.setDate(new Date().getDate() - dailyKPIDefaultDateRange.oneMonth);
+    var start = $("#" + reportType + "start").val(getFormattedDate(startDate)).val();
+    var end = $("#" + reportType + "end").val(getFormattedDate(new Date())).val();
 
     Zoomerang.config({
         maxHeight: 400,
         maxWidth: 800
     }).listen('.zoom');
 
-//			Don't know why but the following code introduced error. Commenting it out works fine
-    /*			$('#start').datepicker({
-     format: 'mm-dd-yyyy'
-     });*/
+
+
+
     getElement("#" + reportType + "refresh").on(
         "click",
         function () {
@@ -95,6 +50,10 @@ $(document).ready(function () {
                 DAILYKPI2.filter(start, end);
             } //end of start/end dates validation
         });
+
+
+
+    var datatable;
 
     DAILYKPI2 = {
         filter: function (start, end) {

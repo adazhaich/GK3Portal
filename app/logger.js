@@ -6,11 +6,13 @@ var logger = new (winston.Logger)({
 		json : false,
 		level: 'debug',
 		colorize: true,
-		timestamp : true
+		//timestamp : true
+		timestamp : function() { return (new Date()); }
 	}), new winston.transports.File({
 		filename : __dirname + '/logs/'+config.portalConfig.appLogName,
 		level : 'debug',
-		timestamp : true,
+		//timestamp : true,
+		timestamp : function() { return (new Date()); },
 		json : false
 	}) ],
 	handleExceptions: true,

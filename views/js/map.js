@@ -53,8 +53,8 @@ $(document).ready(function(){
 		}else{
 			//console.log('test');
 			map = L.map('map').setView([x, y], 13);
-			console.log("typeMap is a popUp")
-			console.log("Height:"+window.innerHeight + " Width:"+ window.innerWidth)
+			//console.log("typeMap is a popUp")
+			//console.log("Height:"+window.innerHeight + " Width:"+ window.innerWidth)
 			document.getElementById("map").style.height = window.innerHeight + "px";
 			document.getElementById("map").style.width = window.innerWidth+ "px";
 			map.invalidateSize();

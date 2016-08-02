@@ -9,8 +9,13 @@ $(document).ready(function() {
 	        pickerPosition: "bottom-left"
 		 });
 		   
-		var start = getElement("#start").val() === undefined ? "" : getElement("#start").val() ;
-	    end = getElement("#end").val() === undefined ? "" : getElement("#end").val() ;
+		//var start = getElement("#start").val() === undefined ? "" : getElement("#start").val() ;
+	    //end = getElement("#end").val() === undefined ? "" : getElement("#end").val() ;
+
+    var startDate = new Date();
+    startDate.setDate(new Date().getDate() - detectionDetailsDefaultDateRange.oneDay);
+    var start = $("#start").val(getFormattedDate(startDate)).val();
+    var end = $("#end").val(getFormattedDate(new Date())).val();
 
 	    filterSql = getElement("#filterSql").val()  === undefined ? "" : getElement("#filterSql").val();
 	    var latestTime;
@@ -468,7 +473,8 @@ $(document).ready(function() {
 			queue().defer(d3.json, url).await(returnResult);
 	    });
 
-		init (); //disable dynamic date looking feature as the current hive/service takes too long. postponing after hbase/service is available
+         DETECTION.filter(start, end,filterSql); //====Ashok- NO NEED TO CALL INIT FUNCTION as we set the default range on page load
+		//init (); //disable dynamic date looking feature as the current hive/service takes too long. postponing after hbase/service is available
 		
 	});
 
@@ -484,7 +490,7 @@ $(document).ready(function() {
 			this query returns the latest time for hourly_suspect
 						var sql = "select max(traffic_time) from frauddb.decode_info where gk_process_state = 2";
 			
-*/			
+*/			//alert ("INIT INVOKED");
 			
 			var sql = "select max(traffic_date_hour) as traffic_date_hour from core_605_3.decode_info ";
 			var url = clientHTTPConfig.appContextRoot+"/dataaccess/decodeinfo";
@@ -504,8 +510,10 @@ $(document).ready(function() {
 		    		//console.log("data connection error:", data);
 		    	}
 		    	else {
+
 		    		latestTime = data[0].traffic_date_hour;
-		    		//console.log("latest time:", latestTime); //2016041216
+		    		//alert ("LATEST" +latestTime);
+                    //console.log("latest time:", latestTime); //2016041216
 		    		getElement("#start").val(moment(moment(latestTime, "YYYYMMDDHH").subtract(24,'hours')).format("YYYY-MM-DD HH"));
 		    		getElement("#end").val(moment(moment(latestTime, "YYYYMMDDHH")).format("YYYY-MM-DD HH"));
 		    		//TODO: parse the time string to date and hour, and pass it to filter to get the data
@@ -566,21 +574,6 @@ $(document).ready(function() {
                 'height=700, width=1000, top=0, left=150, toolbar=no,menubar=yes, scrollbars=yes, resizable=no,location=no,status=no');
         }
 
-			//======================================================
-/*        var url = clientHTTPConfig.appContextRoot+"/dataaccess/corporatesummary";
-
-var condition = "";
-condition = concatParam(condition, "traffic_date", "=", "'" + day + "'");
-condition = concatParam(condition, "corporate_name", "=", "'" + corporateName + "'");
-condition = concatParam(condition, "traffic_date", ">=", "'" + start + "'");
-condition = concatParam(condition, "traffic_date", "<=", "'" + end + "'");
-
-url += "?condition="+condition;
-
-if (filterSql){
-    url += "&filterSql="+filterSql;
-}
-*/
 
 	}	//================END of DETECTION POP
 	

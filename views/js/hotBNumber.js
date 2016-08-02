@@ -1,17 +1,27 @@
 
 $(document).ready(function(){
 	//console.log('hotBNumber.js');	
-	
+	var startDate = new Date();
+	startDate.setDate(new Date().getDate() - hotBNumberDefaultDateRange.oneWeek);
+	var start = $("#start").val(getFormattedDate(startDate)).val();
+	var end = $("#end").val(getFormattedDate(new Date())).val();
+
 	var day = getElement("#day").val()  === undefined ? "" : getElement("#day").val() ;
-    start = getElement("#start").val() === undefined ? "" : getElement("#start").val() ;
-    end = getElement("#end").val() === undefined ? "" : getElement("#end").val() ;
+
+
+	//start = getElement("#start").val() === undefined ? "" : getElement("#start").val() ;
+    //end = getElement("#end").val() === undefined ? "" : getElement("#end").val() ;
     source = getElement("#hbnsource").val() === undefined ? "" : getElement("#hbnsource").val() ;
     filterSql = getElement("#filterSql").val()  === undefined ? "" : getElement("#filterSql").val();
-    
-    HOTBNUMBER = {
+
+
+
+
+	HOTBNUMBER = {
     		 filter : function(day, start, end, source,filterSql){
     			var url = clientHTTPConfig.appContextRoot+"/dataaccess/hotbnumber";
     			var condition = "";
+				 //Data Access Success from http://10.212.2.143:8080/hotbnumber?limit=-1
     			if(day != '')
     				condition = concatParam(condition, "call_date", "=", "'" + moment(day).format("YYYYMMDD") + "'");
     			if(start != '')
@@ -154,14 +164,9 @@ $(document).ready(function(){
     getElement("#refresh").on( "click", function() {
 	    //console.log( "button was clicked" );
 	    day = getElement("#day").val()  === undefined ? "" : getElement("#day").val() ;
-//	    start = $("#start").val() === undefined ? "" : $("#start").val() ;
-//	    end = $("#end").val() === undefined ? "" : $("#end").val() ;
-	    
+
 	    start = getElement("#start").val() === undefined ? "" :  getElement("#start").val() ;
-//	    end = $("#end").val();
 	    end = getElement("#end").val() === undefined ? "" :  getElement("#end").val() ;
-	    //console.log("hotBNumber:"+start);
-	    
 	    source = getElement("#hbnsource").val() === undefined ? "" : getElement("#hbnsource").val() ;
 	    filterSql = getElement("#filterSql").val()  === undefined ? "" : getElement("#filterSql").val();
 	    //console.log( "day=", day, "hour=",  "start=", start, "end=", end, "source=", source);
