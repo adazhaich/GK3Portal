@@ -23,8 +23,8 @@ var logger 		 = require("./app/logger");
 var config	= require("./app/config");
 
 
-var port     = process.env.PORT || config.httpConfig.port;
-var sslPort     =  config.httpConfig.sslPort || 8443;
+var port     =     config.httpConfig.port;
+var sslPort     =  config.httpConfig.sslPort;
 //var contextRoot = config.httpConfig.contextRoot;
 //CREATE CONNECTION TO ACCOUNTS DB
 /*
@@ -128,12 +128,9 @@ require('./app/routes/appMapper')(app, passport, config, gk3_accounts_pool); // 
 
 
 // START THE SERVER=============================================================
-// Create an HTTP service=======================================================
-http.createServer(app).listen(port);
 
-
-// Create an HTTPS service identical to the HTTP service.
 if (config.httpConfig.ssl){
+    // Create an HTTPS service identical to the HTTP service.
 	var options = {
 			  key: fs.readFileSync('/home/mwsadmin/.ssh/key.pem'),
 			  cert: fs.readFileSync('/home/mwsadmin/.ssh/cert.pem')
@@ -143,5 +140,7 @@ if (config.httpConfig.ssl){
 	console.log('The magic happens on http sslPort ' + sslPort);
 }
 else {
+    // Create an HTTP service=======================================================
+    http.createServer(app).listen(port);
    logger.debug("The magic happens on http port " + port);
 }
