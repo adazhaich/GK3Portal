@@ -1,13 +1,5 @@
 $(document).ready(function () {
 
-/*    var dailyKPIFilters={
-        'startDate' : new Date(),
-        'endDate' : new Date(),
-        'oneDay'  : 1,
-        'oneWeek'  : 7,
-        'oneMonth'  :30
-    }
-    */
     $(window).resize(function () {
         //console.log("resizing");
         dc.renderAll("dailyKpi2" + reportType);
@@ -22,9 +14,10 @@ $(document).ready(function () {
 
     //set default date range wqhen user clicks on the report tab
     var startDate = new Date();
-    startDate.setDate(new Date().getDate() - dailyKPIDefaultDateRange.oneMonth);
+    startDate.setDate(new Date().getDate()  - getDateRange(dailyKPI));
     var start = $("#" + reportType + "start").val(getFormattedDate(startDate)).val();
     var end = $("#" + reportType + "end").val(getFormattedDate(new Date())).val();
+
 
     Zoomerang.config({
         maxHeight: 400,
@@ -368,6 +361,13 @@ $(document).ready(function () {
                         $('td', nRow).attr('nowrap', 'nowrap');
                         return nRow;
                     },
+                    "language": {
+                        "lengthMenu": "Display _MENU_ records per page",
+                        "zeroRecords": "Nothing found - sorry",
+                        "info": "Showing page _PAGE_ of _PAGES_",
+                        "infoEmpty": "No records available",
+                        "infoFiltered": "(filtered from _MAX_ total records)"
+                    },
                     "aoColumns": [ //TODO: may need to change when switching to Hive: 33 columns on UI, 33 used columns here, 37 columns in
                         // Hive, 33 columns in MySql
                         {
@@ -506,10 +506,12 @@ $(document).ready(function () {
                     buttons: [{
                         extend: 'collection',
                         text: 'Export',
-                        buttons: [{
+                        buttons: [ //BEGIN OF DOWNLOAD OPTIONS
+
+                            {
                             extend: 'copyHtml5',
                             title: 'DailyKpi'
-                        },
+                           },
                             {
                                 extend: 'csvHtml5',
                                 title: 'DailyKpi'
@@ -518,12 +520,17 @@ $(document).ready(function () {
                                 extend: 'excelHtml5',
                                 title: 'DailyKpi'
                             },
-                            {
+                        /*    {
                                 extend: 'pdfHtml5',
-                                title: 'DailyKpi'
-                            }]
-                    }]
-                });
+                                title: 'DailyKpi',
+                                exportOptions: {
+                                    columns: [ 0, 1, 2, 5 ]  //We can specify the columns that should be part of the  downloaded PDF,Currently PDF is not displaying all the columns.
+                                }
+                            }*/
+
+                            ] //END OF DOWNLOAD OPTIONS
+                    }] //END OF BUTTONS DECLARATION
+                });  //END OF RENDER DATA TABLE
 
                 function RefreshTable() {
                     dc.events.trigger(function () {

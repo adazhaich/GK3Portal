@@ -76,7 +76,7 @@ module.exports = function(passport, pool, logger) {
 
 	   	                return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
 	   	            }
-					logger.debug("passport.deserializeUser SUCCESS for USER ", rows[0]);
+					//logger.debug("passport.deserializeUser SUCCESS for USER ", rows[0]);
 
 	   	            done(err, rows[0]);
 	   	        });

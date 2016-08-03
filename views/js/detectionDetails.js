@@ -8,24 +8,19 @@ $(document).ready(function() {
 	        todayBtn: true,
 	        pickerPosition: "bottom-left"
 		 });
-		   
-		//var start = getElement("#start").val() === undefined ? "" : getElement("#start").val() ;
-	    //end = getElement("#end").val() === undefined ? "" : getElement("#end").val() ;
 
     var startDate = new Date();
-    startDate.setDate(new Date().getDate() - detectionDetailsDefaultDateRange.oneDay);
+    startDate.setDate(new Date().getDate() - getDateRange(detectionDetails));
     var start = $("#start").val(getFormattedDate(startDate)).val();
     var end = $("#end").val(getFormattedDate(new Date())).val();
-
-	    filterSql = getElement("#filterSql").val()  === undefined ? "" : getElement("#filterSql").val();
-	    var latestTime;
-
-
+    var filterSql = getElement("#filterSql").val()  === undefined ? "" : getElement("#filterSql").val();
+    var latestTime;
 
 	Zoomerang.config({
 		    maxHeight: 400,
 		    maxWidth: 800
 		}).listen('.zoom');
+
 
 
 
@@ -37,10 +32,13 @@ $(document).ready(function() {
      			var startTime, endTime;
 				if (start != undefined && start != "") {
 					startTime = moment(start).format("YYYYMMDDHH");
+                    //alert(":::"+startTime);
                     condition = concatParamOther(condition, "startTime", "=", +startTime);
 				}
 				if (end != undefined && end != "") {
 					endTime = moment(end).format("YYYYMMDDHH");
+                    //endTime = moment(end).startOf('hour').add(23, 'hours').format('YYYYMMDDHH')
+                    //alert(":::"+endTime);
                     condition = concatParamOther(condition, "endTime", "=", +endTime);
 				}
 					/*	if (filterSql != "") {
@@ -49,10 +47,8 @@ $(document).ready(function() {
                  else condition += filterSql;
                  }*/
 
-
-                //url += "?action=first_detection&type=TCG&traffic_date=20160626"
+               //url += "?action=first_detection&type=TCG&traffic_date=20160626"
                 url += "?" + condition;
-
 
 				//console.log("filter url=", url);
 				$('#ajax_loader').show();
@@ -183,10 +179,10 @@ $(document).ready(function() {
 					var dateHourTotal = dc.rowChart(".active #dateHour-chart", "detcDetail");
 
 					dateHourTotal
-					//	    				  .width(380)
+					//  .width(380)
 						.height(220)
-						//	    				  .yAxisLabel("Hour")
-						//	    				  .xAxisLabel("Count")
+						//.yAxisLabel("Hour")
+						//.xAxisLabel("Count")
 						.dimension(trafficHourDimension)
 						.group(totalCallsByHour)
 						.elasticX(true)
@@ -198,17 +194,17 @@ $(document).ready(function() {
 
 					dateHourPieChart
 						.height(220)
-						//	    			      .width(350)
+						//.width(350)
 						.radius(90)
 						.innerRadius(40)
 						.transitionDuration(1000)
-						//	    			      .slicesCap(10)
+						//.slicesCap(10)
 						.dimension(trafficHourDimension)
 						.group(totalCallsByHour);
 					//end pie chart
 
 					sumOutDurationByCellTotal
-					//	    				.width(350)
+					    //.width(350)
 						.height(220)
 						.transitionDuration(1000).dimension(cellsDimension)
 						.group(totalSumOutDurationByCell)
@@ -312,7 +308,7 @@ $(document).ready(function() {
 									"sDefaultContent": "operator"
 								}, {
 									"mData": "corporateid",
-									"sDefaultContent": ""/*,
+									"sDefaultContent": ""/* TBD,
 									"mRender": function (data, type, row) {
 										//return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popAdd(" + data + ");\" class='colLnk'>" + data + '</a>';
                                         return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popCorpSummary(" + data + "," + row.insert_time + ",'CorpID');\" class='colLnk'>" + data + '</a>';

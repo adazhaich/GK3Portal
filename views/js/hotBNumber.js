@@ -2,7 +2,7 @@
 $(document).ready(function(){
 	//console.log('hotBNumber.js');	
 	var startDate = new Date();
-	startDate.setDate(new Date().getDate() - hotBNumberDefaultDateRange.oneWeek);
+	startDate.setDate(new Date().getDate() - getDateRange(hotBNumber));
 	var start = $("#start").val(getFormattedDate(startDate)).val();
 	var end = $("#end").val(getFormattedDate(new Date())).val();
 

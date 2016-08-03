@@ -11,6 +11,14 @@ $(document).ready(function(){
     $("#homeLink").attr("href", "/test");
 
 
+    /*Time Zones
+    When setting a date, without specifying the time zone, JavaScript will use the browser's time zone.
+    When getting a date, without specifying the time zone, the result is converted to the browser's time zone.
+    In other words: If a date/time is created in GMT (Greenwich Mean Time), the date/time will be converted to CDT (Central US Daylight Time) if a user browses from central US.
+     getUTCDate()	Same as getDate(), but returns the UTC date
+    */
+
+
         function startTime() {
            // var today = new Date();
 

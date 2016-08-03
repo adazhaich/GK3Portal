@@ -137,7 +137,7 @@ if (config.httpConfig.ssl){
 			};
 	
 	https.createServer(options, app).listen(sslPort);
-	console.log('The magic happens on http sslPort ' + sslPort);
+    logger.debug('The magic happens on http sslPort ' + sslPort);
 }
 else {
     // Create an HTTP service=======================================================
