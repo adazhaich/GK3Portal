@@ -215,9 +215,7 @@ $(document).ready(function () {
                     }
                 }
 
-
                 reportType = getElement("#reportType").val();
-
 
                 //=============================Declare ALL Charts
                 var fraudActivity = dc.compositeChart("#" + reportType + "fraudActivity-chart", "dailyKpi2" + reportType);
@@ -228,13 +226,12 @@ $(document).ready(function () {
 
 
                 fraudActivity
-                //					.height(220)
-                //					.width(200)
+                //.height(220)
+                //.width(200)
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .round(d3.time.day.round)
                     .xUnits(d3.time.days)
-                    .margins({left: 55, top: 10, right: 55, bottom: 40})
-
+                    .margins({left: 155, top: 20, right: 55, bottom: 30})
                     .legend(
                         dc.legend().x(80).y(20).itemHeight(13).gap(5))
                     .renderHorizontalGridLines(true)
@@ -256,11 +253,11 @@ $(document).ready(function () {
 
                 //=========================================== MEDIAN LOSS BAR  CHART ========================================
                 medianLoss
-                //				    .x(d3.time.scale().domain([ minDate, maxDate ]))
+                    //.x(d3.time.scale().domain([ minDate, maxDate ]))
                     .x(d3.time.scale().domain([d3.time.day.offset(minDate, -1), d3.time.day.offset(maxDate, 2)]))
                     .round(d3.time.day.round)
                     .xUnits(d3.time.days)
-                    .margins({left: 50, top: 10, right: 50, bottom: 40})
+                    .margins({left: 50, top: 20, right: 50, bottom: 40})
                     .brushOn(true)
                     .clipPadding(10)
                     .title(function (d) {
@@ -270,7 +267,7 @@ $(document).ready(function () {
                     .yAxisLabel("Median Loss")
                     .dimension(trafficDayDimension)
                     .group(medianLossBeforeByDate, "Before")
-                    .legend(dc.legend().x(75).y(0).autoItemWidth(true).horizontal(10)) //dc.legend().x(140).y(0).gap(5)
+                    .legend(dc.legend().x(50).y(0).autoItemWidth(true).horizontal(10)) //dc.legend().x(140).y(0).gap(5)
                     .renderLabel(true);
 
                 medianLoss.stack(medianLossAfterByDate, "After");

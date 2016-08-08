@@ -1,37 +1,30 @@
-/**
- * Created by avandana on 7/21/2016.
- */
 var utils = require('../utils');
 var logger = require('../logger');
-//var props
 var config = require('../config');
 var default_range_hour = config.defaultTimeConfig.range_hour;
 var appContextRoot = config.httpConfig.contextRoot;
 var path = require('path');
 var express = require('express');
 var router = express.Router();
-
-
 var request = require('request');
 var dateFormat = require('dateformat');
 var fs = require('fs');
 var bcrypt = require('bcrypt-nodejs');
 var mysql = require('mysql');
-var gk3_accounts_db = require('../database');
-var connection = mysql.createConnection(gk3_accounts_db.connection);
+//var gk3_accounts_db = require('../database');
 
-
-var request = require('request');
 var dateFormat = require('dateformat');
 var fs = require('fs');
-
-
 var default_illegal_odds = config.httpConfig.default_illegal_odds;
-logger.debug("default_illegal_odds=", default_illegal_odds);
+
+//var connection = mysql.createConnection(gk3_accounts_db.connection);
+
+
 if (default_illegal_odds == undefined || default_illegal_odds <= 0) {
     default_illegal_odds = 0.5;
+    logger.debug("default_illegal_odds=", default_illegal_odds);
+
 }
-logger.debug("default_illegal_odds=", default_illegal_odds);
 
 var serviceUrl = config.dataService.protocol + "://"
     + config.dataService.url + ":"
@@ -39,8 +32,8 @@ var serviceUrl = config.dataService.protocol + "://"
 //console.log("serviceUrl=", serviceUrl);
 logger.debug("serviceUrl=", serviceUrl);
 
-
-module.exports = function (app, passport, config, connection) {
+//require('./app/routes/appMapper')(app, passport, config, gk3_accounts_pool); // load our routes for data access
+module.exports = function (app, passport, config, gk3_accounts_pool) {
 
     // route middleware that will happen on every request
     router.use(function (req, res, next) {
@@ -301,6 +294,7 @@ module.exports = function (app, passport, config, connection) {
 
     // LOGOUT ==============================
     router.get('/logout', function (req, res) {
+        logger.debug("User initiated logout");
         req.logout();
         res.redirect(appContextRoot);
     });
@@ -380,7 +374,9 @@ module.exports = function (app, passport, config, connection) {
 
     // show the login form
     router.get('/login', function (req, res) {
-        logger.debug("(router.get('/login')-Render Login Form:", req.protocol + '://' + req.get('host') + req.originalUrl);
+        logger.debug("(router.get('/login')-Render Login Form:", req.protocol + '://' + req.get('host') + req.originalUrl)
+        /*var sess= req.session;
+        sess.username=req.user.username;*/
         res.render('login.ejs', {req: req, message: req.flash('loginMessage')});
     });
 
@@ -443,8 +439,8 @@ module.exports = function (app, passport, config, connection) {
 
 
     router.get('/views/*', function (req, res) {
-        console.log("ROUTING files in public folder");
-        console.log("Request URL", req.url);
+        //console.log("ROUTING files in public folder");
+        //console.log("Request URL", req.url);
         res.sendFile(path.join(__dirname + '/../../' + req.url));
     });
 
@@ -950,6 +946,8 @@ module.exports = function (app, passport, config, connection) {
 
         logger.debug("request.parameter.condition:", condition);
 
+
+
         var url = serviceUrl + "/corporatesummary";
         if (condition != "") url += "?where=" + condition + "&limit=-1";
         else url += "?limit=-1";
@@ -1219,7 +1217,7 @@ module.exports = function (app, passport, config, connection) {
             if (!error && response.statusCode === 200) {
 
                 //console.log("returned json nodes:", body.length);
-                ////console.log("returned json data:", body);
+                //console.log("returned json data:", body);
                 res.json(body);
             } else {
                 //console.log("returned json error:", error);
@@ -1856,7 +1854,7 @@ module.exports = function (app, passport, config, connection) {
 
         var sql1 = "select group_concat(role_id) roleids from user_roles where deleted_date is null and  user_id='" + userId + "'";
         logger.debug('query roleids sql:', sql1);
-        connection.getConnection(function (err, connection) {
+        gk3_accounts_pool.getConnection(function (err, connection) {
             if (err) {
                 //console.log("Error connecting database ... \n\n", err);
                 connection.release();
@@ -1865,15 +1863,17 @@ module.exports = function (app, passport, config, connection) {
             }
 
             connection.query(sql1, function (err, rows, fields) {
-                connection.release();
+               // connection.release();
                 if (!err) {
                     logger.debug('retrieved role ids of ', userId, rows.length);
                     roleIds = rows[0].roleids;
+                    logger.debug('USER ROLE IDS ARE :::', roleIds);
                     var sql = "select m.* from menu m where exists (select 1 from role_menus rm where rm.menu_id=m.id and rm.role_id in (" + roleIds + ")) union all select m2.* from menu m2 where name='root'";
-                    logger.log('query menu sql:', sql);
+                    logger.debug('query menu sql:', sql);
                     connection.query(sql, function (err, rows, fields) {
                         if (!err) {
                             logger.debug('retrieved menu: ', rows.length);
+                            logger.debug("MENU DATA",JSON.stringify(rows));
                             res.json(rows);
                         } else {
                             logger.debug('Error while query menu.', err);
@@ -1894,7 +1894,7 @@ module.exports = function (app, passport, config, connection) {
 
         var sql = "select * from users";
         logger.debug('query users sql:', sql);
-        connection.getConnection(function (err, connection) {
+        gk3_accounts_pool.getConnection(function (err, connection) {
             if (err) {
                 //console.log("Error connecting database ... \n\n", err);
                 connection.release();
@@ -1921,7 +1921,7 @@ module.exports = function (app, passport, config, connection) {
 
         var sql = "select a.role_id, a.role, a.role_description, ifnull (b.user_role_id , 0) checked, " + userId + " user_id from roles a left join  (select * from user_roles where DELETED_DATE is null and user_id=" + userId + " ) b on a.role_id=b.role_id order by role_id ";
         logger.debug('query role of user sql:', sql);
-        connection.getConnection(function (err, connection) {
+        gk3_accounts_pool.getConnection(function (err, connection) {
             if (err) {
                 //console.log("Error connecting database ... \n\n", err);
                 connection.release();
@@ -1953,7 +1953,7 @@ module.exports = function (app, passport, config, connection) {
         var sql = "select * from user_roles where user_id=" + userId + " and deleted_date is null ";
         logger.debug('query check role of user is exists sql:', sql);
 
-        connection.getConnection(function (err, connection) {
+        gk3_accounts_pool.getConnection(function (err, connection) {
             if (err) {
                 //console.log("Error connecting database ... \n\n", err);
                 connection.release();
@@ -2021,7 +2021,7 @@ module.exports = function (app, passport, config, connection) {
         var sql = "select a.role_id, a.role, a.role_description from roles a ";
         logger.debug('query all roles sql:', sql);
 
-        connection.getConnection(function (err, connection) {
+        gk3_accounts_pool.getConnection(function (err, connection) {
             if (err) {
                 //console.log("Error connecting database ... \n\n", err);
                 connection.release();
@@ -2053,7 +2053,7 @@ module.exports = function (app, passport, config, connection) {
             "	order by id ";
         logger.debug('query role of user sql:', sql);
 
-        connection.getConnection(function (err, connection) {
+        gk3_accounts_pool.getConnection(function (err, connection) {
             if (err) {
                 //console.log("Error connecting database ... \n\n", err);
                 connection.release();
@@ -2084,7 +2084,7 @@ module.exports = function (app, passport, config, connection) {
         }
 
         var sqlck = "select group_concat(menu_id) menu_ids from role_menus where role_id=" + roleId;
-        connection.getConnection(function (err, connection) {
+        gk3_accounts_pool.getConnection(function (err, connection) {
             if (err) {
                 //console.log("Error connecting database ... \n\n", err);
                 connection.release();
@@ -2144,7 +2144,7 @@ module.exports = function (app, passport, config, connection) {
 
         var sql1 = "select * from users where id='" + userId + "' ";
         logger.debug('query roleids sql:', sql1);
-        connection.getConnection(function (err, connection) {
+        gk3_accounts_pool.getConnection(function (err, connection) {
             if (err) {
                 //console.log("Error connecting database ... \n\n", err);
                 connection.release();
@@ -2185,26 +2185,28 @@ module.exports = function (app, passport, config, connection) {
         logger.debug('query preferences:');
         var userId = req.user.id;
 
-        var sql = "select * from setting where user_id='" + userId + "' and name='ROWS_PER_PAGE' ";
-        logger.debug('query settings sql:', sql);
-        // connection.getConnection(function (err, connection) {
-        //   if (err) {
-        //      //console.log("Error connecting database ... \n\n", err);
-        //      connection.release();
-        //      logger.debug("Error connecting database ... \n\n", err);
-        //      return;
-        //   }
-        connection.query(sql, function (err, rows, fields) {
-            //connection.release();
-            if (!err) {
-                logger.info('retrieved setting ids of ', userId, rows);
-                res.json(rows);
-            } else {
-                logger.debug('Error while query is exists ', userId, ' get error', err);
-                res.send(err);
+        var sql = "select * from settings where user_id='" + userId + "' and name='ROWS_PER_PAGE' ";
+        logger.debug('Inside /dataaccess/getpreferences::: query settings sql:', sql);
+
+
+        gk3_accounts_pool.getConnection(function (err, connection) {
+            if (err) {
+                connection.release();
+                logger.debug("Error connecting database ... \n\n", err);
+                return;
             }
+            connection.query(sql, function (err, rows, fields) {
+                connection.release();
+                if (!err) {
+                    logger.info('retrieved  current settings of ', userId, rows);
+                    res.json(rows);
+                } else {
+                    logger.debug('Error during QUERY execution for ', userId, ' Error Info:', err);
+                    res.send(err);
+                }
+            });
         });
-        // });
+
     });
 
     router.get('/dataaccess/setpreferences', utils.isLoggedIn, function (req, res) {
@@ -2215,11 +2217,11 @@ module.exports = function (app, passport, config, connection) {
 
         var sql = "";
         if (settingid == undefined)
-            sql = "insert into setting(user_id, name, value)  values('" + userId + "', 'ROWS_PER_PAGE', '" + rowsperpage + "' ) ";
+            sql = "insert into settings(user_id, name, value)  values('" + userId + "', 'ROWS_PER_PAGE', '" + rowsperpage + "' ) ";
         else
-            sql = "update setting set VALUE='" + rowsperpage + "' where USER_ID='" + userId + "' and NAME='ROWS_PER_PAGE' ";
-        logger.info('query settings sql:', sql);
-        connection.getConnection(function (err, connection) {
+            sql = "update settings set VALUE='" + rowsperpage + "' where USER_ID='" + userId + "' and NAME='ROWS_PER_PAGE' ";
+        logger.info('Inside /dataaccess/setpreferences::: query settings sql:', sql);
+        gk3_accounts_pool.getConnection(function (err, connection) {
             if (err) {
                 //console.log("Error connecting database ... \n\n", err);
                 connection.release();
@@ -2251,7 +2253,7 @@ module.exports = function (app, passport, config, connection) {
         var sql = "SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='" + reportType + "' and user_id='" + userId + "' and valid=1 ";
         logger.debug('query filteridList sql:', sql);
 
-        connection.getConnection(function (err, connection) {
+        gk3_accounts_pool.getConnection(function (err, connection) {
             if (err) {
                 //console.log("Error connecting database ... \n\n", err);
                 connection.release();
@@ -2279,7 +2281,7 @@ module.exports = function (app, passport, config, connection) {
 
         logger.debug("request.parameter.filterId:", filterId);
         var sql = "select * from gk3_accounts.filter_param where filter_id='" + filterId + "'";
-        connection.getConnection(function (err, connection) {
+        gk3_accounts_pool.getConnection(function (err, connection) {
             if (err) {
                 //console.log("Error connecting database ... \n\n", err);
                 connection.release();
@@ -2411,7 +2413,6 @@ module.exports = function (app, passport, config, connection) {
                 logger.debug("Error connecting database ... \n\n", err);
                 return;
             }
-
             connection.query(sql1, function (err, rows, fields) {
                 connection.release();
                 if (!err) {

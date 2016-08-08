@@ -20,7 +20,7 @@ $(document).ready(function() {
 				getElement("#alertmsg").text("Please input correct Old Password.");
 				$('#ajax_loader').hide();	
 			} else if(dataSet.affectedRows > 0) {
-				getElement("#alertmsg").text("Change Password successfully!");
+				getElement("#alertmsg").text("Password changed successfully!");
 				$('#ajax_loader').hide();	
 			}
 		}

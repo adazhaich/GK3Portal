@@ -25,6 +25,7 @@ var config	= require("./app/config");
 
 var port     =     config.httpConfig.port;
 var sslPort     =  config.httpConfig.sslPort;
+
 //var contextRoot = config.httpConfig.contextRoot;
 //CREATE CONNECTION TO ACCOUNTS DB
 /*
@@ -71,6 +72,7 @@ app.set('views', __dirname + '/views'); //defining absolute path of views folder
 //app.use('/reports', express.static(__dirname + '/public')); // all reports will access static files from location /public/*
 //app.use('/drilldown',express.static(__dirname + '/public'));
 
+
 // request was for a static asset, for which authentication is not necessary
  app.use(express.static(__dirname + '/views/css'));
  app.use(express.static(__dirname + '/views/images'));
@@ -83,35 +85,13 @@ app.set('views', __dirname + '/views'); //defining absolute path of views folder
  app.use('/drilldown',express.static(__dirname + '/views/images')); // all reports will access static files
  app.use('/drilldown',express.static(__dirname + '/views/stylesheets')); // all reports will access static files
 
-// context root?
-//console.log("contextRoot:",contextRoot );
-//logger.debug("contextRoot:",contextRoot );
 
-/*
-There are two broad ways of implementing sessions in Express – using cookies
-and using a session store at the backend. Both of them add a new object in the request object named session, which contains the session variables.*/
-// required for passport
-
-
-/*app.use(session({
-	secret: 'ilovescotchscotchyscotchscotch',
-    name: 'btcg_cookie_name',
-    rolling: true,  //forces a cookie set on every response and resets the expiration date.
-    cookie: {
-        maxAge:  1 * 60 * 1000
-    }, //1 minute
-    //activeDuration: 5 * 60 * 1000, //allows users to lengthen their session by interacting with the site. If the session is 28 minutes old and the user sends another request, activeDuration will extend the session’s life for however long you define. In this case, 5 minutes.
-    path: '/',
-    //proxy: true,
-    //resave: true, //forces session to be saved even when unmodified...
-    //saveUninitialized: true
-})); */
 
 //http://stackoverflow.com/questions/14464873/expressjs-session-expiring-despite-activity
 app.use(session({
     secret: 'a secret',
     name: 'portal_cookie',
-    cookie: { maxAge:  .25 * 60  * 60 * 1000},
+    cookie: { maxAge:  30 * 60 * 1000},
         path: '/',
         httpOnly: true,
         secure: false,
@@ -131,12 +111,18 @@ require('./app/routes/appMapper')(app, passport, config, gk3_accounts_pool); // 
 
 if (config.httpConfig.ssl){
     // Create an HTTPS service identical to the HTTP service.
-	var options = {
+/*	var options = {
 			  key: fs.readFileSync('/home/mwsadmin/.ssh/key.pem'),
 			  cert: fs.readFileSync('/home/mwsadmin/.ssh/cert.pem')
 			};
-	
+*/
+ var options = {
+ key: fs.readFileSync('/Users/avandana/conf/key.pem'),
+ cert: fs.readFileSync('/Users/avandana/conf/cert.pem')
+ };
+
 	https.createServer(options, app).listen(sslPort);
+    //https.createServer(app).listen(sslPort);
     logger.debug('The magic happens on http sslPort ' + sslPort);
 }
 else {
@@ -144,3 +130,31 @@ else {
     http.createServer(app).listen(port);
    logger.debug("The magic happens on http port " + port);
 }
+
+
+//====================================================================================
+
+// context root?
+//console.log("contextRoot:",contextRoot );
+//logger.debug("contextRoot:",contextRoot );
+
+/*
+ There are two broad ways of implementing sessions in Express – using cookies
+ and using a session store at the backend. Both of them add a new object in the request object named session, which contains the session variables.*/
+// required for passport
+/*
+ app.use(session({
+ secret: 'ilovescotchscotchyscotchscotch',
+ name: 'btcg_cookie_name',
+ rolling: true,  //forces a cookie set on every response and resets the expiration date.
+ cookie: {
+ maxAge:  1 * 60 * 1000
+ }, //1 minute
+ activeDuration: 5 * 60 * 1000, //allows users to lengthen their session by interacting with the site. If the session is 28 minutes old and the user sends another request, activeDuration will extend the session’s life for however long you define. In this case, 5 minutes.
+ path: '/',
+ proxy: true,
+ resave: true, //forces session to be saved even when unmodified...
+ saveUninitialized: true
+ }));
+
+================================================================================================= */

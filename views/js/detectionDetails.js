@@ -79,6 +79,7 @@ $(document).ready(function() {
 					$("#" + dd + "graph_collapse").hide();
 					$("#" + dd + "table_collapse").hide();
   */
+					document.getElementById('record_count').innerHTML =0;
 					$('#ajax_loader').hide();
 					return;
 
@@ -440,6 +441,10 @@ $(document).ready(function() {
 						chartI.on("filtered", RefreshTable);
 					}
 					dc.renderAll("detcDetail");
+
+
+					// / Get the total rows
+					document.getElementById('record_count').innerHTML =datatable.fnGetData().length;
 					$('#ajax_loader').hide();
 				}
 			} //====================END MAKEGRAPHS FUNCTION

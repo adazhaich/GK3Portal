@@ -52,12 +52,15 @@ function go(type,data,startDay,endDay){
 });
 
 function popMap(cellId,imsi,msisdn){
-	var url = clientHTTPConfig.appContextRoot +'/map?cellId='+cellId+'&imsi='+imsi+'&msisdn='+msisdn;
+	//var url = clientHTTPConfig.appContextRoot +'/map?cellId='+cellId+'&imsi='+imsi+'&msisdn='+msisdn;
+	var url = clientHTTPConfig.appContextRoot + '/map?cellId=' + cellId;//Updated similar to drillDetectionDetails.js
 	window.open(
 			url ,
 			'_blank',
 			'height=700, width=1000, top=0, left=150, toolbar=no,menubar=yes, scrollbars=yes, resizable=no,location=no,status=no');
 }
+
+
 
 
 function loadData(error, apiData) {
@@ -128,9 +131,9 @@ function loadData(error, apiData) {
             ,{ "mData": "s_imsi", "sDefaultContent": "",}
             ,{ "mData": "s_imei", "sDefaultContent": ""}
             ,{ "mData": "s_ci", "sDefaultContent": " ",
-            	"mRender":function(data,type,row){
-            		return '<a class="colLnk" onclick="popMap('+data+','+row.s_imsi+','+row.s_msisdn+')">'+data+'</a>';
-            	}
+				"mRender": function (data, type, row) {
+					return "<a href='javascript:void(0);' onclick=\"popMap(" + data + ",'CELL');\" class='colLnk'>" + data + '</a>'; //COPIED FROM DETECTIONDETAILS.JS===============
+				}
             }
             ,{ "mData": "s_lac", "sDefaultContent": "" }
             ,{ "mData": "term_cause", "sDefaultContent": ""}

@@ -22,9 +22,9 @@ var hotBNumberDefaultDateRange={
 }
 
 var detectionDetails={
-    //defaultFilterInterval : "OneMonth"
+    defaultFilterInterval : "OneMonth"
     //defaultFilterInterval : "OneDay"
-    defaultFilterInterval : "12Hrs"
+    //defaultFilterInterval : "12Hrs"
 };
 var hotBNumber={
     //defaultFilterInterval : "OneMonth"
@@ -32,6 +32,12 @@ var hotBNumber={
 };
 
 var dailyKPI={
+    defaultFilterInterval : "OneMonth"
+    //defaultFilterInterval : "OneDay"
+};
+
+
+var hourlyFraud={
     defaultFilterInterval : "OneMonth"
     //defaultFilterInterval : "OneDay"
 };
