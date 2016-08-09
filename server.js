@@ -8,7 +8,7 @@ var http = require('http');
 var httpProxy = require('http-proxy');
 var url = require('url') ;
 var fs = require('fs');
-
+//var serveStatic = require('serve-static');
 
 var mysql = require('mysql');
 var passport = require('passport');
@@ -21,7 +21,6 @@ var session      = require('express-session');
 
 var logger 		 = require("./app/logger");
 var config	= require("./app/config");
-
 
 var port     =     config.httpConfig.port;
 var sslPort     =  config.httpConfig.sslPort;
@@ -38,7 +37,6 @@ var mysqlConn = mysql.createConnection({
 });
 */
 
-
 //CREATE CONNECTION POOL
 var gk3_accounts_pool = mysql.createPool({
     connectionLimit : 3, //important
@@ -51,9 +49,7 @@ var gk3_accounts_pool = mysql.createPool({
 })
 
 
-
 require('./app/passport')(passport, gk3_accounts_pool, logger); // pass passport for configuration
-
 
 // set up our express application
 //app.use(morgan('dev')); // log every request to the console
@@ -62,18 +58,15 @@ app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs'); // set up ejs for templating
-app.set('views', __dirname + '/views'); //defining absolute path of views folder
+//app.set('views', __dirname + '/views'); //defining absolute path of views folder
 
 
-
-
-//app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
-//app.set('public', __dirname + '/public'); //defining absolute path of views folder
-//app.use('/reports', express.static(__dirname + '/public')); // all reports will access static files from location /public/*
-//app.use('/drilldown',express.static(__dirname + '/public'));
-
-
+/*
 // request was for a static asset, for which authentication is not necessary
+ app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
+ app.set('public', __dirname + '/public'); //defining absolute path of views folder
+ app.use('/reports', express.static(__dirname + '/public')); // all reports will access static files from location /public/*
+ app.use('/drilldown',express.static(__dirname + '/public'));
  app.use(express.static(__dirname + '/views/css'));
  app.use(express.static(__dirname + '/views/images'));
  app.use(express.static(__dirname + '/views/stylesheets'));
@@ -84,8 +77,7 @@ app.set('views', __dirname + '/views'); //defining absolute path of views folder
  app.use('/drilldown',express.static(__dirname + '/views/css')); // all reports will access static files
  app.use('/drilldown',express.static(__dirname + '/views/images')); // all reports will access static files
  app.use('/drilldown',express.static(__dirname + '/views/stylesheets')); // all reports will access static files
-
-
+*/
 
 //http://stackoverflow.com/questions/14464873/expressjs-session-expiring-despite-activity
 app.use(session({
@@ -95,7 +87,6 @@ app.use(session({
         path: '/',
         httpOnly: true,
         secure: false,
-
     rolling: true
 }));
 
@@ -111,29 +102,22 @@ require('./app/routes/appMapper')(app, passport, config, gk3_accounts_pool); // 
 
 if (config.httpConfig.ssl){
     // Create an HTTPS service identical to the HTTP service.
-/*	var options = {
+  var options = {
 			  key: fs.readFileSync('/home/mwsadmin/.ssh/key.pem'),
 			  cert: fs.readFileSync('/home/mwsadmin/.ssh/cert.pem')
 			};
-*/
- var options = {
- key: fs.readFileSync('/Users/avandana/conf/key.pem'),
- cert: fs.readFileSync('/Users/avandana/conf/cert.pem')
- };
 
 	https.createServer(options, app).listen(sslPort);
-    //https.createServer(app).listen(sslPort);
-    logger.debug('The magic happens on http sslPort ' + sslPort);
+    logger.debug('Server started in SSL Mode. SSL Port#' + sslPort);
 }
 else {
     // Create an HTTP service=======================================================
     http.createServer(app).listen(port);
-   logger.debug("The magic happens on http port " + port);
+    logger.debug('Server started in non-SSL Mode. HTTP Port#' + port);
 }
 
 
 //====================================================================================
-
 // context root?
 //console.log("contextRoot:",contextRoot );
 //logger.debug("contextRoot:",contextRoot );
