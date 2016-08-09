@@ -330,6 +330,19 @@ $(document).ready(function() {
 										return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popWnd(" + data + "," + row.insert_time + ",'IMSI');\" class='colLnk'>" + data + '</a>';
 
 									}
+
+
+								}, {
+									"mData": "imei",
+									"sDefaultContent": "",
+									"mRender": function (data, type, row) {
+										//return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popWnd(" + data+ ","+row.insert_time.format("YYYY-MM-DD hh:mm:ss")+",'IMSI');\" class='colLnk'>" + data + '</a>';
+										return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popWnd(" + data + "," + row.insert_time + ",'IMEI');\" class='colLnk'>" + data + '</a>';
+
+									}
+								}, {
+									"mData": "lac",
+									"sDefaultContent": ""
 								}, {
 									"mData": "cell_id",
 									"sDefaultContent": "",
@@ -337,12 +350,9 @@ $(document).ready(function() {
 										return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popDect(" + data + ",'CELL');\" class='colLnk'>" + data + '</a>';
 									}
 								}, {
-									"mData": "lac",
+									"mData": "vendor",
 									"sDefaultContent": ""
-								}, {
-									"mdata": "vendor",
-									"defaultContent": ""
-								}, {
+								},{
 									"mData": "model",
 									"sDefaultContent": ""
 								}, {
@@ -353,7 +363,14 @@ $(document).ready(function() {
 									"sDefaultContent": ""
 								}, {
 									"mData": "module",
-									"sDefaultContent": ""
+									"sDefaultContent": "",
+									"mRender": function (data, type, row) {
+										 if (data) {
+											 return "H";
+										 }
+										 return "M";
+									}
+
 								}, {
 									"mData": "subid",
 									"sDefaultContent": "",
