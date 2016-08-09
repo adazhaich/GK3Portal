@@ -113,7 +113,7 @@ $(document).ready(function(){
 		            	}
 		            }            
 		            ,{ "mData": "source_file_name", "sDefaultContent": "" }
-		            ,{ "mData": "type", "sDefaultContent": ""}
+		            ,{ "mData": "call_mechanism", "sDefaultContent": ""}
 		            ,{ "mData": "call_time", "sDefaultContent": "",
 		            	"mRender": function ( data, type, row ) {
 		            		return moment(data).format("YYYY-MM-DD hh:mm:ss");
