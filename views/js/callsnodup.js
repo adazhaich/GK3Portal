@@ -5,13 +5,15 @@ $(document).ready(function(){
 	var data = $('#data').val();
 	var hour = $('#hour').val();
 	hour = ('0' + hour).slice(-2);
-	var queryday = $('#queryday').val()+hour;
+	var queryday = $('#queryday').val()+" "+hour;
 	var rangeHour  = $('#defaultRangeHour').val()
-	 $("#startDate").val(dateAddOrSub('h','-',rangeHour,queryday,'yyyyMMddhh'));
+	 $("#startDate").val(dateAddOrSub('h','-',rangeHour,queryday,'yyyyMMdd hh'));
 	 $("#endDate").val(queryday);
 	 var startDay = $("#startDate").val();
 	var endDay = $("#endDate").val();
-	   
+
+	//console.log (startDay);
+	//console.log(endDay);
 	$( "#query").on( "click", function() {
 		var type = $('#type').val();
 		var data = $('#data').val();
@@ -110,8 +112,8 @@ function loadData(error, apiData) {
              { "mData": "call_start_time", "sDefaultContent": ""}         
              ,{ "mData": "s_msisdn", "sDefaultContent": ""}
              ,{ "mData": "o_msisdn", "sDefaultContent": ""}
-            ,{ "mData": "sw_id", "sDefaultContent": ""}
-            ,{ "mData": "call_id", "sDefaultContent": " "}
+           /* ,{ "mData": "sw_id", "sDefaultContent": ""}
+            ,{ "mData": "call_id", "sDefaultContent": " "}*/
             ,{ "mData": "call_type", "sDefaultContent": "traffic_date",
             	"mRender":function(data,type,row){
             		var ci = row.charge_indicator;
@@ -126,7 +128,7 @@ function loadData(error, apiData) {
             		}
             	}
             }
-            ,{ "mData": "call_end_time", "sDefaultContent": ""} 
+/*           ,{ "mData": "call_end_time", "sDefaultContent": ""}*/
             ,{ "mData": "duration", "sDefaultContent": "" }
             ,{ "mData": "s_imsi", "sDefaultContent": "",}
             ,{ "mData": "s_imei", "sDefaultContent": ""}
@@ -136,15 +138,14 @@ function loadData(error, apiData) {
 				}
             }
             ,{ "mData": "s_lac", "sDefaultContent": "" }
-            ,{ "mData": "term_cause", "sDefaultContent": ""}
+  /*          ,{ "mData": "term_cause", "sDefaultContent": ""}
             ,{ "mData": "term_reason", "sDefaultContent": " " }
-            ,{ "mData": "ss_code", "sDefaultContent": ""}
+            ,{ "mData": "ss_code", "sDefaultContent": ""}*/
             ,{ "mData": "trunk_in", "sDefaultContent": ""}
             ,{ "mData": "trunk_out", "sDefaultContent": "" }
-            ,{ "mData": "call_date_hour", "sDefaultContent": " " }
+            // ,{ "mData": "call_date_hour", "sDefaultContent": " " }
         ],    
-//        "sDom": 'ZlfrBtip',
-//        "sDom" : '<"wrapper"flBtip>',
+
         "sDom": 'ZlfrBtip',
         "colResize": {
             "tableWidthFixed": false

@@ -8,7 +8,7 @@
 <div class="modal-body">
 	<div class="panel panel-default">
 		<div class="panel-body">
-			<p> <%=type%>:<%= data %></p>
+			<p> <%=type%>: <strong><%= data %></strong></p>
 			<input type="text" id="type" value="<%=type%>"  hidden>
 			<input type="text" id="data" value="<%=data%>"  hidden>
 			<input type="text" id="queryday" value="<%=day%>"  hidden>
@@ -35,26 +35,27 @@
 			<table class="table table-striped cell-border" width="100%" id="callsnodup-datatable">
 				<thead>
 					<tr>
-						<th>Call Start Time</th>
-						<th>S_Msisdn</th>
-						<th>O_Msisdn</th>
-						<th>SW ID</th>
-						<th>Call ID</th>	
+						<th>Call Time</th>
+						<th>Calling</th>
+						<th>Called</th>
+						<!--<th>SW ID</th>-->
+						<!--<th>Call ID</th>	-->
 						<th>Call Type</th>
-						<th>Call End Time</th>
-						<th>Duration</th>	
+						<!--<th>Call End Time</th>-->
+						<th>Duration</th>
 														
-						<th>IMSI</th>
-						<th>IMEI</th>
-						<th>Cell ID</th>
+						<th>Calling_IMSI</th>
+						<th>Calling_IMEI</th>
+						<!--Model and Vendor missing in response data currently -->
+						<th>Calling Cell ID</th> <!--Remove Calling once Other party info is coming from backend-->
 						<th>LAC</th>
-						<th>Term Cause</th>
+				<!--		<th>Term Cause</th>
 						<th>Term Reason</th>
-						<th>SS Code</th>
+						<th>SS Code</th>-->
 						<th>Trunk In</th>
 						<th>Trunk Out</th>
 						
-						<th>Call Date Hour</th>
+						<!--<th>Call Date Hour</th>-->
 					</tr>
 				</thead>
 			</table>

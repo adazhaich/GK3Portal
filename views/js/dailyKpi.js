@@ -1,3 +1,4 @@
+/*
 
 $(document).ready(function(){
 	//console.log('dailyKpi.js');	
@@ -88,10 +89,10 @@ function filter (day, hour, start, end){
 //            		return date.toISOString();
             	}		
     		}
-    		/*
+    		/!*
     		 * TODO: will use report_type to differentiate among Reports: ONSITE, OFF-SITE and CORPORATE
     		 * ,{ "mData": "report_type", "sDefaultContent": "" }
-    		 */, {
+    		 *!/, {
     			"mData" : "gk_new_count",
     			"sDefaultContent" : ""
     		}, {
@@ -230,3 +231,4 @@ function filter (day, hour, start, end){
 
 
 
+*/

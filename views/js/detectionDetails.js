@@ -1,4 +1,12 @@
 $(document).ready(function() {
+
+	$(window).resize(function () {
+		//console.log("resizing");
+		dc.renderAll("detcDetail");
+	});
+
+
+
 		//console.log('detectionDetails.js');
 		$(".form_datetime").datetimepicker({
 			format: "yyyy-mm-dd hh", //24h format
@@ -11,8 +19,9 @@ $(document).ready(function() {
 
     var startDate = new Date();
     startDate.setDate(new Date().getDate() - getDateRange(detectionDetails));
-    var start = $("#start").val(getFormattedDate(startDate)).val();
-    var end = $("#end").val(getFormattedDate(new Date())).val();
+
+    var start = $("#start").val(getFormattedDateHour(startDate)).val();
+    var end = $("#end").val(getFormattedDateHour(new Date())).val();
     var filterSql = getElement("#filterSql").val()  === undefined ? "" : getElement("#filterSql").val();
     var latestTime;
 
@@ -21,11 +30,22 @@ $(document).ready(function() {
 		    maxWidth: 800
 		}).listen('.zoom');
 
+	getElement("#refresh").on( "click", function() {
+		//console.log( "=============User entered FILTER criteria in detectionDetails PAGE=============" );
+		start = $("#start").val() === undefined ? "" : $("#start").val() ;
+		//console.log("START",start);
+		end = $("#end").val() === undefined ? "" : $("#end").val() ;
+		//console.log("END",end);
+		filterSql = $("#filterSql").val()  === undefined ? "" : $("#filterSql").val();
+		//console.log( "start=", start, "end=", end);
+		DETECTION.filter(start, end, filterSql);
+	});
 
 
 
-	    DETECTION = {
+	DETECTION = {
 			filter: function (start, end, filterSql) {
+				console.log("In Detection.filter");
 				var url = clientHTTPConfig.appContextRoot + "/dataaccess/detectiondetails";
 				var condition = "";
                 condition = concatParamOther(condition, "action", "=", "filter");
@@ -41,6 +61,8 @@ $(document).ready(function() {
                     //alert(":::"+endTime);
                     condition = concatParamOther(condition, "endTime", "=", +endTime);
 				}
+
+				console.log( "FILTER start=", start, "end=", end);
 					/*	if (filterSql != "") {
                  if (condition == "")
                  condition += filterSql.replace(" and", "");
@@ -62,11 +84,9 @@ $(document).ready(function() {
 
 				if (!dataSet || dataSet.length == 0) {
 					//console.log("No data retrieved. Do nothing");
-
 					//commented out below two lines as they are not clearing previous search results
 					$("#detectionDetails-datatable").dataTable().fnClearTable();
 					dc.renderAll("detcDetail");
-
 
 		/*			if (d3.selectAll("svg").isEmpty) {
 						// alert("Do Nothing");
@@ -94,10 +114,8 @@ $(document).ready(function() {
 							if (d.insert_time) {
 								d.insert_time = moment(d.insert_time, "YYYY-MM-DD HH:mm:ss");  // "2016-07-13 15:17:38.46",
 								////console.log("INSERT TIME",d.insert_time);
-
 							}
 						});
-
 
 					var ndx = crossfilter(dataSet);
 
@@ -181,7 +199,7 @@ $(document).ready(function() {
 
 					dateHourTotal
 					//  .width(380)
-						.height(220)
+					//	.height(220)
 						//.yAxisLabel("Hour")
 						//.xAxisLabel("Count")
 						.dimension(trafficHourDimension)
@@ -194,8 +212,6 @@ $(document).ready(function() {
 					var dateHourPieChart = dc.pieChart(".active #dateHour-piechart", "detcDetail");
 
 					dateHourPieChart
-						.height(220)
-						//.width(350)
 						.radius(90)
 						.innerRadius(40)
 						.transitionDuration(1000)
@@ -205,16 +221,10 @@ $(document).ready(function() {
 					//end pie chart
 
 					sumOutDurationByCellTotal
-					    //.width(350)
-						.height(220)
 						.transitionDuration(1000).dimension(cellsDimension)
 						.group(totalSumOutDurationByCell)
-						.margins({
-							top: 10,
-							right: 50,
-							bottom: 30,
-							left: 50
-						}).centerBar(false).xAxisLabel("Cell Id").yAxisLabel(
+						.margins({top: 10,right: 50,bottom: 40,left: 50})
+						.centerBar(false).xAxisLabel("Cell Id").yAxisLabel(
 						"MOU").gap(5).elasticY(true)
 						.x(d3.scale.ordinal().domain(cellsDimension)).xUnits(
 						dc.units.ordinal).renderHorizontalGridLines(
@@ -227,7 +237,7 @@ $(document).ready(function() {
 					//display all cells for now, as versus top 10 cells -- DD has less cells than HF
 					var callsOutByCellId = dc.barChart(".active #callsOutByCellId-chart", "detcDetail");
 					callsOutByCellId
-						.height(220)
+						//.height(220)
 						.dimension(cellsDimension)
 						.group(totalCallsByCell)//.top(10)
 						.x(d3.scale.ordinal().domain(cellsDimension))
@@ -418,7 +428,21 @@ $(document).ready(function() {
 								}, {
 									"mData": "data_usage",
 									"sDefaultContent": ""
-								}],
+								}
+								, {
+									"mData": "status",
+									"sDefaultContent": ""
+								}, {
+									"mData": "shutdown_file",
+									"sDefaultContent": ""
+								}
+
+								/*{
+									"mData": "false_positive",
+									"sDefaultContent": ""
+								}*/
+
+								],
 //	    						"sDom" : '<"wrapper"flBtip>',
 							"sDom": 'ZlfrBtip',
 							"colResize": {
@@ -469,15 +493,11 @@ $(document).ready(function() {
 			} //====================END MAKEGRAPHS FUNCTION
 		}
 
-	 getElement("#refresh").on( "click", function() {
-		 //console.log( "=============User entered FILTER criteria in detectionDetails PAGE=============" );
-		    start = $("#start").val() === undefined ? "" : $("#start").val() ;
-		    end = $("#end").val() === undefined ? "" : $("#end").val() ;
-		    filterSql = $("#filterSql").val()  === undefined ? "" : $("#filterSql").val();
-		    //console.log( "start=", start, "end=", end);
-		    DETECTION.filter(start, end, filterSql);
-		});
-	
+
+
+
+
+
 		$("#saveCorp").on("click",function(){
 			var url = clientHTTPConfig.appContextRoot+"/dataaccess/addcorporatesummary";
 			var corporateId = $("#corporateId").val();

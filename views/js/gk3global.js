@@ -61,6 +61,17 @@ function getFormattedDate(date) {
         + ("0" + date.getDate()).slice(-2);
 }
 
+// Get formatted date YYYY-MM-DD
+function getFormattedDateHour(date) {
+    return date.getFullYear()
+        + "-"
+        + ("0" + (date.getMonth() + 1)).slice(-2)
+        + "-"
+        + ("0" + date.getDate()).slice(-2)
+        + " "
+        + ("0" + date.getHours()).slice(-2)
+}
+
 function dateValidate(start, end) {
     if (start > end) {
         alert("End date should be greater than Start Date ");
