@@ -601,7 +601,7 @@ module.exports = function (app, passport, config, gk3_accounts_pool) {
         url = serviceUrl + "/detectiondetails";
 
         if (action != undefined && action == "first_detection") {
-            url += "?action=" + action + "&type=" + type + "&traffic_date=" + traffic_date + "&limit=-1";
+            url += "?action=" + action + "&type=" + type + "&traffic_date=" + traffic_date + "&first_flag=1" + "&limit=-1";
         }
         else   if (action != undefined && action == "filter")
         {

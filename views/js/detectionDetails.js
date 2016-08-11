@@ -262,6 +262,7 @@ $(document).ready(function() {
 								return nRow;
 							},
 							"data": dataSet,
+							"order": [[ 0, "desc" ]],
 							"aoColumns": [
 								{
 								
@@ -275,6 +276,7 @@ $(document).ready(function() {
                                 {
                                     "mData": "call_date_hour", // it should be detection_time on UI. temporarily use insert_time for now
                                     "sDefaultContent": ""
+
                                 },
                                 {
 									"mData": "source",
@@ -309,11 +311,11 @@ $(document).ready(function() {
 									"sDefaultContent": "operator"
 								}, {
 									"mData": "corporateid",
-									"sDefaultContent": ""/* TBD,
+									"sDefaultContent": "",
 									"mRender": function (data, type, row) {
 										//return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popAdd(" + data + ");\" class='colLnk'>" + data + '</a>';
                                         return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popCorpSummary(" + data + "," + row.insert_time + ",'CorpID');\" class='colLnk'>" + data + '</a>';
-									}*/
+									}
 								}, {
 									"mData": "msisdn",
 									"sDefaultContent": "",
@@ -359,7 +361,7 @@ $(document).ready(function() {
 									"mData": "calls",
 									"sDefaultContent": ""
 								}, {
-									"mData": "mou",
+									"mData": "mou_before",
 									"sDefaultContent": ""
 								}, {
 									"mData": "module",

@@ -231,7 +231,7 @@ $(document).ready(function () {
                     .x(d3.time.scale().domain([minDate, maxDate]))
                     .round(d3.time.day.round)
                     .xUnits(d3.time.days)
-                    .margins({left: 155, top: 20, right: 55, bottom: 30})
+                    .margins({left: 55, top: 20, right: 55, bottom: 50})
                     .legend(
                         dc.legend().x(80).y(20).itemHeight(13).gap(5))
                     .renderHorizontalGridLines(true)
@@ -246,10 +246,14 @@ $(document).ready(function () {
                                 simsGroupByDate, "Sims")
                                 .useRightYAxis(true).dashStyle([2, 2])])
                     .brushOn(true).yAxisLabel("Loss")
-                    .rightYAxisLabel("Sims", 20).render()
-                    .legend(dc.legend().x(75).y(0).autoItemWidth(true).horizontal(10)) //dc.legend().x(140).y(0).gap(5)
-
-
+                    .rightYAxisLabel("Sims", 20)
+                    .legend(dc.legend().x(75).y(0).autoItemWidth(true).horizontal(10))
+                     .on('renderlet.a',function (chart) {
+                // rotate x-axis labels
+                     chart.selectAll('g.x text')
+                    .attr('transform', 'translate(-10,10) rotate(315)');
+                     })
+                    .render()
 
                 //=========================================== MEDIAN LOSS BAR  CHART ========================================
                 medianLoss
@@ -257,7 +261,7 @@ $(document).ready(function () {
                     .x(d3.time.scale().domain([d3.time.day.offset(minDate, -1), d3.time.day.offset(maxDate, 2)]))
                     .round(d3.time.day.round)
                     .xUnits(d3.time.days)
-                    .margins({left: 50, top: 20, right: 50, bottom: 40})
+                    .margins({left: 50, top: 20, right: 50, bottom: 55})
                     .brushOn(true)
                     .clipPadding(10)
                     .title(function (d) {
@@ -269,6 +273,19 @@ $(document).ready(function () {
                     .group(medianLossBeforeByDate, "Before")
                     .legend(dc.legend().x(50).y(0).autoItemWidth(true).horizontal(10)) //dc.legend().x(140).y(0).gap(5)
                     .renderLabel(true);
+
+           medianLoss.on('renderlet.a',function (chart) {
+               // rotate x-axis labels
+               chart.selectAll('g.x text')
+                   .attr('transform', 'translate(-10,10) rotate(315)');
+           });
+
+
+        /*    medianLoss.renderlet(function (chart) {
+                // rotate x-axis labels
+                chart.selectAll('g.x text')
+                    .attr('transform', 'translate(-10,10) rotate(315)');
+            });*/
 
                 medianLoss.stack(medianLossAfterByDate, "After");
                 medianLoss.render();
@@ -296,7 +313,7 @@ $(document).ready(function () {
                     .x(d3.time.scale().domain([d3.time.day.offset(minDate, -1), d3.time.day.offset(maxDate, 2)]))
                     .round(d3.time.day.round)
                     .xUnits(d3.time.days)
-                    .margins({left:35, top: 20, right: 50, bottom: 40})
+                    .margins({left:35, top: 20, right: 50, bottom: 50})
                     .brushOn(true)
                     .gap(1)
                     //				    .clipPadding(10)
@@ -309,6 +326,13 @@ $(document).ready(function () {
                     .group(gkNewCountByDate, "GK")
                     .renderLabel(true)
                     .legend(dc.legend().x(40).y(0).autoItemWidth(true).horizontal(200)); //dc.legend().x(140).y(0).gap(5)
+
+            newDetections.on('renderlet.a',function (chart) {
+                // rotate x-axis labels
+                chart.selectAll('g.x text')
+                    .attr('transform', 'translate(-10,10) rotate(315)');
+            });
+
 
                 newDetections.stack(gkcNewCountByDate, "GK-C");
                 newDetections.stack(tcgNewCountByDate, "TCG");
@@ -353,11 +377,13 @@ $(document).ready(function () {
                     "bDeferRender": true,
                     "bDestroy": true,
                     "data": dataSet,
+                    "order": [[ 0, "desc" ]],
                     "fnRowCallback": function (nRow, aData, iDisplayIndex) {
                         //$('th', nRow).attr('wrap', 'wrap');
                         $('td', nRow).attr('nowrap', 'nowrap');
                         return nRow;
                     },
+/*
                     "language": {
                         "lengthMenu": "Display _MENU_ records per page",
                         "zeroRecords": "Nothing found - sorry",
@@ -365,14 +391,13 @@ $(document).ready(function () {
                         "infoEmpty": "No records available",
                         "infoFiltered": "(filtered from _MAX_ total records)"
                     },
+*/
                     "aoColumns": [ //TODO: may need to change when switching to Hive: 33 columns on UI, 33 used columns here, 37 columns in
                         // Hive, 33 columns in MySql
                         {
                             "mData": "traffic_date",
                             "sDefaultContent": "",
                             "mRender": function (data, type, row) {
-                                ////console.log("Traffic Date",data);
-                                ////console.log("Convert Traffic Date using moment ",data.format("YYYY-MM-DD"));
                                 return data.format("YYYY-MM-DD");
                             }
                         }

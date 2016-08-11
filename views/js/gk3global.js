@@ -52,9 +52,6 @@ if(reportType.defaultFilterInterval == "OneMonth")
         return 1;
 }
 
-
-
-
 // Get formatted date YYYY-MM-DD
 function getFormattedDate(date) {
     return date.getFullYear()
@@ -85,6 +82,7 @@ function dateValidate(start, end) {
         return today().getTime() - 24 * 60 * 60 * 1000;
     }
 
+/*
 
     Date.prototype.addSeconds = function(seconds) {
         this.setSeconds(this.getSeconds() + seconds);
@@ -123,6 +121,7 @@ function dateValidate(start, end) {
 
         return this;
     };
+*/
 
 
 }

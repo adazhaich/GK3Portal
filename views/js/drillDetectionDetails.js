@@ -27,6 +27,7 @@ $(document).ready(function () {
             condition = concatParamOther(condition, "action", "=", "first_detection");
             condition = concatParamOther(condition, "type", "=", type);
             condition = concatParamOther(condition, "traffic_date", "=", +date);
+            //condition = concatParamOther(condition, "first_flag = 1");
             //console.log("search criteria:::" + condition);
             url += "?" + condition;
         }//type=TOTAL or GKP or GKC or TCG
@@ -120,6 +121,7 @@ function loadData(error, apiData) {
                 return nRow;
             },
             "data": dataSet,
+            "order": [[ 1, "desc" ]],
             "aoColumns": [
                 {
                    "mData": "insert_time",
