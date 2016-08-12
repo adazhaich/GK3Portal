@@ -372,7 +372,7 @@ $(document).ready(function () {
                     "bFilter": true,
                     "bSort": true,
                     "bInfo": true,
-                    "bAutoWidth": false,
+                    "bAutoWidth": true,
                     "bDeferRender": true,
                     "bDestroy": true,
                     "data": dataSet,
@@ -539,7 +539,12 @@ $(document).ready(function () {
                             },
                             {
                                 extend: 'excelHtml5',
-                                title: 'DailyKpi'
+                                // text: 'Save as Excel',
+                                title: 'DailyKpi',
+                                customize: function( xlsx ) {
+                                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
+                                    $('row:first c', sheet).attr( 's', '42' );
+                                }
                             },
                         /*    {
                                 extend: 'pdfHtml5',

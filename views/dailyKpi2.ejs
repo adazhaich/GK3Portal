@@ -8,16 +8,14 @@
 <body>
 
 	<div class="container-fluid">
-
-		<div id="page" class="container-fluid panel-group"
-			style="margin-top: 20px; margin-left: 5px;">
+		<div id="page" class="container-fluid panel-group">
 			<div class="panel-group">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						<h10 class="panel-title">
+						<h class="panel-title">
 							<a role="button" data-toggle="collapse" href="#<%=req.params.type%>filter_collapse"><i
-								class="fa fa-angle-double-down"></i>Filter</a>
-						</h10>
+								class="fa fa-angle-double-down fa-fw" aria-hidden="true"></i>Filter</a>
+						</h>
 					</div>
 					<div id="<%=req.params.type%>filter_collapse" class="panel-collapse collapse in">
 						<div class="panel-body">
@@ -57,7 +55,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 					<h4 class="panel-title">
-							<a role="button" id="graph_collapse_button" data-toggle="collapse"  href="#<%=req.params.type%>graph_collapse"><i class="fa fa-angle-double-down"></i>Graphs</a>
+							<a role="button" id="graph_collapse_button" data-toggle="collapse"  href="#<%=req.params.type%>graph_collapse"><i class="fa fa-angle-double-down fa-fw" aria-hidden="true"></i>Graphs</a>
 						</h4>
 					</div>
 
@@ -121,7 +119,7 @@
 				<div class="panel-heading">
 					<h4 class="panel-title">
 						<a role="button" id="table_title" data-toggle="collapse"
-							href="#<%=req.params.type%>table_collapse"><i class="fa fa-angle-double-down"></i>Daily	KPI 
+							href="#<%=req.params.type%>table_collapse"><i class="fa fa-angle-double-down fa-fw"></i>Daily KPI
 							<% 
 								var type = req.params.type;
 								if ("onnet" == type) { %>
@@ -154,18 +152,18 @@
 							<thead>
 								<tr>
 									<th rowspan="3" style="background-color: lightskyblue;">DATE</th>
-									<th colspan="7" style="background-color: mediumseagreen;">New Detections (Unique)</th>
+									<th colspan="7" style="background-color: forestgreen;">New Detections (Unique)</th>
 									<th colspan="5" style="background-color: lightskyblue;">Total Fraud Activity</th>
-									<th colspan="6" style="background-color: mediumseagreen;">Median MOU Before</th>
-									<th colspan="6" style="background-color: lightskyblue;">Median MOU After</th>
-									<th colspan="4" style="background-color: mediumseagreen;">Median Loss</th>
-									<th colspan="4" style="background-color: lightskyblue;">False Positive</th>
+									<th colspan="6" style="background-color: forestgreen;">Median MOU Before</th>
+									<th colspan="6" style="background-color: forestgreen;">Median MOU After</th>
+									<th colspan="4" style="background-color: lightskyblue;">Median Loss</th>
+									<th colspan="4" style="background-color: forestgreen;">False Positive</th>
 								</tr>
 								<tr>
 									<!--New Detections (Unique)-->
 									<th colspan="3"  style="background-color: lightgreen;">Mobius</th>
 									<th colspan="2"  style="background-color: limegreen;">Other</th>
-									<th colspan="2"  style="background-color: forestgreen;">Total New</th>
+									<th colspan="2"  style="background-color: mediumseagreen;">Total New</th>
 
 									<!--Total Fraud Activity-->
 									<!--<th rowspan="2" style="background-color: powderblue;">SIMs*</th>
@@ -183,22 +181,24 @@
 									<!--Median MOU Before-->
 									<th colspan="3" style="background-color: lightgreen;">Mobius</th>
 									<th colspan="2"  style="background-color: limegreen;">Other</th>
-									<th rowspan="2">All</th>
+									<th rowspan="2" style="background-color: mediumseagreen;" align="top">All</th>
+
 
 									<!--Median MOU After -->
 									<th colspan="3" style="background-color: lightgreen;">Mobius</th>
 									<th colspan="2"  style="background-color: limegreen;">Other</th>
-									<th rowspan="2">All</th>
+									<th rowspan="2" style="background-color: mediumseagreen;" align="top">All</th>
+
 
 									<!--Median Loss-->
-									<th rowspan="2" style="background-color: lightsteelblue;">Before</th>
-									<th rowspan="2" style="background-color: lightsteelblue;">After</th>
-									<th rowspan="2" style="background-color: lightsteelblue;">Total</th>
-									<th rowspan="2" style="background-color: lightsteelblue;">Remaining Balance</th>
+									<th rowspan="2" style="background-color: lightskyblue;">Before</th>
+									<th rowspan="2" style="background-color: lightskyblue;">After</th>
+									<th rowspan="2" style="background-color: lightskyblue;">Total</th>
+									<th rowspan="2" style="background-color: lightskyblue;">Remaining Balance</th>
 
 									<!--False Positive-->
 									<th colspan="2" style="background-color: lightgreen;">Mobius GK</th>
-									<th colspan="2" style="background-color: lightgreen;">Mobius GKC</th>
+									<th colspan="2" style="background-color: limegreen;">Mobius GKC</th>
 
 								</tr>
 								<tr>

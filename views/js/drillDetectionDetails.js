@@ -121,7 +121,7 @@ function loadData(error, apiData) {
                 return nRow;
             },
             "data": dataSet,
-            "order": [[ 1, "desc" ]],
+            "order": [[ 0, "desc" ]],
             "aoColumns": [
                 {
                    "mData": "insert_time",
@@ -130,10 +130,10 @@ function loadData(error, apiData) {
                         return data.format("YYYY-MM-DD HH:mm:ss");
                     }
                 },
-                {
+              /*  {
                     "mData": "call_date_hour",
                     "sDefaultContent": ""
-                },
+                },*/
 
                 {
                     "mData": "source",

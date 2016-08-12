@@ -15,12 +15,12 @@
 			<input type="text" id="hour" value="<%=hour%>"  hidden>
 			<input type="text" id="defaultRangeHour" value="<%=defaultRangeHour%>" hidden>
 			<form class="form-inline">
-				<div class="form-group col-md-5">
-					<label for="startDate">Date Range>=: </label>
+				<div class="form-group col-md-3">
+					<label for="startDate">Date Range >= </label>
 					<input id="startDate" type="text" class="form-control" value="" placeholder="yyyy-MM-dd HH">
 				</div>
-				<div class="form-group col-md-5">
-					<label for="endDate">Date Range <=:</label>
+				<div class="form-group col-md-3">
+					<label for="endDate">Date Range <=</label>
 					<input id="endDate"  type="text" class="form-control" value="" placeholder="yyyy-MM-dd HH">
 				</div>
 				<div class="form-group col-md-2">
@@ -34,7 +34,7 @@
 		<div class="panel-body">
 			<table class="table table-striped cell-border" width="100%" id="callsnodup-datatable">
 				<thead>
-					<tr>
+				<tr style="background-color: lightgreen;">
 						<th>Call Time</th>
 						<th>Calling</th>
 						<th>Called</th>
@@ -47,7 +47,7 @@
 						<th>Calling_IMSI</th>
 						<th>Calling_IMEI</th>
 						<!--Model and Vendor missing in response data currently -->
-						<th>Calling Cell ID</th> <!--Remove Calling once Other party info is coming from backend-->
+						<th>Cell Id</th> <!--Remove Calling once Other party info is coming from backend-->
 						<th>LAC</th>
 				<!--		<th>Term Cause</th>
 						<th>Term Reason</th>

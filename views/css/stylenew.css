@@ -20,7 +20,7 @@
  OTHER DEALINGS IN THE SOFTWARE.
  */
 td {
-	font-size:11px;
+	font-size:9.5px;
 	padding: 3px 6px 4px;
 	postion: relative;
 	white-space: nowrap;
@@ -529,6 +529,25 @@ div.dt-buttons {
 	padding:6px;
 }
 
+/*CUSTOMIZATION added by avandana*/
 /*table.dataTable tr{ background-color:  red; }*/
 /*table.dataTable tr:nth-child(odd)  { background-color: lightyellow;  }*/
 table.dataTable tr:nth-child(even)  { background-color: lightgoldenrodyellow;  }
+/*
+.dataTables_wrapper .ui-toolbar{
+    width: 5%;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+    display: inline-block;
+    font-size: 10pt;
+}
+*/
+
+
+.dataTables_wrapper {
+    font-family: "tahoma";
+    font-size: 10px;
+    color: black;
+
+}
+
