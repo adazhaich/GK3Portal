@@ -61,12 +61,13 @@
                                     class="fa fa-angle-double-down"></i>Graphs</a>
                     </h4>
                 </div>
-                <div id="ddgraph_collapse" class="panel-collapse collapse">
+                <div id="ddgraph_collapse" class="panel-collapse collapse in">
                     <div class="panel-body">
                         <div class="row" style="margin-left: 0;">
                             <div class="col-sm-6">
                                 <div class="caption">
-                                    <strong>MOU By Cell Id</strong>
+                                    <!--<strong>MOU By Cell Id</strong>-->
+                                    <strong>Top 30 Suspect Duration by Cell Id</strong>
                                 </div>
                                 <div class="thumbnail zoom" id="sumOutDurationByCell-chart">
                                 </div>
@@ -92,7 +93,8 @@
                         <div class="row" style="margin-left: 0;">
                             <div class="col-sm-6">
                                 <div class="caption">
-                                    <strong>Calls By Cell Id</strong>
+                                    <!--<strong>Calls By Cell Id</strong>-->
+                                    <strong>Top 30 Suspect Calls Out By Cell Id</strong>
                                 </div>
                                 <div class="thumbnail zoom" id="callsOutByCellId-chart">
                                 </div>
@@ -133,7 +135,7 @@
                         <table class="table table-striped cell-border"
                                id="detectionDetails-datatable">
                             <thead>
-                            <tr>
+                            <tr style="background-color: lightyellow;">
                                 <th>Insert Time</th>
                                 <th>Call Date Hour</th>
                                 <th>Source</th>

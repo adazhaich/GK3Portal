@@ -252,7 +252,7 @@ $(document).ready(function(){
     				hourlyRowChart
     				  .dimension(trafficHourDimension)
     				  .group(hourGroup)
-    				  .margins({top: 10, right: 50, bottom: 30, left: 30})
+    				  .margins({top: 10, right: 50, bottom: 50, left: 30})
     				  .elasticX(true)
     				  .x(d3.scale.ordinal().domain(minHour, maxHour))
     				  .xUnits(dc.units.ordinal)
@@ -261,7 +261,8 @@ $(document).ready(function(){
     			      .elasticY(true)
     				  .xAxis().ticks(5);
 
-    				
+				hourlyRowChart.on('renderlet.a',function (chart) {chart.selectAll('g.x text').attr('transform', 'translate(-10,10) rotate(315)');});
+
     				hourlyPieChart
 //    			      .height(220)
     			      .radius(90)
@@ -276,7 +277,7 @@ $(document).ready(function(){
     			    .transitionDuration(1000)
     			    .dimension(topDurationCellIdDim)
     			    .group(topDurationByCellId)
-    			    .margins({top: 10, right: 50, bottom: 30, left: 50})
+    			    .margins({top: 10, right: 50, bottom: 50, left: 40})
 //    			     .xAxisLabel("Cell Id")
     			     .yAxisLabel("Duration")
     			    .elasticY(true)
@@ -287,13 +288,19 @@ $(document).ready(function(){
     			    .ordering(function(d){return d.value;})
     			    .yAxis().tickFormat(d3.format("s"));
 
-    				
-    				callsOutByCellId
+				sumOutDurationByCellTotal.on('renderlet.a',function (chart) {
+					// rotate x-axis labels
+					chart.selectAll('g.x text')
+						.attr('transform', 'translate(-10,10) rotate(315)');
+				});
+
+
+				callsOutByCellId
 //    			    .height(220)
     			    .dimension(topCellIdDim3)
     			    .group(topCallsOutByCellId3)//.top(10)
     			    .x(d3.scale.ordinal().domain(topCellIdDim3))
-    			    .margins({top: 10, right: 50, bottom: 30, left: 50})
+    			    .margins({top: 10, right: 50, bottom: 50, left: 40})
 //    			     .xAxisLabel("Cell Id")
     			     .yAxisLabel("Calls")
     			    .elasticY(true)
@@ -302,9 +309,12 @@ $(document).ready(function(){
     			    .renderVerticalGridLines(true)
     			    .ordering(function(d){return d.value;})
     			    .yAxis().tickFormat(d3.format("s"));
-    				
-    				
-    				illegalOddsTotal
+
+				// rotate x-axis labels
+				callsOutByCellId.on('renderlet.a',function (chart) {chart.selectAll('g.x text').attr('transform', 'translate(-10,10) rotate(315)');});
+
+
+				illegalOddsTotal
 //    				.height(220)
     				.margins({top: 10, right: 50, bottom: 30, left: 50})
     				.dimension(trafficHourDimension)
@@ -318,7 +328,8 @@ $(document).ready(function(){
 //    				.xAxisLabel("Hour")
     				.yAxisLabel("Illegal Odds > 85%")
     				.yAxis().ticks(6);
-    				
+				illegalOddsTotal.on('renderlet.a',function (chart) {chart.selectAll('g.x text').attr('transform', 'translate(-10,10) rotate(315)');});
+
     				var datatable = $("#hourlyFraud-datatable").dataTable({
     			        "bPaginate": true,
     			        "colReorder": true,  

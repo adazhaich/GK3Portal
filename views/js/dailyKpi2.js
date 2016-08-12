@@ -5,9 +5,9 @@ $(document).ready(function () {
         dc.renderAll("dailyKpi2" + reportType);
     });
 
-    $("#graph_collapse_button").click(function () {
-        // DAILYKPI2.filter(start, end);
-    });
+    //$("#graph_collapse_button").click(function () {
+   //     dc.renderAll("dailyKpi2" + reportType);
+   // });
 
 
     var reportType = getElement("#reportType").val();
@@ -74,8 +74,8 @@ $(document).ready(function () {
                     d3.selectAll("svg").remove();
                 }
 
-                $("#" + reportType + "graph_collapse").hide();
-                $("#" + reportType + "table_collapse").hide();
+              //  $("#" + reportType + "graph_collapse").hide();
+               // $("#" + reportType + "table_collapse").hide();
                 //alert("Empty Dataset for"+reportType);
                 document.getElementById('record_count').innerHTML =0;
                 $('#ajax_loader').hide();
@@ -86,8 +86,8 @@ $(document).ready(function () {
                 //console.log('makeGraphs():dataSet:', dataSet.length);
                 //alert("Available Dataset for"+reportType);
                 //alert("#"+reportType + "graph_collapse");
-                $("#" + reportType + "graph_collapse").show();
-                $("#" + reportType + "table_collapse").show();
+             //   $("#" + reportType + "graph_collapse").show();
+             //   $("#" + reportType + "table_collapse").show();
                 var newDetectionsData = [];
                 var medianLossData = [];
 
@@ -248,10 +248,9 @@ $(document).ready(function () {
                     .brushOn(true).yAxisLabel("Loss")
                     .rightYAxisLabel("Sims", 20)
                     .legend(dc.legend().x(75).y(0).autoItemWidth(true).horizontal(10))
-                     .on('renderlet.a',function (chart) {
-                // rotate x-axis labels
-                     chart.selectAll('g.x text')
-                    .attr('transform', 'translate(-10,10) rotate(315)');
+                    // rotate x-axis labels
+                    .on('renderlet.a',function (chart) {
+                        chart.selectAll('g.x text').attr('transform', 'translate(-10,10) rotate(315)');
                      })
                     .render()
 

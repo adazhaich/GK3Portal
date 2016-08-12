@@ -1,13 +1,9 @@
 $(document).ready(function() {
 
 	$(window).resize(function () {
-		//console.log("resizing");
-		dc.renderAll("detcDetail");
-	});
+	    //console.log("resizing");
+		dc.renderAll("detcDetail");});
 
-
-
-		//console.log('detectionDetails.js');
 		$(".form_datetime").datetimepicker({
 			format: "yyyy-mm-dd hh", //24h format
 	        minView:'day',//need to mark 'day' in order to show hour? 
@@ -38,31 +34,30 @@ $(document).ready(function() {
 		//console.log("END",end);
 		filterSql = $("#filterSql").val()  === undefined ? "" : $("#filterSql").val();
 		//console.log( "start=", start, "end=", end);
-		DETECTION.filter(start, end, filterSql);
+        if (dateValidate(start, end)) {
+            DETECTION.filter(start, end, filterSql);
+        }
 	});
 
 
 
 	DETECTION = {
 			filter: function (start, end, filterSql) {
-				console.log("In Detection.filter");
 				var url = clientHTTPConfig.appContextRoot + "/dataaccess/detectiondetails";
 				var condition = "";
                 condition = concatParamOther(condition, "action", "=", "filter");
      			var startTime, endTime;
 				if (start != undefined && start != "") {
 					startTime = moment(start).format("YYYYMMDDHH");
-                    //alert(":::"+startTime);
                     condition = concatParamOther(condition, "startTime", "=", +startTime);
 				}
 				if (end != undefined && end != "") {
 					endTime = moment(end).format("YYYYMMDDHH");
-                    //endTime = moment(end).startOf('hour').add(23, 'hours').format('YYYYMMDDHH')
-                    //alert(":::"+endTime);
                     condition = concatParamOther(condition, "endTime", "=", +endTime);
 				}
 
 				console.log( "FILTER start=", start, "end=", end);
+
 					/*	if (filterSql != "") {
                  if (condition == "")
                  condition += filterSql.replace(" and", "");
@@ -86,9 +81,9 @@ $(document).ready(function() {
 					//console.log("No data retrieved. Do nothing");
 					//commented out below two lines as they are not clearing previous search results
 					$("#detectionDetails-datatable").dataTable().fnClearTable();
-					dc.renderAll("detcDetail");
+					//dc.renderAll("detcDetail");
 
-		/*			if (d3.selectAll("svg").isEmpty) {
+					if (d3.selectAll("svg").isEmpty) {
 						// alert("Do Nothing");
 					}
 					else {
@@ -96,17 +91,21 @@ $(document).ready(function() {
 						d3.selectAll("svg").remove();
 					}
 
-					$("#" + dd + "graph_collapse").hide();
-					$("#" + dd + "table_collapse").hide();
-  */
+					//$("#ddgraph_collapse").hide();
+					//$("#table_collapse").hide();
+
 					document.getElementById('record_count').innerHTML =0;
 					$('#ajax_loader').hide();
 					return;
 
 				}
-				else {
 
-						dataSet.forEach(function (d) {
+               // $("#ddgraph_collapse").show();
+               // $("#table_collapse").show();
+               //BEGIN  OF CODE COPIED FROM hourlyFraud.js===================================================================================================
+                var callsOut = {};
+                var duration = {};
+                dataSet.forEach(function (d) {
 							if (d.call_time) {
 								//Phoenix: call_time is already time
 								d.call_time = new Date(d.call_time);
@@ -115,8 +114,51 @@ $(document).ready(function() {
 								d.insert_time = moment(d.insert_time, "YYYY-MM-DD HH:mm:ss");  // "2016-07-13 15:17:38.46",
 								////console.log("INSERT TIME",d.insert_time);
 							}
+
+                    //BEGIN  OF CODE COPIED FROM hourlyFraud.js===================================================================================================
+                    if (isNaN(callsOut[""+d.cell_id])) callsOut[""+d.cell_id] =0;
+                    callsOut[""+d.cell_id] += Number(d.num_out);
+
+                    if (isNaN(duration[""+d.cell_id])) duration[""+d.cell_id] =0;
+                    duration[""+d.cell_id] += Number(d.sum_out_duration);
+                   //END OF CODE COPIED FROM hourlyFraud.js===================================================================================================
 						});
 
+                //all calls out
+                var callsOutArray = [];
+                for (var key in callsOut){
+                    if (key != 0){ //skip cell_id = 0 --
+//    						callsOutArray.push({ "cell_id": key, value: callsOut[key] });
+                        callsOutArray.push([key,  callsOut[key] ]);
+                    }
+                }
+                callsOutArray.sort(function(a, b) {return b[1] - a[1]});
+
+                var topCallsOut = callsOutArray.slice(0, 30);
+                var topCallsOutNdx3 = crossfilter(topCallsOut);
+                var topCellIdDim3 = topCallsOutNdx3.dimension(function(d) {return d[0];});
+                var topCallsOutByCellId3 = topCellIdDim3.group().reduceSum(function(d){
+                    return d[1]*1;
+                });
+
+
+                //sum out duration
+                var durationArray = [];
+                for (var key in duration){
+                    if (key != 0){ //skip cell_id = 0 --
+                        durationArray.push([key,  duration[key] ]);
+                    }
+                }
+                durationArray.sort(function(a, b) {return b[1] - a[1]});
+
+                var topDuration = durationArray.slice(0, 30);
+                var topDurationNdx = crossfilter(topDuration);
+                var topDurationCellIdDim = topDurationNdx.dimension(function(d) {return d[0];});
+                var topDurationByCellId = topDurationCellIdDim.group().reduceSum(function(d){
+                    return d[1]*1;
+                });
+
+//END OF CODE COPIED FROM hourlyFraud.js===================================================================================================
 					var ndx = crossfilter(dataSet);
 
 					var callTimeDimension = ndx.dimension(function (d) {
@@ -190,59 +232,49 @@ $(document).ready(function() {
 					//console.log("minHour:", minHour);
 					//console.log("maxHour:", maxHour);
 
-					// Charts
-					var sumOutDurationByCellTotal = dc.barChart(".active #sumOutDurationByCell-chart", "detcDetail");
 
-
-					//Call by Date/Hour
-					var dateHourTotal = dc.rowChart(".active #dateHour-chart", "detcDetail");
-
-					dateHourTotal
-					//  .width(380)
-					//	.height(220)
-						//.yAxisLabel("Hour")
-						//.xAxisLabel("Count")
-						.dimension(trafficHourDimension)
-						.group(totalCallsByHour)
-						.elasticX(true)
-						.xAxis().ticks(5);
-
-
-					//pie chart
-					var dateHourPieChart = dc.pieChart(".active #dateHour-piechart", "detcDetail");
-
-					dateHourPieChart
-						.radius(90)
-						.innerRadius(40)
-						.transitionDuration(1000)
-						//.slicesCap(10)
-						.dimension(trafficHourDimension)
-						.group(totalCallsByHour);
-					//end pie chart
+				// Charts
+				var sumOutDurationByCellTotal = dc.barChart(".active #sumOutDurationByCell-chart", "detcDetail");
 
 					sumOutDurationByCellTotal
-						.transitionDuration(1000).dimension(cellsDimension)
-						.group(totalSumOutDurationByCell)
-						.margins({top: 10,right: 50,bottom: 40,left: 50})
-						.centerBar(false).xAxisLabel("Cell Id").yAxisLabel(
+						.transitionDuration(1000)
+						.dimension(topDurationCellIdDim)
+						//.group(totalSumOutDurationByCell)//.top(30)
+                        .group(topDurationByCellId) // CODE FROM HOURLY FRAUD===========================
+						.margins({top: 10,right: 50,bottom: 50,left: 50})
+						.centerBar(false)
+                        //.xAxisLabel("Cell Id")
+                        .yAxisLabel(
 						"MOU").gap(5).elasticY(true)
-						.x(d3.scale.ordinal().domain(cellsDimension)).xUnits(
-						dc.units.ordinal).renderHorizontalGridLines(
-						true).renderVerticalGridLines(true).ordering(
+						.x(d3.scale.ordinal().domain(topDurationCellIdDim))
+						.xUnits(
+                       // .x(d3.scale.ordinal().domain(cellsDimension)).xUnits(
+						dc.units.ordinal)
+						.renderHorizontalGridLines(true).
+					     renderVerticalGridLines(true).ordering(
 						function (d) {
 							return d.value;
 						}).yAxis().tickFormat(d3.format("s"));
 
 
-					//display all cells for now, as versus top 10 cells -- DD has less cells than HF
+                sumOutDurationByCellTotal.on('renderlet.a',function (chart) {
+                    // rotate x-axis labels
+                    chart.selectAll('g.x text')
+                        .attr('transform', 'translate(-10,10) rotate(315)');
+                });
+
+						//display all cells for now, as versus top 10 cells -- DD has less cells than HF
 					var callsOutByCellId = dc.barChart(".active #callsOutByCellId-chart", "detcDetail");
+
 					callsOutByCellId
 						//.height(220)
 						.dimension(cellsDimension)
-						.group(totalCallsByCell)//.top(10)
-						.x(d3.scale.ordinal().domain(cellsDimension))
-						.margins({top: 10, right: 50, bottom: 30, left: 50})
-						.xAxisLabel("Cell Id")
+						//.group(totalCallsByCell)//.top(10)
+                        .group(topCallsOutByCellId3)//.top(10)
+						//.x(d3.scale.ordinal().domain(cellsDimension))
+                        .x(d3.scale.ordinal().domain(topCellIdDim3))
+						.margins({top: 10, right: 50, bottom: 50, left: 50})
+						//.xAxisLabel("Cell Id")
 						.yAxisLabel("Calls")
 						.elasticY(true)
 						.xUnits(dc.units.ordinal)
@@ -252,9 +284,46 @@ $(document).ready(function() {
 							return d.value;
 						})
 						.yAxis().tickFormat(d3.format("s"));
+                callsOutByCellId.on('renderlet.a',function (chart) {
+                    // rotate x-axis labels
+                    chart.selectAll('g.x text')
+                        .attr('transform', 'translate(-10,10) rotate(315)');
+                });
 
 
-					var datatable = $("#detectionDetails-datatable").dataTable(
+				//Call by Date/Hour
+				var dateHourTotal = dc.rowChart(".active #dateHour-chart", "detcDetail");
+
+				dateHourTotal
+				//  .width(380)
+				//	.height(220)
+				//.yAxisLabel("Hour")
+				//.xAxisLabel("Count")
+					.dimension(trafficHourDimension)
+					.group(totalCallsByHour)
+					.elasticX(true)
+					.xAxis().ticks(5);
+				dateHourTotal.on('renderlet.a',function (chart) {
+					// rotate x-axis labels
+					chart.selectAll('g.x text')
+						.attr('transform', 'translate(-10,10) rotate(315)');
+				});
+
+				//pie chart
+				var dateHourPieChart = dc.pieChart(".active #dateHour-piechart", "detcDetail");
+
+				dateHourPieChart
+					.radius(90)
+					.innerRadius(40)
+					.transitionDuration(1000)
+					//.slicesCap(10)
+					.dimension(trafficHourDimension)
+					.group(totalCallsByHour);
+				//end pie chart
+
+
+
+				var datatable = $("#detectionDetails-datatable").dataTable(
 						{
 							"bPaginate": true,
 							"colReorder": true,
@@ -485,13 +554,11 @@ $(document).ready(function() {
 					}
 					dc.renderAll("detcDetail");
 
-
 					// / Get the total rows
 					document.getElementById('record_count').innerHTML =datatable.fnGetData().length;
 					$('#ajax_loader').hide();
 				}
 			} //====================END MAKEGRAPHS FUNCTION
-		}
 
 
 

@@ -57,8 +57,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">
 					<h4 class="panel-title">
-							<a role="button" id="graph_collapse_button" data-toggle="collapse"  href="#<%=req.params.type%>graph_collapse"><i
-								class="fa fa-angle-double-down"></i>Graphs</a>
+							<a role="button" id="graph_collapse_button" data-toggle="collapse"  href="#<%=req.params.type%>graph_collapse"><i class="fa fa-angle-double-down"></i>Graphs</a>
 						</h4>
 					</div>
 
@@ -154,13 +153,13 @@
 							id="<%=req.params.type%>dailyKpi-datatable2">
 							<thead>
 								<tr>
-									<th rowspan="3" style="background-color: lightsteelblue;">Date</th>
-									<th colspan="7" style="background-color: lightblue;">New Detections (Unique)</th>
-									<th colspan="5" style="background-color: lightblue;">Total Fraud Activity</th>
-									<th colspan="6" style="background-color: lightblue;">Median MOU Before</th>
-									<th colspan="6" style="background-color: lightblue;">Median MOU After</th>
-									<th colspan="4" style="background-color: lightblue;">Median Loss</th>
-									<th colspan="4" style="background-color: lightblue;">False Positive</th>
+									<th rowspan="3" style="background-color: lightskyblue;">DATE</th>
+									<th colspan="7" style="background-color: mediumseagreen;">New Detections (Unique)</th>
+									<th colspan="5" style="background-color: lightskyblue;">Total Fraud Activity</th>
+									<th colspan="6" style="background-color: mediumseagreen;">Median MOU Before</th>
+									<th colspan="6" style="background-color: lightskyblue;">Median MOU After</th>
+									<th colspan="4" style="background-color: mediumseagreen;">Median Loss</th>
+									<th colspan="4" style="background-color: lightskyblue;">False Positive</th>
 								</tr>
 								<tr>
 									<!--New Detections (Unique)-->
@@ -169,36 +168,42 @@
 									<th colspan="2"  style="background-color: forestgreen;">Total New</th>
 
 									<!--Total Fraud Activity-->
-									<th rowspan="2" style="background-color: powderblue;">SIMs*</th>
+									<!--<th rowspan="2" style="background-color: powderblue;">SIMs*</th>
 									<th rowspan="2" style="background-color: powderblue;">MOU Before</th>
 									<th rowspan="2" style="background-color: powderblue;">MOU After</th>
 									<th rowspan="2" style="background-color: powderblue;">Total MOU</th>
-									<th rowspan="2" style="background-color: powderblue;">Total Loss</th>
+									<th rowspan="2" style="background-color: powderblue;">Total Loss</th>-->
+
+									<th rowspan="2" style="background-color: lightskyblue;">SIMs*</th>
+                                 <th rowspan="2" style="background-color: lightskyblue;">MOU Before</th>
+                                 <th rowspan="2" style="background-color: lightskyblue;">MOU After</th>
+                                 <th rowspan="2" style="background-color: lightskyblue;">Total MOU</th>
+                                 <th rowspan="2" style="background-color: lightskyblue;">Total Loss</th>
 
 									<!--Median MOU Before-->
 									<th colspan="3" style="background-color: lightgreen;">Mobius</th>
 									<th colspan="2"  style="background-color: limegreen;">Other</th>
-									<th rowspan="2" style="background-color: forestgreen;">All</th>
+									<th rowspan="2">All</th>
 
 									<!--Median MOU After -->
 									<th colspan="3" style="background-color: lightgreen;">Mobius</th>
 									<th colspan="2"  style="background-color: limegreen;">Other</th>
-									<th rowspan="2" style="background-color: forestgreen;">All</th>
+									<th rowspan="2">All</th>
 
 									<!--Median Loss-->
-									<th rowspan="2" style="background-color: powderblue;">Before</th>
-									<th rowspan="2" style="background-color: powderblue;">After</th>
-									<th rowspan="2" style="background-color: powderblue;">Total</th>
-									<th rowspan="2" style="background-color: powderblue;">Remaining Balance</th>
+									<th rowspan="2" style="background-color: lightsteelblue;">Before</th>
+									<th rowspan="2" style="background-color: lightsteelblue;">After</th>
+									<th rowspan="2" style="background-color: lightsteelblue;">Total</th>
+									<th rowspan="2" style="background-color: lightsteelblue;">Remaining Balance</th>
 
 									<!--False Positive-->
 									<th colspan="2" style="background-color: lightgreen;">Mobius GK</th>
-									<th colspan="2" style="background-color: lightgreen;">Mobius GK - C</th>
+									<th colspan="2" style="background-color: lightgreen;">Mobius GKC</th>
 
 								</tr>
 								<tr>
 									<th>GK</th>
-									<th>GK-C</th>
+									<th>GKC</th>
 									<th>TCG</th>
 									<th>TCG</th>
 									<th>FMS</th>
@@ -206,12 +211,12 @@
 									<th>Total Balance Remaining</th>
 
 									<th>GK</th>
-									<th>GK-C</th>
+									<th>GKC</th>
 									<th>TCG</th>
 									<th>TCG</th>
 									<th>FMS</th>
 									<th>GK</th>
-									<th>GK-C</th>
+									<th>GKC</th>
 									<th>TCG</th>
 									<th>TCG</th>
 									<th>FMS</th>
