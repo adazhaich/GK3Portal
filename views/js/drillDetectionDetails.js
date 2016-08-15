@@ -206,10 +206,22 @@ function loadData(error, apiData) {
                 }, {
                     "mData": "mou",
                     "sDefaultContent": ""
-                }, {
+                }, /*{
                     "mData": "handset_make",
                     "sDefaultContent": ""
-                }, {
+                },*/
+                {
+                    "mData": "module",
+                    "sDefaultContent": "",
+                    "mRender": function (data, type, row) {
+                        if (data) {
+                            return "H";
+                        }
+                        return "M";
+                    }
+
+                },
+                {
                     "mData": "subid",
                     "sDefaultContent": "",
                     "mRender": function (data, type, row) {

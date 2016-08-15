@@ -84,7 +84,7 @@ module.exports = function (app, passport, config, gk3_accounts_pool) {
     // DASHBOARD SECTION =========================
     router.get('/reports/dashboard/:type', utils.isLoggedIn, function (req, res) {
 
-        res.render('dailyKpi2.ejs', {
+        res.render('dailyKpi.ejs', {
             req: req
         });
     });
@@ -137,9 +137,9 @@ module.exports = function (app, passport, config, gk3_accounts_pool) {
     });
 
     //mysql before hive service is available
-    router.get('/reports/dailykpi2/:type', utils.isLoggedIn, function (req, res) {
-        logger.debug("/reports/dailykpi2:type:", req.params.type);
-        res.render('dailyKpi2.ejs', {
+    router.get('/reports/dailykpi/:type', utils.isLoggedIn, function (req, res) {
+        logger.debug("/reports/dailykpi:type:", req.params.type);
+        res.render('dailyKpi.ejs', {
             req: req
         });
     });
@@ -676,47 +676,11 @@ module.exports = function (app, passport, config, gk3_accounts_pool) {
         });
 
 
+
+
     router.get('/dataaccess/dailykpi', utils.isLoggedIn, function (req, res) {
-        logger.debug('router.get:/dataaccess/dailykpi:', dateFormat(Date
-            .now(), "dddd, mmmm dS, yyyy, h:MM:ss TT"));
-        var condition = req.query.condition;
-
-        //console.log("request.parameter.condition:", condition);
-
-        var url = serviceUrl + "/dailykpi";
-
-        if (condition != "") url += "?where=" + condition + "&limit=-1";
-        else url += "?limit=-1";
-
-        logger.debug("dailykpi url=" + url);
-        url = encodeURI(url);
-        //console.log("dailykpi encoded url=" + url);
-
-        logger.debug("start time=", dateFormat(Date.now(),
-            "dddd, mmmm dS, yyyy, h:MM:ss TT"));
-        request({
-            url: url,
-            json: true
-        }, function (error, response, body) {
-
-            if (!error && response.statusCode === 200) {
-                logger.debug("Data Access Success from " + url);
-                logger.debug("returned json nodes:", body.length);
-                res.json(body);
-            } else {
-                res.send(error);
-            }
-            logger.debug('end /dataAccess/dailyKpi:', dateFormat(Date
-                .now(), "dddd, mmmm dS, yyyy, h:MM:ss TT"));
-        });
-    });
-
-    router.get('/dataaccess/dailykpi2', utils.isLoggedIn, function (req, res) {
-        logger.debug('BEGIN /dataaccess/dailykpi2:');
+        logger.debug('BEGIN /dataaccess/dailykpi:');
         logger.debug('Report Requested DATE TIMESTAMP :::', dateFormat(Date.now(), "dddd, mmmm dS, yyyy, h:MM:ss TT"));
-        //  url += "?reportType=" + reportType + "&start=" + start + "&end=" + end
-         // Drill Detection Details URL= /test/dataaccess/detectiondetails?action=first_detection&type=TCG&traffic_date=20160626
-        //  /test/dataaccess/dailykpi2?reportType=onnet&start=2016-06-26&end=2016-07-26
         var reportType = req.query.reportType;
         var start = req.query.start;
         var end = req.query.end;
@@ -750,10 +714,10 @@ module.exports = function (app, passport, config, gk3_accounts_pool) {
         }
         url += where_clause;
 
-        //console.log("dailyKpi2 url=" + url);
+        //console.log("dailyKpi url=" + url);
 
         url = encodeURI(url);
-        logger.debug("dailyKpi2 url=", url);
+        logger.debug("dailyKpi url=", url);
         request({
             url: url,
             json: true
@@ -764,11 +728,11 @@ module.exports = function (app, passport, config, gk3_accounts_pool) {
                 logger.debug("Returned JSON Nodes:", body.length);
                 res.json(body);
             } else {
-                logger.debug("Error in /dataaccess/dailykpi2 :", error);
+                logger.debug("Error in /dataaccess/dailykpi :", error);
                 res.send(error);
             }
             logger.debug('Report END DATE TIMESTAMP :::', dateFormat(Date.now(), "dddd, mmmm dS, yyyy, h:MM:ss TT"));
-            logger.debug('END /dataaccess/dailykpi2');
+            logger.debug('END /dataaccess/dailykpi');
         });
     });
 

@@ -105,6 +105,8 @@ $(document).ready(function() {
                //BEGIN  OF CODE COPIED FROM hourlyFraud.js===================================================================================================
                 var callsOut = {};
                 var duration = {};
+				//END OF CODE COPIED FROM hourlyFraud.js===================================================================================================
+
                 dataSet.forEach(function (d) {
 							if (d.call_time) {
 								//Phoenix: call_time is already time
@@ -116,19 +118,22 @@ $(document).ready(function() {
 							}
 
                     //BEGIN  OF CODE COPIED FROM hourlyFraud.js===================================================================================================
-                    if (isNaN(callsOut[""+d.cell_id])) callsOut[""+d.cell_id] =0;
-                    callsOut[""+d.cell_id] += Number(d.num_out);
+                    if (isNaN(callsOut[""+d.cell_id]))
+                    	callsOut[""+d.cell_id] =0;
+
+					    callsOut[""+d.cell_id] += Number(d.mou_before);
+
 
                     if (isNaN(duration[""+d.cell_id])) duration[""+d.cell_id] =0;
-                    duration[""+d.cell_id] += Number(d.sum_out_duration);
+                    duration[""+d.cell_id] += Number(d.calls);
                    //END OF CODE COPIED FROM hourlyFraud.js===================================================================================================
-						});
+
+                });
 
                 //all calls out
                 var callsOutArray = [];
                 for (var key in callsOut){
                     if (key != 0){ //skip cell_id = 0 --
-//    						callsOutArray.push({ "cell_id": key, value: callsOut[key] });
                         callsOutArray.push([key,  callsOut[key] ]);
                     }
                 }
@@ -141,11 +146,10 @@ $(document).ready(function() {
                     return d[1]*1;
                 });
 
-
                 //sum out duration
                 var durationArray = [];
                 for (var key in duration){
-                    if (key != 0){ //skip cell_id = 0 --
+                    if (key != 0 &&  duration[key] ){ //skip cell_id = 0 --
                         durationArray.push([key,  duration[key] ]);
                     }
                 }
@@ -158,7 +162,9 @@ $(document).ready(function() {
                     return d[1]*1;
                 });
 
-//END OF CODE COPIED FROM hourlyFraud.js===================================================================================================
+             //END OF CODE COPIED FROM hourlyFraud.js===================================================================================================
+
+
 					var ndx = crossfilter(dataSet);
 
 					var callTimeDimension = ndx.dimension(function (d) {
@@ -183,8 +189,8 @@ $(document).ready(function() {
 
 					var all = ndx.groupAll();
 
-					var totalSumOutUnitByCell = cellsDimension.group().reduceSum(
-						function (d) {
+					var totalSumOutUnitByCell = cellsDimension.group()
+						.reduceSum(function (d) {
 							return d.mou;
 						});
 
@@ -204,13 +210,13 @@ $(document).ready(function() {
 						});
 
 
-					//dateHourlyCalls
+					//dateHourlyCalls  d.call_time.getUTCHours();
 					var totalCallsByHour = trafficHourDimension.group()
 						.reduceSum(function (d) {
 							return d.calls;
 						});
 
-					//mou
+					//mou d.call_time;
 					var totalSumOutDurationByDate = callTimeDimension.group()
 						.reduceSum(function (d) {
 							return d.mou;
@@ -238,17 +244,15 @@ $(document).ready(function() {
 
 					sumOutDurationByCellTotal
 						.transitionDuration(1000)
-						.dimension(topDurationCellIdDim)
+						.dimension(cellsDimension)
 						//.group(totalSumOutDurationByCell)//.top(30)
-                        .group(topDurationByCellId) // CODE FROM HOURLY FRAUD===========================
+                       .group(topDurationByCellId) // CODE FROM HOURLY FRAUD===========================
 						.margins({top: 10,right: 50,bottom: 50,left: 50})
 						.centerBar(false)
                         //.xAxisLabel("Cell Id")
-                        .yAxisLabel(
-						"MOU").gap(5).elasticY(true)
-						.x(d3.scale.ordinal().domain(topDurationCellIdDim))
-						.xUnits(
-                       // .x(d3.scale.ordinal().domain(cellsDimension)).xUnits(
+                        .yAxisLabel("MOU").gap(5).elasticY(true)
+						.x(d3.scale.ordinal().domain(topDurationCellIdDim)).xUnits(
+                       //.x(d3.scale.ordinal().domain(cellsDimension)).xUnits(
 						dc.units.ordinal)
 						.renderHorizontalGridLines(true).
 					     renderVerticalGridLines(true).ordering(
@@ -292,17 +296,37 @@ $(document).ready(function() {
 
 
 				//Call by Date/Hour
-				var dateHourTotal = dc.rowChart(".active #dateHour-chart", "detcDetail");
+				//var dateHourTotal = dc.rowChart(".active #dateHour-chart", "detcDetail");
+				var dateHourTotal = dc.barChart(".active #dateHour-chart", "detcDetail");
 
-				dateHourTotal
+			/*	dateHourTotal
 				//  .width(380)
 				//	.height(220)
-				//.yAxisLabel("Hour")
+				//  .yAxisLabel("Detections")
 				//.xAxisLabel("Count")
 					.dimension(trafficHourDimension)
 					.group(totalCallsByHour)
 					.elasticX(true)
-					.xAxis().ticks(5);
+					.xAxis();*/
+
+				dateHourTotal
+					.transitionDuration(1000)
+					.dimension(trafficHourDimension)
+					//.group(totalSumOutDurationByCell)//.top(30)
+					.group(totalCallsByHour) // CODE FROM HOURLY FRAUD===========================
+					.margins({top: 10,right: 50,bottom: 50,left: 50})
+					.centerBar(false)
+					//.xAxisLabel("Cell Id")
+					.yAxisLabel("Detections").gap(5).elasticY(true)
+					.x(d3.scale.ordinal().domain(topDurationCellIdDim)).xUnits(dc.units.ordinal)
+					.renderHorizontalGridLines(true).
+				     renderVerticalGridLines(true).ordering(
+					function (d) {
+						return d.value;
+					}).yAxis().tickFormat(d3.format("s"));
+
+
+
 				dateHourTotal.on('renderlet.a',function (chart) {
 					// rotate x-axis labels
 					chart.selectAll('g.x text')

@@ -98,14 +98,16 @@ $(document).ready(function(){
 
     					}
 
-    					if (isNaN(callsOut[""+d.cell_id])) callsOut[""+d.cell_id] =0;
+    					if (isNaN(callsOut[""+d.cell_id]))
+    						callsOut[""+d.cell_id] =0;
     					callsOut[""+d.cell_id] += Number(d.num_out);
+
     					
     					if (isNaN(duration[""+d.cell_id])) duration[""+d.cell_id] =0;
     					duration[""+d.cell_id] += Number(d.sum_out_duration);
     				});
 
-
+				    //console.log("CALLS OUT Array",callsOut);
     				//all calls out
     				var callsOutArray = [];
     				for (var key in callsOut){
@@ -118,7 +120,7 @@ $(document).ready(function(){
     				
     				var topCallsOut = callsOutArray.slice(0, 10);
     				var topCallsOutNdx3 = crossfilter(topCallsOut);
-    				var topCellIdDim3 = topCallsOutNdx3.dimension(function(d) {return d[0];});
+    				var topCellIdDim3 = topCallsOutNdx3.dimension(function(d) {console.log ("Suspect Calls", d[0]); return d[0];});
     				var topCallsOutByCellId3 = topCellIdDim3.group().reduceSum(function(d){
     					return d[1]*1; 
     				});
@@ -243,12 +245,7 @@ $(document).ready(function(){
 //    				var hourlyRowChart = dc.rowChart(".active #hourly-row-chart","hourlyfraud");
     				var hourlyRowChart = dc.barChart(".active #hourly-row-chart","hourlyfraud");    				
     				
-//    				hourlyRowChart
-//  				  .dimension(trafficHourDimension)
-//  				  .group(hourGroup)
-//  				  .elasticX(true)
-//  				  .xAxis().ticks(5);
-    				
+
     				hourlyRowChart
     				  .dimension(trafficHourDimension)
     				  .group(hourGroup)
@@ -273,12 +270,10 @@ $(document).ready(function(){
 
     				
     				sumOutDurationByCellTotal
-//    			    .height(220)
     			    .transitionDuration(1000)
     			    .dimension(topDurationCellIdDim)
     			    .group(topDurationByCellId)
     			    .margins({top: 10, right: 50, bottom: 50, left: 40})
-//    			     .xAxisLabel("Cell Id")
     			     .yAxisLabel("Duration")
     			    .elasticY(true)
     			    .x(d3.scale.ordinal().domain(topDurationCellIdDim))
