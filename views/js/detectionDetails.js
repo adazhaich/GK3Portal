@@ -239,14 +239,14 @@ $(document).ready(function() {
 					//console.log("maxHour:", maxHour);
 
 
-				// Charts
+				// Charts ***Ashok-CHECK why group is not working correctly****
 				var sumOutDurationByCellTotal = dc.barChart(".active #sumOutDurationByCell-chart", "detcDetail");
 
 					sumOutDurationByCellTotal
 						.transitionDuration(1000)
 						.dimension(cellsDimension)
-						//.group(totalSumOutDurationByCell)//.top(30)
-                       .group(topDurationByCellId) // CODE FROM HOURLY FRAUD===========================
+						.group(totalSumOutDurationByCell)//.top(30)
+                       //.group(topDurationByCellId) // CODE FROM HOURLY FRAUD===========================
 						.margins({top: 10,right: 50,bottom: 50,left: 50})
 						.centerBar(false)
                         //.xAxisLabel("Cell Id")

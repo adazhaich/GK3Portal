@@ -13,6 +13,7 @@
                 <li><a data-addtab="login" href="/test/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 <% }
                 else { %>
+                <li class="active"><a id="currentTime">Current Time:</a></li>
                 <input type="hidden" id="login_user" value="<%= req.user.id %>">
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">Welcome <%= req.user.username %>!<span class="caret"></span></a>
@@ -24,10 +25,6 @@
                 <% }
                 %>
 
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a id="currentTime">Current Time:</a></li>
             </ul>
 
         </div>

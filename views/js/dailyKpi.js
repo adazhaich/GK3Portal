@@ -77,6 +77,7 @@ $(document).ready(function () {
               //  $("#" + reportType + "graph_collapse").hide();
                // $("#" + reportType + "table_collapse").hide();
                 //alert("Empty Dataset for"+reportType);
+                datatable.fnClearTable();
                 document.getElementById('record_count').innerHTML =0;
                 $('#ajax_loader').hide();
                 return;
@@ -522,7 +523,7 @@ $(document).ready(function () {
                         "tableWidthFixed": false
                     },
                     "oLanguage": {
-                        "sEmptyTable": "No Record"
+                        "sEmptyTable": "No data available for the start and end dates you selected"
                     },
                     buttons: [{
                         extend: 'collection',
@@ -573,11 +574,18 @@ $(document).ready(function () {
                     var chartI = dc.chartRegistry.list()[i];
                     chartI.on("filtered", RefreshTable);
                 }
-                dc.renderAll("dailyKpi" + reportType);
+                //dc.renderAll("dailyKpi" + reportType);
 
-            // / Get the total rows
-            document.getElementById('record_count').innerHTML =datatable.fnGetData().length;
+            var rowCount=datatable.fnGetData().length;
 
+              if (rowCount > 0) {
+                  document.getElementById('record_count').innerHTML =rowCount;
+                  dc.renderAll("dailyKpi" + reportType);
+              }
+              else {
+                  $ ("#" + reportType + "table_collapse").hide();
+
+              }
             $('#ajax_loader').hide();
 
            // }//END OF ELSE
@@ -587,6 +595,8 @@ $(document).ready(function () {
 
 
     DAILYKPI.filter(start, end);
+
+
 
 });
 

@@ -38,7 +38,7 @@ $(document).ready(function(){
             document.getElementById('txt').innerHTML= today;*/
 
             document.getElementById('currentTime').innerHTML =
-                h + ":" + m + ":" + s + "   GMT ";
+                h + ":" + m + ":" + s + "&nbsp;GMT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
             var t = setTimeout(startTime, 500);
         }
         function checkTime(i) {

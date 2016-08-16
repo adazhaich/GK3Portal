@@ -529,25 +529,141 @@ div.dt-buttons {
 	padding:6px;
 }
 
+
+a {font-size: 10px}
+a:link {
+    /*color: darkred;*/
+    font-weight: bold;
+    /*text-decoration: underline;*/
+}
+/*
+a:visited {
+    color: #999999;
+    font-weight:bold;
+}
+a:hover {
+    !*color: darkgreen;*!
+    font-weight:bold
+}*/
+
 /*CUSTOMIZATION added by avandana*/
 /*table.dataTable tr{ background-color:  red; }*/
 /*table.dataTable tr:nth-child(odd)  { background-color: lightyellow;  }*/
 table.dataTable tr:nth-child(even)  { background-color: lightgoldenrodyellow;  }
-/*
-.dataTables_wrapper .ui-toolbar{
-    width: 5%;
+.dataTables_wrapper {  font-family: "tahoma";  font-size: 10px;  color: black;  }
+
+
+
+/* START OF Change the Navbar Colors/Font/Size */
+/* Adjust Menu (red) text color, (Garamond) font-family, (1.5em) font-size  */
+.navbar .nav > li > a, .navbar .nav > li > a:first-letter,
+.navbar .nav > li.current-menu-item > a,
+.navbar .nav > li.current-menu-ancestor > a {
+    display:        inline;
+    color:          red;
+    font-family:    Garamond;
+    font-size:      1em;
+    padding:        10px 15px;
 }
-.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
-    display: inline-block;
-    font-size: 10pt;
+
+
+
+
+/*======================= Adjust Menu colors - Normal =====================================*/
+.navbar .nav > li > a, .navbar .nav > li > a:first-letter {
+    color:          black;
+    text-shadow:    none;
 }
+/* Adjust Menu colors - Hover */
+.navbar .nav > li > a:hover, .navbar .nav > li > a:hover:first-letter {
+    color:          white;
+    text-shadow:    none;
+}
+/* Adjust Menu colors - Active */
+.navbar .nav > li > a:active, .navbar .nav > li > a:active:first-letter,
+.navbar .nav > li.current-menu-item > a,
+.navbar .nav > li.current-menu-ancestor > a,
+.navbar .nav > li.current-menu-item > a:first-letter,
+.navbar .nav > li.current-menu-ancestor > a:first-letter {
+    color:          saddlebrown;
+    text-shadow:    none;
+}
+
+/* Adjust dropdown Menu items (blue) text color, (yellow) shading and (green) border */
+.dropdown-menu > li > a {
+    color:          saddlebrown;
+    background:      linen  ;
+    /*border-bottom:  2px solid green;*/
+}
+
+/* Remove the Hover/Focus Colors  */
+.navbar .nav > li.current-menu-item > a, .navbar .nav > li.current-menu-ancestor > a,
+.navbar .nav > li > a:hover, .navbar .nav > li > a:focus {
+    /*color:          #5A5A5A;*/
+}
+/*================== END OF Change the Navbar Colors/Font/Size =========================================*/
+
+
+/* TRIM size of header */
+.navbar-nav > li > a {padding-top:1px !important; padding-bottom:1px !important;}
+.navbar {min-height:1px !important}
+
+
+
+/*NEW=====================*/
+/* set the background-color to red
+http://stackoverflow.com/questions/17456010/changing-navbar-color-in-twitters-bootstrap-2-3-2
 */
-
-
-.dataTables_wrapper {
-    font-family: "tahoma";
-    font-size: 10px;
-    color: black;
-
+.navbar-inner {
+    background-color: red;
+    /* remove the gradient */
+    background-image: none;
+    /* set font color to white */
+    color: white;
 }
 
+/* menu items */
+
+/* set the background of the menu items to pink and default color to white */
+.navbar .nav > li > a {
+    /*background-color: lightseagreen;
+    color: white;*/
+}
+
+/* set hover and focus to lightblue */
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover {
+    background-color: lightblue;
+    color: white;
+}
+
+/* set active item to darkgreen */
+.navbar .nav > .active > a,
+.navbar .nav > .active > a:hover,
+.navbar .nav > .active > a:focus {
+    background-color: darkgreen;
+    color: white;
+}
+
+/*
+@media screen and (min-width: 768px)
+    .navbar-default .navbar-nav>.active>a {
+        line-height: 40px;
+        border-top: 0;
+        border-bottom: 0;
+    }*/
+/*
+.navbar-brand, .navbar-nav>li>a {
+    text-shadow: 0 1px 0 rgba(255,255,255,.25);
+}*/
+
+.container-fluid {
+    padding: 0px;
+}
+
+@media (max-width: 797px) {
+    body {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}

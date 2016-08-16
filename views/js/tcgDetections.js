@@ -49,6 +49,7 @@ $(document).ready(function(){
 		        "bFilter": true,
 		        "bSort": true,
 		        "bInfo": true,
+				"lengthMenu": [25, 50, "All"],
 		        "bAutoWidth": true,
 		        "bDeferRender": true,
 		        "bDestroy": true,
@@ -102,15 +103,18 @@ $(document).ready(function(){
 		            	}
 		            }
 		            ,{ "mData": "source", "sDefaultContent": "",
-		            	"mRender":function(data,type,row){
-		            		if(data == "A"){
-		            			return "Standard TCG detection";
-		            		}else if(data == "B"){
-		            			return "BTCG detection";
-		            		}else{
-		            			return data;
-		            		}
-		            	}
+							"mRender": function (data, type, row) {
+								switch (data) {
+									case null:
+										return "undefined";
+									case 'A':
+										return "Standard TCG detection";
+									case 'B':
+										return "BTCG detection";
+									default:
+										return data;
+								}
+							}
 		            }            
 		            ,{ "mData": "source_file_name", "sDefaultContent": "" }
 		            ,{ "mData": "call_mechanism", "sDefaultContent": ""}
@@ -145,11 +149,11 @@ $(document).ready(function(){
     							{
     								extend:'excelHtml5',
     								title:'TcgDetections'
-    							},
+    							}/*,
     							{
     								extend:'pdfHtml5',
     								title:'TcgDetections'
-    							}]
+    							}*/]
 		                  }
 		              ]
 			});	

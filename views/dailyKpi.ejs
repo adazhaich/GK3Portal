@@ -12,10 +12,10 @@
         <div class="panel-group">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h class="panel-title">
+                    <h4 class="panel-title">
                         <a role="button" data-toggle="collapse" href="#<%=req.params.type%>filter_collapse"><i
                                     class="fa fa-angle-double-down fa-fw" aria-hidden="true"></i>Filter</a>
-                    </h>
+                    </h4>
                 </div>
                 <div id="<%=req.params.type%>filter_collapse" class="panel-collapse collapse in">
                     <div class="panel-body">
@@ -42,7 +42,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group col-md-1">&nbsp;</div>
                                 <div class="form-group col-md-1">
                                     <input type="button" value="Go" class="btn btn-primary btn-sm"
                                            id="<%=req.params.type%>refresh">
@@ -145,6 +144,8 @@
                 </ul>
 
             </div>
+
+            <!--if( $('#cartContent').is(':empty') ) -->
             <div id="<%=req.params.type%>table_collapse" class="panel-collapse collapse in">
                 <div class="panel-body">
                     <table class="table table-striped cell-border"

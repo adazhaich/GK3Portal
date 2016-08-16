@@ -42,10 +42,20 @@ var hourlyFraud={
     //defaultFilterInterval : "OneDay"
 };
 
+var tcgDetections={
+    defaultFilterInterval : "OneWeek"
+    //defaultFilterInterval : "OneDay"
+};
+
+
+
 
 function getDateRange(reportType) {
 if(reportType.defaultFilterInterval == "OneMonth")
     return 30;
+    if(reportType.defaultFilterInterval == "OneWeek")
+        return 7;
+
     if(reportType.defaultFilterInterval == "OneDay")
         return 1;
     if(reportType.defaultFilterInterval == "12Hrs")
