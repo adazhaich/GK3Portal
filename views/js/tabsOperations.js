@@ -15,7 +15,7 @@ $(function () {
 });
 
 function initTab(){
-	//var url = "/test/reports/dailykpi2/onnet";
+	//var url = "/tunisiana/reports/dailykpi2/onnet";
 	var url=clientHTTPConfig.appContextRoot+"/reports/dailykpi/onnet";
 	var tabId = "leaf1102";
 	$('.tab-content').append('<div class="tab-pane active" id="'+tabId+'"></div>');

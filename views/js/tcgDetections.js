@@ -66,32 +66,7 @@ $(document).ready(function(){
 		            ,{ "mData": "s_imei", "sDefaultContent": "" }
 		            ,{ "mData": "s_subid", "sDefaultContent": "" }
 		            ,{ "mData": "duration", "sDefaultContent": ""}          
-		            ,{ "mData": "status", "sDefaultContent": "",
-		            	"mRender": function ( data, type, row ) { 
-		            		switch (data){
-			            		case 0:
-			            			return "Default(Unprocessed)";
-			            		case 1:
-			            			return "Processed";
-			            		case 2:
-			            	    	return "No Record Found";
-			            		case 3:
-			            			return "IMSI missing";
-			            		case 4:
-			            			return "SUBID missing";
-			            	    default:
-			            	    	return "Undefined";
-		            		}
-		            	}
-		            }
-		            ,{ "mData": "processed_time", "sDefaultContent": "",
-		            	"mRender": function(data,type,row){
-		            		if (data === undefined || data == null){
-		            			return '';
-		            		}
-		            		return moment(data).format("YYYY-MM-DD hh:mm:ss");
-		            	}
-		             }
+
 		            ,{ "mData": "false_positive", "defaultContent": "",
 		            	"mRender": function ( data, type, row ) { 
 		            		if (data == 1){
@@ -118,10 +93,6 @@ $(document).ready(function(){
 		            }            
 		            ,{ "mData": "source_file_name", "sDefaultContent": "" }
 		            ,{ "mData": "call_mechanism", "sDefaultContent": ""}
-		            ,{ "mData": "call_time", "sDefaultContent": "",
-		            	"mRender": function ( data, type, row ) {
-		            		return moment(data).format("YYYY-MM-DD hh:mm:ss");
-		            	}}
 		            ,{ "mData": "operator", "sDefaultContent": "" }
 		            ,{ "mData": "call_date","sDefaultContent":"" ,
 		            	"mRender": function ( data, type, row ) {
@@ -129,7 +100,44 @@ $(document).ready(function(){
 		            		var pattern = /(\d{4})(\d{2})(\d{2})/;
 		            		return date.replace(pattern, '$1-$2-$3');
 		            	}}
-		        ],    
+						,{ "mData": "call_time", "sDefaultContent": "",
+							"mRender": function ( data, type, row ) {
+								return moment(data).format("hh:mm:ss");
+								/*  var  temp = moment.tz(data, 'Africa/Tunis');
+								 return  temp.format("YYYY-MM-DD hh:mm:ss Z");
+								 */
+							}}
+						,{ "mData": "status", "sDefaultContent": "",
+							"mRender": function ( data, type, row ) {
+								switch (data){
+									case 0:
+										return "Default(Unprocessed)";
+									case 1:
+										return "Processed";
+									case 2:
+										return "No Record Found";
+									case 3:
+										return "IMSI missing";
+									case 4:
+										return "SUBID missing";
+									default:
+										return "Undefined";
+								}
+							}
+						}
+
+						,{ "mData": "processed_time", "sDefaultContent": "",
+							"mRender": function(data,type,row){
+								if (data === undefined || data == null){
+									return '';
+								}
+								return moment(data).format("YYYY-MM-DD hh:mm:ss");
+							}
+						}
+
+		        ],
+
+
 		        "sDom": 'ZlfrBtip',
 		        "colResize": {
 		            "tableWidthFixed": false

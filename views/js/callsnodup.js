@@ -23,7 +23,7 @@ $(document).ready(function(){
 	});
 	
 function go(type,data,startDay,endDay){
-	var url = "/test/dataaccess/callsnodup";
+	var url = "/tunisiana/dataaccess/callsnodup";
 	var condition = "";
 	if(type == "MSISDN"){
 		condition = concatParam(condition, "msisdn", "=",  data);

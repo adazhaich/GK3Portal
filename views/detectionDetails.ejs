@@ -2,9 +2,9 @@
 <html>
 <head>
 
-    <script src='/test/views/js/gk3global.js' type='text/javascript'></script>
-    <script src='/test/views/js/detectionDetails.js' type='text/javascript'></script>
-    <script src="/test/views/js/map.js"></script>
+    <script src='/tunisiana/views/js/gk3global.js' type='text/javascript'></script>
+    <script src='/tunisiana/views/js/detectionDetails.js' type='text/javascript'></script>
+    <script src="/tunisiana/views/js/map.js"  type='text/javascript'></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -20,33 +20,38 @@
 
                 <div id="ddfilter_collapse" class="panel-collapse collapse in">
                     <div class="panel-body">
-                        <div class="row" style="margin-left:0;">
+                  <!--      <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                            <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>&nbsp;
+                            <span></span> <b class="caret"></b>
+                        </div>
 
-                            <div class="form-group col-md-3">
-                                <label for="start" class="col-sm-3">Start: </label>
+                        &lt;!&ndash; &ndash;&gt;-->
+                            <div class="form-group col-md-2">
+                                <!--<label for="start" class="col-sm-3">Start: </label>-->
 
-                                <div class="input-group input-group-sm date form_datetime col-sm-9">
-                                    <input id="start" class="form-control" type="text" value="">
+                                <div class="input-group input-group-sm date form_datetime">
+                               <input id="start" class="form-control" type="text" value="">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                                 </div>
                             </div>
-                            <div class="form-group col-md-3">
-                                <label for="end" class="col-sm-3"> End: </label>
+                            <div class="form-group col-md-2">
 
-                                <div class="input-group input-group-sm date form_datetime col-sm-9">
+
+                                <div class="input-group input-group-sm date form_datetime">
+
                                     <input id="end" class="form-control" type="text" value="">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                                 </div>
                             </div>
-                            <div class="form-group col-md-1">
+                            <div class="form-group col-sm-1">
                                 <input type="button" class="btn btn-primary btn-sm" id="refresh" value="GO">
                             </div>
-                            <div class="form-group col-md-1">
+                            <div class="form-group col-sm-1">
                                 <button class="btn btn-primary btn-sm" id="advanced" onclick="displayDiv()">Advanced
                                 </button>
                                 <input type="hidden" id="reportType" value="dd_div"/>
                             </div>
-                        </div>
+
                         <% var report = 'dd' %>
                         <% include filterParam %>
                     </div>

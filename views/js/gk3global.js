@@ -13,7 +13,7 @@ var dailyKPIDefaultDateRange={
 }
 
 var clientHTTPConfig ={
-    'appContextRoot' : '/test'
+    'appContextRoot' : '/tunisiana'
 }
 
 

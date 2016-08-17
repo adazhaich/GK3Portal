@@ -7,6 +7,6 @@
 $(document).ready(function(){
     //console.log("Inside login.js ");
 
-    $("#loginUser").attr("action", "/test/login");
-    $("#homeLink").attr("href", "/test");
+    $("#loginUser").attr("action", "/tunisiana/login");
+    $("#homeLink").attr("href", "/tunisiana");
 });

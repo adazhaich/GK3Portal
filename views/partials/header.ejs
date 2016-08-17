@@ -1,11 +1,11 @@
-<script src='/test/views/js/gk3global.js' type='text/javascript'></script>
-<script src='/test/views/js/header.js' type='text/javascript'></script>
+<script src='/tunisiana/views/js/gk3global.js' type='text/javascript'></script>
+<script src='/tunisiana/views/js/header.js' type='text/javascript'></script>
 
 
 <nav class="navbar navbar-default">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a href="http://http://www.mobiusws.com/"><img src="/test/views/images/logo.png"></img></a>
+			<a href="http://http://www.mobiusws.com/"><img src="/tunisiana/views/images/logo.png"></img></a>
 		</div>
 		<div>
 			<ul class="nav navbar-nav">
@@ -16,12 +16,12 @@
 						<% if (req.isAuthenticated()) {
 								if(req.user.role_id.indexOf(1) >= 0 ) {//1 means System Administrator
 						%>
-							<li><a href="/test/signup" id="signupId"><i class="fa fa-user"></i>&nbsp;Users</a></li>
-							<li><a onclick='registerComposeButtonEvent(this)' data-addtab="setrole" url="/test/setrole" id="setRoleId">Role</a></li>
-							<li><a onclick='registerComposeButtonEvent(this)' data-addtab="setmenu" url="/test/setmenu" id="setMenuId">Menu</a></li>
+							<li><a href="/tunisiana/signup" id="signupId"><i class="fa fa-user"></i>&nbsp;Users</a></li>
+							<li><a onclick='registerComposeButtonEvent(this)' data-addtab="setrole" url="/tunisiana/setrole" id="setRoleId">Role</a></li>
+							<li><a onclick='registerComposeButtonEvent(this)' data-addtab="setmenu" url="/tunisiana/setmenu" id="setMenuId">Menu</a></li>
 						<% } %>
-							<li><a onclick='registerComposeButtonEvent(this)' data-addtab="setpassword" url="/test/setpassword" id="setPasswordId">Password</a></li>
-							<li><a onclick='registerComposeButtonEvent(this)' data-addtab="setpreferences" url="/test/setpreferences" id="setPreferencesId">Preferences</a></li>
+							<li><a onclick='registerComposeButtonEvent(this)' data-addtab="setpassword" url="/tunisiana/setpassword" id="setPasswordId">Password</a></li>
+							<li><a onclick='registerComposeButtonEvent(this)' data-addtab="setpreferences" url="/tunisiana/setpreferences" id="setPreferencesId">Preferences</a></li>
 						<% }%>
 													        								
 					</ul>
@@ -42,8 +42,8 @@
 					<li  class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="#">Welcome <%=req.user.username %>!<span class="caret"></span></a>
 						<ul class="dropdown-menu" id="menu">
-							<li><a data-addtab="prof" url="/test/profile" id="profileId">Profile</a></li>
-							<li><a href="/test/logout" id="headerLogoutId">Logout</a></li>
+							<li><a data-addtab="prof" url="/tunisiana/profile" id="profileId">Profile</a></li>
+							<li><a href="/tunisiana/logout" id="headerLogoutId">Logout</a></li>
 						</ul>
 					</li>				    
 			   <%} 			    

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	var url = "/test/dataaccess/cellidinfo";
+	var url = "/tunisiana/dataaccess/cellidinfo";
 //	var cellId = $('#cellId').val();
 //	var imsi = $('#imsi').val();
 //	var msisdn = $('#msisdn').val();

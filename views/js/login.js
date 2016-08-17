@@ -3,7 +3,7 @@
  */
 $(document).ready(function(){
     //console.log("Inside login.js ");
-    $("#loginUser").attr("action", "/test/login");
+    $("#loginUser").attr("action", "/tunisiana/login");
 
-    $("#homeLink").attr("href", "/test");
+    $("#homeLink").attr("href", "/tunisiana");
 });

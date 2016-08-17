@@ -5,7 +5,7 @@
 */
 
 skel.init({
-	prefix: '/test/views/css/style',
+	prefix: '/tunisiana/views/css/style',
 	resetCSS: true,
 	boxModel: 'border',
 	grid: {

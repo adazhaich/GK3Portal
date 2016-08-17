@@ -7,8 +7,8 @@
 $(document).ready(function(){
     //console.log("Inside login.js ");
 
-    $("#loginUser").attr("action", "/test/login");
-    $("#homeLink").attr("href", "/test");
+    $("#loginUser").attr("action", "/tunisiana/login");
+    $("#homeLink").attr("href", "/tunisiana");
 
 
     /*Time Zones
@@ -59,7 +59,7 @@ $(document).ready(function(){
 
 
     function checkServiceStatus() {
-        var reqURL = 'http://localhost:8580/test/reports/servicestatus';
+        var reqURL = 'http://localhost:8580/tunisiana/reports/servicestatus';
 
         request(reqURL, function (err, resp, body) {
             if (!err && resp.statusCode === 200) {

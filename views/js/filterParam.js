@@ -188,7 +188,7 @@ $(document).ready(function(){
 	});
 
 	function filter(reportType){
-		var url = "/test/dataaccess/filteridlist";
+		var url = "/tunisiana/dataaccess/filteridlist";
 		url += "?reportType="+reportType
 	
 	//	url += "?day="+day + "&hour="+hour + "&start="+start + "&end="+end + "&illegalOdds="+illegalOdds;
@@ -198,7 +198,7 @@ $(document).ready(function(){
 	}	
 	
 	function show (filterId){
-		var url = "/test/dataaccess/filterparam";
+		var url = "/tunisiana/dataaccess/filterparam";
 		url = url + "?filterId="+filterId;
 	
 	//	url += "?day="+day + "&hour="+hour + "&start="+start + "&end="+end + "&illegalOdds="+illegalOdds;
@@ -208,7 +208,7 @@ $(document).ready(function(){
 	}	
 	
 	function setOrgFlt (day, hour, start, end, filterSql, reportType){
-		var url = "/test/dataaccess/setorgflt";
+		var url = "/tunisiana/dataaccess/setorgflt";
 		var condition = "";
 		if(reportType == "hbn_div") {
 			condition = concatParam(condition, "call_date", "=", "'" + moment(day, "YYYYMMDDHH").format('YYYYMMDDHH')  + "'");
@@ -241,7 +241,7 @@ $(document).ready(function(){
 	}	
 	
 	function save (reportType, filterName, filterDetail){
-		var url = "/test/dataaccess/savefilterparam";
+		var url = "/tunisiana/dataaccess/savefilterparam";
 		url = url +"?reportType="+reportType+"&filterName="+filterName+"&filterDetail="+filterDetail;
 	
 	//	url += "?day="+day + "&hour="+hour + "&start="+start + "&end="+end + "&illegalOdds="+illegalOdds;
@@ -251,7 +251,7 @@ $(document).ready(function(){
 	}	
 	
 	function deleteBtn (filterId){
-		var url = "/test/dataaccess/dltfilterparam";
+		var url = "/tunisiana/dataaccess/dltfilterparam";
 		url = url + "?filterId="+filterId;
 	    //console.log( "url=", url );
 		queue()
@@ -262,7 +262,7 @@ $(document).ready(function(){
 	}	
 	
 	function empty (filterId){
-		var url = "/test/dataaccess/emptyfilter";
+		var url = "/tunisiana/dataaccess/emptyfilter";
 	
 	//	url += "?day="+day + "&hour="+hour + "&start="+start + "&end="+end + "&illegalOdds="+illegalOdds;
 	    //console.log( "url=", url );

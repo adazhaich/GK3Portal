@@ -1,7 +1,7 @@
 //NOTE: Change SSL to true and comment out the port number while deploying in DEMO or PROD servers
 module.exports = {
     "httpConfig": {
-        "contextRoot": "/test",
+        "contextRoot": "/tunisiana",
         "default_illegal_odds": 0.7,
         "checkAuthentication": true,
         "host": "localhost",

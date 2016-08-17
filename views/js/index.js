@@ -1,4 +1,4 @@
 $(document).ready(function(){
     //console.log("Inside index.js ");
-   $("#initialLogin").attr("href", "/test/login");
+   $("#initialLogin").attr("href", "/tunisiana/login");
 });

@@ -458,7 +458,7 @@ $(document).ready(function(){
     HOURLYINIT = {
     		init : function(){
     			var sql = "select max(traffic_date_hour) as traffic_date_hour from core_605_3.decode_info where gk_process_state = 2";
-    			var url = "/test/dataaccess/decodeinfo";
+    			var url = "/tunisiana/dataaccess/decodeinfo";
     			url += "?"+"condition="+sql;
     			//console.log("url=", url);
     			url = encodeURI(url);

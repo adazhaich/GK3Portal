@@ -139,7 +139,7 @@ $(document).ready(function() {
 
 function popDect(data,day,type){
 	//console.log("popDect(", data,day,type,")");
-	var url = '/test/drilldown/detectiondetails?data='+data+'&day='+day+'&type='+type;
+	var url = '/tunisiana/drilldown/detectiondetails?data='+data+'&day='+day+'&type='+type;
 	window.open(
 			url ,
 			'_blank',

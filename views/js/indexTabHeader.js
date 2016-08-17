@@ -6,7 +6,7 @@ $(document).ready(function(){
 	//console.log('userId:', userId);
 
 	function makeHeader (userId){
-		var url = "/test/dataaccess/menu";
+		var url = "/tunisiana/dataaccess/menu";
 		
 		url += "?userId="+userId;
 		
@@ -113,5 +113,7 @@ function addMenu(error, apiData) {
 	
 	dy_div.appendChild(a_ul);
 }
+
+
 
 });

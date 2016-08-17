@@ -667,3 +667,8 @@ http://stackoverflow.com/questions/17456010/changing-navbar-color-in-twitters-bo
         padding-right: 0px;
     }
 }
+
+.modal-header {
+    padding: 0px;
+    border-bottom: 1px solid #e5e5e5;
+}
