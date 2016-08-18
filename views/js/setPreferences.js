@@ -12,10 +12,10 @@ $(document).ready(function() {
 		
 		makeDefault: function(error, apiData) {
 			var dataSet = apiData;
-			//console.log(dataSet, 'value', dataSet[0].VALUE, 'id', dataSet[0].id);
+			//console.log(dataSet, 'value', dataSet[0].VALUE, 'id', dataSet[0].USER_ID);
 			if(dataSet[0].VALUE != undefined) {
 				$("#rowsperpage").val(dataSet[0].VALUE);
-				getElement("#settingid").val(dataSet[0].id);
+				getElement("#settingid").val(dataSet[0].USER_ID);
 			}
 			$('#ajax_loader').hide();
 		},
