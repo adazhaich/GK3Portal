@@ -49,7 +49,7 @@ $(document).ready(function(){
 		        "bFilter": true,
 		        "bSort": true,
 		        "bInfo": true,
-				"lengthMenu": [25, 50, "All"],
+				"lengthMenu": [[25, 50, -1], [25, 50, "All"]],
 		        "bAutoWidth": true,
 		        "bDeferRender": true,
 		        "bDestroy": true,
@@ -83,9 +83,13 @@ $(document).ready(function(){
 									case null:
 										return "undefined";
 									case 'A':
-										return "Standard TCG detection";
+										return "Standard TCG";
+									case 'a':
+										return "Standard TCG";
 									case 'B':
-										return "BTCG detection";
+										return "BTCG";
+									case 'b':
+										return "BTCG";
 									default:
 										return data;
 								}
