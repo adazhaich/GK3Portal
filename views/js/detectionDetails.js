@@ -53,13 +53,13 @@ $(document).ready(function() {
 		}).listen('.zoom');
 
 	getElement("#refresh").on( "click", function() {
-		//console.log( "=============User entered FILTER criteria in detectionDetails PAGE=============" );
+		console.log( "=============User entered FILTER criteria in detectionDetails PAGE=============" );
 		start = $("#start").val() === undefined ? "" : $("#start").val() ;
-		//console.log("START",start);
+		console.log("START",start);
 		end = $("#end").val() === undefined ? "" : $("#end").val() ;
-		//console.log("END",end);
+		console.log("END",end);
 		filterSql = $("#filterSql").val()  === undefined ? "" : $("#filterSql").val();
-		//console.log( "start=", start, "end=", end);
+		console.log( "start=", start, "end=", end);
         if (dateValidate(start, end)) {
             DETECTION.filter(start, end, filterSql);
         }
@@ -120,7 +120,7 @@ $(document).ready(function() {
 					//$("#ddgraph_collapse").hide();
 					//$("#table_collapse").hide();
 
-					document.getElementById('record_count').innerHTML =0;
+					document.getElementById('dd_record_count').innerHTML =0;
 					$('#ajax_loader').hide();
 					return;
 
@@ -271,8 +271,8 @@ $(document).ready(function() {
 					sumOutDurationByCellTotal
 						.transitionDuration(1000)
 						.dimension(cellsDimension)
-						.group(totalSumOutDurationByCell)//.top(30)
-                       //.group(topDurationByCellId) // CODE FROM HOURLY FRAUD===========================
+						//.group(totalSumOutDurationByCell)//.top(30)
+                       .group(topDurationByCellId) // CODE FROM HOURLY FRAUD===========================
 						.margins({top: 10,right: 50,bottom: 50,left: 50})
 						.centerBar(false)
                         //.xAxisLabel("Cell Id")
@@ -385,6 +385,7 @@ $(document).ready(function() {
 							"bAutoWidth": true,
 							"bDeferRender": true,
 							"aaData": callTimeDimension.top(Infinity),
+                        "lengthMenu": [[25, 50, -1], [25, 50, "All"]],
 							"bDestroy": true,
 							"fnRowCallback": function (nRow, aData, iDisplayIndex) {
 								$('td', nRow).attr('nowrap', 'nowrap');
@@ -398,6 +399,7 @@ $(document).ready(function() {
 									"mData": "insert_time", 
 									"sDefaultContent": "",
 									"mRender": function (data, type, row) {
+
 										return data.format("YYYY-MM-DD HH:mm:ss");
 									}
 								},
@@ -442,9 +444,16 @@ $(document).ready(function() {
 									"mData": "corporateid",
 									"sDefaultContent": "",
 									"mRender": function (data, type, row) {
-										//return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popAdd(" + data + ");\" class='colLnk'>" + data + '</a>';
-                                        return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popCorpSummary(" + data + "," + row.insert_time + ",'CorpID');\" class='colLnk'>" + data + '</a>';
-									}
+										if (data == 0) {
+											return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popAdd(" + data + ");\" class='colLnk'>" + data + '</a>';
+										}
+										else {
+
+											//return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popDect(" + data + ",'CELL');\" class='colLnk'>" + data + '</a>';
+											return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popCorpInfo('" + data + "','CorpId');\" class='colLnk'>" + data + '</a>';
+
+										}
+								}
 								}, {
 									"mData": "msisdn",
 									"sDefaultContent": "",
@@ -478,7 +487,7 @@ $(document).ready(function() {
 									"mData": "cell_id",
 									"sDefaultContent": "",
 									"mRender": function (data, type, row) {
-										return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popDect(" + data + ",'CELL');\" class='colLnk'>" + data + '</a>';
+										return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popDect(" + data + ",'CELL_ID');\" class='colLnk'>" + data + '</a>';
 									}
 								}, {
 									"mData": "vendor",
@@ -506,13 +515,13 @@ $(document).ready(function() {
 									"mData": "subid",
 									"sDefaultContent": "",
 									"mRender": function (data, type, row) {
-										return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popDect(" + data + ",'SUB');\" class='colLnk'>" + data + '</a>';
+										return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popDect(" + data + ",'SUBID');\" class='colLnk'>" + data + '</a>';
 									}
 								}, {
 									"mData": "dealerid",
 									"sDefaultContent": "",
 									"mRender": function (data, type, row) {
-										return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popDect(" + data + ",'DEALER');\" class='colLnk'>" + data + '</a>';
+										return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popDect(" + data + ",'DEALERID');\" class='colLnk'>" + data + '</a>';
 									}
 								}, {
 									"mData": "activation_date",
@@ -548,10 +557,10 @@ $(document).ready(function() {
 									"mData": "data_usage",
 									"sDefaultContent": ""
 								}
-								, {
+								/*, {
 									"mData": "status",
 									"sDefaultContent": ""
-								}, {
+								}*/, {
 									"mData": "shutdown_file",
 									"sDefaultContent": ""
 								}
@@ -581,11 +590,11 @@ $(document).ready(function() {
 									{
 										extend: 'excelHtml5',
 										title: 'DetectionDetails'
-									},
+									}/*,
 									{
 										extend: 'pdfHtml5',
 										title: 'DetectionDetails'
-									}]
+									}*/]
 							}]
 						});
 
@@ -603,9 +612,17 @@ $(document).ready(function() {
 						chartI.on("filtered", RefreshTable);
 					}
 					dc.renderAll("detcDetail");
+				var rowCount=datatable.fnGetData().length;
 
-					// / Get the total rows
-					document.getElementById('record_count').innerHTML =datatable.fnGetData().length;
+				if (rowCount > 0) {
+					document.getElementById('dd_record_count').innerHTML =rowCount;
+					//dc.renderAll("dailyKpi" + reportType);
+				}
+				else {
+					//$ ("#" + reportType + "table_collapse").hide();
+
+				}
+
 					$('#ajax_loader').hide();
 				}
 			} //====================END MAKEGRAPHS FUNCTION
@@ -616,15 +633,18 @@ $(document).ready(function() {
 
 
 		$("#saveCorp").on("click",function(){
+
+			//alert("SAVE Invoked");
 			var url = clientHTTPConfig.appContextRoot+"/dataaccess/addcorporatesummary";
-			var corporateId = $("#corporateId").val();
-			var corporateName = $("#corporateName").val();
-			var trafficDate = $("#trafficDate").val();
+			var corporateId = $("#CORPORATE_ID").val();
+			var corporateName = $("#CORPORATE_NAME").val();
+			var trafficDate = $("#TRAFFIC_DATE").val();
 			var detections = $("#detections").val();
+
 			url += "?sql=upsert into fraud_605_3.corporate_summary (id, corporate_id, corporate_name, traffic_date, detections, insert_time)" +
 					" values (NEXT VALUE FOR fraud_605_3.SEQ_CORPORATE_SUMMARY,'"+corporateId+"','"+corporateName+"','"+trafficDate+"',"+detections+",now())";
 
-			//console.log( "=============Invoking saveCorp (user click) in detectionDetails PAGE=============" );
+			console.log( "=============Invoking saveCorp (user click) in detectionDetails PAGE=============" );
 			queue().defer(d3.json, url).await(returnResult);
 	    });
 
@@ -693,11 +713,24 @@ $(document).ready(function() {
 	DETECTIONPOP = {
 			popDect : function(data,type){
 				var url = clientHTTPConfig.appContextRoot+'/drilldown/detectiondetails?data='+data+'&type='+type;
+
+               // alert("DEtection details ,click 1st level drilldown " +url);
 				window.open(
 						url ,
 						'_blank',
 						'height=700, width=1000, top=0, left=150, toolbar=no,menubar=yes, scrollbars=yes, resizable=no,location=no,status=no');
 			},
+
+		popCorpInfo : function(data,type){
+			console.log("============ Executing popCorpInfo============");
+			//$('#orderModal').modal('show');
+			var url = clientHTTPConfig.appContextRoot+'/setpreferences';
+			console.log("Show Corp Info",url);
+			window.open(
+				url ,
+				'_blank',
+				'height=700, width=1000, top=0, left=150, toolbar=no,menubar=yes, scrollbars=yes, resizable=no,location=no,status=no');
+		},
 			popWnd : function(data,day,type){
 				//console.log("DD pwpWnd");
 				var unixDay =  moment(day);
@@ -711,30 +744,15 @@ $(document).ready(function() {
 						'height=700, width=1000, top=0, left=150, toolbar=no,menubar=yes, scrollbars=yes, resizable=no,location=no,status=no');
 			},
 			popAdd : function(data){
+
 				$('#detectionDetailModal').modal('show');
-			},
-
-        popCorpSummary: function(data,day,type){
-           // var url = clientHTTPConfig.appContextRoot+'/drilldown/detectiondetails?data='+data+'&type='+type;
-            var unixDay =  moment(day);
-            var date = unixDay.format("YYYYMMDD");
-
-            var url = clientHTTPConfig.appContextRoot+'/reports/corporatesummary';
-            var condition = "";
-            condition = concatParam(condition, "traffic_date", "=", "'" + date + "'");
-            url += "?condition="+condition;
-            window.open(
-                url ,
-                '_blank',
-                'height=700, width=1000, top=0, left=150, toolbar=no,menubar=yes, scrollbars=yes, resizable=no,location=no,status=no');
-        }
-
+			}
 
 	}	//================END of DETECTION POP
 	
 		
 		function returnResult(error, apiData){
-			//console.log("============ Executing returnResult() function in detectionDetails.js==============");
+			console.log("============ Executing returnResult() function in detectionDetails.js (Add Corporate Info)==============");
 			if(apiData!=null){
 				var status = apiData[0].status;
 				if(status == true){
@@ -745,4 +763,21 @@ $(document).ready(function() {
 			}
 			
 		}
-		
+
+
+/*$('#orderModal').modal({
+	keyboard: true,
+	backdrop: "static",
+	show:false,
+
+}).on('show', function(){
+	var getIdFromRow = 55;
+	//make your ajax call populate items or what even you need
+	$(this).find('#orderDetails').html($('<b> Order Id selected: ' + getIdFromRow  + '</b>'))
+});
+
+/!*
+$(".table-striped").find('tr[data-target]').on('click', function(){
+	//or do your operations here instead of on show of modal to populate values to modal.
+	$('#orderModal').data('orderid',$(this).data('id'));
+});*!/*/

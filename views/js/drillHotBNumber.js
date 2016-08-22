@@ -28,8 +28,8 @@ $(document).ready(function(){
 		}else if(type=="B_MSISDN"){
 			condition = concatParamOther(condition, "type", "=", "B_MSISDN");
 			condition = concatParamOther(condition, "data", "=", +data);
-		}else if(type=="CELL"){
-			condition = concatParamOther(condition, "type", "=", "CELL");
+		}else if(type=="CELL_ID"){
+			condition = concatParamOther(condition, "type", "=", "CELL_ID");
 			condition = concatParamOther(condition, "data", "=", +data);
 		}
 

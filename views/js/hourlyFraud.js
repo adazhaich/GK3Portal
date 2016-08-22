@@ -3,7 +3,7 @@ $(document).ready(function(){
 	//console.log('hourlyFraud.js');
 	$( window ).resize(function() {
 		  //console.log( "resizing" );
-		  dc.renderAll("hourlyfraud");
+		  //dc.renderAll("hourlyfraud");
 		});
 	
 	$(".form_datetime").datetimepicker({
@@ -72,7 +72,7 @@ $(document).ready(function(){
     				if (!dataSet || dataSet.length == 0){
     					//console.log("No data retrieved. Do nothing");
     					$("#hourlyFraud-datatable").dataTable().fnClearTable();
-    					dc.renderAll("hourlyfraud");
+    					//dc.renderAll("hourlyfraud");
 	    			 	$('#ajax_loader').hide();
     				}
 
@@ -107,11 +107,11 @@ $(document).ready(function(){
     					duration[""+d.cell_id] += Number(d.sum_out_duration);
     				});
 
-				    //console.log("CALLS OUT Array",callsOut);
+
     				//all calls out
     				var callsOutArray = [];
     				for (var key in callsOut){
-    					if (key != 0){ //skip cell_id = 0 --  
+    					if (key != 0){ //skip cell_id = 0 --
 //    						callsOutArray.push({ "cell_id": key, value: callsOut[key] });
     						callsOutArray.push([key,  callsOut[key] ]);
     					}
@@ -120,7 +120,7 @@ $(document).ready(function(){
     				
     				var topCallsOut = callsOutArray.slice(0, 10);
     				var topCallsOutNdx3 = crossfilter(topCallsOut);
-    				var topCellIdDim3 = topCallsOutNdx3.dimension(function(d) {console.log ("Suspect Calls", d[0]); return d[0];});
+    				var topCellIdDim3 = topCallsOutNdx3.dimension(function(d) {return d[0];});
     				var topCallsOutByCellId3 = topCellIdDim3.group().reduceSum(function(d){
     					return d[1]*1; 
     				});
@@ -129,21 +129,23 @@ $(document).ready(function(){
     				//sum out duration
     				var durationArray = [];
     				for (var key in duration){
-    					if (key != 0){ //skip cell_id = 0 --  
-    						durationArray.push([key,  duration[key] ]);
-    					}
+    					if (key != 0){ //skip cell_id = 0 --
+							durationArray.push([key,  duration[key] ]);
+						}
     				}
     				durationArray.sort(function(a, b) {return b[1] - a[1]});
     				
     				var topDuration = durationArray.slice(0, 10);
     				var topDurationNdx = crossfilter(topDuration);
     				var topDurationCellIdDim = topDurationNdx.dimension(function(d) {return d[0];});
+
     				var topDurationByCellId = topDurationCellIdDim.group().reduceSum(function(d){
     					return d[1]*1; 
     				});
 
 
     				var ndx = crossfilter(dataSet);
+
     				//Define Dimensions
     				var trafficDateDimension = ndx.dimension(function(d) { return d.traffic_date; });
     				var trafficHourDimension = ndx.dimension(function(d) { return d.traffic_hour; });
@@ -268,8 +270,8 @@ $(document).ready(function(){
     			      .dimension(trafficHourDimension)
     			      .group(hourGroup);
 
-    				
-    				sumOutDurationByCellTotal
+
+				sumOutDurationByCellTotal
     			    .transitionDuration(1000)
     			    .dimension(topDurationCellIdDim)
     			    .group(topDurationByCellId)
@@ -283,11 +285,14 @@ $(document).ready(function(){
     			    .ordering(function(d){return d.value;})
     			    .yAxis().tickFormat(d3.format("s"));
 
+/*
+
 				sumOutDurationByCellTotal.on('renderlet.a',function (chart) {
 					// rotate x-axis labels
 					chart.selectAll('g.x text')
 						.attr('transform', 'translate(-10,10) rotate(315)');
 				});
+*/
 
 
 				callsOutByCellId
@@ -421,11 +426,11 @@ $(document).ready(function(){
     	    							{
     	    								extend:'excelHtml5',
     	    								title:'HourlyFraud'
-    	    							},
+    	    							}/*,
     	    							{
     	    								extend:'pdfHtml5',
     	    								title:'HourlyFraud'
-    	    							}]
+    	    							}*/]
     			                  }
     			              ]
     				});	

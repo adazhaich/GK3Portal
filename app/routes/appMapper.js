@@ -597,8 +597,10 @@ module.exports = function (app, passport, config, gk3_accounts_pool) {
         var traffic_date = req.param('traffic_date');
         var startTime = req.param('startTime');
         var endTime = req.param('endTime');
+        var data = req.param('data');
 
         url = serviceUrl + "/detectiondetails";
+
 
         if (action != undefined && action == "first_detection") {
             url += "?action=" + action + "&type=" + type + "&traffic_date=" + traffic_date + "&first_flag=1" + "&limit=-1";
@@ -607,7 +609,11 @@ module.exports = function (app, passport, config, gk3_accounts_pool) {
         {
             url += "?action=" + action + "&startTime=" + startTime +  "&endTime=" + endTime +  "&limit=-1";
         }
-
+        else if (action != undefined && action == "drillDetectionDetails")
+        {
+            url += "?action=" + action + "&type=" + type +  "&data=" + data +  "&limit=-1";
+        }
+        logger.debug("detectiondetails action=" + action);
         logger.debug("detectiondetails url=" + url);
         //url = encodeURI(url);
         logger.debug("detectiondetails encoded url=" + url);
@@ -895,7 +901,7 @@ module.exports = function (app, passport, config, gk3_accounts_pool) {
 
         var condition = req.query.condition;
 
-        logger.debug("request.parameter.condition:", condition);
+        logger.debug("Corp Summary request.parameter.condition:", condition);
 
 
 
@@ -1668,7 +1674,7 @@ module.exports = function (app, passport, config, gk3_accounts_pool) {
 
 
     router.get('/dataaccess/addcorporatesummary', utils.isLoggedIn, function (req, res) {
-        logger.debug('router.get:/dataaccess/corporatesummary:', dateFormat(Date
+        logger.debug('router.get:/dataaccess/addcorporatesummary:', dateFormat(Date
             .now(), "dddd, mmmm dS, yyyy, h:MM:ss TT"));
 
         var sql = req.query.sql;
@@ -1693,7 +1699,7 @@ module.exports = function (app, passport, config, gk3_accounts_pool) {
                 logger.debug("returned json error:", error);
                 res.send(error);
             }
-            logger.debug('end /dataaccess/corporatesummary:', dateFormat(Date
+            logger.debug('end /dataaccess/addcorporatesummary:', dateFormat(Date
                 .now(), "dddd, mmmm dS, yyyy, h:MM:ss TT"));
         });
     });
@@ -1804,19 +1810,19 @@ module.exports = function (app, passport, config, gk3_accounts_pool) {
         var roleIds;
 
         var sql1 = "select group_concat(role_id) roleids from user_roles where deleted_date is null and  user_id='" + userId + "'";
-        logger.debug('query roleids sql:', sql1);
+        //logger.debug('query roleids sql:', sql1);
 
             gk3_accounts_pool.query(sql1, function (err, rows, fields) {
                 if (!err) {
-                    logger.debug('retrieved role ids of ', userId, rows.length);
+                    //logger.debug('retrieved role ids of ', userId, rows.length);
                     roleIds = rows[0].roleids;
-                    logger.debug('USER ROLE IDS ARE :::', roleIds);
+                    //logger.debug('USER ROLE IDS ARE :::', roleIds);
                     var sql = "select m.* from menu m where exists (select 1 from role_menus rm where rm.menu_id=m.id and rm.role_id in (" + roleIds + ")) union all select m2.* from menu m2 where name='root'";
-                    logger.debug('query menu sql:', sql);
+                    //logger.debug('query menu sql:', sql);
                     gk3_accounts_pool.query(sql, function (err, rows, fields) {
                         if (!err) {
-                            logger.debug('retrieved menu: ', rows.length);
-                            logger.debug("MENU DATA",JSON.stringify(rows));
+                           // logger.debug('retrieved menu: ', rows.length);
+                           // logger.debug("MENU DATA",JSON.stringify(rows));
                             res.json(rows);
                         } else {
                             logger.debug('Error while query menu.', err);

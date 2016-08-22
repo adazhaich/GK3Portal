@@ -1,17 +1,17 @@
-
 $(document).ready(function(){
-	//console.log('corporateSummary.js');	
-	
-//	var day = $("#day").val()  === undefined ? "" : $("#day").val();
-//	corporateName = $("#corporateName").val()  === undefined ? "" : $("#corporateName").val();
-//    start = $("#start").val()  === undefined ? "" : $("#start").val();
-//    end = $("#end").val()  === undefined ? "" : $("#end").val();
+	console.log('corporateSummary.js');
+
 	var day = getElement("#day").val() === undefined ? "" :  getElement("#day").val();
 	corporateName = getElement("#corporateName").val() === undefined ? "" :  getElement("#corporateName").val();
     start = getElement("#start").val() === undefined ? "" :  getElement("#start").val();
     end = getElement("#end").val() === undefined ? "" :  getElement("#end").val() ;
     filterSql = getElement("#filterSql").val()  === undefined ? "" : getElement("#filterSql").val();
-    CORPSUMM = {
+
+	console.log(day);
+	console.log(corporateName);
+	console.log(start);
+
+	CORPSUMM = {
     	filter : function(day, corporateName, start, end, filterSql){
     		var url = clientHTTPConfig.appContextRoot+"/dataaccess/corporatesummary";
 
@@ -33,8 +33,8 @@ $(document).ready(function(){
     	makeGraphs : function(error, apiData) {
     		//Start Transformations
     			var dataSet = apiData;
-    			//console.log('corporateSummary.js:makeGraphs():apiData:', apiData.length);
-    			//console.log('makeGraphs():dataSet:', dataSet.length);
+    			console.log('corporateSummary.js:makeGraphs():apiData:', apiData.length);
+    			console.log('makeGraphs():dataSet:', dataSet.length);
     			if (!dataSet || dataSet.length == 0){
     				//console.log("No data retrieved. Do nothing");
     				$("#corporateSummary-datatable").dataTable().fnDestroy();
@@ -76,16 +76,15 @@ $(document).ready(function(){
 						},
 						//"data": dataSet,
 						"aoColumns": [
-							//{"mData": "traffic_date", "sDefaultContent": "traffic_date "}
-							//,
-							{"mData": "corporate_id", "sDefaultContent": "corporate_id"}
-							, {"mData": "corporate_name", "sDefaultContent": "corporate_name "}
-							, {"mData": "detections", "sDefaultContent": "detections"}
-						, {
-								"mData": "insert_time", "sDefaultContent": "insert_time",
+
+							{"mData": "corporate_id", "sDefaultContent": ""}
+							, {"mData": "corporate_name", "sDefaultContent": ""},
+                            {"mData": "traffic_date", "sDefaultContent":"" },
+							{"mData": "detections", "sDefaultContent": "detections"}, {
+								"mData": "insert_time", "sDefaultContent": ""/*,
 							"mRender": function (data, type, row) {
 									return moment(data).format("YYYY-MM-DD hh:mm:ss");
-								}
+								}*/
 							}
 						],
 						"sDom": 'ZlfrBtip',

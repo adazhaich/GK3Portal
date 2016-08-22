@@ -4,35 +4,41 @@ $(document).ready(function () {
     var type = $('#type').val();
     var data = $('#data').val();
     var date = $('#date').val();
+    //alert("ON DOC READY in drilldectections::: TYPE"+type+";data"+data+";date"+date);
     $("#query").on("click", function () {
         var type = $('#type').val();
         var data = $('#data').val();
         var date = $('#date').val();
-        go(type, data, date)
+        //alert("USER CLICKED :::TYPE"+type+";data"+data+";date"+date);
+        go(data, date, type);
     });
 
-    function go(data, date, type) {
+    function go(data,date, type) {
+        //alert("Go function in drillDetectionDetails :::TYPE"+type+";data"+data+";date"+date);
         var url = clientHTTPConfig.appContextRoot + "/dataaccess/detectiondetails";
         var condition = "";
-        if (type == "DEALER") {
-            condition = concatParam(condition, "dealerid", "=", "'" + data + "'");
-            url += "?condition=" + condition;
-        } else if (type == "SUB") {
-            condition = concatParam(condition, "subid", "=", "'" + data + "'");
-            url += "?condition=" + condition;
-        } else if (type == "CELL") {
-            condition = concatParam(condition, "cell_id", "=", "'" + data + "'");
-            url += "?condition=" + condition;
+        if (type == "DEALERID") {
+            condition = concatParamOther(condition, "action", "=", "drillDetectionDetails");
+            condition = concatParamOther(condition, "type", "=", "DEALERID");
+            condition = concatParamOther(condition, "data", "=", +data);
+        } else if (type == "SUBID") {
+            condition = concatParamOther(condition, "action", "=", "drillDetectionDetails");
+            condition = concatParamOther(condition, "type", "=", "SUBID");
+            condition = concatParamOther(condition, "data", "=", +data);
+        } else if (type == "CELL_ID") {
+            condition = concatParamOther(condition, "action", "=", "drillDetectionDetails");
+            condition = concatParamOther(condition, "type", "=", "CELL_ID");
+            condition = concatParamOther(condition, "data", "=", +data);
         } else {
             condition = concatParamOther(condition, "action", "=", "first_detection");
             condition = concatParamOther(condition, "type", "=", type);
             condition = concatParamOther(condition, "traffic_date", "=", +date);
             //condition = concatParamOther(condition, "first_flag = 1");
             //console.log("search criteria:::" + condition);
-            url += "?" + condition;
+            //url += "?" + condition;
         }//type=TOTAL or GKP or GKC or TCG
-
-    //  $('#ajax_loader').show();
+         url += "?" + condition;
+     //alert("Final URL"+url);
         queue()
             .defer(d3.json, url).await(loadData);
     }

@@ -71,6 +71,7 @@ $(document).ready(function(){
     		        "bAutoWidth": true,
     		        "bDeferRender": true,
     		        "aaData": callTimeDimension.top(Infinity),
+                    "lengthMenu": [[10, 25, -1], [10, 25, "All"]],
     		        "bDestroy": true,
     		        "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
     		            $('td', nRow).attr('nowrap','nowrap');
@@ -108,7 +109,7 @@ $(document).ready(function(){
     		            ,{ "mData": "duration", "sDefaultContent": ""}          
     		            ,{ "mData": "cell_id", "sDefaultContent": "",
     		            	"mRender":function(data,type,row){
-    		            		return "<a href='javascript:void(0);' onclick=\"HOTPOP.popHot(" + data+ ",'CELL');\" class='colLnk'>" + data + '</a>';
+    		            		return "<a href='javascript:void(0);' onclick=\"HOTPOP.popHot(" + data+ ",'CELL_ID');\" class='colLnk'>" + data + '</a>';
     		            	}
     		            } 
     		            ,{ "mData": "lac", "sDefaultContent": ""}
@@ -190,7 +191,7 @@ $(document).ready(function(){
 HOTPOP = {
 	popHot : function(data,type){
 		var url = clientHTTPConfig.appContextRoot + '/drilldown/hotbnumber?data='+data+'&type='+type;
-
+      //alert(url);
 		window.open(url ,'_blank','height=700, width=1000, top=0, left=150, toolbar=no,menubar=yes, scrollbars=yes, resizable=no,location=no,status=no');
 	}	
 }

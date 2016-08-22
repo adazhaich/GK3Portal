@@ -46,6 +46,7 @@ $(document).ready(
 				        "bAutoWidth": true,
 				        "bDeferRender": true,
 				        "bDestroy": true,
+						"lengthMenu": [[10, 25, -1], [10, 25, "All"]],
 				        "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
 				            $('td', nRow).attr('nowrap','nowrap');
 				            return nRow;
@@ -55,14 +56,14 @@ $(document).ready(
 				             { "mData": "subscriber_id", "sDefaultContent": ""}
 				            ,{ "mData": "subscriber_name", "sDefaultContent": "" }
 				            ,{ "mData": "detections", "sDefaultContent": "" }
-//				            ,{ "mData": "insert_date_str", "sDefaultContent": "" }
+				            ,{ "mData": "traffic_date", "sDefaultContent": "" }
 				            ,{
 								"mData" : "insert_time",
-								"sDefaultContent" : "",
+								"sDefaultContent" : ""/*,
 								"mRender" : function(data, type, row) {
 									// data is bigint
-									return moment(data).format("YYYY-MM-DD-HH-mm:ss");
-								}
+									return moment.utc(data,'X').format("YYYY-MM-DD-HH-mm:ss");
+								}*/
 							}
 //				            ,{ "mData": "insert_date_epoch", "sDefaultContent": "" } //removed per Niranjan
 				        ],    
