@@ -445,12 +445,12 @@ $(document).ready(function() {
 									"sDefaultContent": "",
 									"mRender": function (data, type, row) {
 										if (data == 0) {
-											return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popAdd(" + data + ");\" class='colLnk'>" + data + '</a>';
+											return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popAddCorp(" + data + ");\" class='colLnk'>" + 'Assign' + '</a>';
 										}
 										else {
 
 											//return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popDect(" + data + ",'CELL');\" class='colLnk'>" + data + '</a>';
-											return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popCorpInfo('" + data + "','CorpId');\" class='colLnk'>" + data + '</a>';
+											return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popUpdateCorp('" + data + "','CorpId');\" class='colLnk'>" + data + '</a>';
 
 										}
 								}
@@ -627,25 +627,32 @@ $(document).ready(function() {
 				}
 			} //====================END MAKEGRAPHS FUNCTION
 
-
-
-
-
-
 		$("#saveCorp").on("click",function(){
+			var corporateId = $("#corporateId").val();
+			var corporateName = $("#corporateName").val();
+			var msisdn = $("#msisdn").val();
+			var comment = $("#comment").val();
 
-			//alert("SAVE Invoked");
-			var url = clientHTTPConfig.appContextRoot+"/dataaccess/addcorporatesummary";
-			var corporateId = $("#CORPORATE_ID").val();
-			var corporateName = $("#CORPORATE_NAME").val();
-			var trafficDate = $("#TRAFFIC_DATE").val();
-			var detections = $("#detections").val();
+            console.log("Req Parameters::","1",corporateId,"2", corporateName,"3",msisdn,"4",comment);
+            //var url = clientHTTPConfig.appContextRoot+'/dataaccess/addcorporatesummary?corporateId='+corporateId+'&corporateName='+corporateName+'&msisdn='+msisdn+'&comment='+comment;
 
-			url += "?sql=upsert into fraud_605_3.corporate_summary (id, corporate_id, corporate_name, traffic_date, detections, insert_time)" +
-					" values (NEXT VALUE FOR fraud_605_3.SEQ_CORPORATE_SUMMARY,'"+corporateId+"','"+corporateName+"','"+trafficDate+"',"+detections+",now())";
+			//url += "?sql=upsert into core_605_3.corporate_detail (id,corporate_id, corporate_name, msisdn, comment,insert_time)" +
+            //        " values (NEXT VALUE FOR core_605_3.SEQ_CORPORATE_DETAIL,'"+corporateId+"','"+corporateName+"','"+msisdn+"','"+comment+"',current_time() )";
+
+			var url = clientHTTPConfig.appContextRoot+"/dataaccess/corporatedetail";
+			var condition = "";
+
+			condition = concatParamOther(condition, "action", "=", "addOrUpdate");
+			condition = concatParamOther(condition, "corporateId", "=", corporateId);
+			condition = concatParamOther(condition, "corporateName", "=", corporateName);
+			condition = concatParamOther(condition, "msisdn", "=", msisdn);
+			condition = concatParamOther(condition, "comment", "=", comment);
+
+			url += "?" + condition;
 
 			console.log( "=============Invoking saveCorp (user click) in detectionDetails PAGE=============" );
-			queue().defer(d3.json, url).await(returnResult);
+			 console.log("URL is"+url);
+            queue().defer(d3.json, url).await(returnResult);
 	    });
 
          DETECTION.filter(start, end,filterSql); //====Ashok- NO NEED TO CALL INIT FUNCTION as we set the default range on page load
@@ -713,8 +720,6 @@ $(document).ready(function() {
 	DETECTIONPOP = {
 			popDect : function(data,type){
 				var url = clientHTTPConfig.appContextRoot+'/drilldown/detectiondetails?data='+data+'&type='+type;
-
-               // alert("DEtection details ,click 1st level drilldown " +url);
 				window.open(
 						url ,
 						'_blank',
@@ -743,10 +748,14 @@ $(document).ready(function() {
 						'_blank',
 						'height=700, width=1000, top=0, left=150, toolbar=no,menubar=yes, scrollbars=yes, resizable=no,location=no,status=no');
 			},
-			popAdd : function(data){
-
+			popAddCorp : function(data){
 				$('#detectionDetailModal').modal('show');
-			}
+			},
+
+		popUpdateCorp : function(data){
+
+			$('#detectionDetailModal').modal('show');
+		}
 
 	}	//================END of DETECTION POP
 	

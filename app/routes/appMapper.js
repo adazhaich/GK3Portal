@@ -1688,6 +1688,8 @@ module.exports = function (app, passport, config, gk3_accounts_pool) {
         logger.debug("start time=", dateFormat(Date.now(),
             "dddd, mmmm dS, yyyy, h:MM:ss TT"));
 
+
+
         request({
             url: url,
             json: true
@@ -1703,6 +1705,51 @@ module.exports = function (app, passport, config, gk3_accounts_pool) {
                 .now(), "dddd, mmmm dS, yyyy, h:MM:ss TT"));
         });
     });
+
+
+    router.get('/dataaccess/corporatedetail', utils.isLoggedIn, function (req, res) {
+        logger.debug('router.get:/dataaccess/corporatedetail:', dateFormat(Date
+            .now(), "dddd, mmmm dS, yyyy, h:MM:ss TT"));
+
+        var url = serviceUrl + "/corporatedetail";
+
+
+        var action = req.param('action');
+        var corporateId = req.param('corporateId');
+        var corporateName = req.param('corporateName');
+        var msisdn = req.param('msisdn');
+        var comment = req.param('comment');
+
+
+     if (action != undefined && action == "addOrUpdate")
+        {
+            url += "?action=" + action + "&corporateId=" + corporateId +  "&corporateName=" + corporateName + "&msisdn=" + msisdn + "&comment=" + comment;
+        }
+
+
+        logger.debug("corporatedetail ::Service URL", url);
+
+        logger.debug("start time=", dateFormat(Date.now(), "dddd, mmmm dS, yyyy, h:MM:ss TT"));
+
+
+        request({
+            url: url,
+            json: true
+        }, function (error, response, body) {
+
+            if (!error && response.statusCode === 200) {
+                res.json(body);
+            } else {
+                logger.debug("returned json error:", error);
+                res.send(error);
+            }
+            logger.debug('end /dataaccess/corporatedetail:', dateFormat(Date
+                .now(), "dddd, mmmm dS, yyyy, h:MM:ss TT"));
+        });
+    });
+
+
+
 
     router.get('/dataaccess/dailykpitcg', utils.isLoggedIn, function (req, res) {
         logger.debug('router.get:/dataaccess/dailykpitcg:', dateFormat(Date

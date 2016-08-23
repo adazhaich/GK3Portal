@@ -53,6 +53,7 @@ $(document).ready(function(){
 		        "bAutoWidth": true,
 		        "bDeferRender": true,
 		        "bDestroy": true,
+				"order": [[ 0, "desc" ]],
 		        "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
 		            $('td', nRow).attr('nowrap','nowrap');
 		            return nRow;
