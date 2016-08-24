@@ -188,7 +188,8 @@ $(document).ready(function(){
 	});
 
 	function filter(reportType){
-		var url = "/tunisiana/dataaccess/filteridlist";
+		//var url = "/tunisiana/dataaccess/filteridlist";
+		var url =clientHTTPConfig.appContextRoot+"/dataaccess/filteridlist";
 		url += "?reportType="+reportType
 	
 	//	url += "?day="+day + "&hour="+hour + "&start="+start + "&end="+end + "&illegalOdds="+illegalOdds;
@@ -198,7 +199,8 @@ $(document).ready(function(){
 	}	
 	
 	function show (filterId){
-		var url = "/tunisiana/dataaccess/filterparam";
+		//var url = "/tunisiana/dataaccess/filterparam";
+		var url =clientHTTPConfig.appContextRoot+"/dataaccess/filterparam";
 		url = url + "?filterId="+filterId;
 	
 	//	url += "?day="+day + "&hour="+hour + "&start="+start + "&end="+end + "&illegalOdds="+illegalOdds;
@@ -208,7 +210,8 @@ $(document).ready(function(){
 	}	
 	
 	function setOrgFlt (day, hour, start, end, filterSql, reportType){
-		var url = "/tunisiana/dataaccess/setorgflt";
+		//var url = "/tunisiana/dataaccess/setorgflt";
+		var url =clientHTTPConfig.appContextRoot+"/dataaccess/setorgflt";
 		var condition = "";
 		if(reportType == "hbn_div") {
 			condition = concatParam(condition, "call_date", "=", "'" + moment(day, "YYYYMMDDHH").format('YYYYMMDDHH')  + "'");
@@ -233,7 +236,8 @@ $(document).ready(function(){
 	    //console.log( "url=", url );
 		queue().defer(d3.json, url).await(fillOrg);
 		
-		url = "/dataaccess/setorgflt";
+		//url = "/dataaccess/setorgflt";
+		url =clientHTTPConfig.appContextRoot+"/dataaccess/setorgflt";
 
 		url = url + "?day="+day + "&hour="+hour + "&start="+start + "&end="+end + "&filterSql="+filterSql+ "&reportType=" + reportType + "&condition=" + condition;
 		//console.log( "url=", url );
@@ -241,7 +245,9 @@ $(document).ready(function(){
 	}	
 	
 	function save (reportType, filterName, filterDetail){
-		var url = "/tunisiana/dataaccess/savefilterparam";
+		//var url = "/tunisiana/dataaccess/savefilterparam";
+
+		var url =clientHTTPConfig.appContextRoot+"/dataaccess/savefilterparam";
 		url = url +"?reportType="+reportType+"&filterName="+filterName+"&filterDetail="+filterDetail;
 	
 	//	url += "?day="+day + "&hour="+hour + "&start="+start + "&end="+end + "&illegalOdds="+illegalOdds;
@@ -251,7 +257,8 @@ $(document).ready(function(){
 	}	
 	
 	function deleteBtn (filterId){
-		var url = "/tunisiana/dataaccess/dltfilterparam";
+		//var url = "/tunisiana/dataaccess/dltfilterparam";
+		var url =clientHTTPConfig.appContextRoot+"/dataaccess/dltfilterparam";
 		url = url + "?filterId="+filterId;
 	    //console.log( "url=", url );
 		queue()
@@ -262,7 +269,8 @@ $(document).ready(function(){
 	}	
 	
 	function empty (filterId){
-		var url = "/tunisiana/dataaccess/emptyfilter";
+		//var url = "/tunisiana/dataaccess/emptyfilter";
+		var url =clientHTTPConfig.appContextRoot+"/dataaccess/emptyfilter";
 	
 	//	url += "?day="+day + "&hour="+hour + "&start="+start + "&end="+end + "&illegalOdds="+illegalOdds;
 	    //console.log( "url=", url );

@@ -205,7 +205,9 @@ $(document).ready(function() {
 		    	return;
 		    }
 		    filecontent = getElement("#disp_tmp_path").html();
-		    url = "/dataaccess/importwhitelist?inputvalue="+filecontent;
+		    //url = "/dataaccess/importwhitelist?inputvalue="+filecontent;
+
+			url = clientHTTPConfig.appContextRoot+ "/dataaccess/importwhitelist?inputvalue="+filecontent;
 		    queue() .defer(d3.json, url).await(importfile);
 		});
 		
