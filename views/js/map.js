@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	
-	//var url = "/tunisiana/dataaccess/cellidinfo";
-	var url = clientHTTPConfig.appContextRoot+"/dataaccess/cellidinfo";
+	var url = "/tunisiana/dataaccess/cellidinfo";
+	//var url = clientHTTPConfig.appContextRoot+"/dataaccess/cellidinfo";
 //	var cellId = $('#cellId').val();
 //	var imsi = $('#imsi').val();
 //	var msisdn = $('#msisdn').val();

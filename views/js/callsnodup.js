@@ -114,7 +114,7 @@ function loadData(error, apiData) {
              ,{ "mData": "o_msisdn", "sDefaultContent": ""}
            /* ,{ "mData": "sw_id", "sDefaultContent": ""}
             ,{ "mData": "call_id", "sDefaultContent": " "}*/
-            ,{ "mData": "call_type", "sDefaultContent": "traffic_date",
+            ,{ "mData": "call_type", "sDefaultContent": "",
             	"mRender":function(data,type,row){
             		var ci = row.charge_indicator;
             		if(data == 1 || data == 2){
@@ -124,7 +124,7 @@ function loadData(error, apiData) {
             		}else if(data == 29 && (ci == 0 || ci == 6 || ci == 7)){
             			return "voice(fwd)";
             		}else{
-            			return data;
+            			//return data;
             		}
             	}
             }

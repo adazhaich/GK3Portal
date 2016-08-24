@@ -46,8 +46,11 @@ $(document).ready(function(){
 		        "bDeferRender": true,
 		        "bDestroy": true,
 		        "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
-		            $('td', nRow).attr('nowrap','nowrap');
-		            return nRow;
+		         /*   $('td', nRow).attr('nowrap','nowrap');
+		            return nRow;*/
+					$('.dataTables_filter input[type="search"]').
+					attr('placeholder','Search here...').
+					css({'width':'100px','height':'5px','display':'inline-block'});
 		         },
 		        "data": dataSet,
 		            "aoColumns": [

@@ -52,13 +52,18 @@ $(document).ready(function() {
 						"bFilter" : true,
 						"bSort" : true,
 						"bInfo" : true,
+						"order": [[ 0, "desc" ]],
 						"bAutoWidth" : false,
 						"bDeferRender" : true,
+						"lengthMenu": [[10, 25, -1], [10, 25, "All"]],
 						"bDestroy" : true,
 						"data" : dataSet,
 				        "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
-				            $('td', nRow).attr('nowrap','nowrap');
-				            return nRow;
+				        /*    $('td', nRow).attr('nowrap','nowrap');
+				            return nRow;*/
+							$('.dataTables_filter input[type="search"]').
+							attr('placeholder','Search here...').
+							css({'width':'100px','height':'5px','display':'inline-block'});
 				         },
 						"aoColumns" : [
 						{

@@ -388,8 +388,11 @@ $(document).ready(function() {
                         "lengthMenu": [[25, 50, -1], [25, 50, "All"]],
 							"bDestroy": true,
 							"fnRowCallback": function (nRow, aData, iDisplayIndex) {
-								$('td', nRow).attr('nowrap', 'nowrap');
-								return nRow;
+							/*	$('td', nRow).attr('nowrap', 'nowrap');
+								return nRow;*/
+								$('.dataTables_filter input[type="search"]').
+								attr('placeholder','Search here...').
+								css({'width':'100px','height':'5px','display':'inline-block'});
 							},
 							"data": dataSet,
 							"order": [[ 0, "desc" ]],

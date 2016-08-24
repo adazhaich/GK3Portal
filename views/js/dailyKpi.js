@@ -366,7 +366,7 @@ $(document).ready(function () {
 
                 //====================START OF GRID DATA RENDERING
                 datatable = $("#" + reportType + "dailyKpi-datatable").dataTable({
-                    "bPaginate": true,
+                     "bPaginate": true,
                     "colReorder": true,
                     "bLengthChange": true,
                     "sScrollX": "100%",
@@ -378,11 +378,21 @@ $(document).ready(function () {
                     "bDestroy": true,
                     "data": dataSet,
                     "order": [[ 0, "desc" ]],
-                    "fnRowCallback": function (nRow, aData, iDisplayIndex) {
+                    "lengthMenu": [[25, 50, -1], [25, 50, "All"]],
+                /*    "fnRowCallback": function (nRow, aData, iDisplayIndex) {
                         //$('th', nRow).attr('wrap', 'wrap');
                         $('td', nRow).attr('nowrap', 'nowrap');
                         return nRow;
+                    },*/
+                    "fnDrawCallback": function (oSettings) {
+                   /*     $(".dataTables_filter").each(function () {
+                            $(this).appendTo($(this).parent().siblings(".panel-body"));
+                        });*/
+                        $('.dataTables_filter input[type="search"]').
+                        attr('placeholder','Search here...').
+                        css({'width':'100px','height':'5px','display':'inline-block'});
                     },
+
 /*
                     "language": {
                         "lengthMenu": "Display _MENU_ records per page",
@@ -525,6 +535,7 @@ $(document).ready(function () {
                     "oLanguage": {
                         "sEmptyTable": "No data available for the start and end dates you selected"
                     },
+
                     buttons: [{
                         extend: 'collection',
                         text: 'Export',
@@ -541,13 +552,9 @@ $(document).ready(function () {
                             {
                                 extend: 'excelHtml5',
                                 // text: 'Save as Excel',
-                                title: 'DailyKpi',
-                                customize: function( xlsx ) {
-                                    var sheet = xlsx.xl.worksheets['sheet1.xml'];
-                                    $('row:first c', sheet).attr( 's', '42' );
-                                }
-                            },
-                        /*    {
+                                title: 'DailyKpi'
+                            }/*,
+                           {
                                 extend: 'pdfHtml5',
                                 title: 'DailyKpi',
                                 exportOptions: {
@@ -557,6 +564,7 @@ $(document).ready(function () {
 
                             ] //END OF DOWNLOAD OPTIONS
                     }] //END OF BUTTONS DECLARATION
+
                 });  //END OF RENDER DATA TABLE
 
                 function RefreshTable() {
