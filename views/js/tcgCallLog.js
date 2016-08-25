@@ -45,6 +45,8 @@ $(document).ready(function(){
 		        "bAutoWidth": true,
 		        "bDeferRender": true,
 		        "bDestroy": true,
+				"order": [[ 0, "desc" ]],
+				"lengthMenu": [[25, 50, -1], [25, 50, "All"]],
 		        "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
 		         /*   $('td', nRow).attr('nowrap','nowrap');
 		            return nRow;*/
@@ -115,11 +117,11 @@ $(document).ready(function(){
     							{
     								extend:'excelHtml5',
     								title:'TcgCallLog'
-    							},
+    							}/*,
     							{
     								extend:'pdfHtml5',
     								title:'TcgCallLog'
-    							}]
+    							}*/]
 		                  }
 		              ]
 			});	

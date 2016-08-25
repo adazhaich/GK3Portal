@@ -133,11 +133,11 @@ $(document).ready(function() {
   							{
   								extend:'excelHtml5',
   								title:'DailyKpiTcg'
-  							},
+  							}/*,
   							{
   								extend:'pdfHtml5',
   								title:'DailyKpiTcg'
-  							}]
+  							}*/]
 						} ]
 					});
 
