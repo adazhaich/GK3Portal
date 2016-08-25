@@ -1207,3 +1207,318 @@ Thu Aug 25 2016 14:48:28 GMT-0400 (Eastern Daylight Time) - debug: query whiteli
 Thu Aug 25 2016 14:48:28 GMT-0400 (Eastern Daylight Time) - debug: encoded decodeinfo url= http://10.212.2.143:8080/freestyle?sql=SELECT%20id,%20msisdn,%20imsi,%20imei,%20create_time,%20update_time,%20description,%20state%20type,%20user%20FROM%20fraud_605_3.white_list_info%20where%20(state=0%20or%20state=2%20)
 Thu Aug 25 2016 14:48:37 GMT-0400 (Eastern Daylight Time) - debug: delete whitelist:
 Thu Aug 25 2016 14:48:41 GMT-0400 (Eastern Daylight Time) - debug: delete whitelist:
+Thu Aug 25 2016 14:53:21 GMT-0400 (Eastern Daylight Time) - debug: delete whitelist:
+Thu Aug 25 2016 14:59:27 GMT-0400 (Eastern Daylight Time) - debug: Login default for Tabs: https://localhost:8443/tunisiana/reports/indextab
+Thu Aug 25 2016 14:59:28 GMT-0400 (Eastern Daylight Time) - debug: query menu:
+Thu Aug 25 2016 14:59:28 GMT-0400 (Eastern Daylight Time) - debug: userId 7
+Thu Aug 25 2016 14:59:28 GMT-0400 (Eastern Daylight Time) - debug: req userId 7
+Thu Aug 25 2016 14:59:28 GMT-0400 (Eastern Daylight Time) - debug: /reports/dailykpi:type: onnet
+Thu Aug 25 2016 14:59:28 GMT-0400 (Eastern Daylight Time) - debug: BEGIN /dataaccess/dailykpi:
+Thu Aug 25 2016 14:59:28 GMT-0400 (Eastern Daylight Time) - debug: Report Requested DATE TIMESTAMP ::: Thursday, August 25th, 2016, 2:59:28 PM
+Thu Aug 25 2016 14:59:28 GMT-0400 (Eastern Daylight Time) - debug: REPORT Type  onnet
+Thu Aug 25 2016 14:59:28 GMT-0400 (Eastern Daylight Time) - debug: Filter START Date 2016-07-26
+Thu Aug 25 2016 14:59:28 GMT-0400 (Eastern Daylight Time) - debug: Filter END Date 2016-08-25
+Thu Aug 25 2016 14:59:28 GMT-0400 (Eastern Daylight Time) - debug: dailyKpi url= http://10.212.2.143:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 14:59:28 GMT-0400 (Eastern Daylight Time) - debug: Data Access SUCCESS from http://10.212.2.143:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 14:59:28 GMT-0400 (Eastern Daylight Time) - debug: Returned JSON Nodes: 20
+Thu Aug 25 2016 14:59:28 GMT-0400 (Eastern Daylight Time) - debug: Report END DATE TIMESTAMP ::: Thursday, August 25th, 2016, 2:59:28 PM
+Thu Aug 25 2016 14:59:28 GMT-0400 (Eastern Daylight Time) - debug: END /dataaccess/dailykpi
+Thu Aug 25 2016 15:02:10 GMT-0400 (Eastern Daylight Time) - debug: (router.get('/login')-Render Login Form: https://localhost:8443/tunisiana/login
+Thu Aug 25 2016 15:02:14 GMT-0400 (Eastern Daylight Time) - debug: ***INSIDE passport local-login ******
+
+
+Thu Aug 25 2016 15:02:14 GMT-0400 (Eastern Daylight Time) - debug: ***local-login**** WRONG PASSWORD...***
+Thu Aug 25 2016 15:02:16 GMT-0400 (Eastern Daylight Time) - debug: (router.get('/')-Landing Page URL: https://localhost:8443/tunisiana
+Thu Aug 25 2016 15:02:16 GMT-0400 (Eastern Daylight Time) - debug: Login default for Tabs: https://localhost:8443/tunisiana/reports/indextab
+Thu Aug 25 2016 15:02:17 GMT-0400 (Eastern Daylight Time) - debug: query menu:
+Thu Aug 25 2016 15:02:17 GMT-0400 (Eastern Daylight Time) - debug: userId 7
+Thu Aug 25 2016 15:02:17 GMT-0400 (Eastern Daylight Time) - debug: req userId 7
+Thu Aug 25 2016 15:02:17 GMT-0400 (Eastern Daylight Time) - debug: /reports/dailykpi:type: onnet
+Thu Aug 25 2016 15:02:17 GMT-0400 (Eastern Daylight Time) - debug: BEGIN /dataaccess/dailykpi:
+Thu Aug 25 2016 15:02:17 GMT-0400 (Eastern Daylight Time) - debug: Report Requested DATE TIMESTAMP ::: Thursday, August 25th, 2016, 3:02:17 PM
+Thu Aug 25 2016 15:02:17 GMT-0400 (Eastern Daylight Time) - debug: REPORT Type  onnet
+Thu Aug 25 2016 15:02:17 GMT-0400 (Eastern Daylight Time) - debug: Filter START Date 2016-07-26
+Thu Aug 25 2016 15:02:17 GMT-0400 (Eastern Daylight Time) - debug: Filter END Date 2016-08-25
+Thu Aug 25 2016 15:02:17 GMT-0400 (Eastern Daylight Time) - debug: dailyKpi url= http://10.212.2.143:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 15:02:17 GMT-0400 (Eastern Daylight Time) - debug: Data Access SUCCESS from http://10.212.2.143:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 15:02:17 GMT-0400 (Eastern Daylight Time) - debug: Returned JSON Nodes: 20
+Thu Aug 25 2016 15:02:17 GMT-0400 (Eastern Daylight Time) - debug: Report END DATE TIMESTAMP ::: Thursday, August 25th, 2016, 3:02:17 PM
+Thu Aug 25 2016 15:02:17 GMT-0400 (Eastern Daylight Time) - debug: END /dataaccess/dailykpi
+Thu Aug 25 2016 15:02:30 GMT-0400 (Eastern Daylight Time) - debug: query menu:
+Thu Aug 25 2016 15:02:30 GMT-0400 (Eastern Daylight Time) - debug: query roleids sql: select * from users where id='7' 
+Thu Aug 25 2016 15:02:30 GMT-0400 (Eastern Daylight Time) - info: retrieved role ids of  7 id=7, username=root, password=$2a$10$Fesuz/Zy9jWUW5T4/IYj5.Eozo0q70wsnEiQsVRRL5lPijK8wXSj.
+Thu Aug 25 2016 15:02:31 GMT-0400 (Eastern Daylight Time) - debug: oldpassword: root123 queried password: $2a$10$Fesuz/Zy9jWUW5T4/IYj5.Eozo0q70wsnEiQsVRRL5lPijK8wXSj. bcrypt.compareSync(oldpassword, rows[0].password): true
+Thu Aug 25 2016 15:02:31 GMT-0400 (Eastern Daylight Time) - debug: update password for user: 7 update users set password='$2a$10$AA.MKgdAaBAPIKQ8xNdomel43rAqiE3L9G./OoUVbAmb5AOPN3M1a' where id='7' 
+Thu Aug 25 2016 15:02:31 GMT-0400 (Eastern Daylight Time) - debug: retrieved update password:  fieldCount=0, affectedRows=1, insertId=0, serverStatus=2, warningCount=0, message=(Rows matched: 1  Changed: 1  Warnings: 0, protocol41=true, changedRows=1
+Thu Aug 25 2016 15:17:52 GMT-0400 (Eastern Daylight Time) - debug: (router.get('/')-Landing Page URL: https://localhost:8443/
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: Login default for Tabs: https://localhost:8443/tunisiana/reports/indextab
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: query menu:
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: userId 7
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: req userId 7
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: /reports/dailykpi:type: onnet
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: BEGIN /dataaccess/dailykpi:
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: Report Requested DATE TIMESTAMP ::: Thursday, August 25th, 2016, 3:17:53 PM
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: REPORT Type  onnet
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: Filter START Date 2016-07-26
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: Filter END Date 2016-08-25
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: dailyKpi url= http://10.212.2.143:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: Data Access SUCCESS from http://10.212.2.143:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: Returned JSON Nodes: 20
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: Report END DATE TIMESTAMP ::: Thursday, August 25th, 2016, 3:17:53 PM
+Thu Aug 25 2016 15:17:53 GMT-0400 (Eastern Daylight Time) - debug: END /dataaccess/dailykpi
+Thu Aug 25 2016 15:17:57 GMT-0400 (Eastern Daylight Time) - debug: /reports/hourlyfraud:type: undefined
+Thu Aug 25 2016 15:17:57 GMT-0400 (Eastern Daylight Time) - debug: /reports/hourlyfraud:type: undefined
+Thu Aug 25 2016 15:17:57 GMT-0400 (Eastern Daylight Time) - debug: /reports/hourlyfraud:type: undefined
+Thu Aug 25 2016 15:17:58 GMT-0400 (Eastern Daylight Time) - debug: query cellidinfo:
+Thu Aug 25 2016 15:17:58 GMT-0400 (Eastern Daylight Time) - debug: cellidinfo url=http://10.212.2.143:8080/cellidinfo?limit=200
+Thu Aug 25 2016 15:17:58 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:17:58 PM
+Thu Aug 25 2016 15:17:58 GMT-0400 (Eastern Daylight Time) - debug: query filteridList:
+Thu Aug 25 2016 15:17:58 GMT-0400 (Eastern Daylight Time) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='1' and user_id='8' and valid=1 
+Thu Aug 25 2016 15:17:58 GMT-0400 (Eastern Daylight Time) - debug: retrieved filter param ids:  13
+Thu Aug 25 2016 15:17:58 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/cellidinfo?limit=200
+Thu Aug 25 2016 15:17:58 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 200
+Thu Aug 25 2016 15:17:58 GMT-0400 (Eastern Daylight Time) - debug: end /dataAccess/cellidinfo: Thursday, August 25th, 2016, 3:17:58 PM
+Thu Aug 25 2016 15:18:10 GMT-0400 (Eastern Daylight Time) - debug: router.get(/dataaccess/hourlyfraud: Thursday, August 25th, 2016, 3:18:10 PM
+Thu Aug 25 2016 15:18:10 GMT-0400 (Eastern Daylight Time) - info: request.query.condition: traffic_date_hour>='2016072600' and traffic_date_hour<='2016072623'
+Thu Aug 25 2016 15:18:10 GMT-0400 (Eastern Daylight Time) - info: url=http://10.212.2.143:8080/hourlysuspect?where=traffic_date_hour>='2016072600' and traffic_date_hour<='2016072623' and illegalodds>=0.7&limit=-1
+Thu Aug 25 2016 15:18:10 GMT-0400 (Eastern Daylight Time) - info: encoded url=http://10.212.2.143:8080/hourlysuspect?where=traffic_date_hour%3E='2016072600'%20and%20traffic_date_hour%3C='2016072623'%20and%20illegalodds%3E=0.7&limit=-1
+Thu Aug 25 2016 15:18:10 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:18:10 PM
+Thu Aug 25 2016 15:18:13 GMT-0400 (Eastern Daylight Time) - debug: response.statusCode= 200
+Thu Aug 25 2016 15:18:13 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hourlysuspect?where=traffic_date_hour%3E='2016072600'%20and%20traffic_date_hour%3C='2016072623'%20and%20illegalodds%3E=0.7&limit=-1
+Thu Aug 25 2016 15:18:13 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 69
+Thu Aug 25 2016 15:18:13 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hourlyFraud: Thursday, August 25th, 2016, 3:18:13 PM
+Thu Aug 25 2016 15:19:28 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/tcgdetections: Thursday, August 25th, 2016, 3:19:28 PM
+Thu Aug 25 2016 15:19:28 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/tcgdetections?where=call_date%3E='20160825'%20and%20call_date%3C='20160825'&limit=100
+Thu Aug 25 2016 15:19:28 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 3
+Thu Aug 25 2016 15:19:33 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/tcgdetections: Thursday, August 25th, 2016, 3:19:33 PM
+Thu Aug 25 2016 15:19:34 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/tcgdetections?where=call_date%3E='20160801'%20and%20call_date%3C='20160825'&limit=100
+Thu Aug 25 2016 15:19:34 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 100
+Thu Aug 25 2016 15:20:05 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:20:05 PM
+Thu Aug 25 2016 15:20:05 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=filter&startDate=20160824&endDate=20160825&limit=-1
+Thu Aug 25 2016 15:20:05 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:20:05 PM
+Thu Aug 25 2016 15:20:05 GMT-0400 (Eastern Daylight Time) - debug: query filteridList:
+Thu Aug 25 2016 15:20:05 GMT-0400 (Eastern Daylight Time) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='2' and user_id='8' and valid=1 
+Thu Aug 25 2016 15:20:05 GMT-0400 (Eastern Daylight Time) - debug: retrieved filter param ids:  6
+Thu Aug 25 2016 15:20:05 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=filter&startDate=20160824&endDate=20160825&limit=-1
+Thu Aug 25 2016 15:20:05 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 9
+Thu Aug 25 2016 15:20:05 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:20:05 PM
+Thu Aug 25 2016 15:21:01 GMT-0400 (Eastern Daylight Time) - debug: Login default for Tabs: https://localhost:8443/tunisiana/reports/indextab
+Thu Aug 25 2016 15:21:01 GMT-0400 (Eastern Daylight Time) - debug: query menu:
+Thu Aug 25 2016 15:21:01 GMT-0400 (Eastern Daylight Time) - debug: userId 7
+Thu Aug 25 2016 15:21:01 GMT-0400 (Eastern Daylight Time) - debug: req userId 7
+Thu Aug 25 2016 15:21:01 GMT-0400 (Eastern Daylight Time) - debug: /reports/dailykpi:type: onnet
+Thu Aug 25 2016 15:21:01 GMT-0400 (Eastern Daylight Time) - debug: BEGIN /dataaccess/dailykpi:
+Thu Aug 25 2016 15:21:01 GMT-0400 (Eastern Daylight Time) - debug: Report Requested DATE TIMESTAMP ::: Thursday, August 25th, 2016, 3:21:01 PM
+Thu Aug 25 2016 15:21:01 GMT-0400 (Eastern Daylight Time) - debug: REPORT Type  onnet
+Thu Aug 25 2016 15:21:01 GMT-0400 (Eastern Daylight Time) - debug: Filter START Date 2016-07-26
+Thu Aug 25 2016 15:21:01 GMT-0400 (Eastern Daylight Time) - debug: Filter END Date 2016-08-25
+Thu Aug 25 2016 15:21:01 GMT-0400 (Eastern Daylight Time) - debug: dailyKpi url= http://10.212.2.143:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 15:21:02 GMT-0400 (Eastern Daylight Time) - debug: Data Access SUCCESS from http://10.212.2.143:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 15:21:02 GMT-0400 (Eastern Daylight Time) - debug: Returned JSON Nodes: 20
+Thu Aug 25 2016 15:21:02 GMT-0400 (Eastern Daylight Time) - debug: Report END DATE TIMESTAMP ::: Thursday, August 25th, 2016, 3:21:02 PM
+Thu Aug 25 2016 15:21:02 GMT-0400 (Eastern Daylight Time) - debug: END /dataaccess/dailykpi
+Thu Aug 25 2016 15:21:07 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:21:07 PM
+Thu Aug 25 2016 15:21:07 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=filter&startDate=20160824&endDate=20160825&limit=-1
+Thu Aug 25 2016 15:21:07 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:21:07 PM
+Thu Aug 25 2016 15:21:07 GMT-0400 (Eastern Daylight Time) - debug: query filteridList:
+Thu Aug 25 2016 15:21:07 GMT-0400 (Eastern Daylight Time) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='2' and user_id='8' and valid=1 
+Thu Aug 25 2016 15:21:07 GMT-0400 (Eastern Daylight Time) - debug: retrieved filter param ids:  6
+Thu Aug 25 2016 15:21:07 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=filter&startDate=20160824&endDate=20160825&limit=-1
+Thu Aug 25 2016 15:21:07 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 9
+Thu Aug 25 2016 15:21:07 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:21:07 PM
+Thu Aug 25 2016 15:21:19 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:21:19 PM
+Thu Aug 25 2016 15:21:19 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=A_MSISDN&data=21620700610&limit=-1
+Thu Aug 25 2016 15:21:19 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:21:19 PM
+Thu Aug 25 2016 15:21:19 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=A_MSISDN&data=21620700610&limit=-1
+Thu Aug 25 2016 15:21:19 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 6
+Thu Aug 25 2016 15:21:19 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:21:19 PM
+Thu Aug 25 2016 15:22:00 GMT-0400 (Eastern Daylight Time) - debug: Login default for Tabs: https://localhost:8443/tunisiana/reports/indextab
+Thu Aug 25 2016 15:22:01 GMT-0400 (Eastern Daylight Time) - debug: query menu:
+Thu Aug 25 2016 15:22:01 GMT-0400 (Eastern Daylight Time) - debug: userId 7
+Thu Aug 25 2016 15:22:01 GMT-0400 (Eastern Daylight Time) - debug: req userId 7
+Thu Aug 25 2016 15:22:01 GMT-0400 (Eastern Daylight Time) - debug: /reports/dailykpi:type: onnet
+Thu Aug 25 2016 15:22:01 GMT-0400 (Eastern Daylight Time) - debug: BEGIN /dataaccess/dailykpi:
+Thu Aug 25 2016 15:22:01 GMT-0400 (Eastern Daylight Time) - debug: Report Requested DATE TIMESTAMP ::: Thursday, August 25th, 2016, 3:22:01 PM
+Thu Aug 25 2016 15:22:01 GMT-0400 (Eastern Daylight Time) - debug: REPORT Type  onnet
+Thu Aug 25 2016 15:22:01 GMT-0400 (Eastern Daylight Time) - debug: Filter START Date 2016-07-26
+Thu Aug 25 2016 15:22:01 GMT-0400 (Eastern Daylight Time) - debug: Filter END Date 2016-08-25
+Thu Aug 25 2016 15:22:01 GMT-0400 (Eastern Daylight Time) - debug: dailyKpi url= http://10.212.2.143:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 15:22:01 GMT-0400 (Eastern Daylight Time) - debug: Data Access SUCCESS from http://10.212.2.143:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 15:22:01 GMT-0400 (Eastern Daylight Time) - debug: Returned JSON Nodes: 20
+Thu Aug 25 2016 15:22:01 GMT-0400 (Eastern Daylight Time) - debug: Report END DATE TIMESTAMP ::: Thursday, August 25th, 2016, 3:22:01 PM
+Thu Aug 25 2016 15:22:01 GMT-0400 (Eastern Daylight Time) - debug: END /dataaccess/dailykpi
+Thu Aug 25 2016 15:22:05 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:22:05 PM
+Thu Aug 25 2016 15:22:05 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=filter&startDate=20160824&endDate=20160825&limit=-1
+Thu Aug 25 2016 15:22:05 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:22:05 PM
+Thu Aug 25 2016 15:22:05 GMT-0400 (Eastern Daylight Time) - debug: query filteridList:
+Thu Aug 25 2016 15:22:05 GMT-0400 (Eastern Daylight Time) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='2' and user_id='8' and valid=1 
+Thu Aug 25 2016 15:22:05 GMT-0400 (Eastern Daylight Time) - debug: retrieved filter param ids:  6
+Thu Aug 25 2016 15:22:05 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=filter&startDate=20160824&endDate=20160825&limit=-1
+Thu Aug 25 2016 15:22:05 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 9
+Thu Aug 25 2016 15:22:05 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:22:05 PM
+Thu Aug 25 2016 15:22:15 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:22:15 PM
+Thu Aug 25 2016 15:22:15 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=B_MSISDN&data=21623073908&limit=-1
+Thu Aug 25 2016 15:22:15 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:22:15 PM
+Thu Aug 25 2016 15:22:15 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=B_MSISDN&data=21623073908&limit=-1
+Thu Aug 25 2016 15:22:15 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 11
+Thu Aug 25 2016 15:22:15 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:22:15 PM
+Thu Aug 25 2016 15:22:39 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:22:39 PM
+Thu Aug 25 2016 15:22:39 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=CELL_ID&data=40499&limit=-1
+Thu Aug 25 2016 15:22:39 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:22:39 PM
+Thu Aug 25 2016 15:22:39 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=CELL_ID&data=40499&limit=-1
+Thu Aug 25 2016 15:22:39 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 3
+Thu Aug 25 2016 15:22:39 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:22:39 PM
+Thu Aug 25 2016 15:23:16 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:23:16 PM
+Thu Aug 25 2016 15:23:16 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=CELL_ID&data=27129&limit=-1
+Thu Aug 25 2016 15:23:16 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:23:16 PM
+Thu Aug 25 2016 15:23:16 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=CELL_ID&data=27129&limit=-1
+Thu Aug 25 2016 15:23:16 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 1
+Thu Aug 25 2016 15:23:16 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:23:16 PM
+Thu Aug 25 2016 15:23:19 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:23:19 PM
+Thu Aug 25 2016 15:23:19 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=CELL_ID&data=27129&limit=-1
+Thu Aug 25 2016 15:23:19 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:23:19 PM
+Thu Aug 25 2016 15:23:19 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=CELL_ID&data=27129&limit=-1
+Thu Aug 25 2016 15:23:19 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 1
+Thu Aug 25 2016 15:23:19 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:23:19 PM
+Thu Aug 25 2016 15:23:33 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:23:33 PM
+Thu Aug 25 2016 15:23:33 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=B_MSISDN&data=21623030779&limit=-1
+Thu Aug 25 2016 15:23:33 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:23:33 PM
+Thu Aug 25 2016 15:23:33 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=B_MSISDN&data=21623030779&limit=-1
+Thu Aug 25 2016 15:23:33 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 1
+Thu Aug 25 2016 15:23:33 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:23:33 PM
+Thu Aug 25 2016 15:23:35 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:23:35 PM
+Thu Aug 25 2016 15:23:35 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=B_MSISDN&data=21623030779&limit=-1
+Thu Aug 25 2016 15:23:35 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:23:35 PM
+Thu Aug 25 2016 15:23:35 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=B_MSISDN&data=21623030779&limit=-1
+Thu Aug 25 2016 15:23:35 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 1
+Thu Aug 25 2016 15:23:35 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:23:35 PM
+Thu Aug 25 2016 15:24:08 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:24:08 PM
+Thu Aug 25 2016 15:24:08 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=B_MSISDN&data=21623030779&limit=-1
+Thu Aug 25 2016 15:24:08 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:24:08 PM
+Thu Aug 25 2016 15:24:08 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=B_MSISDN&data=21623030779&limit=-1
+Thu Aug 25 2016 15:24:08 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 1
+Thu Aug 25 2016 15:24:08 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:24:08 PM
+Thu Aug 25 2016 15:24:15 GMT-0400 (Eastern Daylight Time) - debug: query cellidinfo:
+Thu Aug 25 2016 15:24:15 GMT-0400 (Eastern Daylight Time) - debug: cellidinfo url=http://10.212.2.143:8080/cellidinfo?where=cell='0'&limit=1
+Thu Aug 25 2016 15:24:15 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:24:15 PM
+Thu Aug 25 2016 15:24:15 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/cellidinfo?where=cell='0'&limit=1
+Thu Aug 25 2016 15:24:15 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 0
+Thu Aug 25 2016 15:24:15 GMT-0400 (Eastern Daylight Time) - debug: end /dataAccess/cellidinfo: Thursday, August 25th, 2016, 3:24:15 PM
+Thu Aug 25 2016 15:24:21 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:24:21 PM
+Thu Aug 25 2016 15:24:21 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=B_MSISDN&data=21623030779&limit=-1
+Thu Aug 25 2016 15:24:21 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:24:21 PM
+Thu Aug 25 2016 15:24:21 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=B_MSISDN&data=21623030779&limit=-1
+Thu Aug 25 2016 15:24:21 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 1
+Thu Aug 25 2016 15:24:21 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:24:21 PM
+Thu Aug 25 2016 15:24:23 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:24:23 PM
+Thu Aug 25 2016 15:24:23 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=B_MSISDN&data=21623030779&limit=-1
+Thu Aug 25 2016 15:24:23 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:24:23 PM
+Thu Aug 25 2016 15:24:23 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=B_MSISDN&data=21623030779&limit=-1
+Thu Aug 25 2016 15:24:23 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 1
+Thu Aug 25 2016 15:24:23 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:24:23 PM
+Thu Aug 25 2016 15:25:41 GMT-0400 (Eastern Daylight Time) - debug: User initiated logout
+Thu Aug 25 2016 15:25:41 GMT-0400 (Eastern Daylight Time) - debug: (router.get('/')-Landing Page URL: https://localhost:8443/tunisiana
+Thu Aug 25 2016 15:25:42 GMT-0400 (Eastern Daylight Time) - debug: (router.get('/login')-Render Login Form: https://localhost:8443/tunisiana/login
+Thu Aug 25 2016 15:25:45 GMT-0400 (Eastern Daylight Time) - debug: ***INSIDE passport local-login ******
+
+
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: passport.login-login SUCCESS for user: id=7, username=root, password=$2a$10$AA.MKgdAaBAPIKQ8xNdomel43rAqiE3L9G./OoUVbAmb5AOPN3M1a, role_id=1,4,8
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: passport.serializeUser:user: id=7, username=root, password=$2a$10$AA.MKgdAaBAPIKQ8xNdomel43rAqiE3L9G./OoUVbAmb5AOPN3M1a, role_id=1,4,8
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: Login default for Tabs: https://localhost:8443/tunisiana/reports/indextab
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: query menu:
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: userId 7
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: req userId 7
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: /reports/dailykpi:type: onnet
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: BEGIN /dataaccess/dailykpi:
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: Report Requested DATE TIMESTAMP ::: Thursday, August 25th, 2016, 3:25:46 PM
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: REPORT Type  onnet
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: Filter START Date 2016-07-26
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: Filter END Date 2016-08-25
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: dailyKpi url= http://10.212.2.143:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: Data Access SUCCESS from http://10.212.2.143:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: Returned JSON Nodes: 20
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: Report END DATE TIMESTAMP ::: Thursday, August 25th, 2016, 3:25:46 PM
+Thu Aug 25 2016 15:25:46 GMT-0400 (Eastern Daylight Time) - debug: END /dataaccess/dailykpi
+Thu Aug 25 2016 15:25:51 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:25:51 PM
+Thu Aug 25 2016 15:25:51 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=filter&startDate=20160824&endDate=20160825&limit=-1
+Thu Aug 25 2016 15:25:51 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:25:51 PM
+Thu Aug 25 2016 15:25:51 GMT-0400 (Eastern Daylight Time) - debug: query filteridList:
+Thu Aug 25 2016 15:25:51 GMT-0400 (Eastern Daylight Time) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='2' and user_id='8' and valid=1 
+Thu Aug 25 2016 15:25:51 GMT-0400 (Eastern Daylight Time) - debug: retrieved filter param ids:  6
+Thu Aug 25 2016 15:25:51 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=filter&startDate=20160824&endDate=20160825&limit=-1
+Thu Aug 25 2016 15:25:51 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 9
+Thu Aug 25 2016 15:25:51 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:25:51 PM
+Thu Aug 25 2016 15:25:54 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:25:54 PM
+Thu Aug 25 2016 15:25:54 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=A_MSISDN&data=21620700610&limit=-1
+Thu Aug 25 2016 15:25:54 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:25:54 PM
+Thu Aug 25 2016 15:25:54 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=A_MSISDN&data=21620700610&limit=-1
+Thu Aug 25 2016 15:25:54 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 6
+Thu Aug 25 2016 15:25:54 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:25:54 PM
+Thu Aug 25 2016 15:26:38 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/tcgdetections: Thursday, August 25th, 2016, 3:26:38 PM
+Thu Aug 25 2016 15:26:38 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/tcgdetections?where=call_date%3E='20160825'%20and%20call_date%3C='20160825'&limit=100
+Thu Aug 25 2016 15:26:38 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 3
+Thu Aug 25 2016 15:26:43 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:26:43 PM
+Thu Aug 25 2016 15:26:43 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=B_MSISDN&data=21623030848&limit=-1
+Thu Aug 25 2016 15:26:43 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:26:43 PM
+Thu Aug 25 2016 15:26:43 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=B_MSISDN&data=21623030848&limit=-1
+Thu Aug 25 2016 15:26:43 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 2
+Thu Aug 25 2016 15:26:43 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:26:43 PM
+Thu Aug 25 2016 15:31:02 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:31:02 PM
+Thu Aug 25 2016 15:31:02 GMT-0400 (Eastern Daylight Time) - debug: HOTBNUMBER ::Service URL http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=A_MSISDN&data=21620700610&limit=-1
+Thu Aug 25 2016 15:31:02 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:31:02 PM
+Thu Aug 25 2016 15:31:02 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/hotbnumber?action=drillHotBNumber&type=A_MSISDN&data=21620700610&limit=-1
+Thu Aug 25 2016 15:31:02 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 6
+Thu Aug 25 2016 15:31:02 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/hotbnumber: Thursday, August 25th, 2016, 3:31:02 PM
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/detectiondetails: Thursday, August 25th, 2016, 3:31:13 PM
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: detectiondetails action=filter
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: detectiondetails url=http://10.212.2.143:8080/detectiondetails?action=filter&startTime=2016072615&endTime=2016082515&limit=-1
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: detectiondetails encoded url=http://10.212.2.143:8080/detectiondetails?action=filter&startTime=2016072615&endTime=2016082515&limit=-1
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:31:13 PM
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: query cellidinfo:
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: cellidinfo url=http://10.212.2.143:8080/cellidinfo?limit=200
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:31:13 PM
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: query filteridList:
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: retrieved filter param ids:  4
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/cellidinfo?limit=200
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 200
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: end /dataAccess/cellidinfo: Thursday, August 25th, 2016, 3:31:13 PM
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/detectiondetails?action=filter&startTime=2016072615&endTime=2016082515&limit=-1
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 230
+Thu Aug 25 2016 15:31:13 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/detectionDetails: Thursday, August 25th, 2016, 3:31:13 PM
+Thu Aug 25 2016 15:31:17 GMT-0400 (Eastern Daylight Time) - debug: callsnodup url= http://10.212.2.143:8080/callsnodup?call_date_hour_min=2016082321&call_date_hour_max=2016082421&msisdn=21652782323
+Thu Aug 25 2016 15:31:25 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/callsnodup?call_date_hour_min=2016082321&call_date_hour_max=2016082421&msisdn=21652782323
+Thu Aug 25 2016 15:31:25 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 8
+Thu Aug 25 2016 15:36:56 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/detectiondetails: Thursday, August 25th, 2016, 3:36:56 PM
+Thu Aug 25 2016 15:36:56 GMT-0400 (Eastern Daylight Time) - debug: detectiondetails action=filter
+Thu Aug 25 2016 15:36:56 GMT-0400 (Eastern Daylight Time) - debug: detectiondetails url=http://10.212.2.143:8080/detectiondetails?action=filter&startTime=2016072615&endTime=2016082515&limit=-1
+Thu Aug 25 2016 15:36:56 GMT-0400 (Eastern Daylight Time) - debug: detectiondetails encoded url=http://10.212.2.143:8080/detectiondetails?action=filter&startTime=2016072615&endTime=2016082515&limit=-1
+Thu Aug 25 2016 15:36:56 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:36:56 PM
+Thu Aug 25 2016 15:36:56 GMT-0400 (Eastern Daylight Time) - debug: query cellidinfo:
+Thu Aug 25 2016 15:36:56 GMT-0400 (Eastern Daylight Time) - debug: cellidinfo url=http://10.212.2.143:8080/cellidinfo?limit=200
+Thu Aug 25 2016 15:36:56 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:36:56 PM
+Thu Aug 25 2016 15:36:56 GMT-0400 (Eastern Daylight Time) - debug: query filteridList:
+Thu Aug 25 2016 15:36:56 GMT-0400 (Eastern Daylight Time) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Thu Aug 25 2016 15:36:56 GMT-0400 (Eastern Daylight Time) - debug: retrieved filter param ids:  4
+Thu Aug 25 2016 15:36:57 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/cellidinfo?limit=200
+Thu Aug 25 2016 15:36:57 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 200
+Thu Aug 25 2016 15:36:57 GMT-0400 (Eastern Daylight Time) - debug: end /dataAccess/cellidinfo: Thursday, August 25th, 2016, 3:36:57 PM
+Thu Aug 25 2016 15:36:57 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/detectiondetails?action=filter&startTime=2016072615&endTime=2016082515&limit=-1
+Thu Aug 25 2016 15:36:57 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 230
+Thu Aug 25 2016 15:36:57 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/detectionDetails: Thursday, August 25th, 2016, 3:36:57 PM
+Thu Aug 25 2016 15:54:52 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/detectiondetails: Thursday, August 25th, 2016, 3:54:52 PM
+Thu Aug 25 2016 15:54:52 GMT-0400 (Eastern Daylight Time) - debug: detectiondetails action=filter
+Thu Aug 25 2016 15:54:52 GMT-0400 (Eastern Daylight Time) - debug: detectiondetails url=http://10.212.2.143:8080/detectiondetails?action=filter&startTime=2016072615&endTime=2016082515&limit=-1
+Thu Aug 25 2016 15:54:52 GMT-0400 (Eastern Daylight Time) - debug: detectiondetails encoded url=http://10.212.2.143:8080/detectiondetails?action=filter&startTime=2016072615&endTime=2016082515&limit=-1
+Thu Aug 25 2016 15:54:52 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:54:52 PM
+Thu Aug 25 2016 15:54:52 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/detectiondetails?action=filter&startTime=2016072615&endTime=2016082515&limit=-1
+Thu Aug 25 2016 15:54:52 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 230
+Thu Aug 25 2016 15:54:52 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/detectionDetails: Thursday, August 25th, 2016, 3:54:52 PM
+Thu Aug 25 2016 15:55:07 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/detectiondetails: Thursday, August 25th, 2016, 3:55:07 PM
+Thu Aug 25 2016 15:55:07 GMT-0400 (Eastern Daylight Time) - debug: detectiondetails action=filter
+Thu Aug 25 2016 15:55:07 GMT-0400 (Eastern Daylight Time) - debug: detectiondetails url=http://10.212.2.143:8080/detectiondetails?action=filter&startTime=2016072615&endTime=2016072623&limit=-1
+Thu Aug 25 2016 15:55:07 GMT-0400 (Eastern Daylight Time) - debug: detectiondetails encoded url=http://10.212.2.143:8080/detectiondetails?action=filter&startTime=2016072615&endTime=2016072623&limit=-1
+Thu Aug 25 2016 15:55:07 GMT-0400 (Eastern Daylight Time) - debug: start time= Thursday, August 25th, 2016, 3:55:07 PM
+Thu Aug 25 2016 15:55:07 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/detectiondetails?action=filter&startTime=2016072615&endTime=2016072623&limit=-1
+Thu Aug 25 2016 15:55:07 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 2
+Thu Aug 25 2016 15:55:07 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/detectionDetails: Thursday, August 25th, 2016, 3:55:07 PM

@@ -80,7 +80,16 @@ $(document).ready(function(){
 						attr('placeholder','Search here...').
 						css({'width':'100px','height':'5px','display':'inline-block'});*/
     		         },
-    		        "data": dataSet,
+					"fnDrawCallback": function (oSettings) {
+						/*     $(".dataTables_filter").each(function () {
+						 $(this).appendTo($(this).parent().siblings(".panel-body"));
+						 });*/
+						$('.dataTables_filter input[type="search"]').
+						attr('placeholder','Search here...').
+						css({'width':'100px','height':'5px','display':'inline-block'});
+					},
+
+					"data": dataSet,
     		            "aoColumns": [
     		             { "mData": "call_date", "sDefaultContent": "",
     		            	 "mRender" : function(data, type, row) {
@@ -117,7 +126,24 @@ $(document).ready(function(){
     		            } 
     		            ,{ "mData": "lac", "sDefaultContent": ""}
     		            ,{ "mData": "imei", "sDefaultContent": ""}
-    		            ,{ "mData": "source", "sDefaultContent": ""}
+    		            ,{ "mData": "source", "sDefaultContent": "",
+								"mRender": function (data, type, row) {
+									switch (data) {
+										case null:
+											return "undefined";
+										case 'A':
+											return "Standard TCG";
+										case 'a':
+											return "Standard TCG";
+										case 'B':
+											return "BTCG";
+										case 'b':
+											return "BTCG";
+										default:
+											return data;
+									}
+								}
+    		            }
     		            ,{ "mData": "insert_time", "sDefaultContent": "",
     		            	 "mRender" : function(data, type, row) {
     		            		 return moment(data).format("YYYY-MM-DD hh:mm:ss");

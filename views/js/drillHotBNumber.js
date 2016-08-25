@@ -76,9 +76,20 @@ $(document).ready(function(){
 	        "aaData": callTimeDimension.top(Infinity),
 	        "bDestroy": true,
 	        "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
-	            $('td', nRow).attr('nowrap','nowrap');
-	            return nRow;
+	            // $('td', nRow).attr('nowrap','nowrap');
+	            // return nRow;
+				$('.dataTables_filter input[type="search"]').
+				attr('placeholder','Search here...').
+				css({'width':'100px','height':'5px','display':'inline-block'});
 	         },
+	/*		"fnDrawCallback": function (oSettings) {
+				/!*     $(".dataTables_filter").each(function () {
+				 $(this).appendTo($(this).parent().siblings(".panel-body"));
+				 });*!/
+				$('.dataTables_filter input[type="search"]').
+				attr('placeholder','Search here...').
+				css({'width':'100px','height':'5px','display':'inline-block'});
+			},*/
 	        "data": dataSet,
 	            "aoColumns": [
 	             { "mData": "call_date", "sDefaultContent": "",
