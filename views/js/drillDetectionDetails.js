@@ -123,8 +123,11 @@ function loadData(error, apiData) {
             "aaData": callTimeDimension.top(Infinity),
             "bDestroy": true,
             "fnRowCallback": function (nRow, aData, iDisplayIndex) {
-                $('td', nRow).attr('nowrap', 'nowrap');
-                return nRow;
+/*                $('td', nRow).attr('nowrap', 'nowrap');
+                return nRow;*/
+                $('.dataTables_filter input[type="search"]').
+                attr('placeholder','Search here...').
+                css({'width':'100px','height':'5px','display':'inline-block'});
             },
             "data": dataSet,
             "order": [[ 0, "desc" ]],

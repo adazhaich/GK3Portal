@@ -285,14 +285,14 @@ $(document).ready(function(){
     			    .ordering(function(d){return d.value;})
     			    .yAxis().tickFormat(d3.format("s"));
 
-/*
+
 
 				sumOutDurationByCellTotal.on('renderlet.a',function (chart) {
 					// rotate x-axis labels
 					chart.selectAll('g.x text')
 						.attr('transform', 'translate(-10,10) rotate(315)');
 				});
-*/
+
 
 
 				callsOutByCellId
@@ -347,7 +347,16 @@ $(document).ready(function(){
     			        "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
     			            $('td', nRow).attr('nowrap','nowrap');
     			            return nRow;
+
     			         },
+						"fnDrawCallback": function (oSettings) {
+							/*     $(".dataTables_filter").each(function () {
+							 $(this).appendTo($(this).parent().siblings(".panel-body"));
+							 });*/
+							$('.dataTables_filter input[type="search"]').
+							attr('placeholder','Search here...').
+							css({'width':'100px','height':'5px','display':'inline-block'});
+						},
     			        "aoColumns": [
     			            { "mData": "traffic_date_str", "sDefaultContent": "traffic_date"}
     			            ,{ "mData": "traffic_hour", "sDefaultContent": "traffic_hour " }
@@ -460,7 +469,10 @@ $(document).ready(function(){
 	    //console.log("start=", start, "end=", end, "filterSql=", filterSql);
 	    HOURLYFRAUD.filter(start, end, filterSql);
 	});
-    HOURLYINIT = {
+
+
+
+/*    HOURLYINIT = {
     		init : function(){
     			var sql = "select max(traffic_date_hour) as traffic_date_hour from core_605_3.decode_info where gk_process_state = 2";
     			var url = "/tunisiana/dataaccess/decodeinfo";
@@ -491,15 +503,15 @@ $(document).ready(function(){
     		}
     }
 	
-    HOURLYINIT.init();	
+    HOURLYINIT.init();*/
 
 });
+
 
 
 HOURLYFRAUDPOP = {
 		popWnd : function (data,day,hour,type){
 			var url = clientHTTPConfig.appContextRoot+'/drilldown/callsnodup?data='+data+'&day='+day+'&hour='+hour+'&type='+type;
-			//1st LEVEL Working-NO ISSUES-Ashok
 			window.open(
 					url ,
 					'_blank',
@@ -509,7 +521,6 @@ HOURLYFRAUDPOP = {
 			var start = getElement("#start").val() === undefined ? "" : getElement("#start").val() ;
 			var end = getElement("#end").val() === undefined ? "" : getElement("#end").val() ;
 			var url = clientHTTPConfig.appContextRoot+'/drilldown/hourlyfraud?data='+data+'&start='+start+'&end='+end;
-			//1st LEVEL Working-NO ISSUES-Ashok
 			window.open(
 					url ,
 					'_blank',

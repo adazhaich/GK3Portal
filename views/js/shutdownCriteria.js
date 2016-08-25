@@ -411,7 +411,7 @@ $(document).ready(function() {
 			alert('Please choose Criteria No');
 			return;
 		}
-		$(this).attr("data-addtab", "altersdc");
+		$(this).attr("data-addtab", "altersdc"+crtno);
 		$(this).attr("url", "editshutdowncriteria");
 
 		registerComposeButtonEvent(this);
