@@ -106,14 +106,32 @@ transform: translateX(-10%);
 }
 
 .form-group {
-    height:30px;
-    margin-bottom: 2px;
+    height:25px;
+    margin-bottom: 1px;
 }
 
 .form-control {
-    height:30px;
+    height:24px;
+    font-size: 12px;
 }
 
+.label-control {
+    height:25px;
+    font-size: 12px;
+}
+
+.form-inline {
+    height: 15px;
+}
+
+.radio-inline {
+    height: 15px;
+    font-size: 12px;
+}
+
+input[type="radio"] {
+    margin: 0 0 0;
+}
 
 table.dataTable tbody th {
   text-align: center; 

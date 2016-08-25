@@ -138,3 +138,117 @@ Tue Aug 16 2016 13:13:26 GMT-0400 (Eastern Daylight Time) - debug: END /dataacce
 Tue Aug 16 2016 13:13:31 GMT-0400 (Eastern Daylight Time) - debug: router.get:/dataaccess/tcgdetections: Tuesday, August 16th, 2016, 1:13:31 PM
 Tue Aug 16 2016 13:13:31 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/tcgdetections?where=call_date%3E='20160816'%20and%20call_date%3C='20160816'&limit=100
 Tue Aug 16 2016 13:13:31 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 4
+Thu Aug 25 2016 16:30:14 GMT+0800 (CST) - debug: util.js:checkAuthentication= true
+Thu Aug 25 2016 16:30:14 GMT+0800 (CST) - debug: serviceUrl= http://10.214.2.39:8900
+Thu Aug 25 2016 16:30:14 GMT+0800 (CST) - debug: Server started in non-SSL Mode. HTTP Port#8580
+Thu Aug 25 2016 16:30:31 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Thu Aug 25 2016 16:30:33 GMT+0800 (CST) - debug: (router.get('/login')-Render Login Form: http://localhost:8580/tunisiana/login
+Thu Aug 25 2016 16:30:36 GMT+0800 (CST) - debug: ***INSIDE passport local-login ******
+
+
+Thu Aug 25 2016 16:30:37 GMT+0800 (CST) - debug: passport.login-login SUCCESS for user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Thu Aug 25 2016 16:30:37 GMT+0800 (CST) - debug: passport.serializeUser:user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Thu Aug 25 2016 16:30:37 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Thu Aug 25 2016 16:30:37 GMT+0800 (CST) - debug: query menu:
+Thu Aug 25 2016 16:30:37 GMT+0800 (CST) - debug: userId 7
+Thu Aug 25 2016 16:30:37 GMT+0800 (CST) - debug: req userId 7
+Thu Aug 25 2016 16:30:37 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Thu Aug 25 2016 16:30:37 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Thu Aug 25 2016 16:30:37 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Thursday, August 25th, 2016, 4:30:37 PM
+Thu Aug 25 2016 16:30:37 GMT+0800 (CST) - debug: REPORT Type  onnet
+Thu Aug 25 2016 16:30:37 GMT+0800 (CST) - debug: Filter START Date 2016-07-26
+Thu Aug 25 2016 16:30:37 GMT+0800 (CST) - debug: Filter END Date 2016-08-25
+Thu Aug 25 2016 16:30:37 GMT+0800 (CST) - debug: dailyKpi url= http://10.214.2.39:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 16:30:38 GMT+0800 (CST) - debug: Data Access SUCCESS from http://10.214.2.39:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 16:30:38 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Thu Aug 25 2016 16:30:38 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Thursday, August 25th, 2016, 4:30:38 PM
+Thu Aug 25 2016 16:30:38 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Thu Aug 25 2016 16:30:58 GMT+0800 (CST) - debug: query shutdowncriteria:
+Thu Aug 25 2016 16:30:58 GMT+0800 (CST) - debug: encoded decodeinfo url= http://10.214.2.39:8900/freestyle?sql=select%20id,criteria_no,condition_type,condition_operation,condition_value,comment%20from%20fraud_605_3.shutdown_criteria%20where%20is_discard=0%20order%20by%20criteria_no,%20condition_type%20
+Thu Aug 25 2016 16:32:22 GMT+0800 (CST) - debug: query shutdowncriteria:
+Thu Aug 25 2016 16:32:22 GMT+0800 (CST) - debug: encoded decodeinfo url= http://10.214.2.39:8900/freestyle?sql=select%20id,criteria_no,condition_type,condition_operation,condition_value,comment%20from%20fraud_605_3.shutdown_criteria%20where%20is_discard=0%20order%20by%20criteria_no,%20condition_type%20
+Thu Aug 25 2016 16:32:42 GMT+0800 (CST) - debug: /dataaccess/altershutdowncriteria:
+Thu Aug 25 2016 16:32:42 GMT+0800 (CST) - debug: encoded decodeinfo url= http://10.214.2.39:8900/freestyle?sql=select%20a.condition_type%20as%20condition_type,a.condition_des%20as%20condition_des,b.criteria_no%20criteria_no,b.condition_operation%20condition_operation,b.condition_value%20as%20condition_value,%20b.criteria_no%20as%20checked%20from%20fraud_605_3.condition_type%20as%20a%20left%20join%20(SELECT%20criteria_no,%20condition_type,%20condition_operation,condition_value%20FROM%20fraud_605_3.shutdown_criteria%20where%20is_discard=0%20and%20criteria_no='demo01'%20)%20as%20b%20%20on%20a.condition_type=b.condition_type%20order%20by%20a.condition_type%20
+Thu Aug 25 2016 16:33:46 GMT+0800 (CST) - debug: /dataaccess/altershutdowncriteria:
+Thu Aug 25 2016 16:33:46 GMT+0800 (CST) - debug: encoded decodeinfo url= http://10.214.2.39:8900/freestyle?sql=select%20a.condition_type%20as%20condition_type,a.condition_des%20as%20condition_des,b.criteria_no%20criteria_no,b.condition_operation%20condition_operation,b.condition_value%20as%20condition_value,%20b.criteria_no%20as%20checked%20from%20fraud_605_3.condition_type%20as%20a%20left%20join%20(SELECT%20criteria_no,%20condition_type,%20condition_operation,condition_value%20FROM%20fraud_605_3.shutdown_criteria%20where%20is_discard=0%20and%20criteria_no='newtest'%20)%20as%20b%20%20on%20a.condition_type=b.condition_type%20order%20by%20a.condition_type%20
+Thu Aug 25 2016 17:00:49 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Thu Aug 25 2016 17:00:50 GMT+0800 (CST) - debug: query menu:
+Thu Aug 25 2016 17:00:50 GMT+0800 (CST) - debug: userId 7
+Thu Aug 25 2016 17:00:50 GMT+0800 (CST) - debug: req userId 7
+Thu Aug 25 2016 17:00:50 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Thu Aug 25 2016 17:00:51 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Thu Aug 25 2016 17:00:51 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Thursday, August 25th, 2016, 5:00:51 PM
+Thu Aug 25 2016 17:00:51 GMT+0800 (CST) - debug: REPORT Type  onnet
+Thu Aug 25 2016 17:00:51 GMT+0800 (CST) - debug: Filter START Date 2016-07-26
+Thu Aug 25 2016 17:00:51 GMT+0800 (CST) - debug: Filter END Date 2016-08-25
+Thu Aug 25 2016 17:00:51 GMT+0800 (CST) - debug: dailyKpi url= http://10.214.2.39:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 17:00:51 GMT+0800 (CST) - debug: Data Access SUCCESS from http://10.214.2.39:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 17:00:51 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Thu Aug 25 2016 17:00:51 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Thursday, August 25th, 2016, 5:00:51 PM
+Thu Aug 25 2016 17:00:51 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Thu Aug 25 2016 17:00:57 GMT+0800 (CST) - debug: query shutdowncriteria:
+Thu Aug 25 2016 17:00:57 GMT+0800 (CST) - debug: encoded decodeinfo url= http://10.214.2.39:8900/freestyle?sql=select%20id,criteria_no,condition_type,condition_operation,condition_value,comment%20from%20fraud_605_3.shutdown_criteria%20where%20is_discard=0%20order%20by%20criteria_no,%20condition_type%20
+Thu Aug 25 2016 17:01:00 GMT+0800 (CST) - debug: /dataaccess/altershutdowncriteria:
+Thu Aug 25 2016 17:01:00 GMT+0800 (CST) - debug: encoded decodeinfo url= http://10.214.2.39:8900/freestyle?sql=select%20a.condition_type%20as%20condition_type,a.condition_des%20as%20condition_des,b.criteria_no%20criteria_no,b.condition_operation%20condition_operation,b.condition_value%20as%20condition_value,%20b.criteria_no%20as%20checked%20from%20fraud_605_3.condition_type%20as%20a%20left%20join%20(SELECT%20criteria_no,%20condition_type,%20condition_operation,condition_value%20FROM%20fraud_605_3.shutdown_criteria%20where%20is_discard=0%20and%20criteria_no='demo01'%20)%20as%20b%20%20on%20a.condition_type=b.condition_type%20order%20by%20a.condition_type%20
+Thu Aug 25 2016 17:01:33 GMT+0800 (CST) - debug: /dataaccess/altershutdowncriteria:
+Thu Aug 25 2016 17:01:33 GMT+0800 (CST) - debug: encoded decodeinfo url= http://10.214.2.39:8900/freestyle?sql=select%20a.condition_type%20as%20condition_type,a.condition_des%20as%20condition_des,b.criteria_no%20criteria_no,b.condition_operation%20condition_operation,b.condition_value%20as%20condition_value,%20b.criteria_no%20as%20checked%20from%20fraud_605_3.condition_type%20as%20a%20left%20join%20(SELECT%20criteria_no,%20condition_type,%20condition_operation,condition_value%20FROM%20fraud_605_3.shutdown_criteria%20where%20is_discard=0%20and%20criteria_no='newtest'%20)%20as%20b%20%20on%20a.condition_type=b.condition_type%20order%20by%20a.condition_type%20
+Thu Aug 25 2016 17:01:57 GMT+0800 (CST) - debug: User initiated logout
+Thu Aug 25 2016 17:01:57 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/tunisiana
+Thu Aug 25 2016 17:02:32 GMT+0800 (CST) - debug: util.js:checkAuthentication= true
+Thu Aug 25 2016 17:02:33 GMT+0800 (CST) - debug: serviceUrl= http://10.214.2.39:8900
+Thu Aug 25 2016 17:02:33 GMT+0800 (CST) - debug: Server started in non-SSL Mode. HTTP Port#8580
+Thu Aug 25 2016 17:02:34 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/tunisiana
+Thu Aug 25 2016 17:02:38 GMT+0800 (CST) - debug: (router.get('/login')-Render Login Form: http://localhost:8580/tunisiana/login
+Thu Aug 25 2016 17:02:43 GMT+0800 (CST) - debug: ***INSIDE passport local-login ******
+
+
+Thu Aug 25 2016 17:02:43 GMT+0800 (CST) - debug: passport.login-login SUCCESS for user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Thu Aug 25 2016 17:02:43 GMT+0800 (CST) - debug: passport.serializeUser:user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Thu Aug 25 2016 17:02:43 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Thu Aug 25 2016 17:02:44 GMT+0800 (CST) - debug: query menu:
+Thu Aug 25 2016 17:02:44 GMT+0800 (CST) - debug: userId 7
+Thu Aug 25 2016 17:02:44 GMT+0800 (CST) - debug: req userId 7
+Thu Aug 25 2016 17:02:44 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Thu Aug 25 2016 17:02:45 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Thu Aug 25 2016 17:02:45 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Thursday, August 25th, 2016, 5:02:45 PM
+Thu Aug 25 2016 17:02:45 GMT+0800 (CST) - debug: REPORT Type  onnet
+Thu Aug 25 2016 17:02:45 GMT+0800 (CST) - debug: Filter START Date 2016-07-26
+Thu Aug 25 2016 17:02:45 GMT+0800 (CST) - debug: Filter END Date 2016-08-25
+Thu Aug 25 2016 17:02:45 GMT+0800 (CST) - debug: dailyKpi url= http://10.214.2.39:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 17:02:45 GMT+0800 (CST) - debug: Data Access SUCCESS from http://10.214.2.39:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 17:02:45 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Thu Aug 25 2016 17:02:45 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Thursday, August 25th, 2016, 5:02:45 PM
+Thu Aug 25 2016 17:02:45 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Thu Aug 25 2016 17:02:49 GMT+0800 (CST) - debug: router.get:/dataaccess/subscribersummary: Thursday, August 25th, 2016, 5:02:49 PM
+Thu Aug 25 2016 17:02:49 GMT+0800 (CST) - debug: request.parameter.condition: 
+Thu Aug 25 2016 17:02:49 GMT+0800 (CST) - debug: url=http://10.214.2.39:8900/subscribersummary?limit=-1
+Thu Aug 25 2016 17:02:49 GMT+0800 (CST) - debug: subscribersummary url= http://10.214.2.39:8900/subscribersummary?limit=-1
+Thu Aug 25 2016 17:02:50 GMT+0800 (CST) - debug: Data Access Success from http://10.214.2.39:8900/subscribersummary?limit=-1
+Thu Aug 25 2016 17:02:50 GMT+0800 (CST) - debug: returned json nodes: 7
+Thu Aug 25 2016 17:02:52 GMT+0800 (CST) - debug: query shutdowncriteria:
+Thu Aug 25 2016 17:02:52 GMT+0800 (CST) - debug: encoded decodeinfo url= http://10.214.2.39:8900/freestyle?sql=select%20id,criteria_no,condition_type,condition_operation,condition_value,comment%20from%20fraud_605_3.shutdown_criteria%20where%20is_discard=0%20order%20by%20criteria_no,%20condition_type%20
+Thu Aug 25 2016 17:02:56 GMT+0800 (CST) - debug: /dataaccess/altershutdowncriteria:
+Thu Aug 25 2016 17:02:56 GMT+0800 (CST) - debug: encoded decodeinfo url= http://10.214.2.39:8900/freestyle?sql=select%20a.condition_type%20as%20condition_type,a.condition_des%20as%20condition_des,b.criteria_no%20criteria_no,b.condition_operation%20condition_operation,b.condition_value%20as%20condition_value,%20b.criteria_no%20as%20checked%20from%20fraud_605_3.condition_type%20as%20a%20left%20join%20(SELECT%20criteria_no,%20condition_type,%20condition_operation,condition_value%20FROM%20fraud_605_3.shutdown_criteria%20where%20is_discard=0%20and%20criteria_no='demo01'%20)%20as%20b%20%20on%20a.condition_type=b.condition_type%20order%20by%20a.condition_type%20
+Thu Aug 25 2016 17:03:13 GMT+0800 (CST) - debug: /dataaccess/altershutdowncriteria:
+Thu Aug 25 2016 17:03:13 GMT+0800 (CST) - debug: encoded decodeinfo url= http://10.214.2.39:8900/freestyle?sql=select%20a.condition_type%20as%20condition_type,a.condition_des%20as%20condition_des,b.criteria_no%20criteria_no,b.condition_operation%20condition_operation,b.condition_value%20as%20condition_value,%20b.criteria_no%20as%20checked%20from%20fraud_605_3.condition_type%20as%20a%20left%20join%20(SELECT%20criteria_no,%20condition_type,%20condition_operation,condition_value%20FROM%20fraud_605_3.shutdown_criteria%20where%20is_discard=0%20and%20criteria_no='newtest'%20)%20as%20b%20%20on%20a.condition_type=b.condition_type%20order%20by%20a.condition_type%20
+Thu Aug 25 2016 17:05:35 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Thu Aug 25 2016 17:05:37 GMT+0800 (CST) - debug: query menu:
+Thu Aug 25 2016 17:05:37 GMT+0800 (CST) - debug: userId 7
+Thu Aug 25 2016 17:05:37 GMT+0800 (CST) - debug: req userId 7
+Thu Aug 25 2016 17:05:37 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Thu Aug 25 2016 17:05:38 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Thu Aug 25 2016 17:05:38 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Thursday, August 25th, 2016, 5:05:38 PM
+Thu Aug 25 2016 17:05:38 GMT+0800 (CST) - debug: REPORT Type  onnet
+Thu Aug 25 2016 17:05:38 GMT+0800 (CST) - debug: Filter START Date 2016-07-26
+Thu Aug 25 2016 17:05:38 GMT+0800 (CST) - debug: Filter END Date 2016-08-25
+Thu Aug 25 2016 17:05:38 GMT+0800 (CST) - debug: dailyKpi url= http://10.214.2.39:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 17:05:38 GMT+0800 (CST) - debug: Data Access SUCCESS from http://10.214.2.39:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-26'%20and%20traffic_date%3C='2016-08-25'
+Thu Aug 25 2016 17:05:38 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Thu Aug 25 2016 17:05:38 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Thursday, August 25th, 2016, 5:05:38 PM
+Thu Aug 25 2016 17:05:38 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Thu Aug 25 2016 17:05:46 GMT+0800 (CST) - debug: query shutdowncriteria:
+Thu Aug 25 2016 17:05:46 GMT+0800 (CST) - debug: encoded decodeinfo url= http://10.214.2.39:8900/freestyle?sql=select%20id,criteria_no,condition_type,condition_operation,condition_value,comment%20from%20fraud_605_3.shutdown_criteria%20where%20is_discard=0%20order%20by%20criteria_no,%20condition_type%20
+Thu Aug 25 2016 17:05:49 GMT+0800 (CST) - debug: /dataaccess/altershutdowncriteria:
+Thu Aug 25 2016 17:05:49 GMT+0800 (CST) - debug: encoded decodeinfo url= http://10.214.2.39:8900/freestyle?sql=select%20a.condition_type%20as%20condition_type,a.condition_des%20as%20condition_des,b.criteria_no%20criteria_no,b.condition_operation%20condition_operation,b.condition_value%20as%20condition_value,%20b.criteria_no%20as%20checked%20from%20fraud_605_3.condition_type%20as%20a%20left%20join%20(SELECT%20criteria_no,%20condition_type,%20condition_operation,condition_value%20FROM%20fraud_605_3.shutdown_criteria%20where%20is_discard=0%20and%20criteria_no='demo01'%20)%20as%20b%20%20on%20a.condition_type=b.condition_type%20order%20by%20a.condition_type%20
+Thu Aug 25 2016 17:06:03 GMT+0800 (CST) - debug: /dataaccess/altershutdowncriteria:
+Thu Aug 25 2016 17:06:03 GMT+0800 (CST) - debug: encoded decodeinfo url= http://10.214.2.39:8900/freestyle?sql=select%20a.condition_type%20as%20condition_type,a.condition_des%20as%20condition_des,b.criteria_no%20criteria_no,b.condition_operation%20condition_operation,b.condition_value%20as%20condition_value,%20b.criteria_no%20as%20checked%20from%20fraud_605_3.condition_type%20as%20a%20left%20join%20(SELECT%20criteria_no,%20condition_type,%20condition_operation,condition_value%20FROM%20fraud_605_3.shutdown_criteria%20where%20is_discard=0%20and%20criteria_no='newtest'%20)%20as%20b%20%20on%20a.condition_type=b.condition_type%20order%20by%20a.condition_type%20
