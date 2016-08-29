@@ -1225,11 +1225,11 @@ $(document).ready(function() {
 						{
 							extend:'excelHtml5',
 							title:'ShutdownCriteria'
-						},
+						}/*,
 						{
 							extend:'pdfHtml5',
 							title:'ShutdownCriteria'
-						}]
+						}*/]
 				}
 			]
 		});
