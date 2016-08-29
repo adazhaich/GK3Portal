@@ -5,24 +5,22 @@ module.exports = {
         "default_illegal_odds": 0.7,
         "checkAuthentication": true,
         "host": "localhost",
-        "ssl": false,
+        "ssl": true,
         "port": 8580,
         "sslPort": 8443
     },
     "mysqlConfig": {
-        "host": "localhost", //NEW SERVER
+        "host": "10.212.2.173", //NEW SERVER
         "port": "3306",  //NEW PORT
-       // "user": "mwsadmin",
-        //"password": "ubi6La5z",
-        "user":"root",
-        "password":"great",
+        "user": "mwsadmin",
+        "password": "ubi6La5z",
         "debug": false,
         "database": "gk3_accounts"
     },
     "dataService": {
-        "url": "127.0.0.1", //phoenix service
+        "url": "10.212.2.143", //phoenix service
         "protocol": "http",
-        "port": 8900
+        "port": 8080
     },
     "defaultTimeConfig": {
         "range_hour": "5"
