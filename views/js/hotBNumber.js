@@ -73,6 +73,7 @@ $(document).ready(function(){
     		        "aaData": callTimeDimension.top(Infinity),
                     "lengthMenu": [[10, 25, -1], [10, 25, "All"]],
     		        "bDestroy": true,
+					"order": [[ 0, "desc" ]],
     		        "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
     		            $('td', nRow).attr('nowrap','nowrap');
     		            return nRow;
@@ -86,7 +87,7 @@ $(document).ready(function(){
 						 });*/
 						$('.dataTables_filter input[type="search"]').
 						attr('placeholder','Search here...').
-						css({'width':'100px','height':'5px','display':'inline-block'});
+						css({'width':'100px','height':'20px','display':'inline-block'});
 					},
 
 					"data": dataSet,

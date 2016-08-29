@@ -392,7 +392,7 @@ $(document).ready(function() {
 								return nRow;*/
 								$('.dataTables_filter input[type="search"]').
 								attr('placeholder','Search here...').
-								css({'width':'100px','height':'5px','display':'inline-block'});
+								css({'width':'100px','height':'20px','display':'inline-block'});
 							},
 							"data": dataSet,
 							"order": [[ 0, "desc" ]],

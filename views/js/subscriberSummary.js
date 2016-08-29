@@ -57,14 +57,17 @@ $(document).ready(
 				            ,{ "mData": "subscriber_name", "sDefaultContent": "" }
 				            ,{ "mData": "detections", "sDefaultContent": "" }
 				            ,{ "mData": "traffic_date", "sDefaultContent": "" }
-				            ,{
-								"mData" : "insert_time",
-								"sDefaultContent" : ""/*,
-								"mRender" : function(data, type, row) {
-									// data is bigint
-									return moment.utc(data,'X').format("YYYY-MM-DD-HH-mm:ss");
-								}*/
-							}
+				            ,
+								{
+
+									"mData": "insert_time",
+									"sDefaultContent": ""/*,
+									"mRender": function (data, type, row) {
+
+										return data.format("YYYY-MM-DD HH:mm:ss");
+									}*/
+								},
+
 //				            ,{ "mData": "insert_date_epoch", "sDefaultContent": "" } //removed per Niranjan
 				        ],    
 				        "sDom": 'ZlfrBtip',
@@ -86,11 +89,11 @@ $(document).ready(
 	  	    							{
 	  	    								extend:'excelHtml5',
 	  	    								title:'SubScriberSummary'
-	  	    							},
+	  	    							}/*,
 	  	    							{
 	  	    								extend:'pdfHtml5',
 	  	    								title:'SubScriberSummary'
-	  	    							}]
+	  	    							}*/]
 				                  }
 				              ]
 					});	
