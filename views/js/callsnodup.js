@@ -104,15 +104,19 @@ function loadData(error, apiData) {
         "aaData": trafficDateDimension.top(Infinity),
         "bDestroy": true,
         "data": dataSet,
+		"order": [[ 0, "desc" ]],
         "fnRowCallback": function( nRow, aData, iDisplayIndex ) {
          /*   $('td', nRow).attr('nowrap','nowrap');
             return nRow;*/
 			$('.dataTables_filter input[type="search"]').
 			attr('placeholder','Search here...').
-			css({'width':'100px','height':'5px','display':'inline-block'});
+			css({'width':'100px','height':'17.5px','display':'inline-block'});
          },
         "aoColumns": [
-             { "mData": "call_start_time", "sDefaultContent": ""}         
+           { "mData": "call_start_time", "sDefaultContent": "",
+				"mRender": function ( data, type, row ) {
+					return moment(data).format("YYYY-MM-DD HH:mm:ss");
+				}}
              ,{ "mData": "s_msisdn", "sDefaultContent": ""}
              ,{ "mData": "o_msisdn", "sDefaultContent": ""}
            /* ,{ "mData": "sw_id", "sDefaultContent": ""}

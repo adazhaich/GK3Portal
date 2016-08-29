@@ -67,8 +67,17 @@ $(document).ready(function() {
 		            ,{ "mData": "msisdn", "sDefaultContent": "" }
 		            ,{ "mData": "imsi", "sDefaultContent": "" }
 		            ,{ "mData": "imei", "sDefaultContent": "" }
-		            ,{ "mData": "create_time", "sDefaultContent": ""}
-		            ,{ "mData": "update_time", "sDefaultContent": ""}
+		            ,{ "mData": "create_time", "sDefaultContent": "",
+							"mRender": function ( data, type, row ) {
+							return moment(data).format("YYYY-MM-DD HH:mm:ss");
+
+		            }}
+						,{ "mData": "update_time", "sDefaultContent": "",
+							"mRender" : function(data, type, row) {
+								return moment(data).format("YYYY-MM-DD hh:mm:ss");
+							}
+						}
+
 		            ,{ "mData": "description", "sDefaultContent": ""}
 		            ,{ "mData": "type", "sDefaultContent": "",
 		            	"mRender": function ( data, type, row ) { 
