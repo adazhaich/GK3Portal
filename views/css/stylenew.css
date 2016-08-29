@@ -306,6 +306,9 @@ input {
     border-radius: 10px;
 }
 
+.dataTables_filter input{
+    padding:0px;
+}
 input[type='submit'] {
     background: #00acf1;
     border: 1px solid #00acf1;
@@ -509,12 +512,15 @@ table.dataTable tbody th {
 
 div.dt-buttons {
 	padding-left:10px;
+    padding-top:4px;
 }
 
 .dataTables_length label{
 	margin:5px;
 }
-
+.dataTables_filter label{
+    margin:5px;
+}
 .form-horizontal .form-group{
 	margin-bottom:15px;
 }
@@ -693,6 +699,7 @@ http://stackoverflow.com/questions/17456010/changing-navbar-color-in-twitters-bo
     border-bottom: 1px solid #e5e5e5;
 }
 
+
 .panel-heading {
     padding: 5px 15px;
 }
@@ -706,3 +713,8 @@ http://stackoverflow.com/questions/17456010/changing-navbar-color-in-twitters-bo
     height: 30px;
     margin-bottom: 1px;
 } 
+
+.control-label{
+    padding-top:5px;
+}
+
