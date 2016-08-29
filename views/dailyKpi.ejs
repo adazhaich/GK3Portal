@@ -24,7 +24,7 @@
                             <input type="hidden" id="reportType" value="<%=req.params.type%>">
                             <div class="row" style="margin-left: 0;">
                                 <div class="form-group col-md-4">
-                                    <label for="start" class="col-sm-2">Start:</label>
+                                    <label for="start" >Start:</label>
                                     <div class="input-group input-group-sm date col-sm-6" data-provide="datepicker" data-date-format="yyyy-mm-dd">
                                         <input type="text" id="<%=req.params.type%>start" class="form-control datepicker">
                                         <div class="input-group-addon">
@@ -33,7 +33,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group  col-md-4">
-                                    <label for="end" class="col-sm-2">End:</label>
+                                    <label for="end" >End:</label>
                                     <div class="input-group input-group-sm date col-sm-6"
                                          data-provide="datepicker" data-date-format="yyyy-mm-dd">
                                         <input type="text" id="<%=req.params.type%>end" class="form-control datepicker">
@@ -137,7 +137,7 @@
 
                 <ul class="list-inline panel-actions">
 
-                    Total Records:	<li class="active"><strong align='left' id="record_count"></strong></li>
+                    <li class="label1">Total Records:	</li><li class="active"><strong align='left' id="record_count"></strong></li>
                     <li>
                         <a href="#" id="panel-fullscreen" data-table="<%=req.params.type%>dailyKpi-datatable" role="button" title="Toggle fullscreen" onclick="panleFull(this)"><i class="glyphicon glyphicon-resize-full"></i></a>
                     </li>

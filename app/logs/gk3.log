@@ -1522,3 +1522,772 @@ Thu Aug 25 2016 15:55:07 GMT-0400 (Eastern Daylight Time) - debug: start time= T
 Thu Aug 25 2016 15:55:07 GMT-0400 (Eastern Daylight Time) - debug: Data Access Success from http://10.212.2.143:8080/detectiondetails?action=filter&startTime=2016072615&endTime=2016072623&limit=-1
 Thu Aug 25 2016 15:55:07 GMT-0400 (Eastern Daylight Time) - debug: returned json nodes: 2
 Thu Aug 25 2016 15:55:07 GMT-0400 (Eastern Daylight Time) - debug: end /dataaccess/detectionDetails: Thursday, August 25th, 2016, 3:55:07 PM
+Mon Aug 29 2016 10:20:37 GMT+0800 (CST) - debug: util.js:checkAuthentication= true
+Mon Aug 29 2016 10:20:38 GMT+0800 (CST) - debug: serviceUrl= http://127.0.0.1:8900
+Mon Aug 29 2016 10:20:38 GMT+0800 (CST) - debug: Server started in non-SSL Mode. HTTP Port#8580
+Mon Aug 29 2016 10:21:31 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Mon Aug 29 2016 10:21:32 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Mon Aug 29 2016 10:21:34 GMT+0800 (CST) - debug: (router.get('/login')-Render Login Form: http://localhost:8580/tunisiana/login
+Mon Aug 29 2016 10:21:41 GMT+0800 (CST) - debug: ***INSIDE passport local-login ******
+
+
+Mon Aug 29 2016 10:21:41 GMT+0800 (CST) - debug: passport.login-login SUCCESS for user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Mon Aug 29 2016 10:21:41 GMT+0800 (CST) - debug: passport.serializeUser:user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Mon Aug 29 2016 10:21:41 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 10:21:42 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 10:21:42 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 10:21:42 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 10:21:42 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 10:21:43 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 10:21:43 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 10:21:43 AM
+Mon Aug 29 2016 10:21:43 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 10:21:43 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 10:21:43 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 10:21:43 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 10:21:44 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 10:21:44 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 10:21:44 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 10:21:44 AM
+Mon Aug 29 2016 10:21:44 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 10:21:48 GMT+0800 (CST) - debug: router.get:/dataaccess/detectiondetails: Monday, August 29th, 2016, 10:21:48 AM
+Mon Aug 29 2016 10:21:48 GMT+0800 (CST) - debug: detectiondetails action=filter
+Mon Aug 29 2016 10:21:48 GMT+0800 (CST) - debug: detectiondetails url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:21:48 GMT+0800 (CST) - debug: detectiondetails encoded url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:21:48 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 10:21:48 AM
+Mon Aug 29 2016 10:21:48 GMT+0800 (CST) - debug: query cellidinfo:
+Mon Aug 29 2016 10:21:48 GMT+0800 (CST) - debug: cellidinfo url=http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 10:21:48 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 10:21:48 AM
+Mon Aug 29 2016 10:21:48 GMT+0800 (CST) - debug: query filteridList:
+Mon Aug 29 2016 10:21:48 GMT+0800 (CST) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Mon Aug 29 2016 10:21:48 GMT+0800 (CST) - debug: retrieved filter param ids:  4
+Mon Aug 29 2016 10:21:49 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 10:21:49 GMT+0800 (CST) - debug: returned json nodes: 200
+Mon Aug 29 2016 10:21:49 GMT+0800 (CST) - debug: end /dataAccess/cellidinfo: Monday, August 29th, 2016, 10:21:49 AM
+Mon Aug 29 2016 10:21:50 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:21:50 GMT+0800 (CST) - debug: returned json nodes: 224
+Mon Aug 29 2016 10:21:50 GMT+0800 (CST) - debug: end /dataaccess/detectionDetails: Monday, August 29th, 2016, 10:21:50 AM
+Mon Aug 29 2016 10:50:37 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 10:50:39 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 10:50:39 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 10:50:39 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 10:50:39 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 10:50:39 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 10:50:39 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 10:50:39 AM
+Mon Aug 29 2016 10:50:39 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 10:50:39 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 10:50:39 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 10:50:39 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 10:50:40 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 10:50:40 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 10:50:40 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 10:50:40 AM
+Mon Aug 29 2016 10:50:40 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 10:50:52 GMT+0800 (CST) - debug: router.get:/dataaccess/detectiondetails: Monday, August 29th, 2016, 10:50:52 AM
+Mon Aug 29 2016 10:50:52 GMT+0800 (CST) - debug: detectiondetails action=filter
+Mon Aug 29 2016 10:50:52 GMT+0800 (CST) - debug: detectiondetails url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:50:52 GMT+0800 (CST) - debug: detectiondetails encoded url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:50:52 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 10:50:52 AM
+Mon Aug 29 2016 10:50:52 GMT+0800 (CST) - debug: query cellidinfo:
+Mon Aug 29 2016 10:50:52 GMT+0800 (CST) - debug: cellidinfo url=http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 10:50:52 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 10:50:52 AM
+Mon Aug 29 2016 10:50:52 GMT+0800 (CST) - debug: query filteridList:
+Mon Aug 29 2016 10:50:52 GMT+0800 (CST) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Mon Aug 29 2016 10:50:52 GMT+0800 (CST) - debug: retrieved filter param ids:  4
+Mon Aug 29 2016 10:50:53 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 10:50:53 GMT+0800 (CST) - debug: returned json nodes: 200
+Mon Aug 29 2016 10:50:53 GMT+0800 (CST) - debug: end /dataAccess/cellidinfo: Monday, August 29th, 2016, 10:50:53 AM
+Mon Aug 29 2016 10:50:53 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:50:53 GMT+0800 (CST) - debug: returned json nodes: 224
+Mon Aug 29 2016 10:50:53 GMT+0800 (CST) - debug: end /dataaccess/detectionDetails: Monday, August 29th, 2016, 10:50:53 AM
+Mon Aug 29 2016 10:52:28 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 10:52:30 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 10:52:30 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 10:52:30 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 10:52:30 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 10:52:30 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 10:52:30 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 10:52:30 AM
+Mon Aug 29 2016 10:52:30 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 10:52:30 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 10:52:30 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 10:52:30 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 10:52:31 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 10:52:31 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 10:52:31 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 10:52:31 AM
+Mon Aug 29 2016 10:52:31 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 10:52:36 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 10:52:38 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 10:52:38 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 10:52:38 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 10:52:38 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 10:52:38 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 10:52:38 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 10:52:38 AM
+Mon Aug 29 2016 10:52:38 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 10:52:38 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 10:52:38 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 10:52:38 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 10:52:39 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 10:52:39 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 10:52:39 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 10:52:39 AM
+Mon Aug 29 2016 10:52:39 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 10:52:43 GMT+0800 (CST) - debug: router.get:/dataaccess/detectiondetails: Monday, August 29th, 2016, 10:52:43 AM
+Mon Aug 29 2016 10:52:43 GMT+0800 (CST) - debug: detectiondetails action=filter
+Mon Aug 29 2016 10:52:43 GMT+0800 (CST) - debug: detectiondetails url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:52:43 GMT+0800 (CST) - debug: detectiondetails encoded url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:52:43 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 10:52:43 AM
+Mon Aug 29 2016 10:52:43 GMT+0800 (CST) - debug: query cellidinfo:
+Mon Aug 29 2016 10:52:43 GMT+0800 (CST) - debug: cellidinfo url=http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 10:52:43 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 10:52:43 AM
+Mon Aug 29 2016 10:52:43 GMT+0800 (CST) - debug: query filteridList:
+Mon Aug 29 2016 10:52:43 GMT+0800 (CST) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Mon Aug 29 2016 10:52:43 GMT+0800 (CST) - debug: retrieved filter param ids:  4
+Mon Aug 29 2016 10:52:44 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 10:52:44 GMT+0800 (CST) - debug: returned json nodes: 200
+Mon Aug 29 2016 10:52:44 GMT+0800 (CST) - debug: end /dataAccess/cellidinfo: Monday, August 29th, 2016, 10:52:44 AM
+Mon Aug 29 2016 10:52:44 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:52:44 GMT+0800 (CST) - debug: returned json nodes: 224
+Mon Aug 29 2016 10:52:44 GMT+0800 (CST) - debug: end /dataaccess/detectionDetails: Monday, August 29th, 2016, 10:52:44 AM
+Mon Aug 29 2016 10:52:54 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 10:52:56 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 10:52:56 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 10:52:56 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 10:52:56 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 10:52:56 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 10:52:56 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 10:52:56 AM
+Mon Aug 29 2016 10:52:56 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 10:52:56 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 10:52:56 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 10:52:56 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 10:52:57 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 10:52:57 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 10:52:57 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 10:52:57 AM
+Mon Aug 29 2016 10:52:57 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 10:53:03 GMT+0800 (CST) - debug: router.get:/dataaccess/detectiondetails: Monday, August 29th, 2016, 10:53:03 AM
+Mon Aug 29 2016 10:53:03 GMT+0800 (CST) - debug: detectiondetails action=filter
+Mon Aug 29 2016 10:53:03 GMT+0800 (CST) - debug: detectiondetails url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:53:03 GMT+0800 (CST) - debug: detectiondetails encoded url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:53:03 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 10:53:03 AM
+Mon Aug 29 2016 10:53:03 GMT+0800 (CST) - debug: query cellidinfo:
+Mon Aug 29 2016 10:53:03 GMT+0800 (CST) - debug: cellidinfo url=http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 10:53:03 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 10:53:03 AM
+Mon Aug 29 2016 10:53:03 GMT+0800 (CST) - debug: query filteridList:
+Mon Aug 29 2016 10:53:03 GMT+0800 (CST) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Mon Aug 29 2016 10:53:03 GMT+0800 (CST) - debug: retrieved filter param ids:  4
+Mon Aug 29 2016 10:53:04 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 10:53:04 GMT+0800 (CST) - debug: returned json nodes: 200
+Mon Aug 29 2016 10:53:04 GMT+0800 (CST) - debug: end /dataAccess/cellidinfo: Monday, August 29th, 2016, 10:53:04 AM
+Mon Aug 29 2016 10:53:05 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:53:05 GMT+0800 (CST) - debug: returned json nodes: 224
+Mon Aug 29 2016 10:53:05 GMT+0800 (CST) - debug: end /dataaccess/detectionDetails: Monday, August 29th, 2016, 10:53:05 AM
+Mon Aug 29 2016 10:54:46 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 10:54:48 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 10:54:48 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 10:54:48 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 10:54:48 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 10:54:49 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 10:54:49 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 10:54:49 AM
+Mon Aug 29 2016 10:54:49 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 10:54:49 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 10:54:49 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 10:54:49 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 10:54:49 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 10:54:49 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 10:54:49 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 10:54:49 AM
+Mon Aug 29 2016 10:54:49 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 10:55:04 GMT+0800 (CST) - debug: router.get:/dataaccess/detectiondetails: Monday, August 29th, 2016, 10:55:04 AM
+Mon Aug 29 2016 10:55:04 GMT+0800 (CST) - debug: detectiondetails action=filter
+Mon Aug 29 2016 10:55:04 GMT+0800 (CST) - debug: detectiondetails url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:55:04 GMT+0800 (CST) - debug: detectiondetails encoded url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:55:04 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 10:55:04 AM
+Mon Aug 29 2016 10:55:04 GMT+0800 (CST) - debug: query cellidinfo:
+Mon Aug 29 2016 10:55:04 GMT+0800 (CST) - debug: cellidinfo url=http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 10:55:04 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 10:55:04 AM
+Mon Aug 29 2016 10:55:05 GMT+0800 (CST) - debug: query filteridList:
+Mon Aug 29 2016 10:55:05 GMT+0800 (CST) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Mon Aug 29 2016 10:55:05 GMT+0800 (CST) - debug: retrieved filter param ids:  4
+Mon Aug 29 2016 10:55:06 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 10:55:06 GMT+0800 (CST) - debug: returned json nodes: 200
+Mon Aug 29 2016 10:55:06 GMT+0800 (CST) - debug: end /dataAccess/cellidinfo: Monday, August 29th, 2016, 10:55:06 AM
+Mon Aug 29 2016 10:55:06 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073010&endTime=2016082910&limit=-1
+Mon Aug 29 2016 10:55:06 GMT+0800 (CST) - debug: returned json nodes: 224
+Mon Aug 29 2016 10:55:06 GMT+0800 (CST) - debug: end /dataaccess/detectionDetails: Monday, August 29th, 2016, 10:55:06 AM
+Mon Aug 29 2016 10:56:11 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 10:56:13 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 10:56:13 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 10:56:13 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 10:56:13 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 10:56:13 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 10:56:13 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 10:56:13 AM
+Mon Aug 29 2016 10:56:13 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 10:56:13 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 10:56:13 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 10:56:13 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 10:56:14 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 10:56:14 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 10:56:14 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 10:56:14 AM
+Mon Aug 29 2016 10:56:14 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 11:04:11 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 11:04:13 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 11:04:13 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 11:04:13 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 11:04:13 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 11:04:13 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 11:04:13 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 11:04:13 AM
+Mon Aug 29 2016 11:04:13 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 11:04:13 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 11:04:13 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 11:04:13 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 11:04:14 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 11:04:14 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 11:04:14 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 11:04:14 AM
+Mon Aug 29 2016 11:04:14 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 11:06:16 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 11:06:18 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 11:06:18 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 11:06:18 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 11:06:18 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 11:06:18 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 11:06:18 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 11:06:18 AM
+Mon Aug 29 2016 11:06:18 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 11:06:18 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 11:06:18 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 11:06:18 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 11:06:19 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 11:06:19 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 11:06:19 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 11:06:19 AM
+Mon Aug 29 2016 11:06:19 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 11:06:33 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 11:06:35 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 11:06:35 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 11:06:35 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 11:06:35 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 11:06:36 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 11:06:36 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 11:06:36 AM
+Mon Aug 29 2016 11:06:36 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 11:06:36 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 11:06:36 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 11:06:36 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 11:06:36 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 11:06:36 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 11:06:36 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 11:06:36 AM
+Mon Aug 29 2016 11:06:36 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 11:06:43 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 11:06:45 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 11:06:45 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 11:06:45 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 11:06:45 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 11:06:45 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 11:06:45 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 11:06:45 AM
+Mon Aug 29 2016 11:06:45 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 11:06:45 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 11:06:45 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 11:06:45 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 11:06:46 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 11:06:46 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 11:06:46 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 11:06:46 AM
+Mon Aug 29 2016 11:06:46 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 11:07:29 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 11:07:31 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 11:07:31 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 11:07:31 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 11:07:31 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 11:07:31 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 11:07:31 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 11:07:31 AM
+Mon Aug 29 2016 11:07:31 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 11:07:31 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 11:07:31 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 11:07:31 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 11:07:32 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 11:07:32 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 11:07:32 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 11:07:32 AM
+Mon Aug 29 2016 11:07:32 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 12:01:46 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Mon Aug 29 2016 12:01:46 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Mon Aug 29 2016 12:01:46 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Mon Aug 29 2016 12:01:49 GMT+0800 (CST) - debug: (router.get('/login')-Render Login Form: http://localhost:8580/tunisiana/login
+Mon Aug 29 2016 12:02:19 GMT+0800 (CST) - debug: ***INSIDE passport local-login ******
+
+
+Mon Aug 29 2016 12:02:19 GMT+0800 (CST) - debug: passport.login-login SUCCESS for user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Mon Aug 29 2016 12:02:19 GMT+0800 (CST) - debug: passport.serializeUser:user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Mon Aug 29 2016 12:02:19 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 12:02:21 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 12:02:21 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 12:02:21 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 12:02:21 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 12:02:21 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 12:02:21 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 12:02:21 PM
+Mon Aug 29 2016 12:02:21 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 12:02:21 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 12:02:21 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 12:02:21 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 12:02:22 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 12:02:22 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 12:02:22 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 12:02:22 PM
+Mon Aug 29 2016 12:02:22 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 12:02:26 GMT+0800 (CST) - debug: router.get:/dataaccess/detectiondetails: Monday, August 29th, 2016, 12:02:26 PM
+Mon Aug 29 2016 12:02:26 GMT+0800 (CST) - debug: detectiondetails action=filter
+Mon Aug 29 2016 12:02:26 GMT+0800 (CST) - debug: detectiondetails url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073012&endTime=2016082912&limit=-1
+Mon Aug 29 2016 12:02:26 GMT+0800 (CST) - debug: detectiondetails encoded url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073012&endTime=2016082912&limit=-1
+Mon Aug 29 2016 12:02:26 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 12:02:26 PM
+Mon Aug 29 2016 12:02:26 GMT+0800 (CST) - debug: query cellidinfo:
+Mon Aug 29 2016 12:02:26 GMT+0800 (CST) - debug: cellidinfo url=http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 12:02:26 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 12:02:26 PM
+Mon Aug 29 2016 12:02:26 GMT+0800 (CST) - debug: query filteridList:
+Mon Aug 29 2016 12:02:26 GMT+0800 (CST) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Mon Aug 29 2016 12:02:26 GMT+0800 (CST) - debug: retrieved filter param ids:  4
+Mon Aug 29 2016 12:02:27 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 12:02:27 GMT+0800 (CST) - debug: returned json nodes: 200
+Mon Aug 29 2016 12:02:27 GMT+0800 (CST) - debug: end /dataAccess/cellidinfo: Monday, August 29th, 2016, 12:02:27 PM
+Mon Aug 29 2016 12:02:27 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073012&endTime=2016082912&limit=-1
+Mon Aug 29 2016 12:02:27 GMT+0800 (CST) - debug: returned json nodes: 224
+Mon Aug 29 2016 12:02:27 GMT+0800 (CST) - debug: end /dataaccess/detectionDetails: Monday, August 29th, 2016, 12:02:27 PM
+Mon Aug 29 2016 12:05:54 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 12:05:59 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 12:05:59 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 12:05:59 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 12:05:59 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 12:05:59 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 12:05:59 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 12:05:59 PM
+Mon Aug 29 2016 12:05:59 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 12:05:59 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 12:05:59 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 12:05:59 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 12:06:00 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 12:06:00 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 12:06:00 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 12:06:00 PM
+Mon Aug 29 2016 12:06:00 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 12:11:30 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 12:11:33 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 12:11:33 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 12:11:33 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 12:11:33 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 12:11:33 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 12:11:33 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 12:11:33 PM
+Mon Aug 29 2016 12:11:33 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 12:11:33 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 12:11:33 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 12:11:33 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 12:11:34 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 12:11:34 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 12:11:34 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 12:11:34 PM
+Mon Aug 29 2016 12:11:34 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 12:11:39 GMT+0800 (CST) - debug: router.get:/dataaccess/detectiondetails: Monday, August 29th, 2016, 12:11:39 PM
+Mon Aug 29 2016 12:11:39 GMT+0800 (CST) - debug: detectiondetails action=filter
+Mon Aug 29 2016 12:11:39 GMT+0800 (CST) - debug: detectiondetails url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073012&endTime=2016082912&limit=-1
+Mon Aug 29 2016 12:11:39 GMT+0800 (CST) - debug: detectiondetails encoded url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073012&endTime=2016082912&limit=-1
+Mon Aug 29 2016 12:11:39 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 12:11:39 PM
+Mon Aug 29 2016 12:11:40 GMT+0800 (CST) - debug: query cellidinfo:
+Mon Aug 29 2016 12:11:40 GMT+0800 (CST) - debug: cellidinfo url=http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 12:11:40 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 12:11:40 PM
+Mon Aug 29 2016 12:11:40 GMT+0800 (CST) - debug: query filteridList:
+Mon Aug 29 2016 12:11:40 GMT+0800 (CST) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Mon Aug 29 2016 12:11:40 GMT+0800 (CST) - debug: retrieved filter param ids:  4
+Mon Aug 29 2016 12:11:41 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 12:11:41 GMT+0800 (CST) - debug: returned json nodes: 200
+Mon Aug 29 2016 12:11:41 GMT+0800 (CST) - debug: end /dataAccess/cellidinfo: Monday, August 29th, 2016, 12:11:41 PM
+Mon Aug 29 2016 12:11:41 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073012&endTime=2016082912&limit=-1
+Mon Aug 29 2016 12:11:41 GMT+0800 (CST) - debug: returned json nodes: 224
+Mon Aug 29 2016 12:11:41 GMT+0800 (CST) - debug: end /dataaccess/detectionDetails: Monday, August 29th, 2016, 12:11:41 PM
+Mon Aug 29 2016 12:16:03 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 12:16:09 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 12:16:09 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 12:16:09 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 12:16:09 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 12:16:09 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 12:16:09 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 12:16:09 PM
+Mon Aug 29 2016 12:16:09 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 12:16:09 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 12:16:09 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 12:16:09 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 12:16:10 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 12:16:10 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 12:16:10 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 12:16:10 PM
+Mon Aug 29 2016 12:16:10 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 12:16:16 GMT+0800 (CST) - debug: router.get:/dataaccess/detectiondetails: Monday, August 29th, 2016, 12:16:16 PM
+Mon Aug 29 2016 12:16:16 GMT+0800 (CST) - debug: detectiondetails action=filter
+Mon Aug 29 2016 12:16:16 GMT+0800 (CST) - debug: detectiondetails url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073012&endTime=2016082912&limit=-1
+Mon Aug 29 2016 12:16:16 GMT+0800 (CST) - debug: detectiondetails encoded url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073012&endTime=2016082912&limit=-1
+Mon Aug 29 2016 12:16:16 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 12:16:16 PM
+Mon Aug 29 2016 12:16:16 GMT+0800 (CST) - debug: query cellidinfo:
+Mon Aug 29 2016 12:16:16 GMT+0800 (CST) - debug: cellidinfo url=http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 12:16:16 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 12:16:16 PM
+Mon Aug 29 2016 12:16:16 GMT+0800 (CST) - debug: query filteridList:
+Mon Aug 29 2016 12:16:16 GMT+0800 (CST) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Mon Aug 29 2016 12:16:16 GMT+0800 (CST) - debug: retrieved filter param ids:  4
+Mon Aug 29 2016 12:16:17 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 12:16:17 GMT+0800 (CST) - debug: returned json nodes: 200
+Mon Aug 29 2016 12:16:17 GMT+0800 (CST) - debug: end /dataAccess/cellidinfo: Monday, August 29th, 2016, 12:16:17 PM
+Mon Aug 29 2016 12:16:17 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073012&endTime=2016082912&limit=-1
+Mon Aug 29 2016 12:16:17 GMT+0800 (CST) - debug: returned json nodes: 224
+Mon Aug 29 2016 12:16:17 GMT+0800 (CST) - debug: end /dataaccess/detectionDetails: Monday, August 29th, 2016, 12:16:17 PM
+Mon Aug 29 2016 12:16:35 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 12:16:38 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 12:16:38 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 12:16:38 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 12:16:38 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 12:16:38 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 12:16:38 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 12:16:38 PM
+Mon Aug 29 2016 12:16:38 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 12:16:38 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 12:16:38 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 12:16:38 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 12:16:39 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 12:16:39 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 12:16:39 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 12:16:39 PM
+Mon Aug 29 2016 12:16:39 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 13:58:17 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Mon Aug 29 2016 13:58:19 GMT+0800 (CST) - debug: (router.get('/login')-Render Login Form: http://localhost:8580/tunisiana/login
+Mon Aug 29 2016 13:58:24 GMT+0800 (CST) - debug: ***INSIDE passport local-login ******
+
+
+Mon Aug 29 2016 13:58:24 GMT+0800 (CST) - debug: passport.login-login SUCCESS for user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Mon Aug 29 2016 13:58:24 GMT+0800 (CST) - debug: passport.serializeUser:user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Mon Aug 29 2016 13:58:24 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 13:58:27 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 13:58:27 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 13:58:27 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 13:58:27 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 13:58:27 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 13:58:27 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 1:58:27 PM
+Mon Aug 29 2016 13:58:27 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 13:58:27 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 13:58:27 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 13:58:27 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 13:58:27 GMT+0800 (CST) - debug: Error in /dataaccess/dailykpi : Error: socket hang up
+    at createHangUpError (_http_client.js:200:15)
+    at Socket.socketOnEnd (_http_client.js:292:23)
+    at emitNone (events.js:72:20)
+    at Socket.emit (events.js:166:7)
+    at endReadableNT (_stream_readable.js:913:12)
+    at nextTickCallbackWith2Args (node.js:442:9)
+    at process._tickCallback (node.js:356:17)
+Mon Aug 29 2016 13:58:27 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 1:58:27 PM
+Mon Aug 29 2016 13:58:27 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 13:58:43 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 13:58:46 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 13:58:46 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 13:58:46 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 13:58:46 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 13:58:46 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 13:58:46 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 1:58:46 PM
+Mon Aug 29 2016 13:58:46 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 13:58:46 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 13:58:46 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 13:58:46 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 13:58:47 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 13:58:47 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 13:58:47 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 1:58:47 PM
+Mon Aug 29 2016 13:58:47 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 13:58:51 GMT+0800 (CST) - debug: router.get:/dataaccess/detectiondetails: Monday, August 29th, 2016, 1:58:51 PM
+Mon Aug 29 2016 13:58:51 GMT+0800 (CST) - debug: detectiondetails action=filter
+Mon Aug 29 2016 13:58:51 GMT+0800 (CST) - debug: detectiondetails url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073013&endTime=2016082913&limit=-1
+Mon Aug 29 2016 13:58:51 GMT+0800 (CST) - debug: detectiondetails encoded url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073013&endTime=2016082913&limit=-1
+Mon Aug 29 2016 13:58:51 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 1:58:51 PM
+Mon Aug 29 2016 13:58:51 GMT+0800 (CST) - debug: query cellidinfo:
+Mon Aug 29 2016 13:58:51 GMT+0800 (CST) - debug: cellidinfo url=http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 13:58:51 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 1:58:51 PM
+Mon Aug 29 2016 13:58:51 GMT+0800 (CST) - debug: query filteridList:
+Mon Aug 29 2016 13:58:51 GMT+0800 (CST) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Mon Aug 29 2016 13:58:51 GMT+0800 (CST) - debug: retrieved filter param ids:  4
+Mon Aug 29 2016 13:58:53 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 13:58:53 GMT+0800 (CST) - debug: returned json nodes: 200
+Mon Aug 29 2016 13:58:53 GMT+0800 (CST) - debug: end /dataAccess/cellidinfo: Monday, August 29th, 2016, 1:58:53 PM
+Mon Aug 29 2016 13:58:53 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073013&endTime=2016082913&limit=-1
+Mon Aug 29 2016 13:58:53 GMT+0800 (CST) - debug: returned json nodes: 224
+Mon Aug 29 2016 13:58:53 GMT+0800 (CST) - debug: end /dataaccess/detectionDetails: Monday, August 29th, 2016, 1:58:53 PM
+Mon Aug 29 2016 13:59:23 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 13:59:25 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 13:59:25 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 13:59:25 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 13:59:25 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 13:59:26 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 13:59:26 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 1:59:26 PM
+Mon Aug 29 2016 13:59:26 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 13:59:26 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 13:59:26 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 13:59:26 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 13:59:27 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 13:59:27 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 13:59:27 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 1:59:27 PM
+Mon Aug 29 2016 13:59:27 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 13:59:32 GMT+0800 (CST) - debug: router.get:/dataaccess/detectiondetails: Monday, August 29th, 2016, 1:59:32 PM
+Mon Aug 29 2016 13:59:32 GMT+0800 (CST) - debug: detectiondetails action=filter
+Mon Aug 29 2016 13:59:32 GMT+0800 (CST) - debug: detectiondetails url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073013&endTime=2016082913&limit=-1
+Mon Aug 29 2016 13:59:32 GMT+0800 (CST) - debug: detectiondetails encoded url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073013&endTime=2016082913&limit=-1
+Mon Aug 29 2016 13:59:32 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 1:59:32 PM
+Mon Aug 29 2016 13:59:32 GMT+0800 (CST) - debug: query cellidinfo:
+Mon Aug 29 2016 13:59:32 GMT+0800 (CST) - debug: cellidinfo url=http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 13:59:32 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 1:59:32 PM
+Mon Aug 29 2016 13:59:32 GMT+0800 (CST) - debug: query filteridList:
+Mon Aug 29 2016 13:59:32 GMT+0800 (CST) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Mon Aug 29 2016 13:59:32 GMT+0800 (CST) - debug: retrieved filter param ids:  4
+Mon Aug 29 2016 13:59:33 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 13:59:33 GMT+0800 (CST) - debug: returned json nodes: 200
+Mon Aug 29 2016 13:59:33 GMT+0800 (CST) - debug: end /dataAccess/cellidinfo: Monday, August 29th, 2016, 1:59:33 PM
+Mon Aug 29 2016 13:59:34 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073013&endTime=2016082913&limit=-1
+Mon Aug 29 2016 13:59:34 GMT+0800 (CST) - debug: returned json nodes: 224
+Mon Aug 29 2016 13:59:34 GMT+0800 (CST) - debug: end /dataaccess/detectionDetails: Monday, August 29th, 2016, 1:59:34 PM
+Mon Aug 29 2016 15:00:51 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Mon Aug 29 2016 15:00:58 GMT+0800 (CST) - debug: (router.get('/login')-Render Login Form: http://localhost:8580/tunisiana/login
+Mon Aug 29 2016 15:01:04 GMT+0800 (CST) - debug: ***INSIDE passport local-login ******
+
+
+Mon Aug 29 2016 15:01:05 GMT+0800 (CST) - debug: passport.login-login SUCCESS for user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Mon Aug 29 2016 15:01:05 GMT+0800 (CST) - debug: passport.serializeUser:user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Mon Aug 29 2016 15:01:05 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 15:01:08 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 15:01:08 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 15:01:08 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 15:01:08 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 15:01:08 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 15:01:08 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 3:01:08 PM
+Mon Aug 29 2016 15:01:08 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 15:01:08 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 15:01:08 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 15:01:08 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 15:01:09 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 15:01:09 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 15:01:09 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 3:01:09 PM
+Mon Aug 29 2016 15:01:09 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 15:04:41 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 15:04:44 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 15:04:44 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 15:04:44 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 15:04:44 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 15:04:44 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 15:04:44 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 3:04:44 PM
+Mon Aug 29 2016 15:04:44 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 15:04:44 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 15:04:44 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 15:04:44 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 15:04:45 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 15:04:45 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 15:04:45 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 3:04:45 PM
+Mon Aug 29 2016 15:04:45 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 15:05:33 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 15:05:35 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 15:05:35 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 15:05:35 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 15:05:35 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 15:05:36 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 15:05:36 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 3:05:36 PM
+Mon Aug 29 2016 15:05:36 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 15:05:36 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 15:05:36 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 15:05:36 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 15:05:36 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 15:05:36 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 15:05:36 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 3:05:36 PM
+Mon Aug 29 2016 15:05:36 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 15:05:52 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 15:05:55 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 15:05:55 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 15:05:55 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 15:05:55 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 15:05:56 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 15:05:56 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 3:05:56 PM
+Mon Aug 29 2016 15:05:56 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 15:05:56 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 15:05:56 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 15:05:56 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 15:05:57 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 15:05:57 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 15:05:57 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 3:05:57 PM
+Mon Aug 29 2016 15:05:57 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 15:09:00 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 15:09:02 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 15:09:02 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 15:09:02 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 15:09:02 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 15:09:02 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 15:09:02 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 3:09:02 PM
+Mon Aug 29 2016 15:09:02 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 15:09:02 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 15:09:02 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 15:09:02 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 15:09:03 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 15:09:03 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 15:09:03 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 3:09:03 PM
+Mon Aug 29 2016 15:09:03 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 16:11:49 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Mon Aug 29 2016 16:11:52 GMT+0800 (CST) - debug: (router.get('/login')-Render Login Form: http://localhost:8580/tunisiana/login
+Mon Aug 29 2016 16:11:57 GMT+0800 (CST) - debug: ***INSIDE passport local-login ******
+
+
+Mon Aug 29 2016 16:11:57 GMT+0800 (CST) - debug: passport.login-login SUCCESS for user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Mon Aug 29 2016 16:11:57 GMT+0800 (CST) - debug: passport.serializeUser:user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Mon Aug 29 2016 16:11:57 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 16:12:00 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 16:12:00 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 16:12:00 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 16:12:00 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 16:12:00 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 16:12:00 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:12:00 PM
+Mon Aug 29 2016 16:12:00 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 16:12:00 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 16:12:00 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 16:12:00 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:12:00 GMT+0800 (CST) - debug: Error in /dataaccess/dailykpi : Error: socket hang up
+    at createHangUpError (_http_client.js:200:15)
+    at Socket.socketOnEnd (_http_client.js:292:23)
+    at emitNone (events.js:72:20)
+    at Socket.emit (events.js:166:7)
+    at endReadableNT (_stream_readable.js:913:12)
+    at nextTickCallbackWith2Args (node.js:442:9)
+    at process._tickCallback (node.js:356:17)
+Mon Aug 29 2016 16:12:00 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:12:00 PM
+Mon Aug 29 2016 16:12:00 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 16:12:23 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 16:12:26 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 16:12:26 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 16:12:26 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 16:12:26 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 16:12:26 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 16:12:26 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:12:26 PM
+Mon Aug 29 2016 16:12:26 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 16:12:26 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 16:12:26 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 16:12:26 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:12:27 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:12:27 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 16:12:27 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:12:27 PM
+Mon Aug 29 2016 16:12:27 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 16:15:53 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 16:15:57 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 16:15:57 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 16:15:57 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 16:15:57 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 16:15:57 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 16:15:57 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:15:57 PM
+Mon Aug 29 2016 16:15:57 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 16:15:57 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 16:15:57 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 16:15:57 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:15:58 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:15:58 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 16:15:58 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:15:58 PM
+Mon Aug 29 2016 16:15:58 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 16:18:41 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 16:18:45 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 16:18:45 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 16:18:45 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 16:18:45 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 16:18:45 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 16:18:45 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:18:45 PM
+Mon Aug 29 2016 16:18:45 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 16:18:45 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 16:18:45 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 16:18:45 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:18:46 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:18:46 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 16:18:46 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:18:46 PM
+Mon Aug 29 2016 16:18:46 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 16:19:15 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 16:19:17 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 16:19:17 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 16:19:17 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 16:19:17 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 16:19:18 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 16:19:18 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:19:18 PM
+Mon Aug 29 2016 16:19:18 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 16:19:18 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 16:19:18 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 16:19:18 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:19:19 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:19:19 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 16:19:19 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:19:19 PM
+Mon Aug 29 2016 16:19:19 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 16:23:18 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 16:23:23 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 16:23:23 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 16:23:23 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 16:23:23 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 16:23:23 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 16:23:23 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:23:23 PM
+Mon Aug 29 2016 16:23:23 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 16:23:23 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 16:23:23 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 16:23:23 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:23:25 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:23:25 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 16:23:25 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:23:25 PM
+Mon Aug 29 2016 16:23:25 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 16:25:01 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 16:25:03 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 16:25:03 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 16:25:03 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 16:25:03 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 16:25:04 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 16:25:04 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:25:04 PM
+Mon Aug 29 2016 16:25:04 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 16:25:04 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 16:25:04 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 16:25:04 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:25:05 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:25:05 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 16:25:05 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:25:05 PM
+Mon Aug 29 2016 16:25:05 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 16:26:34 GMT+0800 (CST) - debug: router.get:/dataaccess/detectiondetails: Monday, August 29th, 2016, 4:26:34 PM
+Mon Aug 29 2016 16:26:34 GMT+0800 (CST) - debug: detectiondetails action=filter
+Mon Aug 29 2016 16:26:34 GMT+0800 (CST) - debug: detectiondetails url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073016&endTime=2016082916&limit=-1
+Mon Aug 29 2016 16:26:34 GMT+0800 (CST) - debug: detectiondetails encoded url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073016&endTime=2016082916&limit=-1
+Mon Aug 29 2016 16:26:34 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 4:26:34 PM
+Mon Aug 29 2016 16:26:34 GMT+0800 (CST) - debug: query cellidinfo:
+Mon Aug 29 2016 16:26:34 GMT+0800 (CST) - debug: cellidinfo url=http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 16:26:34 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 4:26:34 PM
+Mon Aug 29 2016 16:26:34 GMT+0800 (CST) - debug: query filteridList:
+Mon Aug 29 2016 16:26:34 GMT+0800 (CST) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Mon Aug 29 2016 16:26:34 GMT+0800 (CST) - debug: retrieved filter param ids:  4
+Mon Aug 29 2016 16:26:36 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 16:26:36 GMT+0800 (CST) - debug: returned json nodes: 200
+Mon Aug 29 2016 16:26:36 GMT+0800 (CST) - debug: end /dataAccess/cellidinfo: Monday, August 29th, 2016, 4:26:36 PM
+Mon Aug 29 2016 16:26:36 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073016&endTime=2016082916&limit=-1
+Mon Aug 29 2016 16:26:36 GMT+0800 (CST) - debug: returned json nodes: 224
+Mon Aug 29 2016 16:26:36 GMT+0800 (CST) - debug: end /dataaccess/detectionDetails: Monday, August 29th, 2016, 4:26:36 PM
+Mon Aug 29 2016 16:27:51 GMT+0800 (CST) - debug: router.get:/dataaccess/detectiondetails: Monday, August 29th, 2016, 4:27:51 PM
+Mon Aug 29 2016 16:27:51 GMT+0800 (CST) - debug: detectiondetails action=filter
+Mon Aug 29 2016 16:27:51 GMT+0800 (CST) - debug: detectiondetails url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073016&endTime=2016082916&limit=-1
+Mon Aug 29 2016 16:27:51 GMT+0800 (CST) - debug: detectiondetails encoded url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073016&endTime=2016082916&limit=-1
+Mon Aug 29 2016 16:27:51 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 4:27:51 PM
+Mon Aug 29 2016 16:27:51 GMT+0800 (CST) - debug: query cellidinfo:
+Mon Aug 29 2016 16:27:51 GMT+0800 (CST) - debug: cellidinfo url=http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 16:27:51 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 4:27:51 PM
+Mon Aug 29 2016 16:27:51 GMT+0800 (CST) - debug: query filteridList:
+Mon Aug 29 2016 16:27:51 GMT+0800 (CST) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Mon Aug 29 2016 16:27:51 GMT+0800 (CST) - debug: retrieved filter param ids:  4
+Mon Aug 29 2016 16:27:52 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 16:27:52 GMT+0800 (CST) - debug: returned json nodes: 200
+Mon Aug 29 2016 16:27:52 GMT+0800 (CST) - debug: end /dataAccess/cellidinfo: Monday, August 29th, 2016, 4:27:52 PM
+Mon Aug 29 2016 16:27:53 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073016&endTime=2016082916&limit=-1
+Mon Aug 29 2016 16:27:53 GMT+0800 (CST) - debug: returned json nodes: 224
+Mon Aug 29 2016 16:27:53 GMT+0800 (CST) - debug: end /dataaccess/detectionDetails: Monday, August 29th, 2016, 4:27:53 PM
+Mon Aug 29 2016 16:28:11 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Mon Aug 29 2016 16:28:14 GMT+0800 (CST) - debug: query menu:
+Mon Aug 29 2016 16:28:14 GMT+0800 (CST) - debug: userId 7
+Mon Aug 29 2016 16:28:14 GMT+0800 (CST) - debug: req userId 7
+Mon Aug 29 2016 16:28:14 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Mon Aug 29 2016 16:28:15 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Mon Aug 29 2016 16:28:15 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:28:15 PM
+Mon Aug 29 2016 16:28:15 GMT+0800 (CST) - debug: REPORT Type  onnet
+Mon Aug 29 2016 16:28:15 GMT+0800 (CST) - debug: Filter START Date 2016-07-30
+Mon Aug 29 2016 16:28:15 GMT+0800 (CST) - debug: Filter END Date 2016-08-29
+Mon Aug 29 2016 16:28:15 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:28:15 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-30'%20and%20traffic_date%3C='2016-08-29'
+Mon Aug 29 2016 16:28:15 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Mon Aug 29 2016 16:28:15 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Monday, August 29th, 2016, 4:28:15 PM
+Mon Aug 29 2016 16:28:15 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Mon Aug 29 2016 16:28:23 GMT+0800 (CST) - debug: router.get:/dataaccess/detectiondetails: Monday, August 29th, 2016, 4:28:23 PM
+Mon Aug 29 2016 16:28:23 GMT+0800 (CST) - debug: detectiondetails action=filter
+Mon Aug 29 2016 16:28:23 GMT+0800 (CST) - debug: detectiondetails url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073016&endTime=2016082916&limit=-1
+Mon Aug 29 2016 16:28:23 GMT+0800 (CST) - debug: detectiondetails encoded url=http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073016&endTime=2016082916&limit=-1
+Mon Aug 29 2016 16:28:23 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 4:28:23 PM
+Mon Aug 29 2016 16:28:24 GMT+0800 (CST) - debug: query cellidinfo:
+Mon Aug 29 2016 16:28:24 GMT+0800 (CST) - debug: cellidinfo url=http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 16:28:24 GMT+0800 (CST) - debug: start time= Monday, August 29th, 2016, 4:28:24 PM
+Mon Aug 29 2016 16:28:24 GMT+0800 (CST) - debug: query filteridList:
+Mon Aug 29 2016 16:28:24 GMT+0800 (CST) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='3' and user_id='8' and valid=1 
+Mon Aug 29 2016 16:28:24 GMT+0800 (CST) - debug: retrieved filter param ids:  4
+Mon Aug 29 2016 16:28:25 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/cellidinfo?limit=200
+Mon Aug 29 2016 16:28:25 GMT+0800 (CST) - debug: returned json nodes: 200
+Mon Aug 29 2016 16:28:25 GMT+0800 (CST) - debug: end /dataAccess/cellidinfo: Monday, August 29th, 2016, 4:28:25 PM
+Mon Aug 29 2016 16:28:25 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/detectiondetails?action=filter&startTime=2016073016&endTime=2016082916&limit=-1
+Mon Aug 29 2016 16:28:25 GMT+0800 (CST) - debug: returned json nodes: 224
+Mon Aug 29 2016 16:28:25 GMT+0800 (CST) - debug: end /dataaccess/detectionDetails: Monday, August 29th, 2016, 4:28:25 PM
