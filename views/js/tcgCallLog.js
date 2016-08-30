@@ -82,7 +82,7 @@ $(document).ready(function(){
 		            	"mRender": function ( data, type, row ) {
 		            		var date = new Date(data);	     
 		            		
-		            		return date.Format('yyyy-MM-dd hh:mm:ss');
+		            		return date.Format('yyyy-MM-dd HH:mm:ss');
 		            		}
 		            }
 		            ,{ "mData": "source_operator", "sDefaultContent": "" }

@@ -60,6 +60,14 @@ $(document).ready(function() {
 		               $(row).addClass('selected');
 		            }
 		         },
+				"fnDrawCallback": function (oSettings) {
+					/*     $(".dataTables_filter").each(function () {
+					 $(this).appendTo($(this).parent().siblings(".panel-body"));
+					 });*/
+					$('.dataTables_filter input[type="search"]').
+					attr('placeholder','Search here...').
+					css({'width':'100px','height':'17.5px','display':'inline-block'});
+				},
 		        "data": dataSet,
 		            "aoColumns": [
 		             { "mData": "id", "sDefaultContent": "" }
@@ -74,7 +82,7 @@ $(document).ready(function() {
 		            }}
 						,{ "mData": "update_time", "sDefaultContent": "",
 							"mRender" : function(data, type, row) {
-								return moment(data).format("YYYY-MM-DD hh:mm:ss");
+								return moment(data).format("YYYY-MM-DD HH:mm:ss");
 							}
 						}
 

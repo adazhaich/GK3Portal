@@ -44,6 +44,8 @@ $(document).ready(function() {
 
     var start = $("#start").val(getFormattedDateHour(startDate)).val();
     var end = $("#end").val(getFormattedDateHour(new Date())).val();
+
+
     var filterSql = getElement("#filterSql").val()  === undefined ? "" : getElement("#filterSql").val();
     var latestTime;
 
@@ -469,7 +471,7 @@ $(document).ready(function() {
 									"mData": "imsi",
 									"sDefaultContent": "",
 									"mRender": function (data, type, row) {
-										//return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popWnd(" + data+ ","+row.insert_time.format("YYYY-MM-DD hh:mm:ss")+",'IMSI');\" class='colLnk'>" + data + '</a>';
+										//return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popWnd(" + data+ ","+row.insert_time.format("YYYY-MM-DD HH:mm:ss")+",'IMSI');\" class='colLnk'>" + data + '</a>';
 										return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popWnd(" + data + "," + row.insert_time + ",'IMSI');\" class='colLnk'>" + data + '</a>';
 
 									}
@@ -479,7 +481,7 @@ $(document).ready(function() {
 									"mData": "imei",
 									"sDefaultContent": "",
 									"mRender": function (data, type, row) {
-										//return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popWnd(" + data+ ","+row.insert_time.format("YYYY-MM-DD hh:mm:ss")+",'IMSI');\" class='colLnk'>" + data + '</a>';
+										//return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popWnd(" + data+ ","+row.insert_time.format("YYYY-MM-DD HH:mm:ss")+",'IMSI');\" class='colLnk'>" + data + '</a>';
 										return "<a href='javascript:void(0);' onclick=\"DETECTIONPOP.popWnd(" + data + "," + row.insert_time + ",'IMEI');\" class='colLnk'>" + data + '</a>';
 
 									}

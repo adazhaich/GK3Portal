@@ -38,8 +38,8 @@ var dailyKPI={
 
 
 var hourlyFraud={
-    defaultFilterInterval : "OneMonth"
-    //defaultFilterInterval : "OneDay"
+    //defaultFilterInterval : "OneMonth"
+    defaultFilterInterval : "OneDay"
 };
 
 var tcgDetections={

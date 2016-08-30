@@ -47,7 +47,7 @@ $(document).ready(function(){
     		            "aoColumns": [
     		             { "mData": "insert_time", "sDefaultContent": "",
 			            	"mRender": function(data,type,row){
-			            		return moment(data).format("YYYY-MM-DD hh:mm:ss");
+			            		return moment(data).format("YYYY-MM-DD HH:mm:ss");
 			            	}
     		             }
     		             ,{ "mData": "detection_pct", "sDefaultContent": ""}

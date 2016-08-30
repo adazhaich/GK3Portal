@@ -83,7 +83,7 @@ $(document).ready(function(){
 							{"mData": "detections", "sDefaultContent": "detections"},
 							{"mData": "insert_time", "sDefaultContent": "",
 							"mRender": function (data, type, row) {
-									return moment(data).format("YYYY-MM-DD hh:mm:ss");
+									return moment(data).format("YYYY-MM-DD HH:mm:ss");
 								}
 							}
 						],

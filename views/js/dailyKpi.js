@@ -385,14 +385,18 @@ $(document).ready(function () {
                         return nRow;
                     },*/
                     "fnDrawCallback": function (oSettings) {
-                   /*     $(".dataTables_filter").each(function () {
+                       $(".dataTables_filter").each(function () {
                             $(this).appendTo($(this).parent().siblings(".panel-body"));
-                        });*/
+                        });
+
+                    },
+                    "fnRowCallback": function (nRow, aData, iDisplayIndex) {
+                        /*                $('td', nRow).attr('nowrap', 'nowrap');
+                         return nRow;*/
                         $('.dataTables_filter input[type="search"]').
                         attr('placeholder','Search here...').
-                        css({'width':'100px','height':'20px','display':'inline-block'});
+                        css({'width':'100px','height':'10px','display':'inline-block'});
                     },
-
 /*
                     "language": {
                         "lengthMenu": "Display _MENU_ records per page",

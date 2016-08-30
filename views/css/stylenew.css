@@ -20,7 +20,7 @@
  OTHER DEALINGS IN THE SOFTWARE.
  */
 td {
-	font-size:10px;
+	font-size:9px;
 	/*padding: 1px 3px 2px;*/
 	position: center;
 	white-space: nowrap;
@@ -306,9 +306,14 @@ input {
     border-radius: 10px;
 }
 
-.dataTables_filter input{
+/*.dataTables_filter input{
     padding:0px;
+    font-size: 10px;
 }
+.dataTables_filter label{
+    margin:0px;
+}*/
+
 input[type='submit'] {
     background: #00acf1;
     border: 1px solid #00acf1;
@@ -512,15 +517,13 @@ table.dataTable tbody th {
 
 div.dt-buttons {
 	padding-left:10px;
-    padding-top:4px;
+    padding-top:8px;
 }
 
 .dataTables_length label{
-	margin:5px;
+	margin:10px;
 }
-.dataTables_filter label{
-    margin:5px;
-}
+
 .form-horizontal .form-group{
 	margin-bottom:15px;
 }
@@ -719,3 +722,6 @@ http://stackoverflow.com/questions/17456010/changing-navbar-color-in-twitters-bo
     padding-top:5px;
 }
 
+.form-inlinexl{
+    height: 55px;
+}

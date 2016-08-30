@@ -107,9 +107,9 @@ $(document).ready(function(){
 		            	}}
 						,{ "mData": "call_time", "sDefaultContent": "",
 							"mRender": function ( data, type, row ) {
-								return moment(data).format("hh:mm:ss");
+								return moment(data).format("HH:mm:ss");
 								/*  var  temp = moment.tz(data, 'Africa/Tunis');
-								 return  temp.format("YYYY-MM-DD hh:mm:ss Z");
+								 return  temp.format("YYYY-MM-DD HH:mm:ss Z");
 								 */
 							}}
 						,{ "mData": "status", "sDefaultContent": "",
@@ -136,7 +136,7 @@ $(document).ready(function(){
 								if (data === undefined || data == null){
 									return '';
 								}
-								return moment(data).format("YYYY-MM-DD hh:mm:ss");
+								return moment(data).format("YYYY-MM-DD HH:mm:ss");
 							}
 						}
 

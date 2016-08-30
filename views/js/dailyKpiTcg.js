@@ -70,7 +70,7 @@ $(document).ready(function() {
 							"mData" : "traffic_date",
 							"sDefaultContent" : "",
 				        	"mRender": function ( data, type, row ) {
-				        		return moment(data).format("YYYY-MM-DD hh:mm:ss");
+				        		return moment(data).format("YYYY-MM-DD HH:mm:ss");
 				        	}		
 						},
 						{

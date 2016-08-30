@@ -3,7 +3,7 @@ $(document).ready(function(){
 	//console.log('hourlyFraud.js');
 	$( window ).resize(function() {
 		  //console.log( "resizing" );
-		  //dc.renderAll("hourlyfraud");
+		  dc.renderAll("hourlyfraud");
 		});
 	
 	$(".form_datetime").datetimepicker({
@@ -14,17 +14,50 @@ $(document).ready(function(){
         todayBtn: true,
         pickerPosition: "bottom-left"
 	 });
-	
-   var start = getElement("#start").val() === undefined ? "" : getElement("#start").val() ;
-   var  end = getElement("#end").val() === undefined ? "" : getElement("#end").val() ;
-    filterSql = getElement("#filterSql").val();
+
+	var startDate = new Date();
+	startDate.setDate(new Date().getDate() - getDateRange(hourlyFraud));
+
+/*   var start = getElement("#start").val() === undefined ? "" : getElement("#start").val() ;
+   var  end = getElement("#end").val() === undefined ? "" : getElement("#end").val() ;*/
+	var start = $("#start").val(getFormattedDateHour(startDate)).val();
+	var end = $("#end").val(getFormattedDateHour(new Date())).val();
+
+
+   // filterSql = getElement("#filterSql").val();
+	var filterSql = getElement("#filterSql").val()  === undefined ? "" : getElement("#filterSql").val();
 
     Zoomerang.config({
 	    maxHeight: 400,
 	    maxWidth: 800
 	}).listen('.zoom');
-    
-    HOURLYFRAUD = {
+
+
+	getElement( "#refresh").on( "click", function() {
+		/*	    //console.log( "refresh button was clicked" );
+		 start = getElement("#start").val() === undefined ? "" : getElement("#start").val() ;
+		 end = getElement("#end").val() === undefined ? "" : getElement("#end").val() ;
+		 filterSql = getElement("#filterSql").val();
+		 //console.log("start=", start, "end=", end, "filterSql=", filterSql);*/
+
+		console.log( "=============User entered FILTER criteria in hourlyfraud PAGE=============" );
+		start = $("#start").val() === undefined ? "" : $("#start").val() ;
+		console.log("START",start);
+		end = $("#end").val() === undefined ? "" : $("#end").val() ;
+		console.log("END",end);
+		filterSql = $("#filterSql").val()  === undefined ? "" : $("#filterSql").val();
+		console.log( "start=", start, "end=", end);
+
+		if (dateValidate(start, end)) {
+			HOURLYFRAUD.filter(start, end, filterSql);
+		}
+
+	});
+
+
+
+
+	HOURLYFRAUD = {
     		filter : function(start, end, filterSql){
     			var url = clientHTTPConfig.appContextRoot+"/dataaccess/hourlyfraud";
     			var startTime, endTime;
@@ -460,15 +493,6 @@ $(document).ready(function(){
     			  $('#ajax_loader').hide();	
     			}
     }
-    
-	getElement( "#refresh").on( "click", function() {
-	    //console.log( "refresh button was clicked" );
-	    start = getElement("#start").val() === undefined ? "" : getElement("#start").val() ;
-	    end = getElement("#end").val() === undefined ? "" : getElement("#end").val() ;
-	    filterSql = getElement("#filterSql").val();
-	    //console.log("start=", start, "end=", end, "filterSql=", filterSql);
-	    HOURLYFRAUD.filter(start, end, filterSql);
-	});
 
 
 
