@@ -23,7 +23,7 @@ module.exports = {
         "url": "10.212.2.143", //phoenix service
         //"url": "127.0.0.1", //phoenix service
         "protocol": "http",
-        "port": 8900
+        "port": 8080
     },
     "defaultTimeConfig": {
         "range_hour": "5"
