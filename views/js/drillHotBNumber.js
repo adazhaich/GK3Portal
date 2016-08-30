@@ -113,9 +113,10 @@ $(document).ready(function(){
 	            }
 	            ,{ "mData": "duration", "sDefaultContent": ""}          
 	            ,{ "mData": "cell_id", "sDefaultContent": "",
-	            	"mRender":function(data,type,row){
+	            	"mRender":function(data,type,row) {
 	            		return '<a class="colLnk" onclick="popMap('+data+')">'+data+'</a>';
-	            	}
+	            }
+
 	            } 
 	            ,{ "mData": "lac", "sDefaultContent": ""}
 	            ,{ "mData": "imei", "sDefaultContent": ""}
@@ -243,11 +244,21 @@ function makeGraphs(error, apiData) {
 
             }
             ,{ "mData": "duration", "sDefaultContent": ""}          
-            ,{ "mData": "cell_id", "sDefaultContent": "",
+            ,/*{ "mData": "cell_id", "sDefaultContent": "",
             	"mRender":function(data,type,row){
             		return '<a class="colLnk" onclick="popMap('+data+','+row.a_msisdn+','+row.b_msisdn+')">'+data+'</a>';
             	}
-            } 
+            }
+				,*/{ "mData": "cell_id", "sDefaultContent": "",
+					"mRender":function(data,type,row){
+						//console.log("CELL ID ",data);
+						if (data == "0")  {
+							return data; } else {
+							return '<a class="colLnk" onclick="popMap('+data+','+row.a_msisdn+','+row.b_msisdn+')">'+data+'</a>';
+							//return "<a href='javascript:void(0);' onclick=\"HOTPOP.popHot(" + data+ ",'CELL_ID');\" class='colLnk'>" + data + '</a>';
+						}
+					} }
+
             ,{ "mData": "lac", "sDefaultContent": ""}
             ,{ "mData": "imei", "sDefaultContent": ""}
             ,{ "mData": "source", "sDefaultContent": ""}

@@ -395,7 +395,7 @@ $(document).ready(function () {
                          return nRow;*/
                         $('.dataTables_filter input[type="search"]').
                         attr('placeholder','Search here...').
-                        css({'width':'100px','height':'10px','display':'inline-block'});
+                        css({'width':'100px','height':'7.5px','display':'inline-block'});
                     },
 /*
                     "language": {

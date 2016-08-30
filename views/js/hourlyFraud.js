@@ -23,8 +23,7 @@ $(document).ready(function(){
 	var start = $("#start").val(getFormattedDateHour(startDate)).val();
 	var end = $("#end").val(getFormattedDateHour(new Date())).val();
 
-
-   // filterSql = getElement("#filterSql").val();
+	// filterSql = getElement("#filterSql").val();
 	var filterSql = getElement("#filterSql").val()  === undefined ? "" : getElement("#filterSql").val();
 
     Zoomerang.config({

@@ -1,12 +1,19 @@
 $(document).ready(function(){
 	//console.log('tcgDetections.js');	
 	source = getElement("#source").val()=== undefined ? "" : getElement("#source").val();
-	var current = new Date();
-	getElement("#start").val(current.Format("yyyy-MM-dd"));
-	 getElement("#end").val(current.Format("yyyy-MM-dd"));
-	 start = current.Format("yyyyMMdd");
-	 end = current.Format("yyyyMMdd");
-	 
+	var startDate = new Date();
+	startDate.setDate(new Date().getDate()  - getDateRange(tcgDetections));
+	getElement("#start").val(getFormattedDate(startDate)).val();
+	getElement("#end").val(getFormattedDate(new Date())).val();
+
+
+
+	var st =getElement("#start").val();
+	start = st.substring(0,4)+st.substring(5,7)+st.substring(8,10);
+	var ed = getElement("#end").val();
+	end = ed.substring(0,4)+ed.substring(5,7)+ed.substring(8,10);
+
+
 	 getElement( "#go").on( "click", function() {
 		source = getElement("#source").val()=== undefined ? "" : getElement("#source").val();
 	    if(source == 'BTCG detection'){

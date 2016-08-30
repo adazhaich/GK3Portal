@@ -43,7 +43,7 @@ var hourlyFraud={
 };
 
 var tcgDetections={
-    defaultFilterInterval : "OneWeek"
+    defaultFilterInterval : "OneDay"
     //defaultFilterInterval : "OneDay"
 };
 

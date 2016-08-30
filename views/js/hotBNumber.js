@@ -16,7 +16,6 @@ $(document).ready(function(){
 
 
 
-
 	HOTBNUMBER = {
     		 filter : function(day, start, end, source,filterSql){
     			var url = clientHTTPConfig.appContextRoot+"/dataaccess/hotbnumber";
@@ -87,7 +86,7 @@ $(document).ready(function(){
 						 });*/
 						$('.dataTables_filter input[type="search"]').
 						attr('placeholder','Search here...').
-						css({'width':'100px','height':'20px','display':'inline-block'});
+						css({'width':'100px','height':'15px','display':'inline-block'});
 					},
 
 					"data": dataSet,
@@ -122,9 +121,13 @@ $(document).ready(function(){
     		            ,{ "mData": "duration", "sDefaultContent": ""}          
     		            ,{ "mData": "cell_id", "sDefaultContent": "",
     		            	"mRender":function(data,type,row){
-    		            		return "<a href='javascript:void(0);' onclick=\"HOTPOP.popHot(" + data+ ",'CELL_ID');\" class='colLnk'>" + data + '</a>';
+								//console.log("CELL ID ",data);
+								if (data == "0")  {
+									return data; } else {
+									return "<a href='javascript:void(0);' onclick=\"HOTPOP.popHot(" + data+ ",'CELL_ID');\" class='colLnk'>" + data + '</a>';
+    		            		//return "<a href='javascript:void(0);' onclick=\"HOTPOP.popHot(" + data+ ",'CELL_ID');\" class='colLnk'>" + data + '</a>';
     		            	}
-    		            } 
+    		            } }
     		            ,{ "mData": "lac", "sDefaultContent": ""}
     		            ,{ "mData": "imei", "sDefaultContent": ""}
     		            ,{ "mData": "source", "sDefaultContent": "",
@@ -175,11 +178,11 @@ $(document).ready(function(){
 	    							{
 	    								extend:'excelHtml5',
 	    								title:'HotBNumber'
-	    							},
+	    							}/*,
 	    							{
 	    								extend:'pdfHtml5',
 	    								title:'HotBNumber'
-	    							}]
+	    							}*/]
     		                  }
     		              ]
     			});	
