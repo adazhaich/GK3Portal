@@ -46,7 +46,12 @@ $(document).ready(function(){
         	        "data": dataSet,
         	            "aoColumns": [
         	             { "mData": "dealer_id", "sDefaultContent": ""}
-        	            ,{ "mData": "traffic_date", "sDefaultContent": "" }
+        	            , {
+								"mData": "traffic_date", "sDefaultContent": "",
+								"mRender": function (data, type, row) {
+									return moment(data).format("YYYY-MM-DD");
+								}
+							}
         	            ,{ "mData": "dealer_name", "sDefaultContent": "" }
         	            ,{ "mData": "insert_time", "sDefaultContent": "",
 							"mRender" : function(data, type, row) {

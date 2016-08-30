@@ -77,14 +77,14 @@ $(document).ready(function(){
 						//"data": dataSet,
 						"aoColumns": [
 
-							{"mData": "corporate_id", "sDefaultContent": ""}
-							, {"mData": "corporate_name", "sDefaultContent": ""},
+							{"mData": "corporate_id", "sDefaultContent": ""},
+							{"mData": "corporate_name", "sDefaultContent": ""},
                             {"mData": "traffic_date", "sDefaultContent":"" },
-							{"mData": "detections", "sDefaultContent": "detections"}, {
-								"mData": "insert_time", "sDefaultContent": ""/*,
+							{"mData": "detections", "sDefaultContent": "detections"},
+							{"mData": "insert_time", "sDefaultContent": "",
 							"mRender": function (data, type, row) {
 									return moment(data).format("YYYY-MM-DD hh:mm:ss");
-								}*/
+								}
 							}
 						],
 						"sDom": 'ZlfrBtip',

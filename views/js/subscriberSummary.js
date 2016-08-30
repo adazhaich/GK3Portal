@@ -56,16 +56,21 @@ $(document).ready(
 				             { "mData": "subscriber_id", "sDefaultContent": ""}
 				            ,{ "mData": "subscriber_name", "sDefaultContent": "" }
 				            ,{ "mData": "detections", "sDefaultContent": "" }
-				            ,{ "mData": "traffic_date", "sDefaultContent": "" }
-				            ,
+				            ,{ "mData": "traffic_date", "sDefaultContent": "",
+									"mRender": function (data, type, row) {
+										return moment(data).format("YYYY-MM-DD");
+									}
+								}
+								,
+
 								{
 
 									"mData": "insert_time",
-									"sDefaultContent": ""/*,
+									"sDefaultContent": "",
 									"mRender": function (data, type, row) {
 
-										return data.format("YYYY-MM-DD HH:mm:ss");
-									}*/
+										return moment(data).format("YYYY-MM-DD HH:mm:ss");
+									}
 								},
 
 //				            ,{ "mData": "insert_date_epoch", "sDefaultContent": "" } //removed per Niranjan
