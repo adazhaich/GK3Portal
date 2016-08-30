@@ -3115,3 +3115,147 @@ Mon Aug 29 2016 17:05:08 GMT+0800 (CST) - debug: callsnodup url= http://127.0.0.
 Mon Aug 29 2016 17:05:08 GMT+0800 (CST) - debug: Data Access Success from http://127.0.0.1:8900/callsnodup?call_date_hour_min=2016082521&call_date_hour_max=2016082622&msisdn=21623106710
 Mon Aug 29 2016 17:05:08 GMT+0800 (CST) - debug: returned json nodes: 0
 >>>>>>> GK3Portal_747_aether
+Tue Aug 30 2016 10:20:36 GMT+0800 (CST) - debug: util.js:checkAuthentication= true
+2016-08-30T02:20:37.132Z - error: uncaughtException: ENOENT, no such file or directory '/home/mwsadmin/.ssh/key.pem' date=Tue Aug 30 2016 10:20:37 GMT+0800 (CST), pid=947, uid=502, gid=20, cwd=/Users/aether/git/GK3PortalV1.0, execPath=/usr/local/bin/node, version=v0.10.36, argv=[node, /Users/aether/git/GK3PortalV1.0/server.js], rss=49770496, heapTotal=35267072, heapUsed=22699168, loadavg=[1.22998046875, 1.056640625, 0.53564453125], uptime=362, trace=[column=18, file=fs.js, function=Object.fs.openSync, line=439, method=fs.openSync, native=false, column=15, file=fs.js, function=Object.fs.readFileSync, line=290, method=fs.readFileSync, native=false, column=14, file=/Users/aether/git/GK3PortalV1.0/server.js, function=, line=106, method=null, native=false, column=26, file=module.js, function=Module._compile, line=456, method=_compile, native=false, column=10, file=module.js, function=Object.Module._extensions..js, line=474, method=Module._extensions..js, native=false, column=32, file=module.js, function=Module.load, line=356, method=load, native=false, column=12, file=module.js, function=Function.Module._load, line=312, method=Module._load, native=false, column=10, file=module.js, function=Function.Module.runMain, line=497, method=Module.runMain, native=false, column=16, file=node.js, function=startup, line=119, method=null, native=false, column=3, file=node.js, function=null, line=929, method=null, native=false], stack=[Error: ENOENT, no such file or directory '/home/mwsadmin/.ssh/key.pem',     at Object.fs.openSync (fs.js:439:18),     at Object.fs.readFileSync (fs.js:290:15),     at Object.<anonymous> (/Users/aether/git/GK3PortalV1.0/server.js:106:14),     at Module._compile (module.js:456:26),     at Object.Module._extensions..js (module.js:474:10),     at Module.load (module.js:356:32),     at Function.Module._load (module.js:312:12),     at Function.Module.runMain (module.js:497:10),     at startup (node.js:119:16),     at node.js:929:3]
+Tue Aug 30 2016 10:20:37 GMT+0800 (CST) - debug: serviceUrl= http://10.212.2.143:8080
+Tue Aug 30 2016 10:21:56 GMT+0800 (CST) - debug: util.js:checkAuthentication= true
+Tue Aug 30 2016 10:21:56 GMT+0800 (CST) - debug: serviceUrl= http://127.0.0.1:8080
+Tue Aug 30 2016 10:21:56 GMT+0800 (CST) - debug: Server started in non-SSL Mode. HTTP Port#8580
+Tue Aug 30 2016 10:21:59 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Tue Aug 30 2016 10:22:01 GMT+0800 (CST) - debug: (router.get('/login')-Render Login Form: http://localhost:8580/tunisiana/login
+Tue Aug 30 2016 10:22:05 GMT+0800 (CST) - debug: ***INSIDE passport local-login ******
+
+
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: passport.login-login SUCCESS for user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: passport.serializeUser:user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: query menu:
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: userId 7
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: req userId 7
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 10:22:06 AM
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: REPORT Type  onnet
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: Filter START Date 2016-07-31
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: Filter END Date 2016-08-30
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: Error in /dataaccess/dailykpi : Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 10:22:06 AM
+Tue Aug 30 2016 10:22:06 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Tue Aug 30 2016 10:24:36 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Tue Aug 30 2016 10:24:38 GMT+0800 (CST) - debug: query menu:
+Tue Aug 30 2016 10:24:38 GMT+0800 (CST) - debug: userId 7
+Tue Aug 30 2016 10:24:38 GMT+0800 (CST) - debug: req userId 7
+Tue Aug 30 2016 10:24:38 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Tue Aug 30 2016 10:24:38 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Tue Aug 30 2016 10:24:38 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 10:24:38 AM
+Tue Aug 30 2016 10:24:38 GMT+0800 (CST) - debug: REPORT Type  onnet
+Tue Aug 30 2016 10:24:38 GMT+0800 (CST) - debug: Filter START Date 2016-07-31
+Tue Aug 30 2016 10:24:38 GMT+0800 (CST) - debug: Filter END Date 2016-08-30
+Tue Aug 30 2016 10:24:38 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 10:24:38 GMT+0800 (CST) - debug: Error in /dataaccess/dailykpi : Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+Tue Aug 30 2016 10:24:38 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 10:24:38 AM
+Tue Aug 30 2016 10:24:38 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Tue Aug 30 2016 10:24:54 GMT+0800 (CST) - debug:  condition=
+Tue Aug 30 2016 10:24:54 GMT+0800 (CST) - debug: request.parameter.condition: 
+Tue Aug 30 2016 10:24:54 GMT+0800 (CST) - info: http://127.0.0.1:8080/dealersummary?limit=-1
+Tue Aug 30 2016 10:24:54 GMT+0800 (CST) - debug: dealersummary url= http://127.0.0.1:8080/dealersummary?limit=-1
+Tue Aug 30 2016 10:24:54 GMT+0800 (CST) - debug: http://127.0.0.1:8080/dealersummary?limit=-1
+Tue Aug 30 2016 10:24:54 GMT+0800 (CST) - debug: error: Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+Tue Aug 30 2016 10:26:07 GMT+0800 (CST) - debug: router.get:/dataaccess/hotbnumber: Tuesday, August 30th, 2016, 10:26:07 AM
+Tue Aug 30 2016 10:26:07 GMT+0800 (CST) - debug: HOTBNUMBER ::Service URL http://127.0.0.1:8080/hotbnumber?action=filter&startDate=20160829&endDate=20160830&limit=-1
+Tue Aug 30 2016 10:26:07 GMT+0800 (CST) - debug: start time= Tuesday, August 30th, 2016, 10:26:07 AM
+Tue Aug 30 2016 10:26:07 GMT+0800 (CST) - debug: returned json error: Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+Tue Aug 30 2016 10:26:07 GMT+0800 (CST) - debug: end /dataaccess/hotbnumber: Tuesday, August 30th, 2016, 10:26:07 AM
+Tue Aug 30 2016 10:26:07 GMT+0800 (CST) - debug: query filteridList:
+Tue Aug 30 2016 10:26:07 GMT+0800 (CST) - debug: query filteridList sql: SELECT filter_id ,filter_name  FROM gk3_accounts.filter_param where report_type='2' and user_id='8' and valid=1 
+Tue Aug 30 2016 10:26:07 GMT+0800 (CST) - debug: retrieved filter param ids:  5
+Tue Aug 30 2016 10:26:13 GMT+0800 (CST) - debug: router.get:/dataaccess/hotbnumber: Tuesday, August 30th, 2016, 10:26:13 AM
+Tue Aug 30 2016 10:26:13 GMT+0800 (CST) - debug: HOTBNUMBER ::Service URL http://127.0.0.1:8080/hotbnumber?action=filter&startDate=20160816&endDate=20160825&limit=-1
+Tue Aug 30 2016 10:26:13 GMT+0800 (CST) - debug: start time= Tuesday, August 30th, 2016, 10:26:13 AM
+Tue Aug 30 2016 10:26:13 GMT+0800 (CST) - debug: returned json error: Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+Tue Aug 30 2016 10:26:13 GMT+0800 (CST) - debug: end /dataaccess/hotbnumber: Tuesday, August 30th, 2016, 10:26:13 AM
+Tue Aug 30 2016 10:26:16 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Tue Aug 30 2016 10:26:18 GMT+0800 (CST) - debug: query menu:
+Tue Aug 30 2016 10:26:18 GMT+0800 (CST) - debug: userId 7
+Tue Aug 30 2016 10:26:18 GMT+0800 (CST) - debug: req userId 7
+Tue Aug 30 2016 10:26:18 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Tue Aug 30 2016 10:26:18 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Tue Aug 30 2016 10:26:18 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 10:26:18 AM
+Tue Aug 30 2016 10:26:18 GMT+0800 (CST) - debug: REPORT Type  onnet
+Tue Aug 30 2016 10:26:18 GMT+0800 (CST) - debug: Filter START Date 2016-07-31
+Tue Aug 30 2016 10:26:18 GMT+0800 (CST) - debug: Filter END Date 2016-08-30
+Tue Aug 30 2016 10:26:18 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 10:26:18 GMT+0800 (CST) - debug: Error in /dataaccess/dailykpi : Error: connect ECONNREFUSED
+    at errnoException (net.js:905:11)
+    at Object.afterConnect [as oncomplete] (net.js:896:19)
+Tue Aug 30 2016 10:26:18 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 10:26:18 AM
+Tue Aug 30 2016 10:26:18 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Tue Aug 30 2016 10:26:54 GMT+0800 (CST) - debug: util.js:checkAuthentication= true
+Tue Aug 30 2016 10:26:55 GMT+0800 (CST) - debug: serviceUrl= http://127.0.0.1:8900
+Tue Aug 30 2016 10:26:55 GMT+0800 (CST) - debug: Server started in non-SSL Mode. HTTP Port#8580
+Tue Aug 30 2016 10:27:00 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Tue Aug 30 2016 10:27:05 GMT+0800 (CST) - debug: (router.get('/login')-Render Login Form: http://localhost:8580/tunisiana/login
+Tue Aug 30 2016 10:27:08 GMT+0800 (CST) - debug: ***INSIDE passport local-login ******
+
+
+Tue Aug 30 2016 10:27:09 GMT+0800 (CST) - debug: passport.login-login SUCCESS for user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Tue Aug 30 2016 10:27:09 GMT+0800 (CST) - debug: passport.serializeUser:user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Tue Aug 30 2016 10:27:09 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Tue Aug 30 2016 10:27:09 GMT+0800 (CST) - debug: query menu:
+Tue Aug 30 2016 10:27:09 GMT+0800 (CST) - debug: userId 7
+Tue Aug 30 2016 10:27:09 GMT+0800 (CST) - debug: req userId 7
+Tue Aug 30 2016 10:27:09 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Tue Aug 30 2016 10:27:09 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Tue Aug 30 2016 10:27:09 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 10:27:09 AM
+Tue Aug 30 2016 10:27:09 GMT+0800 (CST) - debug: REPORT Type  onnet
+Tue Aug 30 2016 10:27:09 GMT+0800 (CST) - debug: Filter START Date 2016-07-31
+Tue Aug 30 2016 10:27:09 GMT+0800 (CST) - debug: Filter END Date 2016-08-30
+Tue Aug 30 2016 10:27:09 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 10:27:10 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 10:27:10 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Tue Aug 30 2016 10:27:10 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 10:27:10 AM
+Tue Aug 30 2016 10:27:10 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Tue Aug 30 2016 10:31:18 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Tue Aug 30 2016 10:31:20 GMT+0800 (CST) - debug: query menu:
+Tue Aug 30 2016 10:31:20 GMT+0800 (CST) - debug: userId 7
+Tue Aug 30 2016 10:31:20 GMT+0800 (CST) - debug: req userId 7
+Tue Aug 30 2016 10:31:20 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Tue Aug 30 2016 10:31:20 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Tue Aug 30 2016 10:31:20 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 10:31:20 AM
+Tue Aug 30 2016 10:31:20 GMT+0800 (CST) - debug: REPORT Type  onnet
+Tue Aug 30 2016 10:31:20 GMT+0800 (CST) - debug: Filter START Date 2016-07-31
+Tue Aug 30 2016 10:31:20 GMT+0800 (CST) - debug: Filter END Date 2016-08-30
+Tue Aug 30 2016 10:31:20 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 10:31:21 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 10:31:21 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Tue Aug 30 2016 10:31:21 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 10:31:21 AM
+Tue Aug 30 2016 10:31:21 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Tue Aug 30 2016 10:32:09 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Tue Aug 30 2016 10:32:12 GMT+0800 (CST) - debug: query menu:
+Tue Aug 30 2016 10:32:12 GMT+0800 (CST) - debug: userId 7
+Tue Aug 30 2016 10:32:12 GMT+0800 (CST) - debug: req userId 7
+Tue Aug 30 2016 10:32:12 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Tue Aug 30 2016 10:32:12 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Tue Aug 30 2016 10:32:12 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 10:32:12 AM
+Tue Aug 30 2016 10:32:12 GMT+0800 (CST) - debug: REPORT Type  onnet
+Tue Aug 30 2016 10:32:12 GMT+0800 (CST) - debug: Filter START Date 2016-07-31
+Tue Aug 30 2016 10:32:12 GMT+0800 (CST) - debug: Filter END Date 2016-08-30
+Tue Aug 30 2016 10:32:12 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 10:32:13 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8900/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 10:32:13 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Tue Aug 30 2016 10:32:13 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 10:32:13 AM
+Tue Aug 30 2016 10:32:13 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Tue Aug 30 2016 10:32:40 GMT+0800 (CST) - debug: query whitelist:
+Tue Aug 30 2016 10:32:40 GMT+0800 (CST) - debug: query whitelist sql: SELECT id, msisdn, imsi, imei, create_time, update_time, description, state type, user FROM fraud_605_3.white_list_info where (state=0 or state=2 )
+Tue Aug 30 2016 10:32:40 GMT+0800 (CST) - debug: encoded decodeinfo url= http://127.0.0.1:8900/freestyle?sql=SELECT%20id,%20msisdn,%20imsi,%20imei,%20create_time,%20update_time,%20description,%20state%20type,%20user%20FROM%20fraud_605_3.white_list_info%20where%20(state=0%20or%20state=2%20)
