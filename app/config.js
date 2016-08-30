@@ -12,10 +12,8 @@ module.exports = {
         "host": "10.212.2.173", //NEW SERVER
         //"host": "127.0.0.1", //NEW SERVER
         "port": "3306",  //NEW PORT
-       // "user": "mwsadmin",
-        //"password": "ubi6La5z",
-        "user":"root",
-        "password":"great",
+        "user": "mwsadmin",
+        "password": "ubi6La5z",
         "debug": false,
         "database": "gk3_accounts"
     },

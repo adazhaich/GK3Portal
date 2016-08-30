@@ -3539,3 +3539,100 @@ Tue Aug 30 2016 10:32:40 GMT+0800 (CST) - debug: query whitelist:
 Tue Aug 30 2016 10:32:40 GMT+0800 (CST) - debug: query whitelist sql: SELECT id, msisdn, imsi, imei, create_time, update_time, description, state type, user FROM fraud_605_3.white_list_info where (state=0 or state=2 )
 Tue Aug 30 2016 10:32:40 GMT+0800 (CST) - debug: encoded decodeinfo url= http://127.0.0.1:8900/freestyle?sql=SELECT%20id,%20msisdn,%20imsi,%20imei,%20create_time,%20update_time,%20description,%20state%20type,%20user%20FROM%20fraud_605_3.white_list_info%20where%20(state=0%20or%20state=2%20)
 >>>>>>> 630401597ffef0fba7d69efbcad2d166c2e495d9
+Tue Aug 30 2016 15:57:48 GMT+0800 (CST) - debug: util.js:checkAuthentication= true
+Tue Aug 30 2016 15:57:48 GMT+0800 (CST) - debug: serviceUrl= http://127.0.0.1:8080
+Tue Aug 30 2016 15:57:48 GMT+0800 (CST) - debug: Server started in non-SSL Mode. HTTP Port#8580
+Tue Aug 30 2016 15:57:54 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Tue Aug 30 2016 15:58:14 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Tue Aug 30 2016 15:58:44 GMT+0800 (CST) - debug: (router.get('/login')-Render Login Form: http://localhost:8580/tunisiana/login
+Tue Aug 30 2016 15:58:49 GMT+0800 (CST) - debug: ***INSIDE passport local-login ******
+
+
+Tue Aug 30 2016 15:58:50 GMT+0800 (CST) - debug: passport.login-login SUCCESS for user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Tue Aug 30 2016 15:58:50 GMT+0800 (CST) - debug: passport.serializeUser:user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Tue Aug 30 2016 15:58:50 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Tue Aug 30 2016 15:58:53 GMT+0800 (CST) - debug: query menu:
+Tue Aug 30 2016 15:58:53 GMT+0800 (CST) - debug: userId 7
+Tue Aug 30 2016 15:58:53 GMT+0800 (CST) - debug: req userId 7
+Tue Aug 30 2016 15:58:53 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Tue Aug 30 2016 15:58:53 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Tue Aug 30 2016 15:58:53 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 3:58:53 PM
+Tue Aug 30 2016 15:58:53 GMT+0800 (CST) - debug: REPORT Type  onnet
+Tue Aug 30 2016 15:58:53 GMT+0800 (CST) - debug: Filter START Date 2016-07-31
+Tue Aug 30 2016 15:58:53 GMT+0800 (CST) - debug: Filter END Date 2016-08-30
+Tue Aug 30 2016 15:58:53 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 15:58:54 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 15:58:54 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Tue Aug 30 2016 15:58:54 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 3:58:54 PM
+Tue Aug 30 2016 15:58:54 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Tue Aug 30 2016 16:03:02 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Tue Aug 30 2016 16:03:52 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Tue Aug 30 2016 16:04:06 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Tue Aug 30 2016 16:04:07 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Tue Aug 30 2016 16:04:10 GMT+0800 (CST) - debug: query menu:
+Tue Aug 30 2016 16:04:10 GMT+0800 (CST) - debug: userId 7
+Tue Aug 30 2016 16:04:10 GMT+0800 (CST) - debug: req userId 7
+Tue Aug 30 2016 16:04:10 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Tue Aug 30 2016 16:04:10 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Tue Aug 30 2016 16:04:10 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 4:04:10 PM
+Tue Aug 30 2016 16:04:10 GMT+0800 (CST) - debug: REPORT Type  onnet
+Tue Aug 30 2016 16:04:10 GMT+0800 (CST) - debug: Filter START Date 2016-07-31
+Tue Aug 30 2016 16:04:10 GMT+0800 (CST) - debug: Filter END Date 2016-08-30
+Tue Aug 30 2016 16:04:10 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 16:04:11 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 16:04:11 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Tue Aug 30 2016 16:04:11 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 4:04:11 PM
+Tue Aug 30 2016 16:04:11 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Tue Aug 30 2016 16:04:46 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Tue Aug 30 2016 16:06:10 GMT+0800 (CST) - debug: query menu:
+Tue Aug 30 2016 16:06:10 GMT+0800 (CST) - debug: userId 7
+Tue Aug 30 2016 16:06:10 GMT+0800 (CST) - debug: req userId 7
+Tue Aug 30 2016 16:06:10 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Tue Aug 30 2016 16:06:10 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Tue Aug 30 2016 16:06:10 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 4:06:10 PM
+Tue Aug 30 2016 16:06:10 GMT+0800 (CST) - debug: REPORT Type  onnet
+Tue Aug 30 2016 16:06:10 GMT+0800 (CST) - debug: Filter START Date 2016-07-31
+Tue Aug 30 2016 16:06:10 GMT+0800 (CST) - debug: Filter END Date 2016-08-30
+Tue Aug 30 2016 16:06:10 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 16:06:11 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 16:06:11 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Tue Aug 30 2016 16:06:11 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 4:06:11 PM
+Tue Aug 30 2016 16:06:11 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Tue Aug 30 2016 16:50:06 GMT+0800 (CST) - debug: (router.get('/')-Landing Page URL: http://localhost:8580/
+Tue Aug 30 2016 16:51:02 GMT+0800 (CST) - debug: (router.get('/login')-Render Login Form: http://localhost:8580/tunisiana/login
+Tue Aug 30 2016 16:51:30 GMT+0800 (CST) - debug: (router.get('/login')-Render Login Form: http://localhost:8580/tunisiana/login
+Tue Aug 30 2016 16:51:38 GMT+0800 (CST) - debug: ***INSIDE passport local-login ******
+
+
+Tue Aug 30 2016 16:51:38 GMT+0800 (CST) - debug: passport.login-login SUCCESS for user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Tue Aug 30 2016 16:51:38 GMT+0800 (CST) - debug: passport.serializeUser:user: id=7, username=root, password=$2a$10$FkiwePmSyBNWWO/3ILSxtOPKG4QgYsn7i1qcG.xyxlMjV6uHSdSJq, role_id=1,4,8
+Tue Aug 30 2016 16:51:38 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Tue Aug 30 2016 16:51:44 GMT+0800 (CST) - debug: query menu:
+Tue Aug 30 2016 16:51:44 GMT+0800 (CST) - debug: userId 7
+Tue Aug 30 2016 16:51:44 GMT+0800 (CST) - debug: req userId 7
+Tue Aug 30 2016 16:51:44 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Tue Aug 30 2016 16:51:44 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Tue Aug 30 2016 16:51:44 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 4:51:44 PM
+Tue Aug 30 2016 16:51:44 GMT+0800 (CST) - debug: REPORT Type  onnet
+Tue Aug 30 2016 16:51:44 GMT+0800 (CST) - debug: Filter START Date 2016-07-31
+Tue Aug 30 2016 16:51:44 GMT+0800 (CST) - debug: Filter END Date 2016-08-30
+Tue Aug 30 2016 16:51:44 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 16:51:45 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 16:51:45 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Tue Aug 30 2016 16:51:45 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 4:51:45 PM
+Tue Aug 30 2016 16:51:45 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
+Tue Aug 30 2016 16:52:28 GMT+0800 (CST) - debug: Login default for Tabs: http://localhost:8580/tunisiana/reports/indextab
+Tue Aug 30 2016 16:52:31 GMT+0800 (CST) - debug: query menu:
+Tue Aug 30 2016 16:52:31 GMT+0800 (CST) - debug: userId 7
+Tue Aug 30 2016 16:52:31 GMT+0800 (CST) - debug: req userId 7
+Tue Aug 30 2016 16:52:31 GMT+0800 (CST) - debug: /reports/dailykpi:type: onnet
+Tue Aug 30 2016 16:52:32 GMT+0800 (CST) - debug: BEGIN /dataaccess/dailykpi:
+Tue Aug 30 2016 16:52:32 GMT+0800 (CST) - debug: Report Requested DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 4:52:32 PM
+Tue Aug 30 2016 16:52:32 GMT+0800 (CST) - debug: REPORT Type  onnet
+Tue Aug 30 2016 16:52:32 GMT+0800 (CST) - debug: Filter START Date 2016-07-31
+Tue Aug 30 2016 16:52:32 GMT+0800 (CST) - debug: Filter END Date 2016-08-30
+Tue Aug 30 2016 16:52:32 GMT+0800 (CST) - debug: dailyKpi url= http://127.0.0.1:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 16:52:32 GMT+0800 (CST) - debug: Data Access SUCCESS from http://127.0.0.1:8080/dailykpi?limit=-1&where=report_type=1%20and%20traffic_date%3E='2016-07-31'%20and%20traffic_date%3C='2016-08-30'
+Tue Aug 30 2016 16:52:32 GMT+0800 (CST) - debug: Returned JSON Nodes: 20
+Tue Aug 30 2016 16:52:32 GMT+0800 (CST) - debug: Report END DATE TIMESTAMP ::: Tuesday, August 30th, 2016, 4:52:32 PM
+Tue Aug 30 2016 16:52:32 GMT+0800 (CST) - debug: END /dataaccess/dailykpi
