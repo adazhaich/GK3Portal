@@ -308,6 +308,7 @@ input {
 
 .dataTables_filter input{
     padding:0px;
+    font-size: 18px;
 }
 input[type='submit'] {
     background: #00acf1;
@@ -512,11 +513,11 @@ table.dataTable tbody th {
 
 div.dt-buttons {
 	padding-left:10px;
-    padding-top:4px;
+    padding-top:8px;
 }
 
 .dataTables_length label{
-	margin:5px;
+	margin:10px;
 }
 .dataTables_filter label{
     margin:5px;
